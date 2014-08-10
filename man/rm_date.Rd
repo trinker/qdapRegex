@@ -34,7 +34,8 @@ Remove/replace/extract dates from a string in the form of XX/XX/XXXX,
 XX/XX/XX, XX-XX-XXXX, XX-XX-XX, XX.XX.XXXX, or XX.XX.XX.
 }
 \examples{
-x <- "Format dates as 04/12/2014, 04-12-2014, 04.12.2014. or 04/12/14 but leaves mismatched: 12.12/2014"
+x <- paste0("Format dates as 04/12/2014, 04-12-2014, 04.12.2014. or",
+    " 04/12/14 but leaves mismatched: 12.12/2014")
 rm_date(x)
 rm_date(x, extract=TRUE)
 }
