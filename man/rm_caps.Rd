@@ -22,8 +22,8 @@ character vector.}
 
 \item{replacement}{Replacement for matched \code{pattern}.}
 
-\item{extract}{logical.  If \code{TRUE} the times are extracted into a
-list of vectors.}
+\item{extract}{logical.  If \code{TRUE} the all caps strings are extracted
+into a list of vectors.}
 
 \item{\dots}{Other arguments passed to \code{\link[base]{gsub}}.}
 }

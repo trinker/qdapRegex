@@ -22,7 +22,7 @@ character vector.}
 
 \item{replacement}{Replacement for matched \code{pattern}.}
 
-\item{extract}{logical.  If \code{TRUE} the times are extracted into a
+\item{extract}{logical.  If \code{TRUE} the dates are extracted into a
 list of vectors.}
 
 \item{\dots}{Other arguments passed to \code{\link[base]{gsub}}.}

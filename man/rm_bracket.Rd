@@ -23,8 +23,8 @@ to: \{, [, (, < or all four types.}
 
 \item{replacement}{Replacement for matched \code{pattern}.}
 
-\item{extract}{logical.  If \code{TRUE} the dollars are extracted into a
-list of vectors.}
+\item{extract}{logical.  If \code{TRUE} the bracketed text is extracted into
+a list of vectors.}
 
 \item{include.bracket}{logical.  If \code{TRUE} and \code{extract = TRUE} returns
 the brackets and the bracketed text.}
@@ -70,7 +70,8 @@ Martin Morgan and Tyler Rinker <tyler.rinker@gmail.com>.
 \url{http://stackoverflow.com/q/8621066/1000343}
 }
 \seealso{
-\code{\link[base]{gsub}}
+\code{\link[base]{gsub}},
+\code{\link[qdapRegex]{rm_between}}
 }
 \keyword{bracket}
 

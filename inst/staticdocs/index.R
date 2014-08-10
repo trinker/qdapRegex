@@ -4,6 +4,7 @@ sd_section("Removing/Extracting/Replacing",
   "Function to clean and parse text data.",
   c(
   	"rm_abbreviation",
+  	"rm_between",
   	"rm_bracket",
   	"rm_date",
     "rm_dollar",

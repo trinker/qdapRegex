@@ -11,7 +11,7 @@
 #' character string for \code{fixed = TRUE}) to be matched in the given 
 #' character vector.
 #' @param replacement Replacement for matched \code{pattern}.
-#' @param extract logical.  If \code{TRUE} the dollars are extracted into a 
+#' @param extract logical.  If \code{TRUE} the dollar strings are extracted into a 
 #' list of vectors.
 #' @param \dots Other arguments passed to \code{\link[base]{gsub}}.
 #' @return Returns a character string with dollars removed.

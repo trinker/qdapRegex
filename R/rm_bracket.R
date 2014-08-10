@@ -12,8 +12,8 @@
 #' \code{"angle"} and \code{"all"}.  These strings correspond 
 #' to: \{, [, (, < or all four types.
 #' @param replacement Replacement for matched \code{pattern}.
-#' @param extract logical.  If \code{TRUE} the dollars are extracted into a 
-#' list of vectors.
+#' @param extract logical.  If \code{TRUE} the bracketed text is extracted into 
+#' a list of vectors.
 #' @param include.bracket logical.  If \code{TRUE} and \code{extract = TRUE} returns 
 #' the brackets and the bracketed text.
 #' @param merge logical.  If \code{TRUE} the results of each bracket type will 
@@ -24,7 +24,8 @@
 #' @references \url{http://stackoverflow.com/q/8621066/1000343} 
 #' @author  Martin Morgan and Tyler Rinker <tyler.rinker@@gmail.com>.
 #' @export
-#' @seealso \code{\link[base]{gsub}}
+#' @seealso \code{\link[base]{gsub}},
+#' \code{\link[qdapRegex]{rm_between}}
 #' @examples
 #' examp <- structure(list(person = structure(c(1L, 2L, 1L, 3L),
 #'     .Label = c("bob", "greg", "sue"), class = "factor"), text =

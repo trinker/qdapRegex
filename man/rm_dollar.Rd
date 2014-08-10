@@ -22,7 +22,7 @@ character vector.}
 
 \item{replacement}{Replacement for matched \code{pattern}.}
 
-\item{extract}{logical.  If \code{TRUE} the dollars are extracted into a
+\item{extract}{logical.  If \code{TRUE} the dollar strings are extracted into a
 list of vectors.}
 
 \item{\dots}{Other arguments passed to \code{\link[base]{gsub}}.}
