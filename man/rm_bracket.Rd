@@ -59,6 +59,9 @@ rm_bracket(examp$text, pattern = c("square", "round"), extract=TRUE)
 rm_bracket(examp$text, pattern = c("square", "round"), merge = FALSE, extract=TRUE)
 rm_bracket(examp$text, extract=TRUE)
 rm_bracket(examp$tex, include.bracket=TRUE, extract=TRUE)
+\dontrun{
+qdap::paste2(rm_bracket(examp$tex, pattern="curly", extract=TRUE))
+}
 }
 \author{
 Martin Morgan and Tyler Rinker <tyler.rinker@gmail.com>.

@@ -22,5 +22,5 @@ qdapRegex 0.0.1
 
 This package is a collection of regex tools associated with the qdap
 package that may be useful outside of the context of discourse analysis.  Tools
-include removal/extraction/replacement of emails addresses, person tags, 
+include removal/extraction/replacement of emails addresses, person tags, dates,
 hash tags, dollar amounts, percentages, times, zip codes, and phone numbers.

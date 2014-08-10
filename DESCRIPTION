@@ -14,7 +14,7 @@ Suggests:
 LazyData: TRUE
 Description: This package is a collection of regex tools associated with the
     qdap package that may be useful outside of the context of discourse
-    analysis.  Tools include removal/extraction/replacement of emails
+    analysis.  Tools include removal/extraction/replacement of dates, emails
     addresses, person tags, hash tags, dollar amounts, percentages, times, zip
     codes, and phone numbers.
 License: GPL-2
