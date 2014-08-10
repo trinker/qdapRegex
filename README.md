@@ -1,5 +1,7 @@
 # qdapRegex
+
 [![Build Status](https://travis-ci.org/trinker/qdapRegex.png?branch=master)](https://travis-ci.org/trinker/qdapRegex)
+[![DOI](https://zenodo.org/badge/5398/trinker/qdapRegex.png)](http://dx.doi.org/10.5281/zenodo.11243)
 
 ![qdapicon](https://dl.dropbox.com/u/61803503/qdapicon.png)   
 [qdapRegex](http://trinker.github.com/qdapRegex_dev) is an R package that contains tools associated with the qdap package that may be useful outside of the context of text analysis.
