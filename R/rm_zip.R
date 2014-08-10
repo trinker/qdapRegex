@@ -34,8 +34,8 @@
 #' rm_zip(x)
 #' rm_zip(x, extract=TRUE)
 rm_zip <- function(text.var, trim = TRUE, clean = TRUE,
-    pattern = "(?<!\\d)\\d{5}(?:[ -]\\d{4})?\\b",
-    replacement = "", extract = FALSE, ...) {
+    pattern = qdapRegex::RE[["rm_zip"]], replacement = "", extract = FALSE, 
+	...) {
 
     if (extract) {
         return(lapply(regmatches(text.var, gregexpr(pattern, text.var, 

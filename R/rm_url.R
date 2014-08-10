@@ -24,7 +24,7 @@
 #' rm_url(x, replacement = '<a href="\\1" target="_blank">\\1</a>')
 #' rm_url(x, extract=TRUE)
 rm_url <- function(text.var, trim = TRUE, clean = TRUE, 
-    pattern = "(http[^ ]*)|(www\\.[^ ]*)", replacement = "", extract = FALSE, 
+    pattern = qdapRegex::RE[["rm_url"]], replacement = "", extract = FALSE, 
     ...) {
 
     if (extract) {

@@ -25,11 +25,7 @@
 #' rm_date(x)
 #' rm_date(x, extract=TRUE)
 rm_date <- function(text.var, trim = TRUE, clean = TRUE,
-    pattern = NULL, replacement = "", extract = FALSE, ...) {
-
-    if (is.null(pattern)) {
-        pattern <- .date_regex
-    }
+    pattern = qdapRegex::RE[["rm_date"]], replacement = "", extract = FALSE, ...) {
 
     if (extract) {
         return(lapply(regmatches(text.var, gregexpr(pattern, text.var, 
@@ -42,5 +38,3 @@ rm_date <- function(text.var, trim = TRUE, clean = TRUE,
     out
 }
 
-.date_regex <- paste0("\\d{0,2}/\\d{2}/(?:\\d{4}|\\d{2})?|\\d{0,2}-\\d{2}-(?:\\d{4}",
-  "|\\d{2})?|\\d{0,2}\\.\\d{2}\\.(?:\\d{4}|\\d{2})?")

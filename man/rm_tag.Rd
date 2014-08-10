@@ -4,8 +4,8 @@
 \title{Remove/Replace/Extract Person Tags}
 \usage{
 rm_tag(text.var, trim = TRUE, clean = TRUE,
-  pattern = "(^|[^@\\\\w])@(\\\\w{1,15})\\\\b", replacement = "",
-  extract = FALSE, ...)
+  pattern = qdapRegex::RE[["rm_tag"]], replacement = "", extract = FALSE,
+  ...)
 }
 \arguments{
 \item{text.var}{The text variable.}

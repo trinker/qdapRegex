@@ -30,8 +30,8 @@
 #' rm_tag(rm_hash(x))
 #' rm_tag(x, extract=TRUE)
 rm_tag <- function(text.var, trim = TRUE, clean = TRUE, 
-    pattern = "(^|[^@\\w])@(\\w{1,15})\\b", 
-    replacement = "", extract = FALSE, ...) {
+    pattern = qdapRegex::RE[["rm_tag"]], replacement = "", extract = FALSE, 
+	...) {
 
     if (extract) {
         return(lapply(regmatches(text.var, gregexpr(pattern, text.var)), Trim))

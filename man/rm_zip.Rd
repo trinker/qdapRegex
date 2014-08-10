@@ -4,8 +4,8 @@
 \title{Remove/Replace/Extract Zip Codes}
 \usage{
 rm_zip(text.var, trim = TRUE, clean = TRUE,
-  pattern = "(?<!\\\\d)\\\\d{5}(?:[ -]\\\\d{4})?\\\\b", replacement = "",
-  extract = FALSE, ...)
+  pattern = qdapRegex::RE[["rm_zip"]], replacement = "", extract = FALSE,
+  ...)
 }
 \arguments{
 \item{text.var}{The text variable.}

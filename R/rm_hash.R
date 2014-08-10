@@ -33,8 +33,8 @@
 #' rm_hash(rm_tag(x))
 #' rm_hash(x, extract=TRUE)
 rm_hash <- function(text.var, trim = TRUE, clean = TRUE, 
-    pattern = "(?<!/)#\\w+", 
-    replacement = "", extract = FALSE, ...) {
+    pattern = qdapRegex::RE[["rm_hash"]], replacement = "", extract = FALSE, 
+	...) {
 
     if (extract) {
         return(lapply(regmatches(text.var, gregexpr(pattern, text.var, 

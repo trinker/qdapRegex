@@ -34,8 +34,8 @@
 #' rm_email(x, extract=TRUE)
 #' rm_email(x2, extract=TRUE)
 rm_email <- function(text.var, trim = TRUE, clean = TRUE, 
-    pattern = "([_+a-z0-9-]+(\\.[_+a-z0-9-]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,14}))", 
-    replacement = "", extract = FALSE, ...) {
+    pattern = qdapRegex::RE[["rm_email"]], replacement = "", extract = FALSE, 
+	...) {
 
     if (extract) {
         return(regmatches(text.var, gregexpr(pattern, text.var)))

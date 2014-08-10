@@ -4,8 +4,8 @@
 \title{Remove/Replace/Extract Dollars}
 \usage{
 rm_dollar(text.var, trim = TRUE, clean = TRUE,
-  pattern = "\\\\$\\\\(?[0-9.]+\\\\)?", replacement = "", extract = FALSE,
-  ...)
+  pattern = qdapRegex::RE[["rm_dollar"]], replacement = "",
+  extract = FALSE, ...)
 }
 \arguments{
 \item{text.var}{The text variable.}

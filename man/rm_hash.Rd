@@ -3,8 +3,9 @@
 \alias{rm_hash}
 \title{Remove/Replace/Extract Hash Tags}
 \usage{
-rm_hash(text.var, trim = TRUE, clean = TRUE, pattern = "(?<!/)#\\\\w+",
-  replacement = "", extract = FALSE, ...)
+rm_hash(text.var, trim = TRUE, clean = TRUE,
+  pattern = qdapRegex::RE[["rm_hash"]], replacement = "", extract = FALSE,
+  ...)
 }
 \arguments{
 \item{text.var}{The text variable.}

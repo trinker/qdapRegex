@@ -27,7 +27,8 @@
 #' rm_abbreviation(x)
 #' rm_abbreviation(x, extract=TRUE)
 rm_abbreviation <- function(text.var, trim = TRUE, clean = TRUE,
-    pattern = "([A-Za-z][\\.]\\s*){2,}", replacement = "", extract = FALSE, ...) {
+    pattern = qdapRegex::RE[["rm_abbreviation"]], replacement = "", 
+	extract = FALSE, ...) {
 
     if (extract) {
         return(lapply(regmatches(text.var, gregexpr(pattern, text.var, 

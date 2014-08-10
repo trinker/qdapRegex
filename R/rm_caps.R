@@ -25,7 +25,8 @@
 #' rm_caps(x, replacement="\\L\\1")
 #' rm_caps(x, extract=TRUE)
 rm_caps <- function(text.var, trim = TRUE, clean = TRUE,
-    pattern = "(\\b[A-Z]{2,}\\b)", replacement = "", extract = FALSE, ...) {
+    pattern = qdapRegex::RE[["rm_caps"]], replacement = "", extract = FALSE, 
+	...) {
 
     if (extract) {
         return(lapply(regmatches(text.var, gregexpr(pattern, text.var, 

@@ -4,8 +4,8 @@
 \title{Remove/Replace/Extract URLs}
 \usage{
 rm_url(text.var, trim = TRUE, clean = TRUE,
-  pattern = "(http[^ ]*)|(www\\\\.[^ ]*)", replacement = "",
-  extract = FALSE, ...)
+  pattern = qdapRegex::RE[["rm_url"]], replacement = "", extract = FALSE,
+  ...)
 }
 \arguments{
 \item{text.var}{The text variable.}

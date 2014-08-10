@@ -3,8 +3,9 @@
 \alias{rm_date}
 \title{Remove/Replace/Extract Dates}
 \usage{
-rm_date(text.var, trim = TRUE, clean = TRUE, pattern = NULL,
-  replacement = "", extract = FALSE, ...)
+rm_date(text.var, trim = TRUE, clean = TRUE,
+  pattern = qdapRegex::RE[["rm_date"]], replacement = "", extract = FALSE,
+  ...)
 }
 \arguments{
 \item{text.var}{The text variable.}

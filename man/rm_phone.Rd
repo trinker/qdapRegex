@@ -3,8 +3,9 @@
 \alias{rm_phone}
 \title{Remove/Replace/Extract Phone Numbers}
 \usage{
-rm_phone(text.var, trim = TRUE, clean = TRUE, pattern = NULL,
-  replacement = "", extract = FALSE, ...)
+rm_phone(text.var, trim = TRUE, clean = TRUE,
+  pattern = qdapRegex::RE[["rm_phone"]], replacement = "",
+  extract = FALSE, ...)
 }
 \arguments{
 \item{text.var}{The text variable.}

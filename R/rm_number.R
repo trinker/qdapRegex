@@ -27,11 +27,8 @@
 #' rm_number(x)
 #' rm_number(x, extract=TRUE)
 rm_number <- function(text.var, trim = TRUE, clean = TRUE,
-    pattern = NULL, replacement = "", extract = FALSE, ...) {
-
-    if (is.null(pattern)) {
-        pattern <- .number_regex
-    }
+    pattern = qdapRegex::RE[["rm_number"]], replacement = "", extract = FALSE, 
+	...) {
 
     if (extract) {
         return(lapply(regmatches(text.var, gregexpr(pattern, text.var, 
@@ -44,5 +41,3 @@ rm_number <- function(text.var, trim = TRUE, clean = TRUE,
     out
 }
 
-.number_regex <- paste0("-0?\\.\\d*[1-9]|-*[1-9](?:\\d{0,2})(?:,\\d{3})", 
-    "*(?:\\.\\d*[1-9])?|0?\\.\\d*[1-9]|0")

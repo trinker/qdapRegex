@@ -4,8 +4,8 @@
 \title{Remove/Replace/Extract Email Addresses}
 \usage{
 rm_email(text.var, trim = TRUE, clean = TRUE,
-  pattern = "([_+a-z0-9-]+(\\\\.[_+a-z0-9-]+)*@[a-z0-9-]+(\\\\.[a-z0-9-]+)*(\\\\.[a-z]{2,14}))",
-  replacement = "", extract = FALSE, ...)
+  pattern = qdapRegex::RE[["rm_email"]], replacement = "",
+  extract = FALSE, ...)
 }
 \arguments{
 \item{text.var}{The text variable.}

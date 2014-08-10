@@ -29,8 +29,8 @@
 #' rm_time(x)
 #' rm_time(x, extract=TRUE)
 rm_time <- function(text.var, trim = TRUE, clean = TRUE,
-    pattern = "\\d{0,2}:\\d{2}(?:[:.]\\d+)?", 
-    replacement = "", extract = FALSE, ...) {
+    pattern = qdapRegex::RE[["rm_time"]], replacement = "", extract = FALSE, 
+	...) {
 
     if (extract) {
         return(lapply(regmatches(text.var, gregexpr(pattern, text.var, 

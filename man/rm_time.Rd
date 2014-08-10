@@ -4,8 +4,8 @@
 \title{Remove/Replace/Extract Time}
 \usage{
 rm_time(text.var, trim = TRUE, clean = TRUE,
-  pattern = "\\\\d{0,2}:\\\\d{2}(?:[:.]\\\\d+)?", replacement = "",
-  extract = FALSE, ...)
+  pattern = qdapRegex::RE[["rm_time"]], replacement = "", extract = FALSE,
+  ...)
 }
 \arguments{
 \item{text.var}{The text variable.}

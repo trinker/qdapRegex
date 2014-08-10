@@ -25,8 +25,8 @@
 #' rm_dollar(x)
 #' rm_dollar(x, extract=TRUE)
 rm_dollar <- function(text.var, trim = TRUE, clean = TRUE, 
-    pattern = "\\$\\(?[0-9.]+\\)?", 
-    replacement = "", extract = FALSE, ...) {
+    pattern = qdapRegex::RE[["rm_dollar"]], replacement = "", extract = FALSE, 
+	...) {
 
     if (extract) {
         return(lapply(regmatches(text.var, gregexpr(pattern, text.var, 

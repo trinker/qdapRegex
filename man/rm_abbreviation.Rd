@@ -4,7 +4,7 @@
 \title{Remove/Replace/Extract Abbreviations}
 \usage{
 rm_abbreviation(text.var, trim = TRUE, clean = TRUE,
-  pattern = "([A-Za-z][\\\\.]\\\\s*){2,}", replacement = "",
+  pattern = qdapRegex::RE[["rm_abbreviation"]], replacement = "",
   extract = FALSE, ...)
 }
 \arguments{

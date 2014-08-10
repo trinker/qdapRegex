@@ -4,8 +4,8 @@
 \title{Remove/Replace/Extract Percentages}
 \usage{
 rm_percent(text.var, trim = TRUE, clean = TRUE,
-  pattern = "\\\\(?[0-9.]+\\\\)?\%", replacement = "", extract = FALSE,
-  ...)
+  pattern = qdapRegex::RE[["rm_percent"]], replacement = "",
+  extract = FALSE, ...)
 }
 \arguments{
 \item{text.var}{The text variable.}

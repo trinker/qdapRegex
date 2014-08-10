@@ -4,7 +4,7 @@
 \title{Remove/Replace/Extract All Caps}
 \usage{
 rm_caps(text.var, trim = TRUE, clean = TRUE,
-  pattern = "(\\\\b[A-Z]{2,}\\\\b)", replacement = "", extract = FALSE,
+  pattern = qdapRegex::RE[["rm_caps"]], replacement = "", extract = FALSE,
   ...)
 }
 \arguments{

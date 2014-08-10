@@ -11,4 +11,15 @@
 #' @aliases qdapRegex package-qdapRegex
 NULL
 
+#' Canned Regular Expressions
+#' 
+#' A dataset containing a list canned regular expressions used in various 
+#' functions within the \pkg{qdapRegex} package.
+#' 
+#' @docType data 
+#' @keywords datasets 
+#' @name RE 
+#' @usage data(RE) 
+#' @format A list with 13 elements 
+NULL
 
