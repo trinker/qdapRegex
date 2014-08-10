@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>rm_email. qdapRegex 0.0.1</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="
+Barry Rowlingson and Tyler Rinker &lt;tyler.rinker@gmail.com&gt;.
+">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">qdapRegex 0.0.1</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Remove/Replace/Extract Email Addresses</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><div>rm_email(text.var, trim&nbsp;=&nbsp;TRUE, clean&nbsp;=&nbsp;TRUE, pattern&nbsp;=&nbsp;"([_+a-z0-9-]+(\\.[_+a-z0-9-]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,14}))", replacement&nbsp;=&nbsp;"", extract&nbsp;=&nbsp;FALSE, ...)</div></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>text.var</dt>
+      <dd>The text variable.</dd>
+      <dt>trim</dt>
+      <dd>logical.  If <code>TRUE</code> removes leading and trailing white
+spaces.</dd>
+      <dt>clean</dt>
+      <dd>trim logical.  If <code>TRUE</code> extra white spaces and escaped
+character will be removed.</dd>
+      <dt>pattern</dt>
+      <dd>A character string containing a regular expression (or
+character string for <code>fixed = TRUE</code>) to be matched in the given
+character vector.</dd>
+      <dt>replacement</dt>
+      <dd>Replacement for matched <code>pattern</code>.</dd>
+      <dt>extract</dt>
+      <dd>logical.  If <code>TRUE</code> the emails are extracted into a list
+of vectors.</dd>
+      <dt>...</dt>
+      <dd>Other arguments passed to <code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code>.</dd>
+    </dl>
+    
+    <div class="Remove/Replace/Extract Email Addresses">
+      <h2>Remove/Replace/Extract Email Addresses</h2>
+      
+    </div>
+
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>Returns a character string with email addresses removed.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>Remove/replace/extract email addresses from a string.</p>
+  
+    </div>
+
+    <div class="References">
+      <h2>References</h2>
+      
+      <p>The email regular expression was taken from:
+<a href = 'http://stackoverflow.com/a/25077704/1000343'>http://stackoverflow.com/a/25077704/1000343</a></p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'>x &lt;- paste(&quot;fred is fred@foo.com and joe is joe@example.com - but @this is a
+    twitter handle for twit@here.com or foo+bar@google.com/fred@foo.fnord&quot;)
+
+x2 &lt;- c(&quot;fred is fred@foo.com and joe is joe@example.com - but @this is a&quot;,
+    &quot;twitter handle for twit@here.com or foo+bar@google.com/fred@foo.fnord&quot;,
+    &quot;hello world&quot;)
+
+rm_email(x)
+</div>
+<div class='output'>[1] &quot;fred is and joe is - but @this is a twitter handle for or /&quot;
+</div>
+<div class='input'>rm_email(x, replacement = &#39;&lt;a href=&quot;mailto:\\1&quot; target=&quot;_blank&quot;&gt;\\1&lt;/a&gt;&#39;)
+</div>
+<div class='output'>[1] &quot;fred is &lt;a href=\&quot;mailto:fred@foo.com\&quot; target=\&quot;_blank\&quot;&gt;fred@foo.com&lt;/a&gt; and joe is &lt;a href=\&quot;mailto:joe@example.com\&quot; target=\&quot;_blank\&quot;&gt;joe@example.com&lt;/a&gt; - but @this is a twitter handle for &lt;a href=\&quot;mailto:twit@here.com\&quot; target=\&quot;_blank\&quot;&gt;twit@here.com&lt;/a&gt; or &lt;a href=\&quot;mailto:foo+bar@google.com\&quot; target=\&quot;_blank\&quot;&gt;foo+bar@google.com&lt;/a&gt;/&lt;a href=\&quot;mailto:fred@foo.fnord\&quot; target=\&quot;_blank\&quot;&gt;fred@foo.fnord&lt;/a&gt;&quot;
+</div>
+<div class='input'>rm_email(x, extract=TRUE)
+</div>
+<div class='output'>[[1]]
+[1] &quot;fred@foo.com&quot;       &quot;joe@example.com&quot;    &quot;twit@here.com&quot;      &quot;foo+bar@google.com&quot;
+[5] &quot;fred@foo.fnord&quot;    
+
+</div>
+<div class='input'>rm_email(x2, extract=TRUE)
+</div>
+<div class='output'>[[1]]
+[1] &quot;fred@foo.com&quot;    &quot;joe@example.com&quot;
+
+[[2]]
+[1] &quot;twit@here.com&quot;      &quot;foo+bar@google.com&quot; &quot;fred@foo.fnord&quot;    
+
+[[3]]
+character(0)
+
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>rm_email</li>
+    </ul>
+    <ul>
+      <li>email</li>
+    </ul> -->
+      
+    <h2>See also</h2>
+    
+<code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code>
+
+    
+    <h2>Author</h2>
+    
+Barry Rowlingson and Tyler Rinker <tyler.rinker@gmail.com>.
+
+    
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

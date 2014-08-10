@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>rm_phone. qdapRegex 0.0.1</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="
+&lt;a href = 'http://stackoverflow.com/'&gt;stackoverflow's&lt;/a&gt; Marius and Tyler Rinker &lt;tyler.rinker@gmail.com&gt;.
+">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">qdapRegex 0.0.1</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Remove/Replace/Extract Phone Numbers</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><div>rm_phone(text.var, trim&nbsp;=&nbsp;TRUE, clean&nbsp;=&nbsp;TRUE, pattern&nbsp;=&nbsp;NULL, replacement&nbsp;=&nbsp;"", extract&nbsp;=&nbsp;FALSE, ...)</div></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>text.var</dt>
+      <dd>The text variable.</dd>
+      <dt>trim</dt>
+      <dd>logical.  If <code>TRUE</code> removes leading and trailing white
+spaces.</dd>
+      <dt>clean</dt>
+      <dd>trim logical.  If <code>TRUE</code> extra white spaces and escaped
+character will be removed.</dd>
+      <dt>pattern</dt>
+      <dd>A character string containing a regular expression (or
+character string for <code>fixed = TRUE</code>) to be matched in the given
+character vector.</dd>
+      <dt>replacement</dt>
+      <dd>Replacement for matched <code>pattern</code>.</dd>
+      <dt>extract</dt>
+      <dd>logical.  If <code>TRUE</code> the times are extracted into a
+list of vectors.</dd>
+      <dt>...</dt>
+      <dd>Other arguments passed to <code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code>.</dd>
+    </dl>
+    
+    <div class="Remove/Replace/Extract Phone Numbers">
+      <h2>Remove/Replace/Extract Phone Numbers</h2>
+      
+    </div>
+
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>Returns a character string with phone numbers removed.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>Remove/replace/extract phone numbers from a string.</p>
+  
+    </div>
+
+    <div class="References">
+      <h2>References</h2>
+      
+      <p>The phone regular expression was taken from:
+<a href = 'http://stackoverflow.com/a/21008254/1000343'>http://stackoverflow.com/a/21008254/1000343</a></p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'>x &lt;- c(&quot; Mr. Bean bought 2 tickets 2-613-213-4567 or 5555555555 call either one&quot;,
+  &quot;43 Butter Rd, Brossard QC K0A 3P0 - 613 213 4567&quot;,
+  &quot;Please contact Mr. Bean (613)2134567&quot;,
+  &quot;1.575.555.5555 is his #1 number&quot;,
+  &quot;7164347566&quot;,
+  &quot;I like 1234567 dogs&quot;
+)
+
+rm_phone(x)
+</div>
+<div class='output'>[1] &quot;Mr. Bean bought 2 tickets 2- or call either one&quot; &quot;43 Butter Rd, Brossard QC K0A 3P0 -&quot;            
+[3] &quot;Please contact Mr. Bean&quot;                         &quot;is his #1 number&quot;                               
+[5] &quot;&quot;                                                &quot;I like 1234567 dogs&quot;                            
+</div>
+<div class='input'>rm_phone(x, extract=TRUE)
+</div>
+<div class='output'>[[1]]
+[1] &quot;613-213-4567&quot; &quot;5555555555&quot;  
+
+[[2]]
+[1] &quot;613 213 4567&quot;
+
+[[3]]
+[1] &quot;(613)2134567&quot;
+
+[[4]]
+[1] &quot;1.575.555.5555&quot;
+
+[[5]]
+[1] &quot;7164347566&quot;
+
+[[6]]
+character(0)
+
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>rm_phone</li>
+    </ul>
+    <ul>
+      <li>phone</li><li>telephone</li>
+    </ul> -->
+      
+    <h2>See also</h2>
+    
+<code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code>
+
+    
+    <h2>Author</h2>
+    
+<a href = 'http://stackoverflow.com/'>stackoverflow's</a> Marius and Tyler Rinker <tyler.rinker@gmail.com>.
+
+    
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

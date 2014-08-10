@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>rm_time. qdapRegex 0.0.1</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="
+&lt;a href = 'http://stackoverflow.com/'&gt;stackoverflow's&lt;/a&gt; hwnd and Tyler Rinker &lt;tyler.rinker@gmail.com&gt;.
+">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">qdapRegex 0.0.1</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Remove/Replace/Extract Time</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><div>rm_time(text.var, trim&nbsp;=&nbsp;TRUE, clean&nbsp;=&nbsp;TRUE, pattern&nbsp;=&nbsp;"\\d{0,2}:\\d{2}(?:[:.]\\d+)?", replacement&nbsp;=&nbsp;"", extract&nbsp;=&nbsp;FALSE, ...)</div></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>text.var</dt>
+      <dd>The text variable.</dd>
+      <dt>trim</dt>
+      <dd>logical.  If <code>TRUE</code> removes leading and trailing white
+spaces.</dd>
+      <dt>clean</dt>
+      <dd>trim logical.  If <code>TRUE</code> extra white spaces and escaped
+character will be removed.</dd>
+      <dt>pattern</dt>
+      <dd>A character string containing a regular expression (or
+character string for <code>fixed = TRUE</code>) to be matched in the given
+character vector.</dd>
+      <dt>replacement</dt>
+      <dd>Replacement for matched <code>pattern</code>.</dd>
+      <dt>extract</dt>
+      <dd>logical.  If <code>TRUE</code> the times are extracted into a
+list of vectors.</dd>
+      <dt>...</dt>
+      <dd>Other arguments passed to <code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code>.</dd>
+    </dl>
+    
+    <div class="Remove/Replace/Extract Time">
+      <h2>Remove/Replace/Extract Time</h2>
+      
+    </div>
+
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>Returns a character string with time removed.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>Remove/replace/extract time from a string.</p>
+  
+    </div>
+
+    <div class="References">
+      <h2>References</h2>
+      
+      <p>The time regular expression was taken from:
+<a href = 'http://stackoverflow.com/a/25111133/1000343'>http://stackoverflow.com/a/25111133/1000343</a></p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'>x &lt;-  c(&quot;R uses 1:5 for 1, 2, 3, 4, 5.&quot;,
+    &quot;At 3:00 we&#39;ll meet up and leave by 4:30:20&quot;,
+    &quot;We&#39;ll meet at 6:33.&quot;, &quot;He ran it in :22.34&quot;)
+
+rm_time(x)
+</div>
+<div class='output'>[1] &quot;R uses 1:5 for 1, 2, 3, 4, 5.&quot; &quot;At we&#39;ll meet up and leave by&quot; &quot;We&#39;ll meet at .&quot;              
+[4] &quot;He ran it in&quot;                 
+</div>
+<div class='input'>rm_time(x, extract=TRUE)
+</div>
+<div class='output'>[[1]]
+character(0)
+
+[[2]]
+[1] &quot;3:00&quot;    &quot;4:30:20&quot;
+
+[[3]]
+[1] &quot;6:33&quot;
+
+[[4]]
+[1] &quot;:22.34&quot;
+
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>rm_time</li>
+    </ul>
+    <ul>
+      <li>time</li>
+    </ul> -->
+      
+    <h2>See also</h2>
+    
+<code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code>
+
+    
+    <h2>Author</h2>
+    
+<a href = 'http://stackoverflow.com/'>stackoverflow's</a> hwnd and Tyler Rinker <tyler.rinker@gmail.com>.
+
+    
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

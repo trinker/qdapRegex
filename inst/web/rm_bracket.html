@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>rm_bracket. qdapRegex 0.0.1</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="
+Martin Morgan and Tyler Rinker &lt;tyler.rinker@gmail.com&gt;.
+">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">qdapRegex 0.0.1</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Remove/Replace/Extract Brackets</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><div>rm_bracket(text.var, trim&nbsp;=&nbsp;TRUE, clean&nbsp;=&nbsp;TRUE, pattern&nbsp;=&nbsp;"all", replacement&nbsp;=&nbsp;"", extract&nbsp;=&nbsp;FALSE, include.bracket&nbsp;=&nbsp;FALSE, merge&nbsp;=&nbsp;TRUE)</div></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>text.var</dt>
+      <dd>The text variable.</dd>
+      <dt>trim</dt>
+      <dd>logical.  If <code>TRUE</code> removes leading and trailing white
+spaces.</dd>
+      <dt>clean</dt>
+      <dd>trim logical.  If <code>TRUE</code> extra white spaces and escaped
+character will be removed.</dd>
+      <dt>pattern</dt>
+      <dd>The type of bracket (and encased text) to remove.  This is one
+or more of the strings <code>"curly"</code>, <code>"square"</code>, <code>"round"</code>,
+<code>"angle"</code> and <code>"all"</code>.  These strings correspond
+to: {, [, (, < or all four types.</dd>
+      <dt>replacement</dt>
+      <dd>Replacement for matched <code>pattern</code>.</dd>
+      <dt>extract</dt>
+      <dd>logical.  If <code>TRUE</code> the dollars are extracted into a
+list of vectors.</dd>
+      <dt>include.bracket</dt>
+      <dd>logical.  If <code>TRUE</code> and <code>extract = TRUE</code> returns
+the brackets and the bracketed text.</dd>
+      <dt>merge</dt>
+      <dd>logical.  If <code>TRUE</code> the results of each bracket type will
+be merged by string.  <code>FALSE</code> returns a named list of lists of vectors
+of bracketed text per bracket type.</dd>
+    </dl>
+    
+    <div class="Remove/Replace/Extract Brackets">
+      <h2>Remove/Replace/Extract Brackets</h2>
+      
+    </div>
+
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>Returns a character string with brackets removed.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>Remove/replace/extract bracketed strings.</p>
+  
+    </div>
+
+    <div class="References">
+      <h2>References</h2>
+      
+      <p><a href = 'http://stackoverflow.com/q/8621066/1000343'>http://stackoverflow.com/q/8621066/1000343</a></p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'>examp &lt;- structure(list(person = structure(c(1L, 2L, 1L, 3L),
+    .Label = c(&quot;bob&quot;, &quot;greg&quot;, &quot;sue&quot;), class = &quot;factor&quot;), text =
+    c(&quot;I love chicken [unintelligible]!&quot;,
+    &quot;Me too! (laughter) It&#39;s so good.[interrupting]&quot;,
+    &quot;Yep it&#39;s awesome {reading}.&quot;, &quot;Agreed. {is so much fun}&quot;)), .Names =
+    c(&quot;person&quot;, &quot;text&quot;), row.names = c(NA, -4L), class = &quot;data.frame&quot;)
+
+examp
+</div>
+<div class='output'>  person                                           text
+1    bob               I love chicken [unintelligible]!
+2   greg Me too! (laughter) It&#39;s so good.[interrupting]
+3    bob                    Yep it&#39;s awesome {reading}.
+4    sue                       Agreed. {is so much fun}
+</div>
+<div class='input'>rm_bracket(examp$text, pattern = &quot;square&quot;)
+</div>
+<div class='output'>[1] &quot;I love chicken!&quot;                  &quot;Me too! (laughter) It&#39;s so good.&quot;
+[3] &quot;Yep it&#39;s awesome {reading}.&quot;      &quot;Agreed. {is so much fun}&quot;        
+</div>
+<div class='input'>rm_bracket(examp$text, pattern = &quot;curly&quot;)
+</div>
+<div class='output'>[1] &quot;I love chicken [unintelligible]!&quot;                &quot;Me too! (laughter) It&#39;s so good. [interrupting]&quot;
+[3] &quot;Yep it&#39;s awesome.&quot;                               &quot;Agreed.&quot;                                        
+</div>
+<div class='input'>rm_bracket(examp$text, pattern = c(&quot;square&quot;, &quot;round&quot;))
+</div>
+<div class='output'>[1] &quot;I love chicken!&quot;             &quot;Me too! It&#39;s so good.&quot;       &quot;Yep it&#39;s awesome {reading}.&quot;
+[4] &quot;Agreed. {is so much fun}&quot;   
+</div>
+<div class='input'>rm_bracket(examp$text)
+</div>
+<div class='output'>[1] &quot;I love chicken!&quot;       &quot;Me too! It&#39;s so good.&quot; &quot;Yep it&#39;s awesome.&quot;     &quot;Agreed.&quot;              
+</div>
+<div class='input'>
+rm_bracket(examp$text, pattern = &quot;square&quot;, extract=TRUE)
+</div>
+<div class='output'>$square1
+[1] &quot;unintelligible&quot;
+
+$square2
+[1] &quot;interrupting&quot;
+
+$square3
+character(0)
+
+$square4
+character(0)
+
+</div>
+<div class='input'>rm_bracket(examp$text, pattern = &quot;curly&quot;, extract=TRUE)
+</div>
+<div class='output'>$curly1
+character(0)
+
+$curly2
+character(0)
+
+$curly3
+[1] &quot;reading&quot;
+
+$curly4
+[1] &quot;is so much fun&quot;
+
+</div>
+<div class='input'>rm_bracket(examp$text, pattern = c(&quot;square&quot;, &quot;round&quot;), extract=TRUE)
+</div>
+<div class='output'>[[1]]
+[1] &quot;unintelligible&quot;
+
+[[2]]
+[1] &quot;interrupting&quot; &quot;laughter&quot;    
+
+[[3]]
+character(0)
+
+[[4]]
+character(0)
+
+</div>
+<div class='input'>rm_bracket(examp$text, pattern = c(&quot;square&quot;, &quot;round&quot;), merge = FALSE, extract=TRUE)
+</div>
+<div class='output'>$square
+$square[[1]]
+[1] &quot;unintelligible&quot;
+
+$square[[2]]
+[1] &quot;interrupting&quot;
+
+$square[[3]]
+character(0)
+
+$square[[4]]
+character(0)
+
+
+$round
+$round[[1]]
+character(0)
+
+$round[[2]]
+[1] &quot;laughter&quot;
+
+$round[[3]]
+character(0)
+
+$round[[4]]
+character(0)
+
+
+</div>
+<div class='input'>rm_bracket(examp$text, extract=TRUE)
+</div>
+<div class='output'>$all1
+[1] &quot;unintelligible&quot;
+
+$all2
+[1] &quot;laughter&quot;     &quot;interrupting&quot;
+
+$all3
+[1] &quot;reading&quot;
+
+$all4
+[1] &quot;is so much fun&quot;
+
+</div>
+<div class='input'>rm_bracket(examp$tex, include.bracket=TRUE, extract=TRUE)
+</div>
+<div class='output'>$all1
+[1] &quot;[unintelligible]&quot;
+
+$all2
+[1] &quot;(laughter)&quot;     &quot;[interrupting]&quot;
+
+$all3
+[1] &quot;{reading}&quot;
+
+$all4
+[1] &quot;{is so much fun}&quot;
+
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>rm_bracket</li>
+    </ul>
+    <ul>
+      <li>bracket</li>
+    </ul> -->
+      
+    <h2>See also</h2>
+    
+<code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code>
+
+    
+    <h2>Author</h2>
+    
+Martin Morgan and Tyler Rinker <tyler.rinker@gmail.com>.
+
+    
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

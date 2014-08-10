@@ -1,46 +1,17 @@
 library(staticdocs)
 
-sd_section("Look Up/Hash", 
-  description="Look up/hash tools for use in the qdap package.",
+sd_section("Removing/Extracting/Replacing",
+  "Function to clean and parse text data.",
   c(
-    "hash",
-    "lookup",       
-    "text2color"
-  ) 
+  	"rm_bracket",
+    "rm_dollar",
+    "rm_email",
+    "rm_hash",
+    "rm_percent",
+    "rm_phone",
+    "rm_tag",
+    "rm_time", 
+    "rm_url",
+    "rm_zip"
+  )
 )
-
-
-sd_section("Conversion", 
-  description="Conversion tools for use in the qdap package.",
-  c(
-    "hms2sec"   
-  ) 
-)
-
-sd_section("Identification", 
-  description="Identification tools for use in the qdap package.",
-  c(
-  	"id",
-  	"pad"
-  ) 
-)
-
-
-sd_section("Data Reshaping", 
-  description="Data reshaping tools for use in the qdap package.",
-  c(
-    "list2df",
-  	"split_vector",
-  	"mtabulate"
-  ) 
-)
-
-sd_section("Assorted qdap Tools", 
-  description="Assorted tools for use in the qdap package.",
-  c(
-    "repo2github",        
-    "url_dl",
-    "v_outer"
-  ) 
-)
-
