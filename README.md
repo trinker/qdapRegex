@@ -4,7 +4,7 @@
 [![DOI](https://zenodo.org/badge/5398/trinker/qdapRegex.png)](http://dx.doi.org/10.5281/zenodo.11243)
 
 ![qdapicon](https://dl.dropbox.com/u/61803503/qdapicon.png)   
-[qdapRegex](http://trinker.github.com/qdapRegex_dev) is a collection of regex tools associated with the **qdap** package that may be useful outside of the context of discourse analysis.  Tools include removal/extraction/replacement of dates, email addresses, person tags, hash tags, dollar amounts, percentages, times, zip codes, numbers, abbreviations, and phone numbers.
+[qdapRegex](http://trinker.github.com/qdapRegex_dev) is a collection of regex tools associated with the **qdap** package that may be useful outside of the context of discourse analysis.  Tools include removal/extraction/replacement of abbreviations, dates, dollar amounts, email addresses, hash tags, numbers, percentages, person tags, phone numbers, times, and zip codes.
 
 ## Installation
 
