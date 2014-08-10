@@ -1,6 +1,7 @@
 #' Remove/Replace/Extract Dates
 #' 
-#' Remove/replace/extract dates from a string.
+#' Remove/replace/extract dates from a string in the form of XX/XX/XXXX, 
+#' XX/XX/XX, XX-XX-XXXX, XX-XX-XX, XX.XX.XXXX, or XX.XX.XX.
 #' 
 #' @param text.var The text variable.
 #' @param trim logical.  If \code{TRUE} removes leading and trailing white 
