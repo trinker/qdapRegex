@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>url_dl. qdapTools 1.0.3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">qdapTools 1.0.3</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Download Instructional Documents</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><div>url_dl(..., url&nbsp;=&nbsp;61803503)</div></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>...</dt>
+      <dd>Document names to download. Quoted strings (complete urls) can
+also be supplied (if so no url argument is supplied).</dd>
+      <dt>url</dt>
+      <dd>The download url or <a href = 'https://www.dropbox.com/'>Dropbox</a> key.</dd>
+    </dl>
+    
+    <div class="Download Instructional Documents">
+      <h2>Download Instructional Documents</h2>
+      
+    </div>
+
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>Places a copy of the downloaded document in the users working
+directory.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>This function enables downloading documents for future instructional training.</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'>## &lt;strong&gt;Not run&lt;/strong&gt;: 
+# ## Example 1 (download from Dropbox)
+# # download transcript of the debate to working directory
+# library(qdap)
+# url_dl(pres.deb1.docx, pres.deb2.docx, pres.deb3.docx)
+# 
+# # load multiple files with read transcript and assign to working directory
+# dat1 &lt;- read.transcript(&quot;pres.deb1.docx&quot;, c(&quot;person&quot;, &quot;dialogue&quot;))
+# dat2 &lt;- read.transcript(&quot;pres.deb2.docx&quot;, c(&quot;person&quot;, &quot;dialogue&quot;))
+# dat3 &lt;- read.transcript(&quot;pres.deb3.docx&quot;, c(&quot;person&quot;, &quot;dialogue&quot;))
+# 
+# docs &lt;- qcv(pres.deb1.docx, pres.deb2.docx, pres.deb3.docx)
+# dir() %in% docs
+# library(reports); delete(docs)    #remove the documents
+# dir() %in% docs
+# 
+# ## Example 2 (quoted string urls)
+# url_dl(&quot;https://dl.dropboxusercontent.com/u/61803503/qdap.pdf&quot;,
+#    &quot;http://www.cran.r-project.org/doc/manuals/R-intro.pdf&quot;)
+# 
+# delete(c(&quot;qdap.pdf&quot;, &quot;R-intro.pdf&quot;))
+# ## &lt;strong&gt;End(Not run)&lt;/strong&gt;
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>url_dl</li>
+    </ul>
+    <ul>
+      
+    </ul> -->
+      
+        
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

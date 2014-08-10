@@ -1,0 +1,15 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^\.gitignore
+NEWS.md
+FAQ.md
+NEWS.html
+FAQ.html
+^\.travis\.yml$
+inst/staticdocs
+inst/maintenance.R
+inst/extra_statdoc
+travis-tool.sh
+inst/web
+contributors.geojson
+inst/build.R

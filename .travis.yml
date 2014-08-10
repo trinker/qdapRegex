@@ -1,0 +1,23 @@
+language: c
+
+before_install:
+  - curl -OL http://raw.github.com/craigcitro/r-travis/master/scripts/travis-tool.sh
+  - chmod 755 ./travis-tool.sh
+  - sudo add-apt-repository -y ppa:texlive-backports/ppa
+  - ./travis-tool.sh bootstrap
+install:
+  - sh -e /etc/init.d/xvfb start
+  - ./travis-tool.sh aptget_install r-cran-xml 
+  - ./travis-tool.sh install_github hadley/devtools
+  - ./travis-tool.sh install_deps
+script: ./travis-tool.sh run_tests
+notifications:
+  email:
+    on_success: change
+    on_failure: change
+env:
+   global:
+     - R_BUILD_ARGS="--resave-data=best" 
+     - R_CHECK_ARGS="--as-cran"
+     - DISPLAY=:99.0
+     - BOOTSTRAP_LATEX=1
