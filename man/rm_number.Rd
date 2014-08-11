@@ -35,7 +35,7 @@ Remove/replace/extract number from a string (works on numbers with commas, decim
 }
 \examples{
 x <- c("-2 is an integer.  -4.3 and 3.33 are not.",
-    "123,456 is alot mor than -.2",
+    "123,456 is a lot more than -.2",
     "hello world -.q")
 rm_number(x)
 rm_number(x, extract=TRUE)

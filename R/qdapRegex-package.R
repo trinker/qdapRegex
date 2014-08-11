@@ -2,7 +2,7 @@
 #'
 #' This package is a collection of regex tools associated with the
 #' \pkg{qdap} package that may be useful outside of the context of discourse
-#' analysis.  Tools include removal/extraction/replacement of dabbreviations, 
+#' analysis.  Tools include removal/extraction/replacement of abbreviations, 
 #' dates, dollar amounts, email addresses, hash tags, numbers, percentages, 
 #' person tags, phone numbers, times, and zip codes.
 #'

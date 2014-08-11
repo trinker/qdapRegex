@@ -22,7 +22,7 @@
 #' \url{http://stackoverflow.com/a/5917250/1000343} authored by Justin Morgan.
 #' @examples
 #' x <- c("-2 is an integer.  -4.3 and 3.33 are not.",
-#'     "123,456 is alot mor than -.2", 
+#'     "123,456 is a lot more than -.2", 
 #'     "hello world -.q")
 #' rm_number(x)
 #' rm_number(x, extract=TRUE)

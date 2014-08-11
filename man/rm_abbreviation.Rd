@@ -32,7 +32,7 @@ Returns a character string with abbreviations removed.
 }
 \description{
 Remove/replace/extract abbreviations from a string containing lower case or
-captial letters followed by a period and then an optional space (this must be
+capital letters followed by a period and then an optional space (this must be
 repeated 2 or more times).
 }
 \examples{
