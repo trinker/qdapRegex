@@ -26,9 +26,12 @@
 #' x <- "This Jon's dogs' 'bout there in word Mike's re'y."
 #' rm_nchar_words(x, 4)
 #' rm_nchar_words(x, 4, extract=TRUE)
+#' \dontrun{
+#' rm_nchar_words(hamlet$dialogue, 5, extract=TRUE)
+#' }
 rm_nchar_words <- function(text.var, n, trim = TRUE, clean = TRUE,
     pattern = sprintf("(?i)(?:'?[a-z]){%s}(*SKIP)(*F)|('?\\b[a-z](?:'?[a-z]){%s}\\b'?)", 
-    	n +1, n-1), replacement = "", extract = FALSE, ...) {
+    	n + 1, n - 1), replacement = "", extract = FALSE, ...) {
 
     if (extract) {
         return(lapply(regmatches(text.var, gregexpr(pattern, text.var, 

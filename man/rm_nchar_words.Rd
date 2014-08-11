@@ -39,6 +39,9 @@ Remove/replace/extract words that are n letters in length (apostrophes not count
 x <- "This Jon's dogs' 'bout there in word Mike's re'y."
 rm_nchar_words(x, 4)
 rm_nchar_words(x, 4, extract=TRUE)
+\dontrun{
+rm_nchar_words(hamlet$dialogue, 5, extract=TRUE)
+}
 }
 \author{
 \href{http://stackoverflow.com/}{stackoverflow's} hwnd and Tyler Rinker <tyler.rinker@gmail.com>.
