@@ -79,3 +79,18 @@ function(terms, trailing = TRUE, leading = TRUE){
     return(z)
 }
 
+## default qdapRegex function template
+rm_default <- function(text.var, trim = TRUE, clean = TRUE, pattern, replacement = "", 
+	extract = FALSE, ...) {
+
+    if (extract) {
+        return(regmatches(text.var, gregexpr(pattern, text.var)))
+    }
+
+    out <- gsub(pattern, replacement, text.var, ...)
+    if (trim) out <- Trim(out)
+    if (clean) out <- clean(out)
+    out
+}
+
+

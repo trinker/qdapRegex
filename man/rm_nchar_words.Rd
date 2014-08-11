@@ -4,8 +4,8 @@
 \title{Remove/Replace/Extract N Letter Words}
 \usage{
 rm_nchar_words(text.var, n, trim = TRUE, clean = TRUE,
-  pattern = sprintf("(?i)(?:'?[a-z]){\%s}(*SKIP)(*F)|('?\\\\b[a-z](?:'?[a-z]){\%s}\\\\b'?)",
-  n + 1, n - 1), replacement = "", extract = FALSE, ...)
+  pattern = sprintf(qdapRegex::RE[["rm_nchar_words"]], n), replacement = "",
+  extract = FALSE, ...)
 }
 \arguments{
 \item{text.var}{The text variable.}
@@ -20,7 +20,7 @@ character will be removed.}
 
 \item{pattern}{A character string containing a regular expression (or
 character string for \code{fixed = TRUE}) to be matched in the given
-character vector.}
+character vector (see \bold{Details} for additional information).}
 
 \item{replacement}{Replacement for matched \code{pattern}.}
 
@@ -35,20 +35,36 @@ Returns a character string with n letter words removed.
 \description{
 Remove/replace/extract words that are n letters in length (apostrophes not counted).
 }
+\details{
+The default regular expression used by \code{rm_nchar_words} counts
+letter length, not characters.  This means that apostrophes are not include
+in the character count.  This behavior can be altered (to include apostrophes
+in the character count) by using a secondary regular expression from the
+\code{\link[qdapRegex]{RE}} data set
+(\code{qdapRegex::RE[["rm_nchar_words2"]]}). See \bold{Examples} for example
+usage.  Note that \code{n} must be set manually.
+}
 \examples{
 x <- "This Jon's dogs' 'bout there in word Mike's re'y."
 rm_nchar_words(x, 4)
 rm_nchar_words(x, 4, extract=TRUE)
+
+## Count characters (apostrophes and letters)
+n <- 5
+rm_nchar_words(x, extract=TRUE, pattern = sprintf(qdapRegex::RE[["rm_nchar_words2"]], n))
+
 \dontrun{
+## Larger example
+library(qdap)
 rm_nchar_words(hamlet$dialogue, 5, extract=TRUE)
 }
 }
 \author{
-\href{http://stackoverflow.com/}{stackoverflow's} hwnd and Tyler Rinker <tyler.rinker@gmail.com>.
+\href{http://stackoverflow.com/}{stackoverflow's} CharlieB and Tyler Rinker <tyler.rinker@gmail.com>.
 }
 \references{
-The time regular expression was taken from:
-\url{http://stackoverflow.com/a/25234538/1000343}
+The n letter/character word regular expression was taken from:
+\url{http://stackoverflow.com/a/25243885/1000343}
 }
 \seealso{
 \code{\link[base]{gsub}}

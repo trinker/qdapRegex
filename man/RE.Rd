@@ -3,7 +3,7 @@
 \name{RE}
 \alias{RE}
 \title{Canned Regular Expressions}
-\format{A list with 14 elements}
+\format{A list with 17 elements}
 \usage{
 data(RE)
 }

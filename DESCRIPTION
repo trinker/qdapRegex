@@ -9,6 +9,8 @@ Authors@R: c(person("hwnd", "", role = "ctb"),
 Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
 Depends:
     R (>= 3.0.0)
+Imports:
+    pryr
 Suggests:
     testthat
 LazyData: TRUE

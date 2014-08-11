@@ -20,6 +20,6 @@ NULL
 #' @keywords datasets 
 #' @name RE 
 #' @usage data(RE) 
-#' @format A list with 14 elements 
+#' @format A list with 17 elements 
 NULL
 
