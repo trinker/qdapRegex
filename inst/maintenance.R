@@ -11,7 +11,7 @@ devtools::test()
 #==========================
 # Regex data set
 #==========================
-RE <- list(
+regex_usa <- list(
     rm_abbreviation = "([A-Za-z][\\.]\\s*){2,}", 
     rm_caps = "(\\b[A-Z]{2,}\\b)", 
     rm_city_state = "([A-Z][\\w-]*(\\s+[A-Z][\\w-]*)+),\\s*([A-Z]{2})\\b|(\\b[A-Za-z]+),\\s*([A-Z]{2})\\b",

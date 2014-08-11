@@ -80,9 +80,12 @@ function(terms, trailing = TRUE, leading = TRUE){
 }
 
 ## default qdapRegex function template
-rm_default <- function(text.var, trim = TRUE, clean = TRUE, pattern, replacement = "", 
-	extract = FALSE, ...) {
+rm_default <- function(text.var, trim = TRUE, clean = TRUE, pattern, 
+	replacement = "", extract = FALSE, 
+	dictionary = getOption("regex.library"), ...) {
 
+	pattern <- reg_check(pattern = pattern, dictionary = dictionary)
+	
     if (extract) {
         return(regmatches(text.var, gregexpr(pattern, text.var)))
     }
@@ -93,4 +96,32 @@ rm_default <- function(text.var, trim = TRUE, clean = TRUE, pattern, replacement
     out
 }
 
+## check if regexes is in dictionary
+reg_check <- function(pattern, dictionary, backup = qdapRegex::regex_usa) {
+
+	if (is.null(dictionary)) dictionary <- backup
+	
+    if (substring(pattern, 1, 4) == "@rm_") {
+        reglook <- dictionary[[substring(pattern, 2)]]
+        if (!is.null(reglook)) return(reglook)
+    } 
+    pattern
+
+}
+
+## check if regexes is in dictionary and sprintf the n
+reg_check_sprintf <- function(pattern, dictionary, n, 
+    backup = qdapRegex::regex_usa) {
+
+    if (is.null(dictionary)) dictionary <- backup
+	
+    if (substring(pattern, 1, 4) == "@rm_") {
+        reglook <- dictionary[[substring(pattern, 2)]]
+        if (!is.null(reglook)) {
+            pattern <- reglook
+        }
+    } 
+    sprintf(pattern, n)
+
+}
 

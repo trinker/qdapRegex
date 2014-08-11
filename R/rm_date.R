@@ -10,10 +10,14 @@
 #' character will be removed.
 #' @param pattern A character string containing a regular expression (or 
 #' character string for \code{fixed = TRUE}) to be matched in the given 
-#' character vector.
+#' character vector.  Default, \code{@@rm_date} uses the 
+#' \code{rm_date} regex from the regular expression dictionary from 
+#' the \code{dictionary} argument.
 #' @param replacement Replacement for matched \code{pattern}.
 #' @param extract logical.  If \code{TRUE} the dates are extracted into a 
 #' list of vectors.
+#' @param dictionary A dictionary of canned regular expressions to search within 
+#' if \code{pattern} begins with \code{"@@rm_"}.
 #' @param \dots Other arguments passed to \code{\link[base]{gsub}}.
 #' @return Returns a character string with dates removed.
 #' @keywords date
@@ -25,7 +29,10 @@
 #' rm_date(x)
 #' rm_date(x, extract=TRUE)
 rm_date <- function(text.var, trim = TRUE, clean = TRUE,
-    pattern = qdapRegex::RE[["rm_date"]], replacement = "", extract = FALSE, ...) {
+    pattern = "@rm_date", replacement = "", extract = FALSE, 
+    dictionary = getOption("regex.library"), ...) {
+
+	pattern <- reg_check(pattern = pattern, dictionary = dictionary)
 
     if (extract) {
         return(lapply(regmatches(text.var, gregexpr(pattern, text.var, 

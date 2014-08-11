@@ -13,6 +13,8 @@
 #' @param replacement Replacement for matched \code{pattern}.
 #' @param extract logical.  If \code{TRUE} strings are extracted into a list of 
 #' vectors.
+#' @param dictionary A dictionary of canned regular expressions to search within 
+#' if \code{pattern} begins with \code{"@@rm_"}.
 #' @param \dots A default \code{text.var} or other arguments passed to 
 #' \code{\link[base]{gsub}}.
 #' @return Returns a function that operates typical of other \pkg{qdapRegex} 
@@ -32,12 +34,13 @@
 #' extract_consec_num <- rm_(pattern="[0-9]+", extract = TRUE)
 #' extract_consec_num("  I 12 li34ke ice56cream78.  ")
 rm_ <- function(trim = TRUE, clean = TRUE, pattern, replacement = "", 
-	extract = FALSE, ...){
+	extract = FALSE, dictionary = getOption("regex.library"), ...){
 
     if(missing(pattern)) warning("Did not supply a default to `pattern`")
 
     pryr::partial(rm_default, trim = trim, clean = clean, pattern = pattern, 
-        replacement = replacement, extract = extract, ...)
+        replacement = replacement, extract = extract, dictionary = dictionary, 
+    	...)
 
 }
 

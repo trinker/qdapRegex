@@ -6,6 +6,8 @@
 ![qdapicon](https://dl.dropbox.com/u/61803503/qdapicon.png)   
 [qdapRegex](http://trinker.github.com/qdapRegex_dev) is a collection of regex tools associated with the **qdap** package that may be useful outside of the context of discourse analysis.  Tools include removal/extraction/replacement of abbreviations, dates, dollar amounts, email addresses, hash tags, numbers, percentages, person tags, phone numbers, times, and zip codes.
 
+The functions in **qdapRegex** work on a dictionary system.  The current implementation defaults to a United States flavor of canned regular expressions.  Users may submit proposed region specific regular expression dictionaries that contain the same fields as the `regex_usa` data set. Please submit proposed regional regular expression dictionary via: https://github.com/trinker/qdapRegex/
+
 ## Installation
 
 To download the development version of qdapRegex:
@@ -20,5 +22,14 @@ install_github("trinker/qdapRegex")
 ```
 
 ## Help
-[Web Page](http://trinker.github.com/qdapRegex/)    
-[Package PDF Help Manual](https://dl.dropboxusercontent.com/u/61803503/qdapRegex.pdf)   
+
+- [Web Page](http://trinker.github.com/qdapRegex/)     
+- [Package PDF Help Manual](https://dl.dropboxusercontent.com/u/61803503/qdapRegex.pdf)   
+
+## Contact
+
+You are welcome to:
+* submit suggestions and bug-reports at: <https://github.com/trinker/qdapRegex/issues>
+* send a pull request on: <https://github.com/trinker/qdapRegex/>
+* compose a friendly e-mail to: <tyler.rinker@gmail.com>
+

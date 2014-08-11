@@ -3,9 +3,9 @@
 \alias{rm_number}
 \title{Remove/Replace/Extract Numbers}
 \usage{
-rm_number(text.var, trim = TRUE, clean = TRUE,
-  pattern = qdapRegex::RE[["rm_number"]], replacement = "",
-  extract = FALSE, ...)
+rm_number(text.var, trim = TRUE, clean = TRUE, pattern = "@rm_number",
+  replacement = "", extract = FALSE,
+  dictionary = getOption("regex.library"), ...)
 }
 \arguments{
 \item{text.var}{The text variable.}
@@ -18,12 +18,17 @@ character will be removed.}
 
 \item{pattern}{A character string containing a regular expression (or
 character string for \code{fixed = TRUE}) to be matched in the given
-character vector.}
+character vector.  Default, \code{@rm_number} uses the
+\code{rm_number} regex from the regular expression dictionary from
+the \code{dictionary} argument.}
 
 \item{replacement}{Replacement for matched \code{pattern}.}
 
 \item{extract}{logical.  If \code{TRUE} the numbers are extracted into a
 list of vectors.}
+
+\item{dictionary}{A dictionary of canned regular expressions to search within
+if \code{pattern} begins with \code{"@rm_"}.}
 
 \item{\dots}{Other arguments passed to \code{\link[base]{gsub}}.}
 }
@@ -31,7 +36,8 @@ list of vectors.}
 Returns a character string with number removed.
 }
 \description{
-Remove/replace/extract number from a string (works on numbers with commas, decimals and negatives).
+Remove/replace/extract number from a string (works on numbers with commas,
+decimals and negatives).
 }
 \examples{
 x <- c("-2 is an integer.  -4.3 and 3.33 are not.",

@@ -9,10 +9,14 @@
 #' character will be removed.
 #' @param pattern A character string containing a regular expression (or 
 #' character string for \code{fixed = TRUE}) to be matched in the given 
-#' character vector.
+#' character vector.  Default, \code{@@rm_percent} uses the 
+#' \code{rm_percent} regex from the regular expression dictionary from 
+#' the \code{dictionary} argument.
 #' @param replacement Replacement for matched \code{pattern}.
 #' @param extract logical.  If \code{TRUE} the percentages are extracted into a 
 #' list of vectors.
+#' @param dictionary A dictionary of canned regular expressions to search within 
+#' if \code{pattern} begins with \code{"@@rm_"}.
 #' @param \dots Other arguments passed to \code{\link[base]{gsub}}.
 #' @return Returns a character string with percentages removed.
 #' @keywords percent
@@ -25,8 +29,10 @@
 #' rm_percent(x)
 #' rm_percent(x, extract=TRUE)
 rm_percent <- function(text.var, trim = TRUE, clean = TRUE, 
-    pattern = qdapRegex::RE[["rm_percent"]], replacement = "", extract = FALSE, 
-	...) {
+	pattern = "@rm_percent", replacement = "", extract = FALSE, 
+	dictionary = getOption("regex.library"), ...) {
+
+	pattern <- reg_check(pattern = pattern, dictionary = dictionary)
 
     if (extract) {
         return(lapply(regmatches(text.var, gregexpr(pattern, text.var, 

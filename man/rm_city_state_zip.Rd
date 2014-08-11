@@ -4,8 +4,8 @@
 \title{Remove/Replace/Extract City, State, & Zip}
 \usage{
 rm_city_state_zip(text.var, trim = TRUE, clean = TRUE,
-  pattern = qdapRegex::RE[["rm_city_state_zip"]], replacement = "",
-  extract = FALSE, ...)
+  pattern = "@rm_city_state_zip", replacement = "", extract = FALSE,
+  dictionary = getOption("regex.library"), ...)
 }
 \arguments{
 \item{text.var}{The text variable.}
@@ -18,12 +18,17 @@ character will be removed.}
 
 \item{pattern}{A character string containing a regular expression (or
 character string for \code{fixed = TRUE}) to be matched in the given
-character vector.}
+character vector.  Default, \code{@rm_city_state_zip} uses the
+\code{rm_city_state_zip} regex from the regular expression dictionary from
+the \code{dictionary} argument.}
 
 \item{replacement}{Replacement for matched \code{pattern}.}
 
 \item{extract}{logical.  If \code{TRUE} the city, state, & zip are extracted into a
 list of vectors.}
+
+\item{dictionary}{A dictionary of canned regular expressions to search within
+if \code{pattern} begins with \code{"@rm_"}.}
 
 \item{\dots}{Other arguments passed to \code{\link[base]{gsub}}.}
 }

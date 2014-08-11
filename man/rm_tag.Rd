@@ -3,9 +3,9 @@
 \alias{rm_tag}
 \title{Remove/Replace/Extract Person Tags}
 \usage{
-rm_tag(text.var, trim = TRUE, clean = TRUE,
-  pattern = qdapRegex::RE[["rm_tag"]], replacement = "", extract = FALSE,
-  ...)
+rm_tag(text.var, trim = TRUE, clean = TRUE, pattern = "@rm_tag",
+  replacement = "", extract = FALSE,
+  dictionary = getOption("regex.library"), ...)
 }
 \arguments{
 \item{text.var}{The text variable.}
@@ -18,12 +18,17 @@ character will be removed.}
 
 \item{pattern}{A character string containing a regular expression (or
 character string for \code{fixed = TRUE}) to be matched in the given
-character vector.}
+character vector.  Default, \code{@rm_tag} uses the
+\code{rm_tag} regex from the regular expression dictionary from
+the \code{dictionary} argument.}
 
 \item{replacement}{Replacement for matched \code{pattern}.}
 
 \item{extract}{logical.  If \code{TRUE} the person tags are extracted into a
 list of vectors.}
+
+\item{dictionary}{A dictionary of canned regular expressions to search within
+if \code{pattern} begins with \code{"@rm_"}.}
 
 \item{\dots}{Other arguments passed to \code{\link[base]{gsub}}.}
 }

@@ -11,15 +11,15 @@
 #' @aliases qdapRegex package-qdapRegex
 NULL
 
-#' Canned Regular Expressions
+#' Canned Regular Expressions (United States of America)
 #' 
-#' A dataset containing a list canned regular expressions used in various 
-#' functions within the \pkg{qdapRegex} package.
+#' A dataset containing a list U.s. specific, canned regular expressions for use
+#' in various functions within the \pkg{qdapRegex} package.
 #' 
 #' @docType data 
 #' @keywords datasets 
-#' @name RE 
-#' @usage data(RE) 
+#' @name regex_usa 
+#' @usage data(regex_usa) 
 #' @format A list with 17 elements 
 NULL
 

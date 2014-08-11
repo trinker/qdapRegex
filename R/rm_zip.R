@@ -9,10 +9,14 @@
 #' character will be removed.
 #' @param pattern A character string containing a regular expression (or 
 #' character string for \code{fixed = TRUE}) to be matched in the given 
-#' character vector.
+#' character vector.  Default, \code{@@rm_zip} uses the 
+#' \code{rm_zip} regex from the regular expression dictionary from 
+#' the \code{dictionary} argument.
 #' @param replacement Replacement for matched \code{pattern}.
 #' @param extract logical.  If \code{TRUE} the zip codes are extracted into a 
 #' list of vectors.
+#' @param dictionary A dictionary of canned regular expressions to search within 
+#' if \code{pattern} begins with \code{"@@rm_"}.
 #' @param \dots Other arguments passed to \code{\link[base]{gsub}}.
 #' @return Returns a character string with U.S. 5 and 5+4 zip codes removed.
 #' @keywords zip
@@ -33,9 +37,11 @@
 #'
 #' rm_zip(x)
 #' rm_zip(x, extract=TRUE)
-rm_zip <- function(text.var, trim = TRUE, clean = TRUE,
-    pattern = qdapRegex::RE[["rm_zip"]], replacement = "", extract = FALSE, 
+rm_zip <- function(text.var, trim = TRUE, clean = TRUE, pattern ="@rm_zip", 
+	replacement = "", extract = FALSE, dictionary = getOption("regex.library"), 
 	...) {
+
+	pattern <- reg_check(pattern = pattern, dictionary = dictionary)
 
     if (extract) {
         return(lapply(regmatches(text.var, gregexpr(pattern, text.var, 

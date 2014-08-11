@@ -11,10 +11,14 @@
 #' character will be removed.
 #' @param pattern A character string containing a regular expression (or 
 #' character string for \code{fixed = TRUE}) to be matched in the given 
-#' character vector.
+#' character vector.  Default, \code{@@rm_city_state_zip} uses the 
+#' \code{rm_city_state_zip} regex from the regular expression dictionary from 
+#' the \code{dictionary} argument.
 #' @param replacement Replacement for matched \code{pattern}.
 #' @param extract logical.  If \code{TRUE} the city, state, & zip are extracted into a 
 #' list of vectors.
+#' @param dictionary A dictionary of canned regular expressions to search within 
+#' if \code{pattern} begins with \code{"@@rm_"}.
 #' @param \dots Other arguments passed to \code{\link[base]{gsub}}.
 #' @return Returns a character string with city, state, & zip removed.
 #' @keywords date
@@ -27,8 +31,10 @@
 #' rm_city_state_zip(x)
 #' rm_city_state_zip(x, extract=TRUE)
 rm_city_state_zip <- function(text.var, trim = TRUE, clean = TRUE,
-    pattern = qdapRegex::RE[["rm_city_state_zip"]], replacement = "", 
-	extract = FALSE, ...) {
+    pattern = "@rm_city_state_zip", replacement = "", extract = FALSE, 
+	dictionary = getOption("regex.library"), ...) {
+
+	pattern <- reg_check(pattern = pattern, dictionary = dictionary)
 
     if (extract) {
         return(lapply(regmatches(text.var, gregexpr(pattern, text.var, 

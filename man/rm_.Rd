@@ -4,7 +4,7 @@
 \title{Remove/Replace/Extract Function Generator}
 \usage{
 rm_(trim = TRUE, clean = TRUE, pattern, replacement = "",
-  extract = FALSE, ...)
+  extract = FALSE, dictionary = getOption("regex.library"), ...)
 }
 \arguments{
 \item{trim}{logical.  If \code{TRUE} removes leading and trailing white
@@ -21,6 +21,9 @@ character vector.}
 
 \item{extract}{logical.  If \code{TRUE} strings are extracted into a list of
 vectors.}
+
+\item{dictionary}{A dictionary of canned regular expressions to search within
+if \code{pattern} begins with \code{"@rm_"}.}
 
 \item{\dots}{A default \code{text.var} or other arguments passed to
 \code{\link[base]{gsub}}.}

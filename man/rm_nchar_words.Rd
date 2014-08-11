@@ -4,8 +4,8 @@
 \title{Remove/Replace/Extract N Letter Words}
 \usage{
 rm_nchar_words(text.var, n, trim = TRUE, clean = TRUE,
-  pattern = sprintf(qdapRegex::RE[["rm_nchar_words"]], n), replacement = "",
-  extract = FALSE, ...)
+  pattern = "@rm_nchar_words", replacement = "", extract = FALSE,
+  dictionary = getOption("regex.library"), ...)
 }
 \arguments{
 \item{text.var}{The text variable.}
@@ -25,7 +25,12 @@ character vector (see \bold{Details} for additional information).}
 \item{replacement}{Replacement for matched \code{pattern}.}
 
 \item{extract}{logical.  If \code{TRUE} the n letter words are extracted into a
-list of vectors.}
+list of vectors.  Default, \code{@rm_nchar_words} uses the
+\code{rm_nchar_words} regex from the regular expression dictionary from
+the \code{dictionary} argument.}
+
+\item{dictionary}{A dictionary of canned regular expressions to search within
+if \code{pattern} begins with \code{"@rm_"}.}
 
 \item{\dots}{Other arguments passed to \code{\link[base]{gsub}}.}
 }
@@ -40,9 +45,9 @@ The default regular expression used by \code{rm_nchar_words} counts
 letter length, not characters.  This means that apostrophes are not include
 in the character count.  This behavior can be altered (to include apostrophes
 in the character count) by using a secondary regular expression from the
-\code{\link[qdapRegex]{RE}} data set
-(\code{qdapRegex::RE[["rm_nchar_words2"]]}). See \bold{Examples} for example
-usage.  Note that \code{n} must be set manually.
+\code{\link[qdapRegex]{regex_usa}} data (or other dictionary) via
+(\code{qpattern = "@rm_nchar_words2"}). See \bold{Examples} for example
+usage.
 }
 \examples{
 x <- "This Jon's dogs' 'bout there in word Mike's re'y."
@@ -50,8 +55,7 @@ rm_nchar_words(x, 4)
 rm_nchar_words(x, 4, extract=TRUE)
 
 ## Count characters (apostrophes and letters)
-n <- 5
-rm_nchar_words(x, extract=TRUE, pattern = sprintf(qdapRegex::RE[["rm_nchar_words2"]], n))
+rm_nchar_words(x, 5, extract=TRUE, pattern = "@rm_nchar_words2")
 
 \dontrun{
 ## Larger example
