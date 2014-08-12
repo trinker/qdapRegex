@@ -40,6 +40,10 @@
 #'   "but not 04-12-2014 and may match good 00, 9999")
 #' rm_date(x2, pattern="@@rm_date2")
 #' rm_date(x2, pattern="@@rm_date2", extract=TRUE)
+#' 
+#' ## Grab both types
+#' pat <- paste(unlist(regex_usa[c("rm_date", "rm_date2")]), collapse="|")
+#' rm_date(x2, pattern=pat, extract=TRUE)
 rm_date <- function(text.var, trim = TRUE, clean = TRUE,
     pattern = "@rm_date", replacement = "", extract = FALSE, 
     dictionary = getOption("regex.library"), ...) {
