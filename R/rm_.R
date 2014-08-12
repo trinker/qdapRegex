@@ -33,6 +33,14 @@
 #' 
 #' extract_consec_num <- rm_(pattern="[0-9]+", extract = TRUE)
 #' extract_consec_num("  I 12 li34ke ice56cream78.  ")
+#' 
+#' ## Using the supplemental dictionary dataset:
+#' x <- "A man lives there!  The dog likes it. I want the map. I want an apple."
+#' 
+#' extract_word_after_the <- rm_(extract=TRUE, pattern=regex_supplement[["after_the"]])
+#' extract_word_after_a <- rm_(extract=TRUE, pattern=regex_supplement[["after_a"]])
+#' extract_word_after_the(x)
+#' extract_word_after_a(x)
 rm_ <- function(trim = TRUE, clean = TRUE, pattern, replacement = "", 
 	extract = FALSE, dictionary = getOption("regex.library"), ...){
 

@@ -32,6 +32,14 @@ regex_usa <- list(
     rm_zip = "(?<!\\d)\\d{5}(?:[ -]\\d{4})?\\b"
 )
 
+regex_supplement <- list(
+    after_a = "(?<=\\b(an|An)\\s)(\\w+)|(?<=\\b(a|A)\\s)(\\w+)",
+    after_the = "(?<=\\b(the|The)\\s)(\\w+)",
+    after_ = "(?<=\\b(%s|%s)\\s)(\\w+)",  
+    before_ = "\\w+?(?= ((%s|%s)\\b))",
+    ip_address = "\\b\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\b"
+)
+
 #========================
 #staticdocs dev version
 #========================

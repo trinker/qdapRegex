@@ -39,7 +39,8 @@ Returns a character string with person tags removed.
 Remove/replace/extract title (honorific) + person name(s) from a string.
 }
 \examples{
-x <- "Dr. Brend is mizz hart's in mrs. Holtz's.  Where is mr. Bob Jr.?"
+x <- c("Dr. Brend is mizz hart's in mrs. Holtz's.",
+    "Where is mr. Bob Jr. and Ms. John Kennedy?")
 
 rm_title_name(x)
 rm_title_name(x, extract=TRUE)

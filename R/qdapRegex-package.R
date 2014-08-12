@@ -23,3 +23,15 @@ NULL
 #' @format A list with 18 elements 
 NULL
 
+
+#' Supplemental Canned Regular Expressions
+#' 
+#' A dataset containing a list of supplemental, canned regular expressions.
+#' 
+#' @docType data 
+#' @keywords datasets 
+#' @name regex_supplement
+#' @usage data(regex_supplement) 
+#' @format A list with 5 elements 
+NULL
+

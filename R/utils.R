@@ -87,7 +87,7 @@ rm_default <- function(text.var, trim = TRUE, clean = TRUE, pattern,
 	pattern <- reg_check(pattern = pattern, dictionary = dictionary)
 	
     if (extract) {
-        return(regmatches(text.var, gregexpr(pattern, text.var)))
+        return(regmatches(text.var, gregexpr(pattern, text.var, perl=TRUE)))
     }
 
     out <- gsub(pattern, replacement, text.var, ...)
