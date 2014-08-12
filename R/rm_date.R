@@ -10,9 +10,9 @@
 #' character will be removed.
 #' @param pattern A character string containing a regular expression (or 
 #' character string for \code{fixed = TRUE}) to be matched in the given 
-#' character vector.  Default, \code{@@rm_date} uses the 
-#' \code{rm_date} regex from the regular expression dictionary from 
-#' the \code{dictionary} argument.
+#' character vector (see \bold{Details} for additional information).  Default,
+#' \code{@@rm_date} uses the \code{rm_date} regex from the regular expression 
+#' dictionary from the \code{dictionary} argument.
 #' @param replacement Replacement for matched \code{pattern}.
 #' @param extract logical.  If \code{TRUE} the dates are extracted into a 
 #' list of vectors.
@@ -21,6 +21,13 @@
 #' @param \dots Other arguments passed to \code{\link[base]{gsub}}.
 #' @return Returns a character string with dates removed.
 #' @keywords date
+#' @details The default regular expression used by \code{rm_date} finds numeric 
+#' representations not word/abbreviations.  This means that 
+#' \code{"June 13, 2002"} is not matched.  This behavior can be altered (to 
+#' includemonth names/abbreviations) by using a secondary regular expression 
+#' from the \code{\link[qdapRegex]{regex_usa}} data (or other dictionary) via 
+#' (\code{pattern = "@@rm_date2"}). See \bold{Examples} for example
+#' usage. 
 #' @export
 #' @seealso \code{\link[base]{gsub}}
 #' @examples
@@ -28,6 +35,11 @@
 #'     " 04/12/14 but leaves mismatched: 12.12/2014")
 #' rm_date(x)
 #' rm_date(x, extract=TRUE)
+#' 
+#' x2 <- paste0("Format dates as Sept 09, 2002 or October 22, 1887",
+#'   "but not 04-12-2014 and may match good 00, 9999")
+#' rm_date(x2, pattern="@@rm_date2")
+#' rm_date(x2, pattern="@@rm_date2", extract=TRUE)
 rm_date <- function(text.var, trim = TRUE, clean = TRUE,
     pattern = "@rm_date", replacement = "", extract = FALSE, 
     dictionary = getOption("regex.library"), ...) {

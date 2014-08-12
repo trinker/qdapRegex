@@ -10,12 +10,12 @@
 #' character will be removed.
 #' @param pattern A character string containing a regular expression (or 
 #' character string for \code{fixed = TRUE}) to be matched in the given 
-#' character vector (see \bold{Details} for additional information).
+#' character vector (see \bold{Details} for additional information).  Default, 
+#' \code{@@rm_nchar_words} uses the \code{rm_nchar_words} regex from the regular 
+#' expression dictionary from the \code{dictionary} argument.
 #' @param replacement Replacement for matched \code{pattern}.
 #' @param extract logical.  If \code{TRUE} the n letter words are extracted into a 
-#' list of vectors.  Default, \code{@@rm_nchar_words} uses the 
-#' \code{rm_nchar_words} regex from the regular expression dictionary from 
-#' the \code{dictionary} argument.
+#' list of vectors.  
 #' @param dictionary A dictionary of canned regular expressions to search within 
 #' if \code{pattern} begins with \code{"@@rm_"}.
 #' @param \dots Other arguments passed to \code{\link[base]{gsub}}.
@@ -26,7 +26,7 @@
 #' in the character count.  This behavior can be altered (to include apostrophes
 #' in the character count) by using a secondary regular expression from the 
 #' \code{\link[qdapRegex]{regex_usa}} data (or other dictionary) via 
-#' (\code{qpattern = "@@rm_nchar_words2"}). See \bold{Examples} for example
+#' (\code{pattern = "@@rm_nchar_words2"}). See \bold{Examples} for example
 #' usage. 
 #' @export
 #' @author \href{http://stackoverflow.com/}{stackoverflow's} CharlieB and Tyler Rinker <tyler.rinker@@gmail.com>. 
