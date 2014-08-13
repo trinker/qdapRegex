@@ -62,8 +62,8 @@ to: {, [, (, < or all four types.</dd>
       <dt>replacement</dt>
       <dd>Replacement for matched <code>pattern</code>.</dd>
       <dt>extract</dt>
-      <dd>logical.  If <code>TRUE</code> the dollars are extracted into a
-list of vectors.</dd>
+      <dd>logical.  If <code>TRUE</code> the bracketed text is extracted into
+a list of vectors.</dd>
       <dt>include.bracket</dt>
       <dd>logical.  If <code>TRUE</code> and <code>extract = TRUE</code> returns
 the brackets and the bracketed text.</dd>
@@ -122,8 +122,10 @@ examp
 </div>
 <div class='input'>rm_bracket(examp$text, pattern = &quot;curly&quot;)
 </div>
-<div class='output'>[1] &quot;I love chicken [unintelligible]!&quot;                &quot;Me too! (laughter) It&#39;s so good. [interrupting]&quot;
-[3] &quot;Yep it&#39;s awesome.&quot;                               &quot;Agreed.&quot;                                        
+<div class='output'>[1] &quot;I love chicken [unintelligible]!&quot;               
+[2] &quot;Me too! (laughter) It&#39;s so good. [interrupting]&quot;
+[3] &quot;Yep it&#39;s awesome.&quot;                              
+[4] &quot;Agreed.&quot;                                        
 </div>
 <div class='input'>rm_bracket(examp$text, pattern = c(&quot;square&quot;, &quot;round&quot;))
 </div>
@@ -240,6 +242,10 @@ $all3
 $all4
 [1] &quot;{is so much fun}&quot;
 
+</div>
+<div class='input'>## &lt;strong&gt;Not run&lt;/strong&gt;: 
+# qdap::paste2(rm_bracket(examp$tex, pattern=&quot;curly&quot;, extract=TRUE))
+# ## &lt;strong&gt;End(Not run)&lt;/strong&gt;
 </div></pre>
   </div>
   <div class="span4">
@@ -252,7 +258,8 @@ $all4
       
     <h2>See also</h2>
     
-<code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code>
+<code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code>,
+<code>rm_between</code>
 
     
     <h2>Author</h2>

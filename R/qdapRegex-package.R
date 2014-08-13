@@ -1,10 +1,16 @@
 #' qdapRegex: Regular expression removal/extraction/replacement tools for the \pkg{qdap} package
 #'
-#' This package is a collection of regex tools associated with the
+#' This package is a collection of  regular expression tools associated with the
 #' \pkg{qdap} package that may be useful outside of the context of discourse
 #' analysis.  Tools include removal/extraction/replacement of abbreviations, 
 #' dates, dollar amounts, email addresses, hash tags, numbers, percentages, 
 #' person tags, phone numbers, times, and zip codes.
+#' 
+#' The \pkg{qdapRegex} package does not aim to compete with string manipulation 
+#' packages such as \pkg{stringr} or \pkg{stringi} but is meant to provide 
+#' access to canned, common regular expression patterns that can be used within 
+#' \pkg{qdapRegex}, with \pkg{R}'s on regular expression functions, or add on
+#' string manipulation packages.
 #'
 #' @docType package
 #' @name qdapRegex
@@ -67,7 +73,7 @@ NULL
 #' 
 #' Regexes from this data set can be added to the \code{pattern} argument of any 
 #' \code{rm_XXX} function via a double sign (@@@@) followed by a regex name from
-#' this data set (e.g., \code{pattern = "@@after_the"}) provided the regular 
+#' this data set (e.g., \code{pattern = "@@@@after_the"}) provided the regular 
 #' expression does not contain non-regex such as \code{\link[base]{sprintf}} 
 #' character string \code{\%s}.
 #' @usage data(regex_supplement) 

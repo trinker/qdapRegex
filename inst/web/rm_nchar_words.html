@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>rm_nchar_words. qdapRegex 0.0.1</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="
+&lt;a href = 'http://stackoverflow.com/'&gt;stackoverflow's&lt;/a&gt; CharlieB and Tyler Rinker &lt;tyler.rinker@gmail.com&gt;.
+">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">qdapRegex 0.0.1</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Remove/Replace/Extract N Letter Words</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><div>rm_nchar_words(text.var, n, trim&nbsp;=&nbsp;TRUE, clean&nbsp;=&nbsp;TRUE, pattern&nbsp;=&nbsp;"@rm_nchar_words", replacement&nbsp;=&nbsp;"", extract&nbsp;=&nbsp;FALSE, dictionary&nbsp;=&nbsp;getOption("regex.library"), ...)</div></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>text.var</dt>
+      <dd>The text variable.</dd>
+      <dt>n</dt>
+      <dd>The number of letters counted in the word.</dd>
+      <dt>trim</dt>
+      <dd>logical.  If <code>TRUE</code> removes leading and trailing white
+spaces.</dd>
+      <dt>clean</dt>
+      <dd>trim logical.  If <code>TRUE</code> extra white spaces and escaped
+character will be removed.</dd>
+      <dt>pattern</dt>
+      <dd>A character string containing a regular expression (or
+character string for <code>fixed = TRUE</code>) to be matched in the given
+character vector (see <b>Details</b> for additional information).  Default,
+<code>@rm_nchar_words</code> uses the <code>rm_nchar_words</code> regex from the regular
+expression dictionary from the <code>dictionary</code> argument.</dd>
+      <dt>replacement</dt>
+      <dd>Replacement for matched <code>pattern</code>.</dd>
+      <dt>extract</dt>
+      <dd>logical.  If <code>TRUE</code> the n letter words are extracted into a
+list of vectors.</dd>
+      <dt>dictionary</dt>
+      <dd>A dictionary of canned regular expressions to search within
+if <code>pattern</code> begins with <code>"@rm_"</code>.</dd>
+      <dt>...</dt>
+      <dd>Other arguments passed to <code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code>.</dd>
+    </dl>
+    
+    <div class="Remove/Replace/Extract N Letter Words">
+      <h2>Remove/Replace/Extract N Letter Words</h2>
+      
+    </div>
+
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>Returns a character string with n letter words removed.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>Remove/replace/extract words that are n letters in length (apostrophes not
+counted).</p>
+  
+    </div>
+
+    <div class="Details">
+      <h2>Details</h2>
+      
+      <p>The default regular expression used by <code>rm_nchar_words</code> counts
+letter length, not characters.  This means that apostrophes are not include
+in the character count.  This behavior can be altered (to include apostrophes
+in the character count) by using a secondary regular expression from the
+<code>regex_usa</code> data (or other dictionary) via
+(<code>pattern = "@rm_nchar_words2"</code>). See <b>Examples</b> for example
+usage.</p>
+  
+    </div>
+
+    <div class="References">
+      <h2>References</h2>
+      
+      <p>The n letter/character word regular expression was taken from:
+<a href = 'http://stackoverflow.com/a/25243885/1000343'>http://stackoverflow.com/a/25243885/1000343</a></p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'>x &lt;- &quot;This Jon&#39;s dogs&#39; &#39;bout there in word Mike&#39;s re&#39;y.&quot;
+rm_nchar_words(x, 4)
+</div>
+<div class='output'>[1] &quot;there in Mike&#39;s re&#39;y.&quot;
+</div>
+<div class='input'>rm_nchar_words(x, 4, extract=TRUE)
+</div>
+<div class='output'>[[1]]
+[1] &quot;This&quot;  &quot;Jon&#39;s&quot; &quot;dogs&#39;&quot; &quot;&#39;bout&quot; &quot;word&quot; 
+
+</div>
+<div class='input'>
+## Count characters (apostrophes and letters)
+rm_nchar_words(x, 5, extract=TRUE, pattern = &quot;@rm_nchar_words2&quot;)
+</div>
+<div class='output'>[[1]]
+[1] &quot;Jon&#39;s&quot; &quot;dogs&#39;&quot; &quot;&#39;bout&quot; &quot;there&quot;
+
+</div>
+<div class='input'>
+## &lt;strong&gt;Not run&lt;/strong&gt;: 
+# ## Larger example
+# library(qdap)
+# rm_nchar_words(hamlet$dialogue, 5, extract=TRUE)
+# ## &lt;strong&gt;End(Not run)&lt;/strong&gt;
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>rm_nchar_words</li>
+    </ul>
+    <ul>
+      <li>words</li>
+    </ul> -->
+      
+    <h2>See also</h2>
+    
+<code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code>
+
+    
+    <h2>Author</h2>
+    
+<a href = 'http://stackoverflow.com/'>stackoverflow's</a> CharlieB and Tyler Rinker <tyler.rinker@gmail.com>.
+
+    
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

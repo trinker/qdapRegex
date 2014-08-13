@@ -97,25 +97,22 @@ library(highlight);library(staticdocs);
 #STEP 1: create static doc  
 #right now examples are FALSE in the future this will be true
 #in the future qdap2 will be the go to source
-build_site(pkg="C:/Users/trinker/GitHub/qdapRegex")
+build_site(pkg="C:/Users/trinker/GitHub/qdapRegex", launch = FALSE)
 
 #STEP 2: reshape index
 path <- "inst/web"
 path2 <- file.path(path, "/index.html")
 rdme <- "C:/Users/trinker/GitHub/qdapRegex/inst/extra_statdoc/readme.R"
-library(acc.roxygen2); #library(qdap);
-extras <- qcv("hash_look", "%l%", "%l+%", "sec2hms", "%hl%", 
-	"%hl+%",  "%lc%", "%lc+%")
-
-drops <- qcv(lookup.character, lookup.data.frame, lookup.list, lookup.matrix, 
-	hash_e, lookup.factor, lookup.numeric,v_outer.data.frame, v_outer.list, v_outer.matrix)
-
-expand_statdoc(path2, to.icon = extras, readme = rdme, drop=drops)
+library(acc.roxygen2); library(qdap);
+## extras <- qcv("")
+## drops <- qcv()
+## expand_statdoc(path2,  readme = rdme)
+readme_statdoc(path2, rdme, path2)
 
 x <- readLines(path2)
 x[grepl("<h2>Authors</h2>", x)] <- paste(c("<h2>Author</h2>", 
-    rep("<h2>Contributor</h2>", 3)),
-    c("Tyler W. Rinker", "Dason Kurkiewicz", "Bryan Goodrich", "Kirill M&uuml;ller"))
+    rep("<h2>Contributor</h2>", 1)),
+    c("Tyler W. Rinker", "Stackoverflow's hwnd"))
 
 cat(paste(x, collapse="\n"), file=path2)
 

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>rm_. qdapRegex 0.0.1</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">qdapRegex 0.0.1</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Remove/Replace/Extract Function Generator</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><div>rm_(trim&nbsp;=&nbsp;TRUE, clean&nbsp;=&nbsp;TRUE, pattern, replacement&nbsp;=&nbsp;"", extract&nbsp;=&nbsp;FALSE, dictionary&nbsp;=&nbsp;getOption("regex.library"), ...)</div></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>trim</dt>
+      <dd>logical.  If <code>TRUE</code> removes leading and trailing white
+spaces.</dd>
+      <dt>clean</dt>
+      <dd>trim logical.  If <code>TRUE</code> extra white spaces and escaped
+character will be removed.</dd>
+      <dt>pattern</dt>
+      <dd>A character string containing a regular expression (or
+character string for <code>fixed = TRUE</code>) to be matched in the given
+character vector.</dd>
+      <dt>replacement</dt>
+      <dd>Replacement for matched <code>pattern</code>.</dd>
+      <dt>extract</dt>
+      <dd>logical.  If <code>TRUE</code> strings are extracted into a list of
+vectors.</dd>
+      <dt>dictionary</dt>
+      <dd>A dictionary of canned regular expressions to search within
+if <code>pattern</code> begins with <code>"@rm_"</code>.</dd>
+      <dt>...</dt>
+      <dd>A default <code>text.var</code> or other arguments passed to
+<code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code>.</dd>
+    </dl>
+    
+    <div class="Remove/Replace/Extract Function Generator">
+      <h2>Remove/Replace/Extract Function Generator</h2>
+      
+    </div>
+
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>Returns a function that operates typical of other <span class = "pkg">qdapRegex</span>
+<code>rm_XXX</code> functions but with user defined defaults.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>Remove/replace/extract substrings from a string.  A function generator used
+to make regex functions that operate typical of other <span class = "pkg">qdapRegex</span>
+<code>rm_XXX</code> functions.</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'>rm_digit &lt;- rm_(pattern=&quot;[0-9]&quot;)
+rm_digit(&quot;  I 12 li34ke ice56cream78.  &quot;)
+</div>
+<div class='output'>[1] &quot;I like icecream.&quot;
+</div>
+<div class='input'>
+rm_lead &lt;- rm_(pattern=&quot;^\\s+&quot;, trim = FALSE, clean = FALSE)
+rm_lead(&quot;  I 12 li34ke ice56cream78.    &quot;)
+</div>
+<div class='output'>[1] &quot;I 12 li34ke ice56cream78.    &quot;
+</div>
+<div class='input'>
+rm_all_except_letters &lt;- rm_(pattern=&quot;[^ a-zA-Z]&quot;)
+rm_all_except_letters(&quot;  I 12 li34ke ice56cream78.    &quot;)
+</div>
+<div class='output'>[1] &quot;I like icecream&quot;
+</div>
+<div class='input'>
+extract_consec_num &lt;- rm_(pattern=&quot;[0-9]+&quot;, extract = TRUE)
+extract_consec_num(&quot;  I 12 li34ke ice56cream78.  &quot;)
+</div>
+<div class='output'>[[1]]
+[1] &quot;12&quot; &quot;34&quot; &quot;56&quot; &quot;78&quot;
+
+</div>
+<div class='input'>
+## Using the supplemental dictionary dataset:
+x &lt;- &quot;A man lives there!  The dog likes it. I want the map. I want an apple.&quot;
+
+extract_word_after_the &lt;- rm_(extract=TRUE, pattern=&quot;@after_the&quot;)
+extract_word_after_a &lt;- rm_(extract=TRUE, pattern=&quot;@after_a&quot;)
+extract_word_after_the(x)
+</div>
+<div class='output'>[[1]]
+character(0)
+
+</div>
+<div class='input'>extract_word_after_a(x)
+</div>
+<div class='output'>[[1]]
+character(0)
+
+</div>
+<div class='input'>
+f &lt;- rm_(pattern=&quot;@time_12_hours&quot;)
+f(&quot;I will go at 12:35 pm&quot;)
+</div>
+<div class='output'>[1] &quot;I will go at 12:35 pm&quot;
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>rm_</li>
+    </ul>
+    <ul>
+      
+    </ul> -->
+      
+    <h2>See also</h2>
+    
+<code><a href='http://www.inside-r.org/packages/cran/pryr/docs/partial'>partial</a></code>
+
+        
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

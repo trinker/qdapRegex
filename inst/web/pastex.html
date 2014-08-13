@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>pastex. qdapRegex 0.0.1</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">qdapRegex 0.0.1</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Paste Regular Expressions</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><div>pastex(..., dictionary&nbsp;=&nbsp;getOption("regex.library"))</div></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>...</dt>
+      <dd>Ray regular expressions to paste together or a named expression
+from the default regular expression dictionary prefixed with single at
+(<code>@</code>) (e.g., <code>"@rm_hash"</code>) or a regular expression from
+<code>regex_supplement</code> dictionary prefixed with double at
+(<code>@@</code>) (e.g., <code>"@@time_12_hours"</code>).</dd>
+      <dt>dictionary</dt>
+      <dd>A dictionary of canned regular expressions to search within.</dd>
+    </dl>
+    
+    <div class="Paste Regular Expressions">
+      <h2>Paste Regular Expressions</h2>
+      
+    </div>
+
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>Returns a single string of regular expressions pasted together with pipe(s) <code>|</code></p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>A wrapper for <code>paste(collapse="|")</code> that also searches the default and
+supplemental (<code>regex_supplement</code>) dictionaries for
+regular expressions before pasting them together with a pipe <code>|</code> separator.</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'>x &lt;- c(&quot;There is $5.50 for me.&quot;, &quot;that&#39;s 45.6% of the pizza&quot;,
+    &quot;14% is $26 or $25.99&quot;, &quot;It&#39;s 12:30 pm to 4:00 am&quot;)
+
+pastex(&quot;@rm_percent&quot;, &quot;@rm_dollar&quot;)
+</div>
+<div class='output'>[1] &quot;\\(?[0-9.]+\\)?%|\\$\\(?[0-9.]+\\)?&quot;
+</div>
+<div class='input'>pastex(&quot;@rm_percent&quot;, &quot;@@time_12_hours&quot;)
+</div>
+<div class='output'>[1] &quot;\\(?[0-9.]+\\)?%|(1[012]|[1-9]):[0-5][0-9](\\s?)(am|pm)&quot;
+</div>
+<div class='input'>
+rm_dollar(x, extract=TRUE, pattern=pastex(&quot;@rm_percent&quot;, &quot;@rm_dollar&quot;))
+</div>
+<div class='output'>[[1]]
+[1] &quot;$5.50&quot;
+
+[[2]]
+[1] &quot;45.6%&quot;
+
+[[3]]
+[1] &quot;14%&quot;    &quot;$26&quot;    &quot;$25.99&quot;
+
+[[4]]
+character(0)
+
+</div>
+<div class='input'>rm_dollar(x, extract=TRUE, pattern=pastex(&quot;@rm_dollar&quot;, &quot;@rm_percent&quot;, &quot;@@time_12_hours&quot;))
+</div>
+<div class='output'>[[1]]
+[1] &quot;$5.50&quot;
+
+[[2]]
+[1] &quot;45.6%&quot;
+
+[[3]]
+[1] &quot;14%&quot;    &quot;$26&quot;    &quot;$25.99&quot;
+
+[[4]]
+[1] &quot;12:30 pm&quot; &quot;4:00 am&quot; 
+
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>pastex</li>
+    </ul>
+    <ul>
+      <li>paste</li><li>regex</li>
+    </ul> -->
+      
+    <h2>See also</h2>
+    
+<code><a href='http://www.inside-r.org/packages/cran/base/docs/paste'>paste</a></code>
+
+        
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

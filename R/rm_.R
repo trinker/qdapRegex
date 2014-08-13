@@ -1,7 +1,7 @@
 #' Remove/Replace/Extract Function Generator
 #' 
 #' Remove/replace/extract substrings from a string.  A function generator used 
-#' to make regex functions that operates typical of other \pkg{qdapRegex} 
+#' to make regex functions that operate typical of other \pkg{qdapRegex} 
 #' \code{rm_XXX} functions.
 #' 
 #' @param trim logical.  If \code{TRUE} removes leading and trailing white 

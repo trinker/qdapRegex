@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>validate. qdapRegex 0.0.1</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">qdapRegex 0.0.1</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Regex Validation Function Generator</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><div>validate(pattern, single&nbsp;=&nbsp;TRUE, trim&nbsp;=&nbsp;FALSE, clean&nbsp;=&nbsp;FALSE, dictionary&nbsp;=&nbsp;getOption("regex.library"))</div></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>pattern</dt>
+      <dd>A character string containing a regular expression (or
+character string for <code>fixed = TRUE</code>) to be matched in the given
+character vector.</dd>
+      <dt>single</dt>
+      <dd>logical.  If <code>TRUE</code> only returns true if the output string
+is of length one.  If <code>FALSE</code> multiple strings and multiple outputs are
+accepted.</dd>
+      <dt>trim</dt>
+      <dd>logical.  If <code>TRUE</code> removes leading and trailing white
+spaces.</dd>
+      <dt>clean</dt>
+      <dd>trim logical.  If <code>TRUE</code> extra white spaces and escaped
+character will be removed.</dd>
+      <dt>dictionary</dt>
+      <dd>A dictionary of canned regular expressions to search within
+if <code>pattern</code> begins with <code>"@rm_"</code>.</dd>
+    </dl>
+    
+    <div class="Regex Validation Function Generator">
+      <h2>Regex Validation Function Generator</h2>
+      
+    </div>
+
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>Returns a function that operates typical of other <span class = "pkg">qdapRegex</span>
+<code>rm_XXX</code> functions but with user defined defaults.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>Generate function to validate regular expressions.</p>
+  
+    </div>
+
+    <div class="Warning">
+      <h2>Warning</h2>
+      
+      <p><code>validate</code> uses <span class = "pkg">qdapRegex</span>'s built in regular
+expressions.  As this patterns are used for text analysis they tend to be
+flexible and thus liberal.  The user may wish to define more conservative
+validation regular expressions and supply to <code>pattern</code>.</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'>## Single element email
+valid_email &lt;- validate(&quot;@rm_email&quot;)
+valid_email(c(&quot;tyler.rinker@gmail.com&quot;, &quot;@trinker&quot;))
+</div>
+<div class='output'>[1] FALSE
+</div>
+<div class='input'>
+## Multiple elements
+valid_email_1 &lt;- validate(&quot;@rm_email&quot;, single=FALSE)
+valid_email_1(c(&quot;tyler.rinker@gmail.com&quot;, &quot;@trinker&quot;))
+</div>
+<div class='output'>[1]  TRUE FALSE
+</div>
+<div class='input'>
+## single element address
+valid_address &lt;- validate(&quot;@rm_city_state_zip&quot;)
+valid_address(&quot;Buffalo, NY 14217&quot;)
+</div>
+<div class='output'>[1] TRUE
+</div>
+<div class='input'>valid_address(&quot;buffalo,NY14217&quot;)
+</div>
+<div class='output'>[1] TRUE
+</div>
+<div class='input'>valid_address(&quot;buffalo NY 14217&quot;)
+</div>
+<div class='output'>[1] FALSE
+</div>
+<div class='input'>
+valid_address2 &lt;- validate(paste0(&quot;(\\s*([A-Z][\\w-]*)+),&quot;,
+    &quot;\\s([A-Z]{2})\\s(?&lt;!\\d)\\d{5}(?:[ -]\\d{4})?\\b&quot;))
+valid_address2(&quot;Buffalo, NY 14217&quot;)
+</div>
+<div class='output'>[1] TRUE
+</div>
+<div class='input'>valid_address2(&quot;buffalo, NY 14217&quot;)
+</div>
+<div class='output'>[1] FALSE
+</div>
+<div class='input'>valid_address2(&quot;buffalo,NY14217&quot;)
+</div>
+<div class='output'>[1] FALSE
+</div>
+<div class='input'>valid_address2(&quot;buffalo NY 14217&quot;)
+</div>
+<div class='output'>[1] FALSE
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>validate</li>
+    </ul>
+    <ul>
+      
+    </ul> -->
+      
+        
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

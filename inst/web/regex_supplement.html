@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>regex_supplement. qdapRegex 0.0.1</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">qdapRegex 0.0.1</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Supplemental Canned Regular Expressions</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><div>data(regex_supplement)</div></pre>
+        
+    <div class="Supplemental Canned Regular Expressions">
+      <h2>Supplemental Canned Regular Expressions</h2>
+      
+    </div>
+
+    <div class="Format">
+      <h2>Format</h2>
+      
+      <p>A list with 7 elements</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>A dataset containing a list of supplemental, canned regular expressions.</p>
+  
+    </div>
+
+    <div class="Details">
+      <h2>Details</h2>
+      
+      <p>The following canned regular expressions are included:
+<dl>
+<dt>after_a</dt><dd>single word after the word "a"</dd>
+<dt>after_the</dt><dd>single word after the word "the"</dd>
+<dt>after_</dt><dd>find sing word after ? word (? = user defined); note contains <code>"%s"</code> that is replaced by <code><a href='http://www.inside-r.org/packages/cran/base/docs/sprintf'>sprintf</a></code> and is not a valid regex on its own</dd>
+<dt>before_</dt><dd>find sing word before ? word (? = user defined); note contains <code>"%s"</code> that is replaced by <code><a href='http://www.inside-r.org/packages/cran/base/docs/sprintf'>sprintf</a></code> and is not a valid regex on its own</dd>
+<dt>hexadecimal</dt><dd>substring beginning with hash (#) followed by either 3 or 6 select characters (a-f, A-F, and 0-9)</dd>
+<dt>ip_address</dt><dd>substring of four chunks of 1-3 consecutive digits separated with dots (.)</dd>
+<dt>time_12_hours</dt><dd>substring of valid hours (1-12) followed by a colon (:) followed by valid minutes (0-60), followed by an optional space and the character chunk <em>am</em> or <em>pm</em></dd>
+</dl></p>
+  
+      <p>Regexes from this data set can be added to the <code>pattern</code> argument of any
+<code>rm_XXX</code> function via a double sign (@@) followed by a regex name from
+this data set (e.g., <code>pattern = "@@after_the"</code>) provided the regular
+expression does not contain non-regex such as <code><a href='http://www.inside-r.org/packages/cran/base/docs/sprintf'>sprintf</a></code>
+character string <code>%s</code>.</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'>time &lt;- rm_(pattern=&quot;@time_12_hours&quot;)
+time(&quot;I will go at 12:35 pm&quot;)
+</div>
+<div class='output'>[1] &quot;I will go at 12:35 pm&quot;
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>regex_supplement</li>
+    </ul>
+    <ul>
+      <li>datasets</li>
+    </ul> -->
+      
+        
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

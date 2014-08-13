@@ -24,7 +24,7 @@ The following canned regular expressions are included:
 
 Regexes from this data set can be added to the \code{pattern} argument of any
 \code{rm_XXX} function via a double sign (@@) followed by a regex name from
-this data set (e.g., \code{pattern = "@after_the"}) provided the regular
+this data set (e.g., \code{pattern = "@@after_the"}) provided the regular
 expression does not contain non-regex such as \code{\link[base]{sprintf}}
 character string \code{\%s}.
 }

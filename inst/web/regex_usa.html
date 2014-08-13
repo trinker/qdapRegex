@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>regex_usa. qdapRegex 0.0.1</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">qdapRegex 0.0.1</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Canned Regular Expressions (United States of America)</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><div>data(regex_usa)</div></pre>
+        
+    <div class="Canned Regular Expressions (United States of America)">
+      <h2>Canned Regular Expressions (United States of America)</h2>
+      
+    </div>
+
+    <div class="Format">
+      <h2>Format</h2>
+      
+      <p>A list with 21 elements</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>A dataset containing a list U.S. specific, canned regular expressions for use
+in various functions within the <span class = "pkg">qdapRegex</span> package.</p>
+  
+    </div>
+
+    <div class="Details">
+      <h2>Details</h2>
+      
+      <p>The following canned regular expressions are included:
+<dl>
+<dt>rm_abbreviation</dt><dd>abbreviations containing single lower case or capital letter followed by a period and then an optional space (this must be repeated 2 or more times)</dd>
+<dt>rm_caps</dt><dd>words containing 2 or more consecutive upper case letters and no lower case</dd>
+<dt>rm_city_state</dt><dd>substring with <em>city</em> (single lower case word or multiple consecutive capitalized words before a comma and state) & <em>state</em> (2 consecutive capital letters)</dd>
+<dt>rm_city_state_zip</dt><dd>substring with <em>city</em> (single lower case word or multiple consecutive capitalized words before a comma and state) & <em>state</em> (2 consecutive capital letters) & <em>zip code</em> (exactly 5 or 5+4 consecutive digits)</dd>
+<dt>rm_date</dt><dd>date in the form of 2 digit month, 2 digit day, and 2 or 4 digit year.  Separator between month, day, and year may be dot (.), slash (/), or dash (-)</dd>
+<dt>rm_date2</dt><dd>date in the form of 3-9 letters followed by one or more spaces, 2 digits, a comma(,), one or more spaces, and 4 digits</dd>
+<dt>rm_date3</dt><dd>dates in the form of both <code>rm_date</code> and <code>rm_date2</code></dd>
+<dt>rm_dollar</dt><dd>substring with dollar sign ($) followed by (1) just dollars (no decimal), (2) dollars and cents (whole number and decimal), or (3) just cents (decimal value)</dd>
+<dt>rm_email</dt><dd>substring with (1) alphanumeric characters or dash (-), plus (+), or underscore (_) (<em>This may be repeated</em>) (2) followed by at (@), followed by the same regex sequence as before the at (@), and ending with dot (.) and 2-14 digits</dd>
+<dt>rm_emoticon</dt><dd>common emoticons (logic is complicated to explain in words) using ">?[:;=8XxB]{1}[-~+o^]?[|\")(&gt;DO>{pP3/]+|</?3|XD+|D:<" regex pattern; general pattern is optional hat character, followed by eyes character, followed by optional nose character, and ending with a mouth character</dd>
+<dt>rm_hash</dt><dd>substring that begins with a hash (#) followed by a word</dd>
+<dt>rm_nchar_words</dt><dd>substring of letters (that may contain apostrophes) n letters long (apostrophe not counted in length); note contains <code>"%s"</code> that is replaced by <code><a href='http://www.inside-r.org/packages/cran/base/docs/sprintf'>sprintf</a></code> and is not a valid regex on its own</dd>
+<dt>rm_nchar_words2</dt><dd>substring of letters (that may contain apostrophes) n letters long (apostrophe counted in length); note contains <code>"%s"</code> that is replaced by <code><a href='http://www.inside-r.org/packages/cran/base/docs/sprintf'>sprintf</a></code> and is not a valid regex on its own</dd>
+<dt>rm_number</dt><dd>substring that may begin with dash (-) for negatives, and is (1) just whole number (no decimal), (2) whole number and decimal, or (3) just decimal value</dd>
+<dt>rm_percent</dt><dd>substring beginning with (1) just whole number (no decimal), (2) whole number and decimal, or (3) just decimal value and followed by a percent sign (%)</dd>
+<dt>rm_phone</dt><dd>phone numbers in the form of optional country code, valid 3 digit prefix, and 7 digits (may contain hyphens and parenthesis); logic is complex to explain (see <a href = 'http://stackoverflow.com/a/21008254/1000343'>http://stackoverflow.com/a/21008254/1000343</a> for more)</dd>
+<dt>rm_tag</dt><dd>substring that begins with an at (@) followed by a word</dd>
+<dt>rm_title_name</dt><dd>substring beginning with title (Mrs., Mr., Ms., Dr.) that is case independent or full title (Miss, Mizz, mizz) followed by a single lower case word or multiple capitalized words</dd>
+<dt>rm_time</dt><dd>substring that (1) must begin with 0-2 digits, (2) must be followed by a single colon (:), (3) optionally may be followed by either a colon (:) or a dot (.), (4) optionally may be followed by 1-infinite digits (if previous condition is true)</dd>
+<dt>rm_url</dt><dd>substring beginning with <em>http</em> or <em>www.</em> and ending on a space or end of string (whichever comes first); note that this regex is simple and may not cover all valid urls or may include invalid urls</dd>
+<dt>rm_zip</dt><dd>substring of 5 digits optionally followed by a dash and 4 more digits</dd>
+</dl></p>
+  
+      <p></p>
+  
+    </div>
+      </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>regex_usa</li>
+    </ul>
+    <ul>
+      <li>datasets</li>
+    </ul> -->
+      
+        
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

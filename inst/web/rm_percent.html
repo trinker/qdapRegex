@@ -40,7 +40,7 @@
 <div class="row">
   <div class="span8">
     <h2>Usage</h2>
-    <pre><div>rm_percent(text.var, trim&nbsp;=&nbsp;TRUE, clean&nbsp;=&nbsp;TRUE, pattern&nbsp;=&nbsp;"\\(?[0-9.]+\\)?%", replacement&nbsp;=&nbsp;"", extract&nbsp;=&nbsp;FALSE, ...)</div></pre>
+    <pre><div>rm_percent(text.var, trim&nbsp;=&nbsp;TRUE, clean&nbsp;=&nbsp;TRUE, pattern&nbsp;=&nbsp;"@rm_percent", replacement&nbsp;=&nbsp;"", extract&nbsp;=&nbsp;FALSE, dictionary&nbsp;=&nbsp;getOption("regex.library"), ...)</div></pre>
     
     <h2>Arguments</h2>
     <dl>
@@ -55,12 +55,17 @@ character will be removed.</dd>
       <dt>pattern</dt>
       <dd>A character string containing a regular expression (or
 character string for <code>fixed = TRUE</code>) to be matched in the given
-character vector.</dd>
+character vector.  Default, <code>@rm_percent</code> uses the
+<code>rm_percent</code> regex from the regular expression dictionary from
+the <code>dictionary</code> argument.</dd>
       <dt>replacement</dt>
       <dd>Replacement for matched <code>pattern</code>.</dd>
       <dt>extract</dt>
       <dd>logical.  If <code>TRUE</code> the percentages are extracted into a
 list of vectors.</dd>
+      <dt>dictionary</dt>
+      <dd>A dictionary of canned regular expressions to search within
+if <code>pattern</code> begins with <code>"@rm_"</code>.</dd>
       <dt>...</dt>
       <dd>Other arguments passed to <code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code>.</dd>
     </dl>

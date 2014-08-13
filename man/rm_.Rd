@@ -34,7 +34,7 @@ Returns a function that operates typical of other \pkg{qdapRegex}
 }
 \description{
 Remove/replace/extract substrings from a string.  A function generator used
-to make regex functions that operates typical of other \pkg{qdapRegex}
+to make regex functions that operate typical of other \pkg{qdapRegex}
 \code{rm_XXX} functions.
 }
 \examples{
