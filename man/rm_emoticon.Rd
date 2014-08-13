@@ -39,7 +39,7 @@ Returns a character string with emoticons removed.
 Remove/replace/extract common emoticons from a string.
 }
 \examples{
-x <- c("are :-)) it 8-D he XD on =-D they :D of :-) is :> for :o) that :]",
+x <- c("are :-)) it 8-D he XD on =-D they :D of :-) is :> for :o) that :-/",
   "as :-D I xD with :^) a =D to =) the 8D and :3 in =3 you 8) his B^D was")
 
 rm_emoticon(x)

@@ -13,7 +13,7 @@ NULL
 
 #' Canned Regular Expressions (United States of America)
 #' 
-#' A dataset containing a list U.s. specific, canned regular expressions for use
+#' A dataset containing a list U.S. specific, canned regular expressions for use
 #' in various functions within the \pkg{qdapRegex} package.
 #' 
 #' @docType data 

@@ -8,7 +8,7 @@
 data(regex_usa)
 }
 \description{
-A dataset containing a list U.s. specific, canned regular expressions for use
+A dataset containing a list U.S. specific, canned regular expressions for use
 in various functions within the \pkg{qdapRegex} package.
 }
 \keyword{datasets}
