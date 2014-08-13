@@ -17,12 +17,35 @@ NULL
 #' in various functions within the \pkg{qdapRegex} package.
 #' 
 #' @docType data 
-#' @keywords datasets 
+#' @keywords datasets
+#' @details The following canned regular expressions are included:
+#' \describe{
+#'   \item{rm_abbreviation}{abbreviations containing single lower case or capital letter followed by a period and then an optional space (this must be repeated 2 or more times)}
+#'   \item{rm_caps}{words containing 2 or more consecutive upper case letters and no lower case}
+#'   \item{rm_city_state}{substring with \emph{city} (single lower case word or multiple consecutive capitalized words before a comma and state) & \emph{state} (2 consecutive capital letters)}
+#'   \item{rm_city_state_zip}{substring with \emph{city} (single lower case word or multiple consecutive capitalized words before a comma and state) & \emph{state} (2 consecutive capital letters) & \emph{zip code} (exactly 5 or 5+4 consecutive digits)}
+#'   \item{rm_date}{date in the form of 2 digit month, 2 digit day, and 2 or 4 digit year.  Separator between month, day, and year may be dot (.), slash (/), or dash (-)}
+#'   \item{rm_date2}{date in the form of 3-9 letters followed by one or more spaces, 2 digits, a comma(,), one or more spaces, and 4 digits}
+#'   \item{rm_date3}{dates in the form of both \code{rm_date} and \code{rm_date2}}
+#'   \item{rm_dollar}{substring with dollar sign ($) followed by (1) just dollars (no decimal), (2) dollars and cents (whole number and decimal), or (3) just cents (decimal value)}
+#'   \item{rm_email}{substring with (1) alphanumeric characters or dash (-), plus (+), or underscore (_) (\emph{This may be repeated}) (2) followed by at (@@), followed by the same regex sequence as before the at (@@), and ending with dot (.) and 2-14 digits}
+#'   \item{rm_emoticon}{common emoticons (logic is complicated to explain in words) using ">?[:;=8XxB]\{1\}[-~+o^]?[|\\")(&gt;DO>\{pP3/]+|</?3|XD+|D:<" regex pattern; general pattern is optional hat character, followed by eyes character, followed by optional nose character, and ending with a mouth character}
+#'   \item{rm_hash}{substring that begins with a hash (#) followed by a word}
+#'   \item{rm_nchar_words}{substring of letters (that may contain apostrophes) n letters long (apostrophe not counted in length); note contains \code{"\%s"} that is replaced by \code{\link[base]{sprintf}} and is not a valid regex on its own}
+#'   \item{rm_nchar_words2}{substring of letters (that may contain apostrophes) n letters long (apostrophe counted in length); note contains \code{"\%s"} that is replaced by \code{\link[base]{sprintf}} and is not a valid regex on its own}
+#'   \item{rm_number}{substring that may begin with dash (-) for negatives, and is (1) just whole number (no decimal), (2) whole number and decimal, or (3) just decimal value}
+#'   \item{rm_percent}{substring beginning with (1) just whole number (no decimal), (2) whole number and decimal, or (3) just decimal value and followed by a percent sign (\%)}
+#'   \item{rm_phone}{phone numbers in the form of optional country code, valid 3 digit prefix, and 7 digits (may contain hyphens and parenthesis); logic is complex to explain (see \url{http://stackoverflow.com/a/21008254/1000343} for more)}
+#'   \item{rm_tag}{substring that begins with an at (@@) followed by a word}
+#'   \item{rm_title_name}{substring beginning with title (Mrs., Mr., Ms., Dr.) that is case independent or full title (Miss, Mizz, mizz) followed by a single lower case word or multiple capitalized words}
+#'   \item{rm_time}{substring that (1) must begin with 0-2 digits, (2) must be followed by a single colon (:), (3) optionally may be followed by either a colon (:) or a dot (.), (4) optionally may be followed by 1-infinite digits (if previous condition is true)}
+#'   \item{rm_url}{substring beginning with \emph{http} or \emph{www.} and ending on a space or end of string (whichever comes first); note that this regex is simple and may not cover all valid urls or may include invalid urls}
+#'   \item{rm_zip}{substring of 5 digits optionally followed by a dash and 4 more digits} 
+#' }
 #' @name regex_usa 
 #' @usage data(regex_usa) 
 #' @format A list with 21 elements 
 NULL
-
 
 #' Supplemental Canned Regular Expressions
 #' 
@@ -31,7 +54,16 @@ NULL
 #' @docType data 
 #' @keywords datasets 
 #' @name regex_supplement
+#' @details The following canned regular expressions are included:
+#' \describe{
+#'   \item{after_a}{single word after the word "a"}
+#'   \item{after_the}{single word after the word "the"}
+#'   \item{after_}{find sing word after ? word (? = user defined); note contains \code{"\%s"} that is replaced by \code{\link[base]{sprintf}} and is not a valid regex on its own}
+#'   \item{before_}{find sing word before ? word (? = user defined); note contains \code{"\%s"} that is replaced by \code{\link[base]{sprintf}} and is not a valid regex on its own}
+#'   \item{hexadecimal}{substring beginning with hash (#) followed by either 3 or 6 select characters (a-f, A-F, and 0-9)}
+#'   \item{ip_address}{substring of four chunks of 1-3 consecutive digits separated with dots (.)}
+#'   \item{time_12_hours}{substring of valid hours (1-12) followed by a colon (:) followed by valid minutes (0-60), followed by an optional space and the character chunk \emph{am} or \emph{pm}} 
+#' }
 #' @usage data(regex_supplement) 
 #' @format A list with 7 elements 
 NULL
-

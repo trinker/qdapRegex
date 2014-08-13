@@ -42,7 +42,7 @@ regex_supplement <- list(
     before_ = "\\w+?(?= ((%s|%s)\\b))",
     hexadecimal = "#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})",
     ip_address = "\\b\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\b",
-    time_12_hours = "(1[012]|[1-9]):[0-5][0-9](\\s)(am|pm)"
+    time_12_hours = "(1[012]|[1-9]):[0-5][0-9](\\s?)(am|pm)"
 )
 
 #  pack.skel(regex_usa, regex_supplement)

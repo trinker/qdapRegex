@@ -1,6 +1,7 @@
 #' Remove/Replace/Extract N Letter Words
 #' 
-#' Remove/replace/extract words that are n letters in length (apostrophes not counted).
+#' Remove/replace/extract words that are n letters in length (apostrophes not 
+#' counted).
 #' 
 #' @param text.var The text variable.
 #' @param n The number of letters counted in the word.

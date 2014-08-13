@@ -1,7 +1,7 @@
 #' Remove/Replace/Extract All Caps
 #' 
-#' Remove/replace/extract 'all caps' words containing 2 or more characters from 
-#' a string.
+#' Remove/replace/extract 'all caps' words containing 2 or more consecutive 
+#' upper case letters from a string.
 #' 
 #' @param text.var The text variable.
 #' @param trim logical.  If \code{TRUE} removes leading and trailing white 

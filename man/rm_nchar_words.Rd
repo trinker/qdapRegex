@@ -38,7 +38,8 @@ if \code{pattern} begins with \code{"@rm_"}.}
 Returns a character string with n letter words removed.
 }
 \description{
-Remove/replace/extract words that are n letters in length (apostrophes not counted).
+Remove/replace/extract words that are n letters in length (apostrophes not
+counted).
 }
 \details{
 The default regular expression used by \code{rm_nchar_words} counts

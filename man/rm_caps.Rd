@@ -36,8 +36,8 @@ if \code{pattern} begins with \code{"@rm_"}.}
 Returns a character string with "all caps" removed.
 }
 \description{
-Remove/replace/extract 'all caps' words containing 2 or more characters from
-a string.
+Remove/replace/extract 'all caps' words containing 2 or more consecutive
+upper case letters from a string.
 }
 \examples{
 x <- c("UGGG! When I use caps I am YELLING!")

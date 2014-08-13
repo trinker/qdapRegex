@@ -10,5 +10,17 @@ data(regex_supplement)
 \description{
 A dataset containing a list of supplemental, canned regular expressions.
 }
+\details{
+The following canned regular expressions are included:
+\describe{
+  \item{after_a}{single word after the word "a"}
+  \item{after_the}{single word after the word "the"}
+  \item{after_}{find sing word after ? word (? = user defined); note contains \code{"\%s"} that is replaced by \code{\link[base]{sprintf}} and is not a valid regex on its own}
+  \item{before_}{find sing word before ? word (? = user defined); note contains \code{"\%s"} that is replaced by \code{\link[base]{sprintf}} and is not a valid regex on its own}
+  \item{hexadecimal}{substring beginning with hash (#) followed by either 3 or 6 select characters (a-f, A-F, and 0-9)}
+  \item{ip_address}{substring of four chunks of 1-3 consecutive digits separated with dots (.)}
+  \item{time_12_hours}{substring of valid hours (1-12) followed by a colon (:) followed by valid minutes (0-60), followed by an optional space and the character chunk \emph{am} or \emph{pm}}
+}
+}
 \keyword{datasets}
 
