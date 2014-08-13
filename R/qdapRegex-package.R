@@ -63,7 +63,16 @@ NULL
 #'   \item{hexadecimal}{substring beginning with hash (#) followed by either 3 or 6 select characters (a-f, A-F, and 0-9)}
 #'   \item{ip_address}{substring of four chunks of 1-3 consecutive digits separated with dots (.)}
 #'   \item{time_12_hours}{substring of valid hours (1-12) followed by a colon (:) followed by valid minutes (0-60), followed by an optional space and the character chunk \emph{am} or \emph{pm}} 
-#' }
+#' } 
+#' 
+#' Regexes from this data set can be added to the \code{pattern} argument of any 
+#' \code{rm_XXX} function via a double sign (@@@@) followed by a regex name from
+#' this data set (e.g., \code{pattern = "@@after_the"}) provided the regular 
+#' expression does not contain non-regex such as \code{\link[base]{sprintf}} 
+#' character string \code{\%s}.
 #' @usage data(regex_supplement) 
-#' @format A list with 7 elements 
+#' @format A list with 7 elements
+#' @examples 
+#' time <- rm_(pattern="@@time_12_hours")
+#' time("I will go at 12:35 pm")
 NULL

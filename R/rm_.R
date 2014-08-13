@@ -1,7 +1,8 @@
 #' Remove/Replace/Extract Function Generator
 #' 
 #' Remove/replace/extract substrings from a string.  A function generator used 
-#' to make regex functions that operates typical of other \pkg{qdapRegex} \code{rm_XXX} functions.
+#' to make regex functions that operates typical of other \pkg{qdapRegex} 
+#' \code{rm_XXX} functions.
 #' 
 #' @param trim logical.  If \code{TRUE} removes leading and trailing white 
 #' spaces.
@@ -9,7 +10,7 @@
 #' character will be removed.
 #' @param pattern A character string containing a regular expression (or 
 #' character string for \code{fixed = TRUE}) to be matched in the given 
-#' character vector.
+#' character vector.  
 #' @param replacement Replacement for matched \code{pattern}.
 #' @param extract logical.  If \code{TRUE} strings are extracted into a list of 
 #' vectors.
@@ -37,10 +38,13 @@
 #' ## Using the supplemental dictionary dataset:
 #' x <- "A man lives there!  The dog likes it. I want the map. I want an apple."
 #' 
-#' extract_word_after_the <- rm_(extract=TRUE, pattern=regex_supplement[["after_the"]])
-#' extract_word_after_a <- rm_(extract=TRUE, pattern=regex_supplement[["after_a"]])
+#' extract_word_after_the <- rm_(extract=TRUE, pattern="@@after_the")
+#' extract_word_after_a <- rm_(extract=TRUE, pattern="@@after_a")
 #' extract_word_after_the(x)
 #' extract_word_after_a(x)
+#' 
+#' f <- rm_(pattern="@@time_12_hours")
+#' f("I will go at 12:35 pm")
 rm_ <- function(trim = TRUE, clean = TRUE, pattern, replacement = "", 
 	extract = FALSE, dictionary = getOption("regex.library"), ...){
 

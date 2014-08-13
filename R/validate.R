@@ -1,0 +1,59 @@
+#' Regex Validation Function Generator
+#' 
+#' Generate function to validate regular expressions.
+#' 
+#' @param pattern A character string containing a regular expression (or 
+#' character string for \code{fixed = TRUE}) to be matched in the given 
+#' character vector.  
+#' @param single logical.  If \code{TRUE} only returns true if the output string 
+#' is of length one.  If \code{FALSE} multiple strings and multiple outputs are 
+#' accepted.
+#' @param trim logical.  If \code{TRUE} removes leading and trailing white 
+#' spaces.
+#' @param clean trim logical.  If \code{TRUE} extra white spaces and escaped 
+#' character will be removed.
+#' @param dictionary A dictionary of canned regular expressions to search within 
+#' if \code{pattern} begins with \code{"@@rm_"}.
+#' @return Returns a function that operates typical of other \pkg{qdapRegex} 
+#' \code{rm_XXX} functions but with user defined defaults.
+#' @export
+#' @section Warning: \code{validate} uses \pkg{qdapRegex}'s built in regular 
+#' expressions.  As this patterns are used for text analysis they tend to be 
+#' flexible and thus liberal.  The user may wish to define more conservative 
+#' validation regular expressions and supply to \code{pattern}.
+#' @examples
+#' ## Single element email
+#' valid_email <- validate("@@rm_email")
+#' valid_email(c("tyler.rinker@@gmail.com", "@@trinker"))
+#' 
+#' ## Multiple elements
+#' valid_email_1 <- validate("@@rm_email", single=FALSE)
+#' valid_email_1(c("tyler.rinker@@gmail.com", "@@trinker"))
+#' 
+#' ## single element address
+#' valid_address <- validate("@@rm_city_state_zip")
+#' valid_address("Buffalo, NY 14217")
+#' valid_address("buffalo,NY14217")
+#' valid_address("buffalo NY 14217")
+#' 
+#' valid_address2 <- validate(paste0("(\\s*([A-Z][\\w-]*)+),", 
+#'     "\\s([A-Z]{2})\\s(?<!\\d)\\d{5}(?:[ -]\\d{4})?\\b"))
+#' valid_address2("Buffalo, NY 14217")
+#' valid_address2("buffalo, NY 14217")
+#' valid_address2("buffalo,NY14217")
+#' valid_address2("buffalo NY 14217")    
+validate <- function(pattern, single = TRUE, trim = FALSE, clean = FALSE, 
+    dictionary = getOption("regex.library")){
+
+    if(missing(pattern)) warning("Did not supply a default to `pattern`")
+
+    function(text.var) {
+        out <- rm_hash(text.var, trim = trim, clean = clean, 
+            pattern = pattern, replacement = "VALID_REGEX_STRING", 
+            extract = FALSE, dictionary = dictionary)
+
+        ifelse(single, all, c)(out  == "VALID_REGEX_STRING")
+    }
+
+}
+

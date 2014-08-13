@@ -34,7 +34,8 @@ Returns a function that operates typical of other \pkg{qdapRegex}
 }
 \description{
 Remove/replace/extract substrings from a string.  A function generator used
-to make regex functions that operates typical of other \pkg{qdapRegex} \code{rm_XXX} functions.
+to make regex functions that operates typical of other \pkg{qdapRegex}
+\code{rm_XXX} functions.
 }
 \examples{
 rm_digit <- rm_(pattern="[0-9]")
@@ -52,10 +53,13 @@ extract_consec_num("  I 12 li34ke ice56cream78.  ")
 ## Using the supplemental dictionary dataset:
 x <- "A man lives there!  The dog likes it. I want the map. I want an apple."
 
-extract_word_after_the <- rm_(extract=TRUE, pattern=regex_supplement[["after_the"]])
-extract_word_after_a <- rm_(extract=TRUE, pattern=regex_supplement[["after_a"]])
+extract_word_after_the <- rm_(extract=TRUE, pattern="@after_the")
+extract_word_after_a <- rm_(extract=TRUE, pattern="@after_a")
 extract_word_after_the(x)
 extract_word_after_a(x)
+
+f <- rm_(pattern="@time_12_hours")
+f("I will go at 12:35 pm")
 }
 \seealso{
 \code{\link[pryr]{partial}}

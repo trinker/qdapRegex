@@ -97,14 +97,18 @@ rm_default <- function(text.var, trim = TRUE, clean = TRUE, pattern,
 }
 
 ## check if regexes is in dictionary
-reg_check <- function(pattern, dictionary, backup = qdapRegex::regex_usa) {
+reg_check <- function(pattern, dictionary, backup = qdapRegex::regex_usa,
+    backup2 = qdapRegex::regex_supplement) {
 
-	if (is.null(dictionary)) dictionary <- backup
-	
     if (substring(pattern, 1, 4) == "@rm_") {
+    	  if (is.null(dictionary)) dictionary <- backup
         reglook <- dictionary[[substring(pattern, 2)]]
         if (!is.null(reglook)) return(reglook)
     } 
+    if (substring(pattern, 1, 2) == "@@") {
+        reglook <- backup2[[substring(pattern, 3)]]
+        if (!is.null(reglook)) return(reglook)
+    } 	
     pattern
 
 }
