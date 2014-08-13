@@ -120,7 +120,7 @@ cat(paste(x, collapse="\n"), file=path2)
 #STEP 3: move to trinker.guthub
 library(reports)
 file <- "C:/Users/trinker/GitHub/trinker.github.com/"
-incoming <- file.path(file, "qdapRegex")
+incoming <- file.path(file, "qdapRegex_dev")
 delete(incoming)
 file.copy(path, file, TRUE, TRUE)
 file.rename(file.path(file, "web"), incoming)
