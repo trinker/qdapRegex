@@ -20,7 +20,7 @@ NULL
 #' @keywords datasets 
 #' @name regex_usa 
 #' @usage data(regex_usa) 
-#' @format A list with 20 elements 
+#' @format A list with 21 elements 
 NULL
 
 
@@ -32,6 +32,6 @@ NULL
 #' @keywords datasets 
 #' @name regex_supplement
 #' @usage data(regex_supplement) 
-#' @format A list with 5 elements 
+#' @format A list with 7 elements 
 NULL
 
