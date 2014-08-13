@@ -14,9 +14,12 @@ person tags, phone numbers, times, and zip codes.
 }
 \details{
 The \pkg{qdapRegex} package does not aim to compete with string manipulation
-packages such as \pkg{stringr} or \pkg{stringi} but is meant to provide
-access to canned, common regular expression patterns that can be used within
-\pkg{qdapRegex}, with \pkg{R}'s on regular expression functions, or add on
-string manipulation packages.
+packages such as
+\href{http://cran.r-project.org/web/packages/stringr/index.html}{\pkg{stringr}}
+or \href{http://cran.r-project.org/web/packages/stringi/index.html}{\pkg{stringi}}
+but is meant to provide access to canned, common regular expression patterns
+that can be used within \pkg{qdapRegex}, with \pkg{R}'s own regular
+expression functions, or add on string manipulation packages such as
+\code{stringr} and \code{stringi}.
 }
 
