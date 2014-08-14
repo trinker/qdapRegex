@@ -8,7 +8,11 @@
 data(regex_supplement)
 }
 \description{
-A dataset containing a list of supplemental, canned regular expressions.
+A dataset containing a list of supplemental, canned regular expressions.  The
+regular expressions in this data set are considered useful but have not been
+included in a formal function (of the type \code{rm_XXX}).  Users can utilize
+the \code{rm_} function to generate functions that can sub/replace/extract as
+desired.
 }
 \details{
 The following canned regular expressions are included:
