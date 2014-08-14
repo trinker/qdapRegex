@@ -32,8 +32,8 @@ test_that("rm_zip is extracting zip strings",{
       "I like 1234567 dogs"
     )
 
-    x3 <- list(character(0), character(0), "12345", character(0), c("12345-6789", 
-        "12345-6789"), c("12345 6789", "12345 6789"), character(0))    
+    x3 <- list(NA_character_, NA_character_, "12345", NA_character_, c("12345-6789", 
+        "12345-6789"), c("12345 6789", "12345 6789"), NA_character_)
 
     expect_true(identical(rm_zip(x, extract=TRUE), x3))
 })

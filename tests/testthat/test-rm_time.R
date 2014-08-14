@@ -21,7 +21,7 @@ test_that("rm_time is extracting time strings",{
         "At 3:00 we'll meet up and leave by 4:30:20",
         "We'll meet at 6:33.", "He ran it in :22.34")
 
-    x3 <- list(character(0), c("3:00", "4:30:20"), "6:33", ":22.34")
+    x3 <- list(NA_character_, c("3:00", "4:30:20"), "6:33", ":22.34")
 
     expect_true(identical(rm_time(x, extract=TRUE), x3))
 })

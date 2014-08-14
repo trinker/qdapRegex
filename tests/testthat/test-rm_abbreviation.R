@@ -20,8 +20,8 @@ test_that("rm_abbreviation is extracting 'all abbreviation' strings",{
         "She will send it A.S.A.P. (e.g. as soon as you can) said I.",
         "Hello world.", "In the U. S. A.")
     
-    x3 <- list(c("p.m.", "A.n.p."), c("A.S.A.P.", "e.g."), character(0), 
-            "U. S. A.")
+    x3 <- list(c("p.m.", "A.n.p."), c("A.S.A.P.", "e.g."), NA_character_, 
+        "U. S. A.")
 
     expect_true(identical(rm_abbreviation(x, extract=TRUE), x3))
 })

@@ -30,7 +30,7 @@ test_that("rm_phone is extracting phone strings",{
     )
 
     x3 <- list(c("613-213-4567", "5555555555"), "613 213 4567", "(613)2134567", 
-         "1.575.555.5555", "7164347566", character(0)) 
+        "1.575.555.5555", "7164347566", NA_character_)
 
     expect_true(identical(rm_phone(x, extract=TRUE), x3))
 })

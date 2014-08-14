@@ -19,7 +19,7 @@ test_that("rm_date is extracting date strings",{
         "But leaves mismatched: 12.12/2014")
     
     x3 <- list(c("04/12/2014", "04-12-2014", "04.12.2014", "04/12/14"), 
-            character(0))
+        NA_character_)
 
     expect_true(identical(rm_date(x, extract=TRUE), x3))
 })

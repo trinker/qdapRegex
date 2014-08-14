@@ -52,7 +52,7 @@ valid_address("Buffalo, NY 14217")
 valid_address("buffalo,NY14217")
 valid_address("buffalo NY 14217")
 
-valid_address2 <- validate(paste0("(\\\\s*([A-Z][\\\\w-]*)+),",
+valid_address2 <- validate(paste0("(\\\\b([A-Z][\\\\w-]*)+),",
     "\\\\s([A-Z]{2})\\\\s(?<!\\\\d)\\\\d{5}(?:[ -]\\\\d{4})?\\\\b"))
 valid_address2("Buffalo, NY 14217")
 valid_address2("buffalo, NY 14217")

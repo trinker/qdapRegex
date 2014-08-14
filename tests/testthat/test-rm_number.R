@@ -20,8 +20,7 @@ test_that("rm_number is extracting 'all number' strings",{
         "123,456 is alot mor than -.2", 
         "hello world -.q")
     
-    x3 <- list(c("-2", "-4.3", "3.33"), c("123,456", "-.2"), character(0))
-
+    x3 <- list(c("-2", "-4.3", "3.33"), c("123,456", "-.2"), NA_character_)
 
     expect_true(identical(rm_number(x, extract=TRUE), x3))
 })

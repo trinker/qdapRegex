@@ -18,7 +18,7 @@ test_that("rm_dollar is extracting dollar strings",{
     x <- c("There is $5.50 for me.", "that's 45.6% of the pizza",
         "14% is $26 or $25.99")
     
-    x3 <- list("$5.50", character(0), c("$26", "$25.99"))
+    x3 <- list("$5.50", NA_character_, c("$26", "$25.99"))
 
     expect_true(identical(rm_dollar(x, extract=TRUE), x3))
 })

@@ -44,10 +44,9 @@ rm_phone <- function(text.var, trim = !extract, clean = TRUE,
 
     if (extract) {
     	if (!trim) {
-            return(regmatches(text.var, gregexpr(pattern, text.var, perl = TRUE)))
+            return(stringi::stri_extract_all_regex(text.var, pattern))
     	}
-    	return(lapply(regmatches(text.var, gregexpr(pattern, text.var, 
-            perl = TRUE)), Trim))
+    	return(lapply(return(stringi::stri_extract_all_regex(text.var, pattern)), Trim))
     }
 
     out <- gsub(pattern, replacement, text.var, perl = TRUE, ...)
