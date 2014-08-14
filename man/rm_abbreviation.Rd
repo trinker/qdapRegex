@@ -3,7 +3,7 @@
 \alias{rm_abbreviation}
 \title{Remove/Replace/Extract Abbreviations}
 \usage{
-rm_abbreviation(text.var, trim = TRUE, clean = TRUE,
+rm_abbreviation(text.var, trim = !extract, clean = TRUE,
   pattern = "@rm_abbreviation", replacement = "", extract = FALSE,
   dictionary = getOption("regex.library"), ...)
 }

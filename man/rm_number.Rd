@@ -3,7 +3,7 @@
 \alias{rm_number}
 \title{Remove/Replace/Extract Numbers}
 \usage{
-rm_number(text.var, trim = TRUE, clean = TRUE, pattern = "@rm_number",
+rm_number(text.var, trim = !extract, clean = TRUE, pattern = "@rm_number",
   replacement = "", extract = FALSE,
   dictionary = getOption("regex.library"), ...)
 }

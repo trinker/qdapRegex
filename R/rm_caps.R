@@ -28,14 +28,17 @@
 #' rm_caps(x)
 #' rm_caps(x, replacement="\\L\\1")
 #' rm_caps(x, extract=TRUE)
-rm_caps <- function(text.var, trim = TRUE, clean = TRUE,
+rm_caps <- function(text.var, trim = !extract, clean = TRUE,
     pattern = "@rm_caps", replacement = "", extract = FALSE, 
     dictionary = getOption("regex.library"), ...) {
 
 	pattern <- reg_check(pattern = pattern, dictionary = dictionary)
 
     if (extract) {
-        return(lapply(regmatches(text.var, gregexpr(pattern, text.var, 
+    	if (!trim) {
+            return(regmatches(text.var, gregexpr(pattern, text.var, perl = TRUE)))
+    	}
+    	return(lapply(regmatches(text.var, gregexpr(pattern, text.var, 
             perl = TRUE)), Trim))
     }
 

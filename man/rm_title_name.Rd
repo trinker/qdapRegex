@@ -3,7 +3,7 @@
 \alias{rm_title_name}
 \title{Remove/Replace/Extract Title + Person Name}
 \usage{
-rm_title_name(text.var, trim = TRUE, clean = TRUE,
+rm_title_name(text.var, trim = !extract, clean = TRUE,
   pattern = "@rm_title_name", replacement = "", extract = FALSE,
   dictionary = getOption("regex.library"), ...)
 }

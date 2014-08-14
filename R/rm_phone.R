@@ -36,14 +36,17 @@
 #'
 #' rm_phone(x)
 #' rm_phone(x, extract=TRUE)
-rm_phone <- function(text.var, trim = TRUE, clean = TRUE, pattern = "@rm_phone", 
-	replacement = "", extract = FALSE, dictionary = getOption("regex.library"), 
-	...) {
+rm_phone <- function(text.var, trim = !extract, clean = TRUE, 
+	pattern = "@rm_phone", replacement = "", extract = FALSE, 
+	dictionary = getOption("regex.library"), ...) {
 
 	pattern <- reg_check(pattern = pattern, dictionary = dictionary)
 
     if (extract) {
-        return(lapply(regmatches(text.var, gregexpr(pattern, text.var, 
+    	if (!trim) {
+            return(regmatches(text.var, gregexpr(pattern, text.var, perl = TRUE)))
+    	}
+    	return(lapply(regmatches(text.var, gregexpr(pattern, text.var, 
             perl = TRUE)), Trim))
     }
 

@@ -3,7 +3,7 @@
 \alias{rm_date}
 \title{Remove/Replace/Extract Dates}
 \usage{
-rm_date(text.var, trim = TRUE, clean = TRUE, pattern = "@rm_date",
+rm_date(text.var, trim = !extract, clean = TRUE, pattern = "@rm_date",
   replacement = "", extract = FALSE,
   dictionary = getOption("regex.library"), ...)
 }

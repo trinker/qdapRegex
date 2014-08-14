@@ -27,14 +27,18 @@
 #' rm_url(x)
 #' rm_url(x, replacement = '<a href="\\1" target="_blank">\\1</a>')
 #' rm_url(x, extract=TRUE)
-rm_url <- function(text.var, trim = TRUE, clean = TRUE, pattern = "@rm_url", 
+rm_url <- function(text.var, trim = !extract, clean = TRUE, pattern = "@rm_url", 
 	replacement = "", extract = FALSE, dictionary = getOption("regex.library"), 
 	...) {
 
 	pattern <- reg_check(pattern = pattern, dictionary = dictionary)
 
     if (extract) {
-        return(regmatches(text.var, gregexpr(pattern, text.var, perl = TRUE)))
+    	if (!trim) {
+            return(regmatches(text.var, gregexpr(pattern, text.var, perl = TRUE)))
+    	}
+    	return(lapply(regmatches(text.var, gregexpr(pattern, text.var, 
+            perl = TRUE)), Trim))
     }
     
     out <- gsub(pattern, replacement, text.var, perl = TRUE, ...)

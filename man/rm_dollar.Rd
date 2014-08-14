@@ -3,7 +3,7 @@
 \alias{rm_dollar}
 \title{Remove/Replace/Extract Dollars}
 \usage{
-rm_dollar(text.var, trim = TRUE, clean = TRUE, pattern = "@rm_dollar",
+rm_dollar(text.var, trim = !extract, clean = TRUE, pattern = "@rm_dollar",
   replacement = "", extract = FALSE,
   dictionary = getOption("regex.library"), ...)
 }

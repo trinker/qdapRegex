@@ -3,7 +3,7 @@
 \alias{rm_email}
 \title{Remove/Replace/Extract Email Addresses}
 \usage{
-rm_email(text.var, trim = TRUE, clean = TRUE, pattern = "@rm_email",
+rm_email(text.var, trim = !extract, clean = TRUE, pattern = "@rm_email",
   replacement = "", extract = FALSE,
   dictionary = getOption("regex.library"), ...)
 }

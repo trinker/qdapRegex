@@ -21,8 +21,6 @@
 #' @keywords extract sub 
 #' @seealso \code{\link[qdapRegex]{rm_}},
 #' \code{\link[base]{gsub}},
-#' \code{\link[base]{gregexpr}},
-#' \code{\link[base]{regmatches}}
 #' @export
 #' @examples
 #' ## Built in regex dictionary
@@ -31,14 +29,18 @@
 #' ## User defined regular expression
 #' pat <- "(\\s*([A-Z][\\w-]*)+),\\s([A-Z]{2})\\s(?<!\\d)\\d{5}(?:[ -]\\d{4})?\\b"
 #' rm_default("I live in Buffalo, NY 14217", pattern=pat)
-rm_default <- function(text.var, trim = TRUE, clean = TRUE, pattern, 
+rm_default <- function(text.var, trim = !extract, clean = TRUE, pattern, 
 	replacement = "", extract = FALSE, 
 	dictionary = getOption("regex.library"), ...) {
 
 	pattern <- reg_check(pattern = pattern, dictionary = dictionary)
 	
     if (extract) {
-        return(regmatches(text.var, gregexpr(pattern, text.var, perl=TRUE)))
+    	if (!trim) {
+            return(regmatches(text.var, gregexpr(pattern, text.var, perl = TRUE)))
+    	}
+    	return(lapply(regmatches(text.var, gregexpr(pattern, text.var, 
+            perl = TRUE)), Trim))
     }
 
     out <- gsub(pattern, replacement, text.var, perl = TRUE, ...)

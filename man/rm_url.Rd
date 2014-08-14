@@ -3,7 +3,7 @@
 \alias{rm_url}
 \title{Remove/Replace/Extract URLs}
 \usage{
-rm_url(text.var, trim = TRUE, clean = TRUE, pattern = "@rm_url",
+rm_url(text.var, trim = !extract, clean = TRUE, pattern = "@rm_url",
   replacement = "", extract = FALSE,
   dictionary = getOption("regex.library"), ...)
 }

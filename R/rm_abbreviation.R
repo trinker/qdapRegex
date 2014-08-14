@@ -30,14 +30,17 @@
 #'     "Hello world.", "In the U. S. A.")
 #' rm_abbreviation(x)
 #' rm_abbreviation(x, extract=TRUE)
-rm_abbreviation <- function(text.var, trim = TRUE, clean = TRUE,
+rm_abbreviation <- function(text.var, trim = !extract, clean = TRUE,
     pattern = "@rm_abbreviation", replacement = "", extract = FALSE, 
 	dictionary = getOption("regex.library"), ...) {
 
 	pattern <- reg_check(pattern = pattern, dictionary = dictionary)
 
     if (extract) {
-        return(lapply(regmatches(text.var, gregexpr(pattern, text.var, 
+    	if (!trim) {
+            return(regmatches(text.var, gregexpr(pattern, text.var, perl = TRUE)))
+    	}
+    	return(lapply(regmatches(text.var, gregexpr(pattern, text.var, 
             perl = TRUE)), Trim))
     }
 

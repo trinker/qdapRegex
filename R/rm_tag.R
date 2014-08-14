@@ -20,30 +20,49 @@
 #' @param \dots Other arguments passed to \code{\link[base]{gsub}}.
 #' @return Returns a character string with person tags removed.
 #' @keywords person tag twitter
+#' @details The default regex pattern \code{"(?<![@@\\w])@@([a-z0-9_]+)\\b"} is more liberal and 
+#' searches for the at (@@) symbol followed by any word.  This can be accessed
+#' via \code{pattern = "@@rm_tag"}.  
+#' \href{https://support.twitter.com/articles/101299-why-can-t-i-register-certain-usernames}{Twitter} 
+#' user names are more constrained.  A second regex 
+#' (\code{"(?<![@@\\w])@@([a-z0-9_]{1,15})\\b"}) is provide that contains the 
+#' latter word to substring that begins with an at (@@) followed by a word 
+#' composed of alpha-numeric characters and underscores, no longer than 15 
+#' characters.  This can be accessed via \code{pattern = "@@rm_tag2"} (see 
+#' \bold{Examples}).
 #' @export
 #' @seealso \code{\link[base]{gsub}}
 #' @examples
 #' x <- c("@@hadley I like #rstats for #ggplot2 work.",
-#'     "Difference between #magrittr and #pipeR, both implement pipeline operators for #rstats: 
+#'     "Difference between #magrittr and #pipeR, both implement pipeline operators for #rstats:
 #'         http://renkun.me/r/2014/07/26/difference-between-magrittr-and-pipeR.html @@timelyportfolio",
-#'     "Slides from great talk: @@ramnath_vaidya: Interactive slides from Interactive Visualization 
-#'         presentation #user2014. http://ramnathv.github.io/user2014-rcharts/#1"
+#'     "Slides from great talk: @@ramnath_vaidya: Interactive slides from Interactive Visualization
+#'         presentation #user2014. http://ramnathv.github.io/user2014-rcharts/#1",
+#'     "tyler.rinker@@gamil.com is my email", 
+#'     "A non valid Twitter is @@abcdefghijklmnopqrstuvwxyz"
 #' )
 #' 
 #' rm_tag(x)
 #' rm_tag(rm_hash(x))
 #' rm_tag(x, extract=TRUE)
-rm_tag <- function(text.var, trim = TRUE, clean = TRUE, pattern = "@rm_tag", 
+#' 
+#' ## more restrictive Twitter regex
+#' rm_tag(x, extract=TRUE, pattern="@@rm_tag2") 
+rm_tag <- function(text.var, trim = !extract, clean = TRUE, pattern = "@rm_tag", 
 	replacement = "", extract = FALSE, dictionary = getOption("regex.library"), 
 	...) {
 
 	pattern <- reg_check(pattern = pattern, dictionary = dictionary)
 
     if (extract) {
-        return(lapply(regmatches(text.var, gregexpr(pattern, text.var)), Trim))
+    	if (!trim) {
+            return(regmatches(text.var, gregexpr(pattern, text.var, perl = TRUE)))
+    	}
+    	return(lapply(regmatches(text.var, gregexpr(pattern, text.var, 
+            perl = TRUE)), Trim))
     }
 
-    out <- gsub(pattern, replacement, text.var, ...)
+    out <- gsub(pattern, replacement, text.var, perl=TRUE, ...)
     if (trim) out <- Trim(out)
     if (clean) out <- clean(out)
     out

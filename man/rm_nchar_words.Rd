@@ -3,7 +3,7 @@
 \alias{rm_nchar_words}
 \title{Remove/Replace/Extract N Letter Words}
 \usage{
-rm_nchar_words(text.var, n, trim = TRUE, clean = TRUE,
+rm_nchar_words(text.var, n, trim = !extract, clean = TRUE,
   pattern = "@rm_nchar_words", replacement = "", extract = FALSE,
   dictionary = getOption("regex.library"), ...)
 }

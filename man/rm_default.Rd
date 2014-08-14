@@ -3,8 +3,9 @@
 \alias{rm_default}
 \title{Remove/Replace/Extract Template}
 \usage{
-rm_default(text.var, trim = TRUE, clean = TRUE, pattern, replacement = "",
-  extract = FALSE, dictionary = getOption("regex.library"), ...)
+rm_default(text.var, trim = !extract, clean = TRUE, pattern,
+  replacement = "", extract = FALSE,
+  dictionary = getOption("regex.library"), ...)
 }
 \arguments{
 \item{text.var}{The text variable.}
@@ -47,8 +48,6 @@ rm_default("I live in Buffalo, NY 14217", pattern=pat)
 \seealso{
 \code{\link[qdapRegex]{rm_}},
 \code{\link[base]{gsub}},
-\code{\link[base]{gregexpr}},
-\code{\link[base]{regmatches}}
 }
 \keyword{extract}
 \keyword{sub}

@@ -3,7 +3,7 @@
 \alias{rm_time}
 \title{Remove/Replace/Extract Time}
 \usage{
-rm_time(text.var, trim = TRUE, clean = TRUE, pattern = "@rm_time",
+rm_time(text.var, trim = !extract, clean = TRUE, pattern = "@rm_time",
   replacement = "", extract = FALSE,
   dictionary = getOption("regex.library"), ...)
 }

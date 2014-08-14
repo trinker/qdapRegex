@@ -37,14 +37,17 @@
 #'
 #' rm_zip(x)
 #' rm_zip(x, extract=TRUE)
-rm_zip <- function(text.var, trim = TRUE, clean = TRUE, pattern ="@rm_zip", 
+rm_zip <- function(text.var, trim = !extract, clean = TRUE, pattern ="@rm_zip", 
 	replacement = "", extract = FALSE, dictionary = getOption("regex.library"), 
 	...) {
 
 	pattern <- reg_check(pattern = pattern, dictionary = dictionary)
 
     if (extract) {
-        return(lapply(regmatches(text.var, gregexpr(pattern, text.var, 
+    	if (!trim) {
+            return(regmatches(text.var, gregexpr(pattern, text.var, perl = TRUE)))
+    	}
+    	return(lapply(regmatches(text.var, gregexpr(pattern, text.var, 
             perl = TRUE)), Trim))
     }
 

@@ -28,14 +28,18 @@
 #' 
 #' rm_title_name(x)
 #' rm_title_name(x, extract=TRUE)
-rm_title_name <- function(text.var, trim = TRUE, clean = TRUE, pattern = "@rm_title_name", 
-	replacement = "", extract = FALSE, dictionary = getOption("regex.library"), 
-	...) {
+rm_title_name <- function(text.var, trim = !extract, clean = TRUE, 
+	pattern = "@rm_title_name", replacement = "", extract = FALSE, 
+	dictionary = getOption("regex.library"), ...) {
 
 	pattern <- reg_check(pattern = pattern, dictionary = dictionary)
 
     if (extract) {
-        return(lapply(regmatches(text.var, gregexpr(pattern, text.var)), Trim))
+    	if (!trim) {
+            return(regmatches(text.var, gregexpr(pattern, text.var, perl = TRUE)))
+    	}
+    	return(lapply(regmatches(text.var, gregexpr(pattern, text.var, 
+            perl = TRUE)), Trim))
     }
 
     out <- gsub(pattern, replacement, text.var, ...)

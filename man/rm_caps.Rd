@@ -3,7 +3,7 @@
 \alias{rm_caps}
 \title{Remove/Replace/Extract All Caps}
 \usage{
-rm_caps(text.var, trim = TRUE, clean = TRUE, pattern = "@rm_caps",
+rm_caps(text.var, trim = !extract, clean = TRUE, pattern = "@rm_caps",
   replacement = "", extract = FALSE,
   dictionary = getOption("regex.library"), ...)
 }

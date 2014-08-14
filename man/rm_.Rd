@@ -3,7 +3,7 @@
 \alias{rm_}
 \title{Remove/Replace/Extract Function Generator}
 \usage{
-rm_(trim = TRUE, clean = TRUE, pattern, replacement = "",
+rm_(trim = !extract, clean = TRUE, pattern, replacement = "",
   extract = FALSE, dictionary = getOption("regex.library"), ...)
 }
 \arguments{

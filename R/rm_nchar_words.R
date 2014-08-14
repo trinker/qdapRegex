@@ -47,14 +47,17 @@
 #' library(qdap)
 #' rm_nchar_words(hamlet$dialogue, 5, extract=TRUE)
 #' }
-rm_nchar_words <- function(text.var, n, trim = TRUE, clean = TRUE,
+rm_nchar_words <- function(text.var, n, trim = !extract, clean = TRUE,
     pattern = "@rm_nchar_words", replacement = "", extract = FALSE, 
 	dictionary = getOption("regex.library"), ...) {
 
 	pattern <- reg_check_sprintf(pattern = pattern, dictionary = dictionary, n=n)
 
     if (extract) {
-        return(lapply(regmatches(text.var, gregexpr(pattern, text.var, 
+    	if (!trim) {
+            return(regmatches(text.var, gregexpr(pattern, text.var, perl = TRUE)))
+    	}
+    	return(lapply(regmatches(text.var, gregexpr(pattern, text.var, 
             perl = TRUE)), Trim))
     }
 

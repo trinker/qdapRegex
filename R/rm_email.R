@@ -37,14 +37,18 @@
 #' rm_email(x, replacement = '<a href="mailto:\\1" target="_blank">\\1</a>')
 #' rm_email(x, extract=TRUE)
 #' rm_email(x2, extract=TRUE)
-rm_email <- function(text.var, trim = TRUE, clean = TRUE, 
+rm_email <- function(text.var, trim = !extract, clean = TRUE, 
     pattern = "@rm_email", replacement = "", extract = FALSE, 
 	dictionary = getOption("regex.library"), ...) {
 
 	pattern <- reg_check(pattern = pattern, dictionary = dictionary)
 
     if (extract) {
-        return(regmatches(text.var, gregexpr(pattern, text.var, perl = TRUE)))
+    	if (!trim) {
+            return(regmatches(text.var, gregexpr(pattern, text.var, perl = TRUE)))
+    	}
+    	return(lapply(regmatches(text.var, gregexpr(pattern, text.var, 
+            perl = TRUE)), Trim))
     }
 
     out <- gsub(pattern, replacement, text.var, perl = TRUE, ...)

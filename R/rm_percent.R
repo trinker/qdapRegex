@@ -28,14 +28,17 @@
 #'
 #' rm_percent(x)
 #' rm_percent(x, extract=TRUE)
-rm_percent <- function(text.var, trim = TRUE, clean = TRUE, 
+rm_percent <- function(text.var, trim = !extract, clean = TRUE, 
 	pattern = "@rm_percent", replacement = "", extract = FALSE, 
 	dictionary = getOption("regex.library"), ...) {
 
 	pattern <- reg_check(pattern = pattern, dictionary = dictionary)
 
     if (extract) {
-        return(lapply(regmatches(text.var, gregexpr(pattern, text.var, 
+    	if (!trim) {
+            return(regmatches(text.var, gregexpr(pattern, text.var, perl = TRUE)))
+    	}
+    	return(lapply(regmatches(text.var, gregexpr(pattern, text.var, 
             perl = TRUE)), Trim))
     }
 

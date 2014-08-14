@@ -46,6 +46,7 @@ NULL
 #'   \item{rm_percent}{substring beginning with (1) just whole number (no decimal), (2) whole number and decimal, or (3) just decimal value and followed by a percent sign (\%)}
 #'   \item{rm_phone}{phone numbers in the form of optional country code, valid 3 digit prefix, and 7 digits (may contain hyphens and parenthesis); logic is complex to explain (see \url{http://stackoverflow.com/a/21008254/1000343} for more)}
 #'   \item{rm_tag}{substring that begins with an at (@@) followed by a word}
+#'   \item{rm_tag2}{\href{https://support.twitter.com/articles/101299-why-can-t-i-register-certain-usernames}{Twitter} substring that begins with an at (@@) followed by a word composed of alpha-numeric characters and underscores, no longer than 15 characters}
 #'   \item{rm_title_name}{substring beginning with title (Mrs., Mr., Ms., Dr.) that is case independent or full title (Miss, Mizz, mizz) followed by a single lower case word or multiple capitalized words}
 #'   \item{rm_time}{substring that (1) must begin with 0-2 digits, (2) must be followed by a single colon (:), (3) optionally may be followed by either a colon (:) or a dot (.), (4) optionally may be followed by 1-infinite digits (if previous condition is true)}
 #'   \item{rm_url}{substring beginning with \emph{http} or \emph{www.} and ending on a space or end of string (whichever comes first); note that this regex is simple and may not cover all valid urls or may include invalid urls}
@@ -53,7 +54,7 @@ NULL
 #' }
 #' @name regex_usa 
 #' @usage data(regex_usa) 
-#' @format A list with 21 elements 
+#' @format A list with 22 elements 
 NULL
 
 #' Supplemental Canned Regular Expressions

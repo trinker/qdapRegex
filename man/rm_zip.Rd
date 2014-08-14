@@ -3,7 +3,7 @@
 \alias{rm_zip}
 \title{Remove/Replace/Extract Zip Codes}
 \usage{
-rm_zip(text.var, trim = TRUE, clean = TRUE, pattern = "@rm_zip",
+rm_zip(text.var, trim = !extract, clean = TRUE, pattern = "@rm_zip",
   replacement = "", extract = FALSE,
   dictionary = getOption("regex.library"), ...)
 }

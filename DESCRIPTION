@@ -10,6 +10,7 @@ Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
 Depends:
     R (>= 3.0.0)
 Imports:
+    stringi,
     pryr
 Suggests:
     testthat

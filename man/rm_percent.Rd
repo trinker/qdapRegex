@@ -3,8 +3,8 @@
 \alias{rm_percent}
 \title{Remove/Replace/Extract Percentages}
 \usage{
-rm_percent(text.var, trim = TRUE, clean = TRUE, pattern = "@rm_percent",
-  replacement = "", extract = FALSE,
+rm_percent(text.var, trim = !extract, clean = TRUE,
+  pattern = "@rm_percent", replacement = "", extract = FALSE,
   dictionary = getOption("regex.library"), ...)
 }
 \arguments{

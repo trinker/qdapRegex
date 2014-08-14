@@ -3,8 +3,8 @@
 \alias{rm_emoticon}
 \title{Remove/Replace/Extract Emoticons}
 \usage{
-rm_emoticon(text.var, trim = TRUE, clean = TRUE, pattern = "@rm_emoticon",
-  replacement = "", extract = FALSE,
+rm_emoticon(text.var, trim = !extract, clean = TRUE,
+  pattern = "@rm_emoticon", replacement = "", extract = FALSE,
   dictionary = getOption("regex.library"), ...)
 }
 \arguments{

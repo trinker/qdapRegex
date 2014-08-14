@@ -46,7 +46,7 @@
 #' 
 #' f <- rm_(pattern="@@time_12_hours")
 #' f("I will go at 12:35 pm")
-rm_ <- function(trim = TRUE, clean = TRUE, pattern, replacement = "", 
+rm_ <- function(trim = !extract, clean = TRUE, pattern, replacement = "", 
 	extract = FALSE, dictionary = getOption("regex.library"), ...){
 
     if(missing(pattern)) warning("Did not supply a default to `pattern`")

@@ -3,7 +3,7 @@
 \alias{rm_hash}
 \title{Remove/Replace/Extract Hash Tags}
 \usage{
-rm_hash(text.var, trim = TRUE, clean = TRUE, pattern = "@rm_hash",
+rm_hash(text.var, trim = !extract, clean = TRUE, pattern = "@rm_hash",
   replacement = "", extract = FALSE,
   dictionary = getOption("regex.library"), ...)
 }

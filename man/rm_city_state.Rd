@@ -3,7 +3,7 @@
 \alias{rm_city_state}
 \title{Remove/Replace/Extract City & State}
 \usage{
-rm_city_state(text.var, trim = TRUE, clean = TRUE,
+rm_city_state(text.var, trim = !extract, clean = TRUE,
   pattern = "@rm_city_state", replacement = "", extract = FALSE,
   dictionary = getOption("regex.library"), ...)
 }

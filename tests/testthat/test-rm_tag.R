@@ -11,7 +11,7 @@ test_that("rm_tag is removing/replacing tag strings",{
 
     
     x2 <- c("I like #rstats for #ggplot2 work.", "Difference between #magrittr and #pipeR, both implement pipeline operators for #rstats: http://renkun.me/r/2014/07/26/difference-between-magrittr-and-pipeR.html", 
-        "Slides from great talk:: Interactive slides from Interactive Visualization presentation #user2014. http://ramnathv.github.io/user2014-rcharts/#1"
+        "Slides from great talk: : Interactive slides from Interactive Visualization presentation #user2014. http://ramnathv.github.io/user2014-rcharts/#1"
         )
 
     expect_true(identical(rm_tag(x), x2))	

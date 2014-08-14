@@ -36,13 +36,16 @@
 #' rm_hash(x)
 #' rm_hash(rm_tag(x))
 #' rm_hash(x, extract=TRUE)
-rm_hash <- function(text.var, trim = TRUE, clean = TRUE, pattern = "@rm_hash", 
+rm_hash <- function(text.var, trim = !extract, clean = TRUE, pattern = "@rm_hash", 
 	replacement = "", extract = FALSE, dictionary = getOption("regex.library"), ...) {
 
 	pattern <- reg_check(pattern = pattern, dictionary = dictionary)
 
     if (extract) {
-        return(lapply(regmatches(text.var, gregexpr(pattern, text.var, 
+    	if (!trim) {
+            return(regmatches(text.var, gregexpr(pattern, text.var, perl = TRUE)))
+    	}
+    	return(lapply(regmatches(text.var, gregexpr(pattern, text.var, 
             perl = TRUE)), Trim))
     }
 
