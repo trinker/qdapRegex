@@ -79,22 +79,7 @@ function(terms, trailing = TRUE, leading = TRUE){
     return(z)
 }
 
-## default qdapRegex function template
-rm_default <- function(text.var, trim = TRUE, clean = TRUE, pattern, 
-	replacement = "", extract = FALSE, 
-	dictionary = getOption("regex.library"), ...) {
 
-	pattern <- reg_check(pattern = pattern, dictionary = dictionary)
-	
-    if (extract) {
-        return(regmatches(text.var, gregexpr(pattern, text.var, perl=TRUE)))
-    }
-
-    out <- gsub(pattern, replacement, text.var, ...)
-    if (trim) out <- Trim(out)
-    if (clean) out <- clean(out)
-    out
-}
 
 ## check if regexes is in dictionary
 reg_check <- function(pattern, dictionary, backup = qdapRegex::regex_usa,

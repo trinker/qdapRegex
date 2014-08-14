@@ -48,7 +48,7 @@ validate <- function(pattern, single = TRUE, trim = FALSE, clean = FALSE,
     if(missing(pattern)) warning("Did not supply a default to `pattern`")
 
     function(text.var) {
-        out <- rm_hash(text.var, trim = trim, clean = clean, 
+        out <- rm_default(text.var, trim = trim, clean = clean, 
             pattern = pattern, replacement = "VALID_REGEX_STRING", 
             extract = FALSE, dictionary = dictionary)
 

@@ -34,10 +34,10 @@ rm_url <- function(text.var, trim = TRUE, clean = TRUE, pattern = "@rm_url",
 	pattern <- reg_check(pattern = pattern, dictionary = dictionary)
 
     if (extract) {
-        return(regmatches(text.var, gregexpr(pattern, text.var)))
+        return(regmatches(text.var, gregexpr(pattern, text.var, perl = TRUE)))
     }
     
-    out <- gsub(pattern, replacement, text.var, ...)
+    out <- gsub(pattern, replacement, text.var, perl = TRUE, ...)
     if (trim) out <- Trim(out)
     if (clean) out <- clean(out)
     out

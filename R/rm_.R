@@ -21,7 +21,8 @@
 #' @return Returns a function that operates typical of other \pkg{qdapRegex} 
 #' \code{rm_XXX} functions but with user defined defaults.
 #' @export
-#' @seealso \code{\link[pryr]{partial}}
+#' @seealso \code{\link[qdapRegex]{rm_default}},
+#' \code{\link[pryr]{partial}}
 #' @examples
 #' rm_digit <- rm_(pattern="[0-9]")
 #' rm_digit("  I 12 li34ke ice56cream78.  ")
