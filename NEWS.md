@@ -27,6 +27,10 @@ qdapRegex 0.1.0
 
 **IMPROVEMENTS**
 
+* `rm_XXX` family of functions now use `stringi::stri_extract_all_regex` as this 
+  approach is much faster than the 
+  `regmatches(text.var, gregexpr(pattern, text.var, perl = TRUE))` approach.
+
 **CHANGES**
 
 
