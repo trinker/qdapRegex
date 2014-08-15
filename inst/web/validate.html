@@ -123,7 +123,7 @@ valid_address(&quot;Buffalo, NY 14217&quot;)
 <div class='output'>[1] FALSE
 </div>
 <div class='input'>
-valid_address2 &lt;- validate(paste0(&quot;(\\s*([A-Z][\\w-]*)+),&quot;,
+valid_address2 &lt;- validate(paste0(&quot;(\\b([A-Z][\\w-]*)+),&quot;,
     &quot;\\s([A-Z]{2})\\s(?&lt;!\\d)\\d{5}(?:[ -]\\d{4})?\\b&quot;))
 valid_address2(&quot;Buffalo, NY 14217&quot;)
 </div>

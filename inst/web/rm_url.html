@@ -40,7 +40,7 @@
 <div class="row">
   <div class="span8">
     <h2>Usage</h2>
-    <pre><div>rm_url(text.var, trim&nbsp;=&nbsp;TRUE, clean&nbsp;=&nbsp;TRUE, pattern&nbsp;=&nbsp;"@rm_url", replacement&nbsp;=&nbsp;"", extract&nbsp;=&nbsp;FALSE, dictionary&nbsp;=&nbsp;getOption("regex.library"), ...)</div></pre>
+    <pre><div>rm_url(text.var, trim&nbsp;=&nbsp;!extract, clean&nbsp;=&nbsp;TRUE, pattern&nbsp;=&nbsp;"@rm_url", replacement&nbsp;=&nbsp;"", extract&nbsp;=&nbsp;FALSE, dictionary&nbsp;=&nbsp;getOption("regex.library"), ...)</div></pre>
     
     <h2>Arguments</h2>
     <dl>
@@ -88,6 +88,25 @@ if <code>pattern</code> begins with <code>"@rm_"</code>.</dd>
       <p>Remove/replace/extract URLs from a string.</p>
   
     </div>
+
+    <div class="Details">
+      <h2>Details</h2>
+      
+      <p>The default regex pattern <code>"(http[^ ]*)|(www\.[^ ]*)"</code> is more
+liberal.  More constained versions can be accessed
+via <code>pattern = "@rm_url2"</code> & <code>pattern = "@rm_url3"</code> see
+<b>Examples</b>).</p>
+  
+    </div>
+
+    <div class="References">
+      <h2>References</h2>
+      
+      <p>The more constrained url regular expressions (<code>"@rm_url2"</code>
+and <code>"@rm_url3"</code> was adapted from imme_emosol's response:
+<a href = 'https://mathiasbynens.be/demo/url-regex'>https://mathiasbynens.be/demo/url-regex</a></p>
+  
+    </div>
     
     <h2 id="examples">Examples</h2>
     <pre class="examples"><div class='input'>x &lt;- &quot; I like www.talkstats.com and http://stackoverflow.com&quot;
@@ -103,6 +122,19 @@ rm_url(x)
 </div>
 <div class='output'>[[1]]
 [1] &quot;www.talkstats.com&quot;        &quot;http://stackoverflow.com&quot;
+
+</div>
+<div class='input'>
+rm_url(x, pattern = &quot;@rm_url2&quot;, extract=TRUE)
+</div>
+<div class='output'>[[1]]
+[1] &quot;www.talkstats.com&quot;        &quot;http://stackoverflow.com&quot;
+
+</div>
+<div class='input'>rm_url(x, pattern = &quot;@rm_url3&quot;, extract=TRUE)
+</div>
+<div class='output'>[[1]]
+[1] &quot;http://stackoverflow.com&quot;
 
 </div></pre>
   </div>

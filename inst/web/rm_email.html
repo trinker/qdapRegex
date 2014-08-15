@@ -42,7 +42,7 @@ Barry Rowlingson and Tyler Rinker &lt;tyler.rinker@gmail.com&gt;.
 <div class="row">
   <div class="span8">
     <h2>Usage</h2>
-    <pre><div>rm_email(text.var, trim&nbsp;=&nbsp;TRUE, clean&nbsp;=&nbsp;TRUE, pattern&nbsp;=&nbsp;"@rm_email", replacement&nbsp;=&nbsp;"", extract&nbsp;=&nbsp;FALSE, dictionary&nbsp;=&nbsp;getOption("regex.library"), ...)</div></pre>
+    <pre><div>rm_email(text.var, trim&nbsp;=&nbsp;!extract, clean&nbsp;=&nbsp;TRUE, pattern&nbsp;=&nbsp;"@rm_email", replacement&nbsp;=&nbsp;"", extract&nbsp;=&nbsp;FALSE, dictionary&nbsp;=&nbsp;getOption("regex.library"), ...)</div></pre>
     
     <h2>Arguments</h2>
     <dl>
@@ -118,8 +118,7 @@ rm_email(x)
 <div class='input'>rm_email(x, extract=TRUE)
 </div>
 <div class='output'>[[1]]
-[1] &quot;fred@foo.com&quot;       &quot;joe@example.com&quot;    &quot;twit@here.com&quot;      &quot;foo+bar@google.com&quot;
-[5] &quot;fred@foo.fnord&quot;    
+[1] &quot;fred@foo.com&quot;       &quot;joe@example.com&quot;    &quot;twit@here.com&quot;      &quot;foo+bar@google.com&quot; &quot;fred@foo.fnord&quot;    
 
 </div>
 <div class='input'>rm_email(x2, extract=TRUE)
@@ -131,7 +130,7 @@ rm_email(x)
 [1] &quot;twit@here.com&quot;      &quot;foo+bar@google.com&quot; &quot;fred@foo.fnord&quot;    
 
 [[3]]
-character(0)
+[1] NA
 
 </div></pre>
   </div>

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>rm_emoticon. qdapRegex 0.1.0</title>
+<title>rm_default. qdapRegex 0.1.0</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="">
 
@@ -35,12 +35,12 @@
         
       </header>
       
-      <h1>Remove/Replace/Extract Emoticons</h1>
+      <h1>Remove/Replace/Extract Template</h1>
 
 <div class="row">
   <div class="span8">
     <h2>Usage</h2>
-    <pre><div>rm_emoticon(text.var, trim&nbsp;=&nbsp;!extract, clean&nbsp;=&nbsp;TRUE, pattern&nbsp;=&nbsp;"@rm_emoticon", replacement&nbsp;=&nbsp;"", extract&nbsp;=&nbsp;FALSE, dictionary&nbsp;=&nbsp;getOption("regex.library"), ...)</div></pre>
+    <pre><div>rm_default(text.var, trim&nbsp;=&nbsp;!extract, clean&nbsp;=&nbsp;TRUE, pattern, replacement&nbsp;=&nbsp;"", extract&nbsp;=&nbsp;FALSE, dictionary&nbsp;=&nbsp;getOption("regex.library"), ...)</div></pre>
     
     <h2>Arguments</h2>
     <dl>
@@ -55,14 +55,12 @@ character will be removed.</dd>
       <dt>pattern</dt>
       <dd>A character string containing a regular expression (or
 character string for <code>fixed = TRUE</code>) to be matched in the given
-character vector.  Default, <code>@rm_emoticon</code> uses the
-<code>rm_emoticon</code> regex from the regular expression dictionary from
-the <code>dictionary</code> argument.</dd>
+character vector.</dd>
       <dt>replacement</dt>
       <dd>Replacement for matched <code>pattern</code>.</dd>
       <dt>extract</dt>
-      <dd>logical.  If <code>TRUE</code> the emoticons are extracted into a
-list of vectors.</dd>
+      <dd>logical.  If <code>TRUE</code> the strings are extracted into a list
+of vectors.</dd>
       <dt>dictionary</dt>
       <dd>A dictionary of canned regular expressions to search within
 if <code>pattern</code> begins with <code>"@rm_"</code>.</dd>
@@ -70,54 +68,52 @@ if <code>pattern</code> begins with <code>"@rm_"</code>.</dd>
       <dd>Other arguments passed to <code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code>.</dd>
     </dl>
     
-    <div class="Remove/Replace/Extract Emoticons">
-      <h2>Remove/Replace/Extract Emoticons</h2>
+    <div class="Remove/Replace/Extract Template">
+      <h2>Remove/Replace/Extract Template</h2>
       
     </div>
 
     <div class="Value">
       <h2>Value</h2>
       
-      <p>Returns a character string with emoticons removed.</p>
+      <p>Returns a character string with substring removed.</p>
   
     </div>
 
     <div class="Description">
       <h2>Description</h2>
       
-      <p>Remove/replace/extract common emoticons from a string.</p>
+      <p>Remove/replace/extract substring from a string.  This is the template used by
+other <span class = "pkg">qdapRegex</span> <code>rm_XXX</code> functions.</p>
   
     </div>
     
     <h2 id="examples">Examples</h2>
-    <pre class="examples"><div class='input'>x &lt;- c(&quot;are :-)) it 8-D he XD on =-D they :D of :-) is :&gt; for :o) that :-/&quot;,
-  &quot;as :-D I xD with :^) a =D to =) the 8D and :3 in =3 you 8) his B^D was&quot;)
-
-rm_emoticon(x)
+    <pre class="examples"><div class='input'>## Built in regex dictionary
+rm_default(&quot;I live in Buffalo, NY 14217&quot;, pattern=&quot;@rm_city_state_zip&quot;)
 </div>
-<div class='output'>[1] &quot;are it he on they of is for that&quot;      &quot;as I with a to the and in you his was&quot;
+<div class='output'>[1] &quot;I live in&quot;
 </div>
-<div class='input'>rm_emoticon(x, extract=TRUE)
+<div class='input'>
+## User defined regular expression
+pat &lt;- &quot;(\\s*([A-Z][\\w-]*)+),\\s([A-Z]{2})\\s(?&lt;!\\d)\\d{5}(?:[ -]\\d{4})?\\b&quot;
+rm_default(&quot;I live in Buffalo, NY 14217&quot;, pattern=pat)
 </div>
-<div class='output'>[[1]]
-[1] &quot;:-))&quot; &quot;8-D&quot;  &quot;XD&quot;   &quot;=-D&quot;  &quot;:D&quot;   &quot;:-)&quot;  &quot;:&gt;&quot;   &quot;:o)&quot;  &quot;:-/&quot; 
-
-[[2]]
- [1] &quot;:-D&quot; &quot;xD&quot;  &quot;:^)&quot; &quot;=D&quot;  &quot;=)&quot;  &quot;8D&quot;  &quot;:3&quot;  &quot;=3&quot;  &quot;8)&quot;  &quot;B^D&quot;
-
+<div class='output'>[1] &quot;I live in&quot;
 </div></pre>
   </div>
   <div class="span4">
     <!-- <ul>
-      <li>rm_emoticon</li>
+      <li>rm_default</li>
     </ul>
     <ul>
-      <li>digispeak</li><li>emoticon</li>
+      <li>extract</li><li>sub</li>
     </ul> -->
       
     <h2>See also</h2>
     
-<code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code>
+<code>rm_</code>,
+<code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code>,
 
         
   </div>

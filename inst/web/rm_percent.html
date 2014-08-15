@@ -40,7 +40,7 @@
 <div class="row">
   <div class="span8">
     <h2>Usage</h2>
-    <pre><div>rm_percent(text.var, trim&nbsp;=&nbsp;TRUE, clean&nbsp;=&nbsp;TRUE, pattern&nbsp;=&nbsp;"@rm_percent", replacement&nbsp;=&nbsp;"", extract&nbsp;=&nbsp;FALSE, dictionary&nbsp;=&nbsp;getOption("regex.library"), ...)</div></pre>
+    <pre><div>rm_percent(text.var, trim&nbsp;=&nbsp;!extract, clean&nbsp;=&nbsp;TRUE, pattern&nbsp;=&nbsp;"@rm_percent", replacement&nbsp;=&nbsp;"", extract&nbsp;=&nbsp;FALSE, dictionary&nbsp;=&nbsp;getOption("regex.library"), ...)</div></pre>
     
     <h2>Arguments</h2>
     <dl>
@@ -100,7 +100,7 @@ rm_percent(x)
 <div class='input'>rm_percent(x, extract=TRUE)
 </div>
 <div class='output'>[[1]]
-character(0)
+[1] NA
 
 [[2]]
 [1] &quot;45.6%&quot;

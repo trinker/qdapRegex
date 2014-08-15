@@ -40,7 +40,7 @@
 <div class="row">
   <div class="span8">
     <h2>Usage</h2>
-    <pre><div>rm_number(text.var, trim&nbsp;=&nbsp;TRUE, clean&nbsp;=&nbsp;TRUE, pattern&nbsp;=&nbsp;"@rm_number", replacement&nbsp;=&nbsp;"", extract&nbsp;=&nbsp;FALSE, dictionary&nbsp;=&nbsp;getOption("regex.library"), ...)</div></pre>
+    <pre><div>rm_number(text.var, trim&nbsp;=&nbsp;!extract, clean&nbsp;=&nbsp;TRUE, pattern&nbsp;=&nbsp;"@rm_number", replacement&nbsp;=&nbsp;"", extract&nbsp;=&nbsp;FALSE, dictionary&nbsp;=&nbsp;getOption("regex.library"), ...)</div></pre>
     
     <h2>Arguments</h2>
     <dl>
@@ -115,7 +115,7 @@ rm_number(x)
 [1] &quot;123,456&quot; &quot;-.2&quot;    
 
 [[3]]
-character(0)
+[1] NA
 
 </div></pre>
   </div>
