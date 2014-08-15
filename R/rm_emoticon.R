@@ -21,7 +21,8 @@
 #' @return Returns a character string with emoticons removed.
 #' @keywords emoticon digispeak
 #' @export
-#' @seealso \code{\link[base]{gsub}}
+#' @seealso \code{\link[base]{gsub}},
+#' \code{\link[stringi]{stri_extract_all_regex}}
 #' @examples
 #' x <- c("are :-)) it 8-D he XD on =-D they :D of :-) is :> for :o) that :-/",
 #'   "as :-D I xD with :^) a =D to =) the 8D and :3 in =3 you 8) his B^D was")

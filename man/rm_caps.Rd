@@ -46,7 +46,8 @@ rm_caps(x, replacement="\\\\L\\\\1")
 rm_caps(x, extract=TRUE)
 }
 \seealso{
-\code{\link[base]{gsub}}
+\code{\link[base]{gsub}},
+\code{\link[stringi]{stri_extract_all_regex}}
 }
 \keyword{capital}
 \keyword{caps}

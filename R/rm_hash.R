@@ -24,7 +24,8 @@
 #' @references The hash tag regular expression was taken from: 
 #' \url{http://stackoverflow.com/a/25096474/1000343}
 #' @export
-#' @seealso \code{\link[base]{gsub}}
+#' @seealso \code{\link[base]{gsub}},
+#' \code{\link[stringi]{stri_extract_all_regex}}
 #' @examples
 #' x <- c("@@hadley I like #rstats for #ggplot2 work.",
 #'     "Difference between #magrittr and #pipeR, both implement pipeline operators for #rstats: 

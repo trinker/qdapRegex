@@ -28,7 +28,8 @@
 #' and \code{"@@rm_url3"} was adapted from imme_emosol's response: 
 #' \url{https://mathiasbynens.be/demo/url-regex}
 #' @export
-#' @seealso \code{\link[base]{gsub}}
+#' @seealso \code{\link[base]{gsub}},
+#' \code{\link[stringi]{stri_extract_all_regex}}
 #' @examples
 #' x <- " I like www.talkstats.com and http://stackoverflow.com"
 #' rm_url(x)

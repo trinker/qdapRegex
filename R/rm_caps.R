@@ -22,7 +22,8 @@
 #' @return Returns a character string with "all caps" removed.
 #' @keywords caps capital
 #' @export
-#' @seealso \code{\link[base]{gsub}}
+#' @seealso \code{\link[base]{gsub}},
+#' \code{\link[stringi]{stri_extract_all_regex}}
 #' @examples
 #' x <- c("UGGG! When I use caps I am YELLING!")
 #' rm_caps(x)

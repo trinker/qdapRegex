@@ -58,7 +58,8 @@ The phone regular expression was taken from:
 \url{http://stackoverflow.com/a/21008254/1000343}
 }
 \seealso{
-\code{\link[base]{gsub}}
+\code{\link[base]{gsub}},
+\code{\link[stringi]{stri_extract_all_regex}}
 }
 \keyword{phone}
 \keyword{telephone}

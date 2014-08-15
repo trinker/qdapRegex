@@ -21,7 +21,8 @@
 #' @return Returns a character string with dollars removed.
 #' @keywords percent
 #' @export
-#' @seealso \code{\link[base]{gsub}}
+#' @seealso \code{\link[base]{gsub}},
+#' \code{\link[stringi]{stri_extract_all_regex}}
 #' @examples
 #' x <-  c("There is $5.50 for me.", "that's 45.6% of the pizza", 
 #'     "14% is $26 or $25.99")

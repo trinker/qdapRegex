@@ -68,7 +68,8 @@ rm_date(x2, pattern="@rm_date2", extract=TRUE)
 rm_date(c(x, x2), pattern="@rm_date3", extract=TRUE)
 }
 \seealso{
-\code{\link[base]{gsub}}
+\code{\link[base]{gsub}},
+\code{\link[stringi]{stri_extract_all_regex}}
 }
 \keyword{date}
 

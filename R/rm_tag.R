@@ -31,7 +31,8 @@
 #' characters.  This can be accessed via \code{pattern = "@@rm_tag2"} (see 
 #' \bold{Examples}).
 #' @export
-#' @seealso \code{\link[base]{gsub}}
+#' @seealso \code{\link[base]{gsub}},
+#' \code{\link[stringi]{stri_extract_all_regex}}
 #' @examples
 #' x <- c("@@hadley I like #rstats for #ggplot2 work.",
 #'     "Difference between #magrittr and #pipeR, both implement pipeline operators for #rstats:

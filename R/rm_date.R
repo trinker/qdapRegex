@@ -30,7 +30,8 @@
 #' (\code{pattern = "@@rm_date2"} or \code{pattern = "@@rm_date3"}). See 
 #' \bold{Examples} for example usage. 
 #' @export
-#' @seealso \code{\link[base]{gsub}}
+#' @seealso \code{\link[base]{gsub}},
+#' \code{\link[stringi]{stri_extract_all_regex}}
 #' @examples
 #' ## Numeric Date Representation
 #' 

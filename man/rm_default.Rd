@@ -48,6 +48,7 @@ rm_default("I live in Buffalo, NY 14217", pattern=pat)
 \seealso{
 \code{\link[qdapRegex]{rm_}},
 \code{\link[base]{gsub}},
+\code{\link[stringi]{stri_extract_all_regex}}
 }
 \keyword{extract}
 \keyword{sub}

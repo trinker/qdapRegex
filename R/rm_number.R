@@ -22,7 +22,8 @@
 #' @return Returns a character string with number removed.
 #' @keywords number
 #' @export
-#' @seealso \code{\link[base]{gsub}}
+#' @seealso \code{\link[base]{gsub}},
+#' \code{\link[stringi]{stri_extract_all_regex}}
 #' @references The number regular expression was taken from: 
 #' \url{http://stackoverflow.com/a/5917250/1000343} authored by Justin Morgan.
 #' @examples

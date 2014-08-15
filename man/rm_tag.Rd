@@ -68,7 +68,8 @@ rm_tag(x, extract=TRUE)
 rm_tag(x, extract=TRUE, pattern="@rm_tag2")
 }
 \seealso{
-\code{\link[base]{gsub}}
+\code{\link[base]{gsub}},
+\code{\link[stringi]{stri_extract_all_regex}}
 }
 \keyword{person}
 \keyword{tag}

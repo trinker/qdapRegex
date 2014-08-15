@@ -21,7 +21,8 @@
 #' @return Returns a character string with person tags removed.
 #' @keywords person tag twitter
 #' @export
-#' @seealso \code{\link[base]{gsub}}
+#' @seealso \code{\link[base]{gsub}},
+#' \code{\link[stringi]{stri_extract_all_regex}}
 #' @examples
 #' x <- c("Dr. Brend is mizz hart's in mrs. Holtz's.", 
 #'     "Where is mr. Bob Jr. and Ms. John Kennedy?")

@@ -21,7 +21,8 @@
 #' @return Returns a character string with phone numbers removed.
 #' @keywords phone telephone
 #' @export
-#' @seealso \code{\link[base]{gsub}}
+#' @seealso \code{\link[base]{gsub}},
+#' \code{\link[stringi]{stri_extract_all_regex}}
 #' @author \href{http://stackoverflow.com/}{stackoverflow's} Marius and Tyler Rinker <tyler.rinker@@gmail.com>. 
 #' @references The phone regular expression was taken from: 
 #' \url{http://stackoverflow.com/a/21008254/1000343}

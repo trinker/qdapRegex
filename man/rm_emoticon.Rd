@@ -46,7 +46,8 @@ rm_emoticon(x)
 rm_emoticon(x, extract=TRUE)
 }
 \seealso{
-\code{\link[base]{gsub}}
+\code{\link[base]{gsub}},
+\code{\link[stringi]{stri_extract_all_regex}}
 }
 \keyword{digispeak}
 \keyword{emoticon}

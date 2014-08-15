@@ -54,7 +54,8 @@ The time regular expression was taken from:
 \url{http://stackoverflow.com/a/25111133/1000343}
 }
 \seealso{
-\code{\link[base]{gsub}}
+\code{\link[base]{gsub}},
+\code{\link[stringi]{stri_extract_all_regex}}
 }
 \keyword{time}
 

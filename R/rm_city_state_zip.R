@@ -23,7 +23,8 @@
 #' @return Returns a character string with city, state, & zip removed.
 #' @keywords date
 #' @export
-#' @seealso \code{\link[base]{gsub}}
+#' @seealso \code{\link[base]{gsub}},
+#' \code{\link[stringi]{stri_extract_all_regex}}
 #' @examples
 #' x <- paste0("I went to Washington Heights, NY 54321 for food! ", 
 #'    "It's in West ven,PA 12345, near Bolly Bolly Bolly, CA12345-1234!", 

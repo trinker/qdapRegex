@@ -51,7 +51,8 @@ The number regular expression was taken from:
 \url{http://stackoverflow.com/a/5917250/1000343} authored by Justin Morgan.
 }
 \seealso{
-\code{\link[base]{gsub}}
+\code{\link[base]{gsub}},
+\code{\link[stringi]{stri_extract_all_regex}}
 }
 \keyword{number}
 

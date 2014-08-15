@@ -59,7 +59,8 @@ and \code{"@rm_url3"} was adapted from imme_emosol's response:
 \url{https://mathiasbynens.be/demo/url-regex}
 }
 \seealso{
-\code{\link[base]{gsub}}
+\code{\link[base]{gsub}},
+\code{\link[stringi]{stri_extract_all_regex}}
 }
 \keyword{http}
 \keyword{url}

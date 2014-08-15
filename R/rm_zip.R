@@ -21,7 +21,8 @@
 #' @return Returns a character string with U.S. 5 and 5+4 zip codes removed.
 #' @keywords zip
 #' @export
-#' @seealso \code{\link[base]{gsub}}
+#' @seealso \code{\link[base]{gsub}},
+#' \code{\link[stringi]{stri_extract_all_regex}}
 #' @author \href{http://stackoverflow.com/}{stackoverflow's} hwnd and Tyler Rinker <tyler.rinker@@gmail.com>. 
 #' @references The time regular expression was taken from: 
 #' \url{http://stackoverflow.com/a/25223890/1000343}

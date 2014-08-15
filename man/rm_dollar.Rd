@@ -46,7 +46,8 @@ rm_dollar(x)
 rm_dollar(x, extract=TRUE)
 }
 \seealso{
-\code{\link[base]{gsub}}
+\code{\link[base]{gsub}},
+\code{\link[stringi]{stri_extract_all_regex}}
 }
 \keyword{percent}
 

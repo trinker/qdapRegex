@@ -23,7 +23,8 @@
 #' @return Returns a character string with abbreviations removed.
 #' @keywords abbreviation
 #' @export
-#' @seealso \code{\link[base]{gsub}}
+#' @seealso \code{\link[base]{gsub}},
+#' \code{\link[stringi]{stri_extract_all_regex}}
 #' @examples
 #' x <- c("I want $2.33 at 2:30 p.m. to go to A.n.p.",
 #'     "She will send it A.S.A.P. (e.g. as soon as you can) said I.",
