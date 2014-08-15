@@ -19,7 +19,14 @@
 #' if \code{pattern} begins with \code{"@@rm_"}.
 #' @param \dots Other arguments passed to \code{\link[base]{gsub}}.
 #' @return Returns a character string with URLs removed.
+#' @details The default regex pattern \code{"(http[^ ]*)|(www\\.[^ ]*)"} is more 
+#' liberal.  More constained versions can be accessed
+#' via \code{pattern = "@@rm_url2"} & \code{pattern = "@@rm_url3"} see 
+#' \bold{Examples}).
 #' @keywords url www http
+#' @references The more constrained url regular expressions (\code{"@@rm_url2"}
+#' and \code{"@@rm_url3"} was adapted from imme_emosol's response: 
+#' \url{https://mathiasbynens.be/demo/url-regex}
 #' @export
 #' @seealso \code{\link[base]{gsub}}
 #' @examples
@@ -27,6 +34,9 @@
 #' rm_url(x)
 #' rm_url(x, replacement = '<a href="\\1" target="_blank">\\1</a>')
 #' rm_url(x, extract=TRUE)
+#' 
+#' rm_url(x, pattern = "@@rm_url2", extract=TRUE)
+#' rm_url(x, pattern = "@@rm_url3", extract=TRUE)
 rm_url <- function(text.var, trim = !extract, clean = TRUE, pattern = "@rm_url", 
 	replacement = "", extract = FALSE, dictionary = getOption("regex.library"), 
 	...) {

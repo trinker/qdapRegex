@@ -38,11 +38,25 @@ Returns a character string with URLs removed.
 \description{
 Remove/replace/extract URLs from a string.
 }
+\details{
+The default regex pattern \code{"(http[^ ]*)|(www\\.[^ ]*)"} is more
+liberal.  More constained versions can be accessed
+via \code{pattern = "@rm_url2"} & \code{pattern = "@rm_url3"} see
+\bold{Examples}).
+}
 \examples{
 x <- " I like www.talkstats.com and http://stackoverflow.com"
 rm_url(x)
 rm_url(x, replacement = '<a href="\\\\1" target="_blank">\\\\1</a>')
 rm_url(x, extract=TRUE)
+
+rm_url(x, pattern = "@rm_url2", extract=TRUE)
+rm_url(x, pattern = "@rm_url3", extract=TRUE)
+}
+\references{
+The more constrained url regular expressions (\code{"@rm_url2"}
+and \code{"@rm_url3"} was adapted from imme_emosol's response:
+\url{https://mathiasbynens.be/demo/url-regex}
 }
 \seealso{
 \code{\link[base]{gsub}}
