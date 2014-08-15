@@ -3,7 +3,7 @@
 \name{regex_supplement}
 \alias{regex_supplement}
 \title{Supplemental Canned Regular Expressions}
-\format{A list with 7 elements}
+\format{A list with 9 elements}
 \usage{
 data(regex_supplement)
 }
@@ -24,6 +24,8 @@ The following canned regular expressions are included:
   \item{hexadecimal}{substring beginning with hash (#) followed by either 3 or 6 select characters (a-f, A-F, and 0-9)}
   \item{ip_address}{substring of four chunks of 1-3 consecutive digits separated with dots (.)}
   \item{time_12_hours}{substring of valid hours (1-12) followed by a colon (:) followed by valid minutes (0-60), followed by an optional space and the character chunk \emph{am} or \emph{pm}}
+  \item{version}{substring starting with "v" or "version" optionally folled by a space and then period separated digits for <major>.<minor>.<release>.<build>; the build sequence is optional and the "version"/"v" IS NOT contained in the substring}
+  \item{version2}{substring starting with "v" or "version" optionally folled by a space and then period separated digits for <major>.<minor>.<release>.<build>; the build sequence is optional and the "version"/"v" IS contained in the substring}
 }
 
 Regexes from this data set can be added to the \code{pattern} argument of any
@@ -35,6 +37,13 @@ character string \code{\%s}.
 \examples{
 time <- rm_(pattern="@time_12_hours")
 time("I will go at 12:35 pm")
+
+x <- "v6.0.156 for Windows 2000/2003/XP/Vista
+Server version 1.1.20
+Client Manager version 1.1.24"
+
+rm_default(x, pattern = "@@version", extract=TRUE)
+rm_default(x, pattern = "@@version2", extract=TRUE)
 }
 \keyword{datasets}
 
