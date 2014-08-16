@@ -29,7 +29,7 @@ rm_angle(text.var, pattern = "<", trim = TRUE, clean = TRUE,
   FALSE, TRUE), dictionary = getOption("regex.library"), ...)
 
 rm_bracket_multiple(text.var, trim = TRUE, clean = TRUE, pattern = "all",
-  replacement = "", extract = FALSE, include.bracket = FALSE,
+  replacement = "", extract = FALSE, include.markers = FALSE,
   merge = TRUE)
 }
 \arguments{
@@ -42,17 +42,14 @@ spaces.}
 character will be removed.}
 
 \item{pattern}{The type of bracket (and encased text) to remove.  This is one
-or more of the strings \code{"curly"}, \code{"square"}, \code{"round"},
-\code{"angle"} and \code{"all"}.  These strings correspond
-to: \{, [, (, < or all four types.}
+or more of the strings \code{"curly"}/\code{"\{"}, \code{"square"}/\code{"["},
+\code{"round"}/\code{"("}, \code{"angle"}/\code{"<"} and \code{"all"}.  These
+strings correspond to: \{, [, (, < or all four types.}
 
 \item{replacement}{Replacement for matched \code{pattern}.}
 
 \item{extract}{logical.  If \code{TRUE} the bracketed text is extracted into
 a list of vectors.}
-
-\item{include.bracket}{logical.  If \code{TRUE} and \code{extract = TRUE} returns
-the brackets and the bracketed text.}
 
 \item{include.markers}{logical.  If \code{TRUE} and \code{extract = TRUE} returns
 the markers (left/right) and the text between.}
@@ -110,7 +107,7 @@ rm_bracket(examp$text, pattern = "curly", extract=TRUE)
 rm_bracket(examp$text, pattern = c("square", "round"), extract=TRUE)
 rm_bracket(examp$text, pattern = c("square", "round"), merge = FALSE, extract=TRUE)
 rm_bracket(examp$text, extract=TRUE)
-rm_bracket(examp$tex, include.bracket=TRUE, extract=TRUE)
+rm_bracket(examp$tex, include.markers=TRUE, extract=TRUE)
 
 \dontrun{
 qdap::paste2(rm_bracket(examp$tex, pattern="curly", extract=TRUE))
@@ -138,7 +135,7 @@ rm_bracket_multiple(examp$text, pattern = "curly", extract=TRUE)
 rm_bracket_multiple(examp$text, pattern = c("square", "round"), extract=TRUE)
 rm_bracket_multiple(examp$text, pattern = c("square", "round"), merge = FALSE, extract=TRUE)
 rm_bracket_multiple(examp$text, extract=TRUE)
-rm_bracket_multiple(examp$tex, include.bracket=TRUE, extract=TRUE)
+rm_bracket_multiple(examp$tex, include.markers=TRUE, extract=TRUE)
 }
 \author{
 Martin Morgan and Tyler Rinker <tyler.rinker@gmail.com>.

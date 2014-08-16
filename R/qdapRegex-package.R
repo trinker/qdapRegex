@@ -30,8 +30,8 @@ NULL
 #' @details The following canned regular expressions are included:
 #' \describe{
 #'   \item{rm_abbreviation}{abbreviations containing single lower case or capital letter followed by a period and then an optional space (this must be repeated 2 or more times)}
-#'   \item{rm_between}{Remove characters between a left and right boundary including the boundaries}
-#'   \item{rm_between2}{Remove characters between a left and right boundary NOT including the boundaries}
+#'   \item{rm_between}{Remove characters between a left and right boundary including the boundaries; note contains \code{"\%s"} that is replaced by \code{\link[base]{sprintf}} and is not a valid regex on its own}
+#'   \item{rm_between2}{Remove characters between a left and right boundary NOT including the boundaries; note contains \code{"\%s"} that is replaced by \code{\link[base]{sprintf}} and is not a valid regex on its own}
 #'   \item{rm_caps}{words containing 2 or more consecutive upper case letters and no lower case}
 #'   \item{rm_city_state}{substring with \emph{city} (single lower case word or multiple consecutive capitalized words before a comma and state) & \emph{state} (2 consecutive capital letters)}
 #'   \item{rm_city_state_zip}{substring with \emph{city} (single lower case word or multiple consecutive capitalized words before a comma and state) & \emph{state} (2 consecutive capital letters) & \emph{zip code} (exactly 5 or 5+4 consecutive digits)}

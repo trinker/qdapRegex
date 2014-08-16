@@ -8,14 +8,12 @@
 #' @param clean trim logical.  If \code{TRUE} extra white spaces and escaped 
 #' character will be removed.
 #' @param pattern The type of bracket (and encased text) to remove.  This is one 
-#' or more of the strings \code{"curly"}, \code{"square"}, \code{"round"}, 
-#' \code{"angle"} and \code{"all"}.  These strings correspond 
-#' to: \{, [, (, < or all four types.
+#' or more of the strings \code{"curly"}/\code{"\{"}, \code{"square"}/\code{"["}, 
+#' \code{"round"}/\code{"("}, \code{"angle"}/\code{"<"} and \code{"all"}.  These 
+#' strings correspond to: \{, [, (, < or all four types.
 #' @param replacement Replacement for matched \code{pattern}.
 #' @param extract logical.  If \code{TRUE} the bracketed text is extracted into 
 #' a list of vectors.
-#' @param include.bracket logical.  If \code{TRUE} and \code{extract = TRUE} returns 
-#' the brackets and the bracketed text.
 #' @param include.markers logical.  If \code{TRUE} and \code{extract = TRUE} returns 
 #' the markers (left/right) and the text between.
 #' @param dictionary A dictionary of canned regular expressions to search within 
@@ -55,7 +53,7 @@
 #' rm_bracket(examp$text, pattern = c("square", "round"), extract=TRUE)
 #' rm_bracket(examp$text, pattern = c("square", "round"), merge = FALSE, extract=TRUE)
 #' rm_bracket(examp$text, extract=TRUE)
-#' rm_bracket(examp$tex, include.bracket=TRUE, extract=TRUE)
+#' rm_bracket(examp$tex, include.markers=TRUE, extract=TRUE)
 #' 
 #' \dontrun{
 #' qdap::paste2(rm_bracket(examp$tex, pattern="curly", extract=TRUE))
@@ -83,7 +81,7 @@
 #' rm_bracket_multiple(examp$text, pattern = c("square", "round"), extract=TRUE)
 #' rm_bracket_multiple(examp$text, pattern = c("square", "round"), merge = FALSE, extract=TRUE)
 #' rm_bracket_multiple(examp$text, extract=TRUE)
-#' rm_bracket_multiple(examp$tex, include.bracket=TRUE, extract=TRUE)
+#' rm_bracket_multiple(examp$tex, include.markers=TRUE, extract=TRUE)
 rm_bracket <- function(text.var, pattern = "all", trim = TRUE, clean = TRUE, 
     replacement = "", extract = FALSE,
     include.markers = ifelse(extract, FALSE, TRUE),
@@ -204,12 +202,12 @@ bracket_convert <- function(x) {
 #' optionally merged and named by bracket type.  This is more flexible than 
 #' \code{rm_bracket} but slower.
 rm_bracket_multiple <- function(text.var, trim = TRUE, clean = TRUE, 
-    pattern = "all", replacement = "", extract = FALSE, 
-    include.bracket = FALSE, merge =TRUE) {
+    pattern = "all", replacement = "", extract = FALSE, include.markers = FALSE, 
+	merge =TRUE) {
 
     if (extract) {
         return(.bracketXtract(text.var, pattern = pattern,
-            include.bracket = include.bracket, merge = merge))
+            include.markers = include.markers, merge = merge))
     }
 
     out <- .bracketX(text.var, pattern, replacement=replacement)
@@ -258,7 +256,7 @@ function (text.var, pattern = "all", replacement) {
 }
 
 .bracketXtract <-
-function(text.var, pattern = "all", include.bracket = FALSE, merge = TRUE){
+function(text.var, pattern = "all", include.markers = FALSE, merge = TRUE){
    
     FUN <- function(text.var, bracket, with){   
         br <- bracket
@@ -287,7 +285,7 @@ function(text.var, pattern = "all", include.bracket = FALSE, merge = TRUE){
         }
     }
     out <- invisible(lapply(pattern, function(x) {
-        FUN(x, text.var = text.var, with = include.bracket)
+        FUN(x, text.var = text.var, with = include.markers)
     }))
     names(out) <- pattern
     if (length(pattern) == 1) {

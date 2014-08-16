@@ -53,7 +53,7 @@ test_that("rm_bracket_multiple is extracting bracketed text",{
     expect_true(identical(rm_bracket_multiple(examp$text, extract=TRUE, pattern = c("square", "round")), expected2 [[3]]))
     expect_true(identical(rm_bracket_multiple(examp$text, extract=TRUE, pattern = c("square", "round"), merge = FALSE), expected2 [[4]]))
     expect_true(identical(rm_bracket_multiple(examp$text, extract=TRUE), expected2[[5]]))
-    expect_true(identical(rm_bracket_multiple(examp$text, include.bracket = TRUE, extract=TRUE), expected2[[6]]))
+    expect_true(identical(rm_bracket_multiple(examp$text, include.markers = TRUE, extract=TRUE), expected2[[6]]))
     
 })
 
