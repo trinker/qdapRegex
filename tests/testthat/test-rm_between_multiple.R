@@ -1,6 +1,6 @@
-context("Checking rm_between")
+context("Checking rm_between_multiple")
 
-test_that("rm_between is removing and extracting betweened text single markers",{
+test_that("rm_between_multiple is removing and extracting betweened text single markers",{
 
     x <- c("Where is the /big dog#?",
         "I think he's @arunning@b with /little cat#.")
@@ -11,12 +11,12 @@ test_that("rm_between is removing and extracting betweened text single markers",
     x3 <- structure(list(`@a  :  @b1` = character(0), `@a  :  @b2` = "running"), 
     	.Names = c("@a  :  @b1", "@a  :  @b2"))
 	
-    expect_true(identical(rm_between(x, "@a", "@b"), x2))
-    expect_true(identical(rm_between(x, "@a", "@b", extract=TRUE), x3))
+    expect_true(identical(rm_between_multiple(x, "@a", "@b"), x2))
+    expect_true(identical(rm_between_multiple(x, "@a", "@b", extract=TRUE), x3))
 
 })
 
-test_that("rm_between is removing betweened text multiple markers",{
+test_that("rm_between_multiple is removing betweened text multiple markers",{
 
     x <- c("Where is the /big dog#?",
         "I think he's @arunning@b with /little cat#.")
@@ -26,13 +26,13 @@ test_that("rm_between is removing betweened text multiple markers",{
 	
     z2 <- c("Where is the?", "I think he's with.")
 
-	expect_true(identical(rm_between(x, c("/", "@a"), c("#", "@b")), z2))
-    expect_true(identical(rm_between(y, c("L1", 98), c("L2", 99)), z2))
+	expect_true(identical(rm_between_multiple(x, c("/", "@a"), c("#", "@b")), z2))
+    expect_true(identical(rm_between_multiple(y, c("L1", 98), c("L2", 99)), z2))
 	
 })
 
 
-test_that("rm_between is extracting betweened text multiple markers",{
+test_that("rm_between_multiple is extracting betweened text multiple markers",{
     
     x <- c("Where is the /big dog#?",
         "I think he's @arunning@b with /little cat#.")
@@ -42,8 +42,8 @@ test_that("rm_between is extracting betweened text multiple markers",{
 
 	z3 <- list("big dog", c("little cat", "running"))
 
-	expect_true(identical(rm_between(x, c("/", "@a"), c("#", "@b"), extract=TRUE), z3))
-    expect_true(identical(rm_between(y, c("L1", 98), c("L2", 99), extract=TRUE), z3))
+	expect_true(identical(rm_between_multiple(x, c("/", "@a"), c("#", "@b"), extract=TRUE), z3))
+    expect_true(identical(rm_between_multiple(y, c("L1", 98), c("L2", 99), extract=TRUE), z3))
 		
 })
 

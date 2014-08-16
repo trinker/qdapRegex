@@ -16,16 +16,26 @@
 #' a list of vectors.
 #' @param include.bracket logical.  If \code{TRUE} and \code{extract = TRUE} returns 
 #' the brackets and the bracketed text.
+#' @param include.markers logical.  If \code{TRUE} and \code{extract = TRUE} returns 
+#' the markers (left/right) and the text between.
+#' @param dictionary A dictionary of canned regular expressions to search within 
+#' if \code{pattern} begins with \code{"@@rm_"}.
+#' @param \dots Other arguments passed to \code{\link[base]{gsub}}.
 #' @param merge logical.  If \code{TRUE} the results of each bracket type will 
 #' be merged by string.  \code{FALSE} returns a named list of lists of vectors 
 #' of bracketed text per bracket type.  
-#' @return Returns a character string with brackets removed.
+#' @rdname rm_bracket
+#' @return \code{rm_bracket} - returns a character string with 
+#' multiple brackets removed.  If \code{extract = TRUE} the results are 
+#' optionally merged and named by bracket type.  This is more flexible than 
+#' \code{rm_bracket} but slower.
 #' @keywords bracket
 #' @references \url{http://stackoverflow.com/q/8621066/1000343} 
 #' @author  Martin Morgan and Tyler Rinker <tyler.rinker@@gmail.com>.
 #' @export
 #' @seealso \code{\link[base]{gsub}},
-#' \code{\link[qdapRegex]{rm_between}}
+#' \code{\link[qdapRegex]{rm_between}},
+#' \code{\link[stringi]{stri_extract_all_regex}}
 #' @examples
 #' examp <- structure(list(person = structure(c(1L, 2L, 1L, 3L),
 #'     .Label = c("bob", "greg", "sue"), class = "factor"), text =
@@ -46,10 +56,154 @@
 #' rm_bracket(examp$text, pattern = c("square", "round"), merge = FALSE, extract=TRUE)
 #' rm_bracket(examp$text, extract=TRUE)
 #' rm_bracket(examp$tex, include.bracket=TRUE, extract=TRUE)
+#' 
 #' \dontrun{
 #' qdap::paste2(rm_bracket(examp$tex, pattern="curly", extract=TRUE))
 #' }
-rm_bracket <- function(text.var, trim = TRUE, clean = TRUE, 
+#' 
+#' x <- "I like [bots] (not)."
+#' 
+#' rm_round(x)
+#' rm_round(x, extract = TRUE)
+#' 
+#' rm_round(x, include.marker = FALSE)
+#' rm_round(x, extract = TRUE, include.marker = TRUE)
+#'
+#' rm_square(x)
+#' rm_square(x, extract = TRUE)
+#' 
+#' rm_curly(x)
+#' rm_curly(x, extract = TRUE)
+#'
+#' rm_angle(x)
+#' rm_angle(x, extract = TRUE)
+#' 
+#' rm_bracket_multiple(examp$text, pattern = "square", extract=TRUE)
+#' rm_bracket_multiple(examp$text, pattern = "curly", extract=TRUE)
+#' rm_bracket_multiple(examp$text, pattern = c("square", "round"), extract=TRUE)
+#' rm_bracket_multiple(examp$text, pattern = c("square", "round"), merge = FALSE, extract=TRUE)
+#' rm_bracket_multiple(examp$text, extract=TRUE)
+#' rm_bracket_multiple(examp$tex, include.bracket=TRUE, extract=TRUE)
+rm_bracket <- function(text.var, pattern = "all", trim = TRUE, clean = TRUE, 
+    replacement = "", extract = FALSE,
+    include.markers = ifelse(extract, FALSE, TRUE),
+    dictionary = getOption("regex.library"), ...) {
+
+	pattern <- bracket_convert(pattern)
+    left <- sapply(pattern, "[", 1)
+    right <- sapply(pattern, "[", 2)
+
+    rm_between(text.var = text.var, left = left, right = right, 
+        trim = trim, clean = clean, replacement = replacement, 
+        extract = extract, include.markers = include.markers, 
+        dictionary = dictionary, ...)
+}
+
+
+#' @export
+#' @rdname rm_bracket
+#' @return \code{rm_round} - returns a character string with round brackets removed.
+rm_round <- function(text.var, pattern = "(", trim = TRUE, clean = TRUE, 
+    replacement = "", extract = FALSE,
+    include.markers = ifelse(extract, FALSE, TRUE),
+    dictionary = getOption("regex.library"), ...) {
+
+	pattern <- bracket_convert(pattern)
+    left <- sapply(pattern, "[", 1)
+    right <- sapply(pattern, "[", 2)
+
+    rm_between(text.var = text.var, left = left, right = right, 
+        trim = trim, clean = clean, replacement = replacement, 
+        extract = extract, include.markers = include.markers, 
+        dictionary = dictionary, ...)
+}
+
+#' @export
+#' @rdname rm_bracket
+#' @return \code{rm_square} - returns a character string with square brackets 
+#' removed.
+rm_square <- function(text.var, pattern = "[", trim = TRUE, clean = TRUE, 
+    replacement = "", extract = FALSE,
+    include.markers = ifelse(extract, FALSE, TRUE),
+    dictionary = getOption("regex.library"), ...) {
+
+	pattern <- bracket_convert(pattern)
+    left <- sapply(pattern, "[", 1)
+    right <- sapply(pattern, "[", 2)
+
+    rm_between(text.var = text.var, left = left, right = right, 
+        trim = trim, clean = clean, replacement = replacement, 
+        extract = extract, include.markers = include.markers, 
+        dictionary = dictionary, ...)
+}
+
+#' @export
+#' @rdname rm_bracket
+#' @return \code{rm_curly} - returns a character string with curly brackets 
+#' removed.
+rm_curly <- function(text.var, pattern = "{", trim = TRUE, clean = TRUE, 
+    replacement = "", extract = FALSE,
+    include.markers = ifelse(extract, FALSE, TRUE),
+    dictionary = getOption("regex.library"), ...) {
+
+	pattern <- bracket_convert(pattern)
+    left <- sapply(pattern, "[", 1)
+    right <- sapply(pattern, "[", 2)
+
+    rm_between(text.var = text.var, left = left, right = right, 
+        trim = trim, clean = clean, replacement = replacement, 
+        extract = extract, include.markers = include.markers, 
+        dictionary = dictionary, ...)
+}
+
+#' @export
+#' @rdname rm_bracket
+#' @return \code{rm_angle} - returns a character string with angle brackets 
+#' removed.
+rm_angle <- function(text.var, pattern = "<", trim = TRUE, clean = TRUE, 
+    replacement = "", extract = FALSE,
+    include.markers = ifelse(extract, FALSE, TRUE),
+    dictionary = getOption("regex.library"), ...) {
+
+	pattern <- bracket_convert(pattern)
+    left <- sapply(pattern, "[", 1)
+    right <- sapply(pattern, "[", 2)
+
+    rm_between(text.var = text.var, left = left, right = right, 
+        trim = trim, clean = clean, replacement = replacement, 
+        extract = extract, include.markers = include.markers, 
+        dictionary = dictionary, ...)
+}
+
+bracket_convert <- function(x) {
+
+	if (length(x) == 1 && x == "all") x <- names(.bracketconverts)
+	
+    x <- unique(.mgsub(sapply(.bracketconverts, "[", 1), 
+        names(.bracketconverts), x))
+
+    if (!all(x %in% names(.bracketconverts))) {
+        stop("Supply 1 or more of: `square`, `curly`, `round`, and/or `all`")
+    }
+    
+    .bracketconverts[x]
+
+}
+
+.bracketconverts <- list(
+    curly = c("{", "}"),
+    round = c("(", ")"),
+    square = c("[", "]"),
+    angle = c("<", ">")     
+)
+
+#' @export
+#' @rdname rm_bracket
+#' @return \code{rm_bracket_multiple} - returns a character string with 
+#' multiple brackets removed.  If \code{extract = TRUE} the results are 
+#' optionally merged and named by bracket type.  This is more flexible than 
+#' \code{rm_bracket} but slower.
+rm_bracket_multiple <- function(text.var, trim = TRUE, clean = TRUE, 
     pattern = "all", replacement = "", extract = FALSE, 
     include.bracket = FALSE, merge =TRUE) {
 

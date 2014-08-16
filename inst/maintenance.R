@@ -12,7 +12,9 @@ devtools::test()
 # Regex data set
 #==========================
 regex_usa <- list(
-    rm_abbreviation = "([A-Za-z][\\.]\\s*){1,}([A-Za-z][\\.])", 
+    rm_abbreviation = "([A-Za-z][\\.]\\s*){1,}([A-Za-z][\\.])",
+    rm_between = "(%s).*?(%s)",
+    rm_between2 = "(?<=%s).*?(?=%s)",	
     rm_caps = "(\\b[A-Z]{2,}\\b)", 
     rm_city_state = "([A-Z][\\w-]*(\\s+[A-Z][\\w-]*)+),\\s*([A-Z]{2})\\b|(\\b[A-Za-z]+),\\s*([A-Z]{2})\\b",
     rm_city_state_zip = "([A-Z][\\w-]*(\\s+[A-Z][\\w-]*)+),\\s*([A-Z]{2})\\s*(?<!\\d)\\d{5}(?:[ -]\\d{4})?\\b|(\\b[A-Za-z]+),\\s*([A-Z]{2})\\s*(?<!\\d)\\d{5}(?:[ -]\\d{4})?\\b",
@@ -33,8 +35,8 @@ regex_usa <- list(
     rm_title_name = "(((Dr|Mr|Mrs|Ms|dr|mr|mrs|ms)(\\.))|(Miss|Mizz|mizz))(\\s+)([A-Za-z]+)(\\s[A-Z][A-Za-z]*\\b)*",
     rm_time = "\\d{0,2}:\\d{2}(?:[:.]\\d+)?", 
     rm_url = "(http[^ ]*)|(www\\.[^ ]*)", 
-	rm_url2 = "(((https?|ftp)://)|(www\\.))(-\\.)?([^\\s/?\\.#-]+\\.?)+(/[^\\s]*)?",
-	rm_url3 = "(https?|ftp)://(-\\.)?([^\\s/?\\.#-]+\\.?)+(/[^\\s]*)?",
+    rm_url2 = "(((https?|ftp)://)|(www\\.))(-\\.)?([^\\s/?\\.#-]+\\.?)+(/[^\\s]*)?",
+    rm_url3 = "(https?|ftp)://(-\\.)?([^\\s/?\\.#-]+\\.?)+(/[^\\s]*)?",
     rm_zip = "(?<!\\d)\\d{5}(?:[ -]\\d{4})?\\b"
 )
 

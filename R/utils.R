@@ -114,3 +114,20 @@ reg_check_sprintf <- function(pattern, dictionary, n,
 
 }
 
+
+## check if regexes is in dictionary and sprintf left right
+reg_check_sprintf2 <- function(pattern, dictionary, ...,
+    backup = qdapRegex::regex_usa) {
+
+    if (is.null(dictionary)) dictionary <- backup
+	
+    if (substring(pattern, 1, 4) == "@rm_") {
+        reglook <- dictionary[[substring(pattern, 2)]]
+        if (!is.null(reglook)) {
+            pattern <- reglook
+        }
+    } 
+    sprintf(pattern, ...)
+
+}
+

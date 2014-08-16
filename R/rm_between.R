@@ -16,26 +16,47 @@
 #' list of vectors.
 #' @param include.markers logical.  If \code{TRUE} and \code{extract = TRUE} returns 
 #' the markers (left/right) and the text between.
+#' @param dictionary A dictionary of canned regular expressions to search within 
+#' if \code{pattern} begins with \code{"@@rm_"}.
+#' @param \dots Other arguments passed to \code{\link[base]{gsub}}.
 #' @param merge logical.  If \code{TRUE} the results of each bracket type will 
 #' be merged by string.  \code{FALSE} returns a named list of lists of vectors 
 #' of markered text per marker type.  
-#' @return Returns a character string with markers removed.
+#' @return Returns a character string with markers removed.  If 
+#' \code{rm_between} returns merged strings and is significantly faster.  If
+#' \code{rm_between_multiple} the strings are optionally merged by 
+#' \code{left}/\code{right} symbols.  The latter approach is more flexible and
+#' names extracted strings by symbol boundaries,however, it is slower than 
+#' \code{rm_between}.
+#' @rdname rm_between
 #' @export
 #' @seealso \code{\link[base]{gsub}},
-#' \code{\link[qdapRegex]{rm_bracket}}
+#' \code{\link[qdapRegex]{rm_bracket}},
+#' \code{\link[stringi]{stri_extract_all_regex}}
 #' @examples
+#' x <-  "I like [bots] (not)."
+#' 
+#' rm_between(x, "(", ")")
+#' rm_between(x, "(", ")", extract=TRUE)
+#' rm_between(x, c("(", "["), c(")", "]"))
+#' rm_between(x, c("(", "["), c(")", "]"), extract=TRUE)
+#' 
+#' rm_between(x, c("(", "["), c(")", "]"), include.markers=FALSE)
+#' rm_between(x, c("(", "["), c(")", "]"), extract=TRUE, include.markers=TRUE) 
+#' 
+#' ## multiple (naming and ability to keep separate bracket types but slower)
 #' x <- c("Where is the /big dog#?",
 #'     "I think he's @@arunning@@b with /little cat#.")
 #' 
-#' rm_between(x, "@@a", "@@b")
-#' rm_between(x, "@@a", "@@b", extract=TRUE)
-#' rm_between(x, c("/", "@@a"), c("#", "@@b"))
-#' rm_between(x, c("/", "@@a"), c("#", "@@b"), extract=TRUE)
+#' rm_between_multiple(x, "@@a", "@@b")
+#' rm_between_multiple(x, "@@a", "@@b", extract=TRUE)
+#' rm_between_multiple(x, c("/", "@@a"), c("#", "@@b"))
+#' rm_between_multiple(x, c("/", "@@a"), c("#", "@@b"), extract=TRUE)
 #' 
 #' x2 <- c("Where is the L1big dogL2?",
 #'     "I think he's 98running99 with L1little catL2.")
-#' rm_between(x2, c("L1", 98), c("L2", 99))
-#' rm_between(x2, c("L1", 98), c("L2", 99), extract=TRUE)
+#' rm_between_multiple(x2, c("L1", 98), c("L2", 99))
+#' rm_between_multiple(x2, c("L1", 98), c("L2", 99), extract=TRUE)
 #' 
 #' state <- c("Computer is fun. Not too fun.", "No it's not, it's dumb.", 
 #'     "What should we do?", "You liar, it stinks!", "I am telling the truth!", 
@@ -43,8 +64,48 @@
 #'     "What are you talking about?", "Shall we move on?  Good then.", 
 #'     "I'm hungry.  Let's eat.  You already?")
 #' 
-#' rm_between(x2, c("is", "we"), c("too", "on"))
+#' rm_between_multiple(x2, c("is", "we"), c("too", "on"))
 rm_between <- function(text.var, left, right, trim = TRUE, clean = TRUE, 
+    replacement = "", extract = FALSE,
+    include.markers = ifelse(extract, FALSE, TRUE),
+    dictionary = getOption("regex.library"), ...) {
+
+    stopifnot(length(left) == length(right))
+
+    pattern <- Map(function(x, y) {rm_between_subber(left=x, right=y, 
+        dictionary=dictionary, include.markers=include.markers)}, left, right)
+
+    pattern <- paste(pattern, collapse="|")
+
+    if (extract) {
+    	if (!trim) {
+            return(stringi::stri_extract_all_regex(text.var, pattern))
+    	}
+    	return(lapply(return(stringi::stri_extract_all_regex(text.var, pattern)), Trim))
+    }
+
+    out <- gsub(pattern, replacement, text.var, perl = TRUE, ...)
+    if (trim) out <- Trim(out)
+    if (clean) out <- clean(out)
+    out
+}
+
+
+rm_between_subber <- function(left, right, include.markers, dictionary) {
+    pattern <- c("@rm_between", "@rm_between2")[2 -  as.numeric(include.markers)]
+
+    left <- .mgsub(.specchars , paste0("\\", .specchars), left)
+    right <- .mgsub(.specchars , paste0("\\", .specchars), right)
+
+    reg_check_sprintf2(pattern, dictionary = dictionary, left, right)
+}
+
+.specchars <- c(".", "|", "(", ")", "[", "]", "{", "}", "^", "$", "*", "+", "?")
+
+
+#' @export
+#' @rdname rm_between
+rm_between_multiple <- function(text.var, left, right, trim = TRUE, clean = TRUE, 
     replacement = "", extract = FALSE, include.markers = FALSE, merge =TRUE) {
 
     if (extract) {
