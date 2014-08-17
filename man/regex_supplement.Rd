@@ -44,6 +44,30 @@ Client Manager version 1.1.24"
 
 rm_default(x, pattern = "@@version", extract=TRUE)
 rm_default(x, pattern = "@@version2", extract=TRUE)
+
+\dontrun{
+library(qdap)'library(ggplot2);library(reshape2)
+
+out <- setNames(lapply(c("@after_a", "@after_the"), function(x) {
+    o <- rm_default(stringi:::stri_trans_tolower(pres_debates2012$dialogue),
+        pattern = x, extract=TRUE)
+    m <- qdapTools::matrix2df(data.frame(freq=sort(table(unlist(o)), TRUE)), "word")
+    m[m$freq> 7, ]
+}), c("a", "the"))
+
+
+dat <- setNames(Reduce(function(x, y) {
+    merge(x, y, by = "word", all = TRUE)}, out), c("Word", "A", "THE"))
+
+dat <- reshape2::melt(dat, id="Word", variable.name="Article", value.name="freq")
+
+dat <- dat[order(dat$freq, dat$Word), ]
+
+ord <- aggregate(freq ~ Word, dat, sum)
+
+dat$word <- factor(dat$Word, levels=ord[order(ord[[2]]), 1])
+ggplot(dat, aes(x=freq, y=Word)) + geom_point()+ facet_grid(~Article)
+}
 }
 \keyword{datasets}
 

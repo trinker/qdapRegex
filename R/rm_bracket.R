@@ -59,29 +59,25 @@
 #' qdap::paste2(rm_bracket(examp$tex, pattern="curly", extract=TRUE))
 #' }
 #' 
-#' x <- "I like [bots] (not)."
+#' x <- "I like [bots] (not). And <likely> many do not {he he}"
 #' 
 #' rm_round(x)
 #' rm_round(x, extract = TRUE)
 #' 
 #' rm_round(x, include.marker = FALSE)
 #' rm_round(x, extract = TRUE, include.marker = TRUE)
-#'
+#' 
 #' rm_square(x)
 #' rm_square(x, extract = TRUE)
 #' 
 #' rm_curly(x)
 #' rm_curly(x, extract = TRUE)
-#'
+#' 
 #' rm_angle(x)
 #' rm_angle(x, extract = TRUE)
 #' 
-#' rm_bracket_multiple(examp$text, pattern = "square", extract=TRUE)
-#' rm_bracket_multiple(examp$text, pattern = "curly", extract=TRUE)
-#' rm_bracket_multiple(examp$text, pattern = c("square", "round"), extract=TRUE)
-#' rm_bracket_multiple(examp$text, pattern = c("square", "round"), merge = FALSE, extract=TRUE)
-#' rm_bracket_multiple(examp$text, extract=TRUE)
-#' rm_bracket_multiple(examp$tex, include.markers=TRUE, extract=TRUE)
+#' lapply(rm_between('She said, "I am!" and he responded..."Am what?".', 
+#'     left='"', right='"', extract = TRUE), "[", c(TRUE, FALSE))
 rm_bracket <- function(text.var, pattern = "all", trim = TRUE, clean = TRUE, 
     replacement = "", extract = FALSE,
     include.markers = ifelse(extract, FALSE, TRUE),
