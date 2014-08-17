@@ -23,6 +23,7 @@ The following canned regular expressions are included:
   \item{before_}{find sing word before ? word (? = user defined); note contains \code{"\%s"} that is replaced by \code{\link[base]{sprintf}} and is not a valid regex on its own}
   \item{hexadecimal}{substring beginning with hash (#) followed by either 3 or 6 select characters (a-f, A-F, and 0-9)}
   \item{ip_address}{substring of four chunks of 1-3 consecutive digits separated with dots (.)}
+  \item{thousands_separator}{chunks digits > 4 into groups of 3 from right to left allowing for easy insertion of thousands separator; regex pattern retrieved from \href{http://stackoverflow.com/}{StackOverflow}'s stema: \url{http://stackoverflow.com/a/10612685/1000343}}
   \item{time_12_hours}{substring of valid hours (1-12) followed by a colon (:) followed by valid minutes (0-60), followed by an optional space and the character chunk \emph{am} or \emph{pm}}
   \item{version}{substring starting with "v" or "version" optionally folled by a space and then period separated digits for <major>.<minor>.<release>.<build>; the build sequence is optional and the "version"/"v" IS NOT contained in the substring}
   \item{version2}{substring starting with "v" or "version" optionally folled by a space and then period separated digits for <major>.<minor>.<release>.<build>; the build sequence is optional and the "version"/"v" IS contained in the substring}
@@ -45,10 +46,14 @@ Client Manager version 1.1.24"
 rm_default(x, pattern = "@@version", extract=TRUE)
 rm_default(x, pattern = "@@version2", extract=TRUE)
 
+x <- "this is 1000000 big 4356.  And little 123 number."
+rm_default(x, pattern="@@thousands_separator", replacement="\\\\1,")
+rm_default(x, pattern="@@thousands_separator", replacement="\\\\1.")
+
 \dontrun{
 library(qdap)'library(ggplot2);library(reshape2)
 
-out <- setNames(lapply(c("@after_a", "@after_the"), function(x) {
+out <- setNames(lapply(c("@@after_a", "@@after_the"), function(x) {
     o <- rm_default(stringi:::stri_trans_tolower(pres_debates2012$dialogue),
         pattern = x, extract=TRUE)
     m <- qdapTools::matrix2df(data.frame(freq=sort(table(unlist(o)), TRUE)), "word")
