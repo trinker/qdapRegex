@@ -64,8 +64,13 @@ x2 <- paste0("Format dates as Sept 09, 2002 or October 22, 1887",
 rm_date(x2, pattern="@rm_date2")
 rm_date(x2, pattern="@rm_date2", extract=TRUE)
 
-## Grab both types
-rm_date(c(x, x2), pattern="@rm_date3", extract=TRUE)
+
+## Year-Month-Day Representation
+x <- sprintf("R uses time in this format \%s.", Sys.time())
+rm_date(x, pattern="@rm_date3")
+
+## Grab all types
+rm_date(c(x, x2, x3), pattern="@rm_date4", extract=TRUE)
 }
 \seealso{
 \code{\link[base]{gsub}},

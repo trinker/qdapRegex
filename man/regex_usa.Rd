@@ -3,7 +3,7 @@
 \name{regex_usa}
 \alias{regex_usa}
 \title{Canned Regular Expressions (United States of America)}
-\format{A list with 24 elements}
+\format{A list with 25 elements}
 \usage{
 data(regex_usa)
 }
@@ -20,9 +20,10 @@ The following canned regular expressions are included:
   \item{rm_caps}{words containing 2 or more consecutive upper case letters and no lower case}
   \item{rm_city_state}{substring with \emph{city} (single lower case word or multiple consecutive capitalized words before a comma and state) & \emph{state} (2 consecutive capital letters)}
   \item{rm_city_state_zip}{substring with \emph{city} (single lower case word or multiple consecutive capitalized words before a comma and state) & \emph{state} (2 consecutive capital letters) & \emph{zip code} (exactly 5 or 5+4 consecutive digits)}
-  \item{rm_date}{date in the form of 2 digit month, 2 digit day, and 2 or 4 digit year.  Separator between month, day, and year may be dot (.), slash (/), or dash (-)}
-  \item{rm_date2}{date in the form of 3-9 letters followed by one or more spaces, 2 digits, a comma(,), one or more spaces, and 4 digits}
-  \item{rm_date3}{dates in the form of both \code{rm_date} and \code{rm_date2}}
+  \item{rm_date}{dates in the form of 2 digit month, 2 digit day, and 2 or 4 digit year.  Separator between month, day, and year may be dot (.), slash (/), or dash (-)}
+  \item{rm_date2}{dates in the form of 3-9 letters followed by one or more spaces, 2 digits, a comma(,), one or more spaces, and 4 digits}
+  \item{rm_date3}{dates in the form of XXXX-XX-XX; hyphen separated string of 4 digit year, 2 digit month, and 2 digit day}
+  \item{rm_date3}{dates in the form of both \code{rm_date}, \code{rm_date2}, and \code{rm_date3}}
   \item{rm_dollar}{substring with dollar sign ($) followed by (1) just dollars (no decimal), (2) dollars and cents (whole number and decimal), or (3) just cents (decimal value)}
   \item{rm_email}{substring with (1) alphanumeric characters or dash (-), plus (+), or underscore (_) (\emph{This may be repeated}) (2) followed by at (@), followed by the same regex sequence as before the at (@), and ending with dot (.) and 2-14 digits}
   \item{rm_emoticon}{common emoticons (logic is complicated to explain in words) using ">?[:;=8XB]\{1\}[-~+o^]?[|\")(&gt;DO>\{pP3/]+|</?3|XD+|D:<|x[-~+o^]?[|\")(&gt;DO>\{pP3/]+" regex pattern; general pattern is optional hat character, followed by eyes character, followed by optional nose character, and ending with a mouth character}

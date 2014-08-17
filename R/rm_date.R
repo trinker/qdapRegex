@@ -47,8 +47,13 @@
 #' rm_date(x2, pattern="@@rm_date2")
 #' rm_date(x2, pattern="@@rm_date2", extract=TRUE)
 #' 
-#' ## Grab both types
-#' rm_date(c(x, x2), pattern="@@rm_date3", extract=TRUE)
+#' 
+#' ## Year-Month-Day Representation
+#' x <- sprintf("R uses time in this format %s.", Sys.time())
+#' rm_date(x, pattern="@@rm_date3")
+#' 
+#' ## Grab all types
+#' rm_date(c(x, x2, x3), pattern="@@rm_date4", extract=TRUE)
 rm_date <- function(text.var, trim = !extract, clean = TRUE,
     pattern = "@rm_date", replacement = "", extract = FALSE, 
     dictionary = getOption("regex.library"), ...) {
