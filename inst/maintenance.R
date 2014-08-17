@@ -35,9 +35,9 @@ regex_usa <- list(
     rm_tag2 = "(?<![@\\w])@([a-z0-9_]{1,15})\\b",  
     rm_title_name = "(((Dr|Mr|Mrs|Ms|dr|mr|mrs|ms)(\\.))|(Miss|Mizz|mizz))(\\s+)([A-Za-z]+)(\\s[A-Z][A-Za-z]*\\b)*",
     rm_time = "\\d{0,2}:\\d{2}(?:[:.]\\d+)?", 
-    rm_url = "(http[^ ]*)|(www\\.[^ ]*)", 
+    rm_url = "(http[^ ]*)|(ftp[^ ]*)|(www\\.[^ ]*)", 
     rm_url2 = "(((https?|ftp)://)|(www\\.))(-\\.)?([^\\s/?\\.#-]+\\.?)+(/[^\\s]*)?",
-    rm_url3 = "(https?|ftp|ftp)://(-\\.)?([^\\s/?\\.#-]+\\.?)+(/[^\\s]*)?",
+    rm_url3 = "(https?|ftp)://(-\\.)?([^\\s/?\\.#-]+\\.?)+(/[^\\s]*)?",
     rm_zip = "(?<!\\d)\\d{5}(?:[ -]\\d{4})?\\b"
 )
 
