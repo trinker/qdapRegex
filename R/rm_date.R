@@ -51,7 +51,7 @@
 #' 
 #' ## Year-Month-Day Representation
 #' x3 <- sprintf("R uses time in this format %s.", Sys.time())
-#' rm_date(x3 pattern="@@rm_date3")
+#' rm_date(x3, pattern="@@rm_date3")
 #' 
 #' ## Grab all types
 #' rm_date(c(x, x2, x3), pattern="@@rm_date4", extract=TRUE)
