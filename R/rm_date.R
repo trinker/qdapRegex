@@ -27,7 +27,8 @@
 #' \code{"June 13, 2002"} is not matched.  This behavior can be altered (to 
 #' includemonth names/abbreviations) by using a secondary regular expression 
 #' from the \code{\link[qdapRegex]{regex_usa}} data (or other dictionary) via 
-#' (\code{pattern = "@@rm_date2"} or \code{pattern = "@@rm_date3"}). See 
+#' (\code{pattern = "@@rm_date2"}, \code{pattern = "@@rm_date3"}, or 
+#' \code{pattern = "@@rm_date4"}). See 
 #' \bold{Examples} for example usage. 
 #' @export
 #' @seealso \code{\link[base]{gsub}},
@@ -49,8 +50,8 @@
 #' 
 #' 
 #' ## Year-Month-Day Representation
-#' x <- sprintf("R uses time in this format %s.", Sys.time())
-#' rm_date(x, pattern="@@rm_date3")
+#' x3 <- sprintf("R uses time in this format %s.", Sys.time())
+#' rm_date(x3 pattern="@@rm_date3")
 #' 
 #' ## Grab all types
 #' rm_date(c(x, x2, x3), pattern="@@rm_date4", extract=TRUE)
