@@ -38,9 +38,9 @@ The following canned regular expressions are included:
   \item{rm_title_name}{substring beginning with title (Mrs., Mr., Ms., Dr.) that is case independent or full title (Miss, Mizz, mizz) followed by a single lower case word or multiple capitalized words}
   \item{rm_time}{substring that (1) must begin with 0-2 digits, (2) must be followed by a single colon (:), (3) optionally may be followed by either a colon (:) or a dot (.), (4) optionally may be followed by 1-infinite digits (if previous condition is true)}
   \item{rm_twitter_url}{\href{https://twitter.com/}{Twitter} \href{https://support.twitter.com/articles/109623-about-twitter-s-link-service-http-t-co}{short link/url}; substring optionally beginning with \emph{http}, followed by \emph{t.co} ending on a space or end of string (whichever comes first)}
-  \item{rm_url}{substring beginning with \emph{http}, \emph{www.}, or \emph{ftp} and ending on a space or end of string (whichever comes first); note that this regex is simple and may not cover all valid urls or may include invalid urls}
+  \item{rm_url}{substring beginning with \emph{http}, \emph{www.}, or \emph{ftp} and ending on a space or end of string (whichever comes first); note that this regex is simple and may not cover all valid URLs or may include invalid URLs}
   \item{rm_url2}{substring beginning with \emph{http}, \emph{www.}, or \emph{ftp} and more constrained than \code{rm_url}; based on @imme_emosol's response from \url{https://mathiasbynens.be/demo/url-regex}}
-  \item{rm_url3}{substring beginning with \emph{http} or \emph{ftp} and more constrained than \code{rm_url} & \code{rm_url2} though lightwieght, making it ideal for validation purposes; taken from @imme_emosol's response found \url{https://mathiasbynens.be/demo/url-regex}}
+  \item{rm_url3}{substring beginning with \emph{http} or \emph{ftp} and more constrained than \code{rm_url} & \code{rm_url2} though light-weight, making it ideal for validation purposes; taken from @imme_emosol's response found \url{https://mathiasbynens.be/demo/url-regex}}
   \item{rm_zip}{substring of 5 digits optionally followed by a dash and 4 more digits}
 }
 }

@@ -25,13 +25,13 @@ The following canned regular expressions are included:
   \item{ip_address}{substring of four chunks of 1-3 consecutive digits separated with dots (.)}
   \item{thousands_separator}{chunks digits > 4 into groups of 3 from right to left allowing for easy insertion of thousands separator; regex pattern retrieved from \href{http://stackoverflow.com/}{StackOverflow}'s stema: \url{http://stackoverflow.com/a/10612685/1000343}}
   \item{time_12_hours}{substring of valid hours (1-12) followed by a colon (:) followed by valid minutes (0-60), followed by an optional space and the character chunk \emph{am} or \emph{pm}}
-  \item{version}{substring starting with "v" or "version" optionally folled by a space and then period separated digits for <major>.<minor>.<release>.<build>; the build sequence is optional and the "version"/"v" IS NOT contained in the substring}
-  \item{version2}{substring starting with "v" or "version" optionally folled by a space and then period separated digits for <major>.<minor>.<release>.<build>; the build sequence is optional and the "version"/"v" IS contained in the substring}
+  \item{version}{substring starting with "v" or "version" optionally followed by a space and then period separated digits for <major>.<minor>.<release>.<build>; the build sequence is optional and the "version"/"v" IS NOT contained in the substring}
+  \item{version2}{substring starting with "v" or "version" optionally followed by a space and then period separated digits for <major>.<minor>.<release>.<build>; the build sequence is optional and the "version"/"v" IS contained in the substring}
 }
 
 Regexes from this data set can be added to the \code{pattern} argument of any
-\code{rm_XXX} function via a double sign (@@) followed by a regex name from
-this data set (e.g., \code{pattern = "@@after_the"}) provided the regular
+\code{rm_XXX} function via an at sign (@) followed by a regex name from
+this data set (e.g., \code{pattern = "@after_the"}) provided the regular
 expression does not contain non-regex such as \code{\link[base]{sprintf}}
 character string \code{\%s}.
 }

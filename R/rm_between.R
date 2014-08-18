@@ -26,7 +26,7 @@
 #' \code{rm_between} returns merged strings and is significantly faster.  If
 #' \code{rm_between_multiple} the strings are optionally merged by 
 #' \code{left}/\code{right} symbols.  The latter approach is more flexible and
-#' names extracted strings by symbol boundaries,however, it is slower than 
+#' names extracted strings by symbol boundaries, however, it is slower than 
 #' \code{rm_between}.
 #' @rdname rm_between
 #' @export

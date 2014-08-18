@@ -53,9 +53,9 @@ NULL
 #'   \item{rm_title_name}{substring beginning with title (Mrs., Mr., Ms., Dr.) that is case independent or full title (Miss, Mizz, mizz) followed by a single lower case word or multiple capitalized words}
 #'   \item{rm_time}{substring that (1) must begin with 0-2 digits, (2) must be followed by a single colon (:), (3) optionally may be followed by either a colon (:) or a dot (.), (4) optionally may be followed by 1-infinite digits (if previous condition is true)}
 #'   \item{rm_twitter_url}{\href{https://twitter.com/}{Twitter} \href{https://support.twitter.com/articles/109623-about-twitter-s-link-service-http-t-co}{short link/url}; substring optionally beginning with \emph{http}, followed by \emph{t.co} ending on a space or end of string (whichever comes first)}
-#'   \item{rm_url}{substring beginning with \emph{http}, \emph{www.}, or \emph{ftp} and ending on a space or end of string (whichever comes first); note that this regex is simple and may not cover all valid urls or may include invalid urls}
+#'   \item{rm_url}{substring beginning with \emph{http}, \emph{www.}, or \emph{ftp} and ending on a space or end of string (whichever comes first); note that this regex is simple and may not cover all valid URLs or may include invalid URLs}
 #'   \item{rm_url2}{substring beginning with \emph{http}, \emph{www.}, or \emph{ftp} and more constrained than \code{rm_url}; based on @@imme_emosol's response from \url{https://mathiasbynens.be/demo/url-regex}}
-#'   \item{rm_url3}{substring beginning with \emph{http} or \emph{ftp} and more constrained than \code{rm_url} & \code{rm_url2} though lightwieght, making it ideal for validation purposes; taken from @@imme_emosol's response found \url{https://mathiasbynens.be/demo/url-regex}}
+#'   \item{rm_url3}{substring beginning with \emph{http} or \emph{ftp} and more constrained than \code{rm_url} & \code{rm_url2} though light-weight, making it ideal for validation purposes; taken from @@imme_emosol's response found \url{https://mathiasbynens.be/demo/url-regex}}
 #'   \item{rm_zip}{substring of 5 digits optionally followed by a dash and 4 more digits} 
 #' }
 #' @name regex_usa 
@@ -84,13 +84,13 @@ NULL
 #'   \item{ip_address}{substring of four chunks of 1-3 consecutive digits separated with dots (.)}
 #'   \item{thousands_separator}{chunks digits > 4 into groups of 3 from right to left allowing for easy insertion of thousands separator; regex pattern retrieved from \href{http://stackoverflow.com/}{StackOverflow}'s stema: \url{http://stackoverflow.com/a/10612685/1000343}}
 #'   \item{time_12_hours}{substring of valid hours (1-12) followed by a colon (:) followed by valid minutes (0-60), followed by an optional space and the character chunk \emph{am} or \emph{pm}} 
-#'   \item{version}{substring starting with "v" or "version" optionally folled by a space and then period separated digits for <major>.<minor>.<release>.<build>; the build sequence is optional and the "version"/"v" IS NOT contained in the substring}
-#'   \item{version2}{substring starting with "v" or "version" optionally folled by a space and then period separated digits for <major>.<minor>.<release>.<build>; the build sequence is optional and the "version"/"v" IS contained in the substring}
+#'   \item{version}{substring starting with "v" or "version" optionally followed by a space and then period separated digits for <major>.<minor>.<release>.<build>; the build sequence is optional and the "version"/"v" IS NOT contained in the substring}
+#'   \item{version2}{substring starting with "v" or "version" optionally followed by a space and then period separated digits for <major>.<minor>.<release>.<build>; the build sequence is optional and the "version"/"v" IS contained in the substring}
 #' } 
 #' 
 #' Regexes from this data set can be added to the \code{pattern} argument of any 
-#' \code{rm_XXX} function via a double sign (@@@@) followed by a regex name from
-#' this data set (e.g., \code{pattern = "@@@@after_the"}) provided the regular 
+#' \code{rm_XXX} function via an at sign (@@) followed by a regex name from
+#' this data set (e.g., \code{pattern = "@@after_the"}) provided the regular 
 #' expression does not contain non-regex such as \code{\link[base]{sprintf}} 
 #' character string \code{\%s}.
 #' @usage data(regex_supplement) 

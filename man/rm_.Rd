@@ -60,7 +60,6 @@ f <- rm_(pattern="@time_12_hours")
 f("I will go at 12:35 pm")
 }
 \seealso{
-\code{\link[qdapRegex]{rm_default}},
-\code{\link[pryr]{partial}}
+\code{\link[qdapRegex]{rm_default}}
 }
 

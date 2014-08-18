@@ -44,7 +44,7 @@ XX/XX/XX, XX-XX-XXXX, XX-XX-XX, XX.XX.XXXX, or XX.XX.XX OR
 The default regular expression used by \code{rm_date} finds numeric
 representations not word/abbreviations.  This means that
 \code{"June 13, 2002"} is not matched.  This behavior can be altered (to
-includemonth names/abbreviations) by using a secondary regular expression
+include month names/abbreviations) by using a secondary regular expression
 from the \code{\link[qdapRegex]{regex_usa}} data (or other dictionary) via
 (\code{pattern = "@rm_date2"}, \code{pattern = "@rm_date3"}, or
 \code{pattern = "@rm_date4"}). See

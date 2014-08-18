@@ -20,7 +20,7 @@
 #' @param \dots Other arguments passed to \code{\link[base]{gsub}}.
 #' @return Returns a character string with URLs removed.
 #' @details The default regex pattern \code{"(http[^ ]*)|(www\\.[^ ]*)"} is more 
-#' liberal.  More constained versions can be accessed
+#' liberal.  More constrained versions can be accessed
 #' via \code{pattern = "@@rm_url2"} & \code{pattern = "@@rm_url3"} see 
 #' \bold{Examples}).
 #' @keywords url www http t.co ftp
@@ -52,7 +52,7 @@
 #' rm_twitter_url(x)
 #' rm_twitter_url(x, extract=TRUE)
 #' 
-#' ## Combine removing Twitter URLs adn standard URLs
+#' ## Combine removing Twitter URLs and standard URLs
 #' rm_twitter_n_url <- rm_(pattern=pastex("@@rm_twitter_url", "@@rm_url"))
 #' rm_twitter_n_url(x)
 #' rm_twitter_n_url(x, extract=TRUE)
