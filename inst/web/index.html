@@ -47,13 +47,13 @@
     <h2>Help topics</h2>
 
     <h3>Removing/Extracting/Replacing</h3>
-    <p>Function to clean and parse text data.</p>
+    <p>Function for removing/extracting/replacing text with regular expressions.</p>
 
     
     <ul class="index">
         
       <li>
-        <code><a href="pastex.html">pastex</a></code><br />Paste Regular Expressions</li>
+        <code><a href="rm_default.html">rm_default</a></code><br />Remove/Replace/Extract Template</li>
             
       <li>
         <code><a href="rm_.html">rm_</a></code><br />Remove/Replace/Extract Function Generator</li>
@@ -63,9 +63,27 @@
             
       <li>
         <code><a href="rm_between.html">rm_between</a></code><br />Remove/Replace/Extract Strings Between 2 Markers</li>
+      <li>
+        <code><a href="rm_between.html">rm_between_multiple</a></code><br />Remove/Replace/Extract Strings Between 2 Markers</li>
+            
             
       <li>
         <code><a href="rm_bracket.html">rm_bracket</a></code><br />Remove/Replace/Extract Brackets</li>
+      <li>
+        <code><a href="rm_bracket.html">rm_angle</a></code><br />Remove/Replace/Extract Brackets</li>
+            
+      <li>
+        <code><a href="rm_bracket.html">rm_bracket_multiple</a></code><br />Remove/Replace/Extract Brackets</li>
+            
+      <li>
+        <code><a href="rm_bracket.html">rm_curly</a></code><br />Remove/Replace/Extract Brackets</li>
+            
+      <li>
+        <code><a href="rm_bracket.html">rm_round</a></code><br />Remove/Replace/Extract Brackets</li>
+            
+      <li>
+        <code><a href="rm_bracket.html">rm_square</a></code><br />Remove/Replace/Extract Brackets</li>
+            
             
       <li>
         <code><a href="rm_caps.html">rm_caps</a></code><br />Remove/Replace/Extract All Caps</li>
@@ -113,10 +131,23 @@
         <code><a href="rm_title_name.html">rm_title_name</a></code><br />Remove/Replace/Extract Title + Person Name</li>
             
       <li>
-        <code><a href="rm_url.html">rm_url</a></code><br />Remove/Replace/Extract URLs</li>
+        <code><a href="rm_url.html">rm_url</a></code> <code><a href="rm_url.html">rm_twitter_url</a></code><br />Remove/Replace/Extract URLs</li>
             
       <li>
         <code><a href="rm_zip.html">rm_zip</a></code><br />Remove/Replace/Extract Zip Codes</li>
+    
+    </ul>
+    <h3>qdapRegex Tools</h3>
+    <p>Functions used within qdapRegex that are not specific to removing/extracting/replacing text with regular expressions.</p>
+
+    
+    <ul class="index">
+        
+      <li>
+        <code><a href="escape.html">escape</a></code><br />Escape Strings From Parsing</li>
+            
+      <li>
+        <code><a href="pastex.html">pastex</a></code> <code><a href="pastex.html">%|%</a></code><br />Paste Regular Expressions</li>
             
       <li>
         <code><a href="validate.html">validate</a></code><br />Regex Validation Function Generator</li>
@@ -135,18 +166,6 @@
         <code><a href="regex_supplement.html">regex_supplement</a></code><br />Supplemental Canned Regular Expressions</li>
     
     </ul>
-    <h3>Other</h3>
-    
-    
-    <ul class="index">
-        
-      <li>
-        <code><a href="qdapRegex.html">qdapRegex</a></code>(package-qdapRegex, qdapRegex-package)<br />qdapRegex: Regular expression removal/extraction/replacement tools for the </li>
-            
-      <li>
-        <code><a href="rm_default.html">rm_default</a></code><br />Remove/Replace/Extract Template</li>
-    
-    </ul>
   </div>
   
   <div class="span3 offset1">
@@ -154,7 +173,7 @@
     <h2>Dependencies</h2>
     <ul>
       <li><strong>Depends</strong>: </li>
-      <li><strong>Imports</strong>: stringi, pryr</li>
+      <li><strong>Imports</strong>: stringi</li>
       <li><strong>Suggests</strong>: testthat</li>
       <li><strong>Extends</strong>: </li>
     </ul>

@@ -85,6 +85,8 @@ function(terms, trailing = TRUE, leading = TRUE){
 reg_check <- function(pattern, dictionary, backup = qdapRegex::regex_usa,
     backup2 = qdapRegex::regex_supplement) {
 
+	if(inherits(pattern, "escape")) return(pattern)
+	
     if (substring(pattern, 1, 4) == "@rm_") {
     	  if (is.null(dictionary)) dictionary <- backup
         reglook <- dictionary[[substring(pattern, 2)]]

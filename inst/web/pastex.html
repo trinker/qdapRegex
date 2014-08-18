@@ -40,7 +40,8 @@
 <div class="row">
   <div class="span8">
     <h2>Usage</h2>
-    <pre><div>pastex(..., dictionary&nbsp;=&nbsp;getOption("regex.library"))</div></pre>
+    <pre><div>pastex(..., dictionary&nbsp;=&nbsp;getOption("regex.library"))</div>
+<div>x %|% y</div></pre>
     
     <h2>Arguments</h2>
     <dl>
@@ -48,10 +49,12 @@
       <dd>Ray regular expressions to paste together or a named expression
 from the default regular expression dictionary prefixed with single at
 (<code>@</code>) (e.g., <code>"@rm_hash"</code>) or a regular expression from
-<code>regex_supplement</code> dictionary prefixed with double at
-(<code>@@</code>) (e.g., <code>"@@time_12_hours"</code>).</dd>
+<code>regex_supplement</code> dictionary prefixed with an at
+(<code>@</code>) (e.g., <code>"@time_12_hours"</code>).</dd>
       <dt>dictionary</dt>
       <dd>A dictionary of canned regular expressions to search within.</dd>
+      <dt>x,y</dt>
+      <dd>Two regular expressions to paste together.</dd>
     </dl>
     
     <div class="Paste Regular Expressions">
@@ -62,16 +65,31 @@ from the default regular expression dictionary prefixed with single at
     <div class="Value">
       <h2>Value</h2>
       
-      <p>Returns a single string of regular expressions pasted together with pipe(s) <code>|</code></p>
+      <p>Returns a single string of regular expressions pasted together with
+pipe(s) (<code>|</code>).</p>
   
     </div>
 
     <div class="Description">
       <h2>Description</h2>
       
-      <p>A wrapper for <code>paste(collapse="|")</code> that also searches the default and
-supplemental (<code>regex_supplement</code>) dictionaries for
-regular expressions before pasting them together with a pipe <code>|</code> separator.</p>
+      <p><code>pastex</code> - A wrapper for <code>paste(collapse="|")</code> that also searches
+the default and supplemental (<code>regex_supplement</code>)
+dictionaries for regular expressions before pasting them together with a pipe
+(<code>|</code>) separator.</p>
+  
+      <p><code>%|%</code> - A binary operator version of <code>pastex</code> that joins two
+character strings.</p>
+  
+    </div>
+
+    <div class="Note">
+      <h2>Note</h2>
+      
+      <p>Note that while <code>pastex</code> is designed for pasting purposes it can
+also be used to call a single regex from the default regional dictionary or
+the supplemental dictionary (<code>regex_supplement</code>) (see
+<b>Examples</b>).</p>
   
     </div>
     
@@ -83,7 +101,7 @@ pastex(&quot;@rm_percent&quot;, &quot;@rm_dollar&quot;)
 </div>
 <div class='output'>[1] &quot;\\(?[0-9.]+\\)?%|\\$\\(?[0-9.]+\\)?&quot;
 </div>
-<div class='input'>pastex(&quot;@rm_percent&quot;, &quot;@@time_12_hours&quot;)
+<div class='input'>pastex(&quot;@rm_percent&quot;, &quot;@time_12_hours&quot;)
 </div>
 <div class='output'>[1] &quot;\\(?[0-9.]+\\)?%|(1[012]|[1-9]):[0-5][0-9](\\s?)(am|pm)&quot;
 </div>
@@ -103,7 +121,7 @@ rm_dollar(x, extract=TRUE, pattern=pastex(&quot;@rm_percent&quot;, &quot;@rm_dol
 [1] NA
 
 </div>
-<div class='input'>rm_dollar(x, extract=TRUE, pattern=pastex(&quot;@rm_dollar&quot;, &quot;@rm_percent&quot;, &quot;@@time_12_hours&quot;))
+<div class='input'>rm_dollar(x, extract=TRUE, pattern=pastex(&quot;@rm_dollar&quot;, &quot;@rm_percent&quot;, &quot;@time_12_hours&quot;))
 </div>
 <div class='output'>[[1]]
 [1] &quot;$5.50&quot;
@@ -117,11 +135,109 @@ rm_dollar(x, extract=TRUE, pattern=pastex(&quot;@rm_percent&quot;, &quot;@rm_dol
 [[4]]
 [1] &quot;12:30 pm&quot; &quot;4:00 am&quot; 
 
+</div>
+<div class='input'>
+## retrieve regexes from dictionary
+pastex(&quot;@rm_email&quot;)
+</div>
+<div class='output'>[1] &quot;([_+a-z0-9-]+(\\.[_+a-z0-9-]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,14}))&quot;
+</div>
+<div class='input'>pastex(&quot;@rm_url3&quot;)
+</div>
+<div class='output'>[1] &quot;(https?|ftps?)://(-\\.)?([^\\s/?\\.#-]+\\.?)+(/[^\\s]*)?&quot;
+</div>
+<div class='input'>pastex(&quot;@version&quot;)
+</div>
+<div class='output'>[1] &quot;(?&lt;=\\b(v|version)\\s?)([0-9]+)\\.([0-9]+)\\.([0-9]+)(?:\\.([0-9]+))?\\b&quot;
+</div>
+<div class='input'>
+## pipe operator (%|%)
+&quot;x&quot; %|% &quot;y&quot;
+</div>
+<div class='output'>[1] &quot;x|y&quot;
+</div>
+<div class='input'>&quot;@rm_url&quot; %|% &quot;@rm_twitter_url&quot;
+</div>
+<div class='output'>[1] &quot;(http[^ ]*)|(ftp[^ ]*)|(www\\.[^ ]*)|(https?://t\\.co[^ ]*)|(t\\.co[^ ]*)&quot;
+</div>
+<div class='input'>
+## Remove Twitter Short URL
+x &lt;- c(&quot;download file from http://example.com&quot;,
+         &quot;this is the link to my website http://example.com&quot;,
+         &quot;go to http://example.com from more info.&quot;,
+         &quot;Another url ftp://www.example.com&quot;,
+         &quot;And https://www.example.net&quot;,
+         &quot;twitter type: t.co/N1kq0F26tG&quot;,
+         &quot;still another one https://t.co/N1kq0F26tG :-)&quot;)
+
+rm_twitter_url(x)
+</div>
+<div class='output'>[1] &quot;download file from http://example.com&quot;             &quot;this is the link to my website http://example.com&quot;
+[3] &quot;go to http://example.com from more info.&quot;          &quot;Another url ftp://www.example.com&quot;                
+[5] &quot;And https://www.example.net&quot;                       &quot;twitter type:&quot;                                    
+[7] &quot;still another one :-)&quot;                            
+</div>
+<div class='input'>rm_twitter_url(x, extract=TRUE)
+</div>
+<div class='output'>[[1]]
+[1] NA
+
+[[2]]
+[1] NA
+
+[[3]]
+[1] NA
+
+[[4]]
+[1] NA
+
+[[5]]
+[1] NA
+
+[[6]]
+[1] &quot;t.co/N1kq0F26tG&quot;
+
+[[7]]
+[1] &quot;https://t.co/N1kq0F26tG&quot;
+
+</div>
+<div class='input'>
+## Combine removing Twitter URLs adn standard URLs
+rm_twitter_n_url &lt;- rm_(pattern=&quot;@rm_twitter_url&quot; %|% &quot;@rm_url&quot;)
+rm_twitter_n_url(x)
+</div>
+<div class='output'>[1] &quot;download file from&quot;             &quot;this is the link to my website&quot; &quot;go to from more info.&quot;         
+[4] &quot;Another url&quot;                    &quot;And&quot;                            &quot;twitter type:&quot;                 
+[7] &quot;still another one :-)&quot;         
+</div>
+<div class='input'>rm_twitter_n_url(x, extract=TRUE)
+</div>
+<div class='output'>[[1]]
+[1] &quot;http://example.com&quot;
+
+[[2]]
+[1] &quot;http://example.com&quot;
+
+[[3]]
+[1] &quot;http://example.com&quot;
+
+[[4]]
+[1] &quot;ftp://www.example.com&quot;
+
+[[5]]
+[1] &quot;https://www.example.net&quot;
+
+[[6]]
+[1] &quot;t.co/N1kq0F26tG&quot;
+
+[[7]]
+[1] &quot;https://t.co/N1kq0F26tG&quot;
+
 </div></pre>
   </div>
   <div class="span4">
     <!-- <ul>
-      <li>pastex</li>
+      <li>%|%</li><li>pastex</li>
     </ul>
     <ul>
       <li>paste</li><li>regex</li>

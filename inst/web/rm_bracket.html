@@ -42,7 +42,12 @@ Martin Morgan and Tyler Rinker &lt;tyler.rinker@gmail.com&gt;.
 <div class="row">
   <div class="span8">
     <h2>Usage</h2>
-    <pre><div>rm_bracket(text.var, trim&nbsp;=&nbsp;TRUE, clean&nbsp;=&nbsp;TRUE, pattern&nbsp;=&nbsp;"all", replacement&nbsp;=&nbsp;"", extract&nbsp;=&nbsp;FALSE, include.bracket&nbsp;=&nbsp;FALSE, merge&nbsp;=&nbsp;TRUE)</div></pre>
+    <pre><div>rm_bracket(text.var, pattern&nbsp;=&nbsp;"all", trim&nbsp;=&nbsp;TRUE, clean&nbsp;=&nbsp;TRUE, replacement&nbsp;=&nbsp;"", extract&nbsp;=&nbsp;FALSE, include.markers&nbsp;=&nbsp;ifelse(extract, FALSE, TRUE), dictionary&nbsp;=&nbsp;getOption("regex.library"), ...)</div>
+<div>rm_round(text.var, pattern&nbsp;=&nbsp;"(", trim&nbsp;=&nbsp;TRUE, clean&nbsp;=&nbsp;TRUE, replacement&nbsp;=&nbsp;"", extract&nbsp;=&nbsp;FALSE, include.markers&nbsp;=&nbsp;ifelse(extract, FALSE, TRUE), dictionary&nbsp;=&nbsp;getOption("regex.library"), ...)</div>
+<div>rm_square(text.var, pattern&nbsp;=&nbsp;"[", trim&nbsp;=&nbsp;TRUE, clean&nbsp;=&nbsp;TRUE, replacement&nbsp;=&nbsp;"", extract&nbsp;=&nbsp;FALSE, include.markers&nbsp;=&nbsp;ifelse(extract, FALSE, TRUE), dictionary&nbsp;=&nbsp;getOption("regex.library"), ...)</div>
+<div>rm_curly(text.var, pattern&nbsp;=&nbsp;"{", trim&nbsp;=&nbsp;TRUE, clean&nbsp;=&nbsp;TRUE, replacement&nbsp;=&nbsp;"", extract&nbsp;=&nbsp;FALSE, include.markers&nbsp;=&nbsp;ifelse(extract, FALSE, TRUE), dictionary&nbsp;=&nbsp;getOption("regex.library"), ...)</div>
+<div>rm_angle(text.var, pattern&nbsp;=&nbsp;"<", trim&nbsp;=&nbsp;TRUE, clean&nbsp;=&nbsp;TRUE, replacement&nbsp;=&nbsp;"", extract&nbsp;=&nbsp;FALSE, include.markers&nbsp;=&nbsp;ifelse(extract, FALSE, TRUE), dictionary&nbsp;=&nbsp;getOption("regex.library"), ...)</div>
+<div>rm_bracket_multiple(text.var, trim&nbsp;=&nbsp;TRUE, clean&nbsp;=&nbsp;TRUE, pattern&nbsp;=&nbsp;"all", replacement&nbsp;=&nbsp;"", extract&nbsp;=&nbsp;FALSE, include.markers&nbsp;=&nbsp;FALSE, merge&nbsp;=&nbsp;TRUE)</div></pre>
     
     <h2>Arguments</h2>
     <dl>
@@ -56,17 +61,22 @@ spaces.</dd>
 character will be removed.</dd>
       <dt>pattern</dt>
       <dd>The type of bracket (and encased text) to remove.  This is one
-or more of the strings <code>"curly"</code>, <code>"square"</code>, <code>"round"</code>,
-<code>"angle"</code> and <code>"all"</code>.  These strings correspond
-to: {, [, (, < or all four types.</dd>
+or more of the strings <code>"curly"</code>/<code>"\{"</code>, <code>"square"</code>/<code>"["</code>,
+<code>"round"</code>/<code>"("</code>, <code>"angle"</code>/<code>"<"</code> and <code>"all"</code>.  These
+strings correspond to: {, [, (, < or all four types.</dd>
       <dt>replacement</dt>
       <dd>Replacement for matched <code>pattern</code>.</dd>
       <dt>extract</dt>
       <dd>logical.  If <code>TRUE</code> the bracketed text is extracted into
 a list of vectors.</dd>
-      <dt>include.bracket</dt>
+      <dt>include.markers</dt>
       <dd>logical.  If <code>TRUE</code> and <code>extract = TRUE</code> returns
-the brackets and the bracketed text.</dd>
+the markers (left/right) and the text between.</dd>
+      <dt>dictionary</dt>
+      <dd>A dictionary of canned regular expressions to search within
+if <code>pattern</code> begins with <code>"@rm_"</code>.</dd>
+      <dt>...</dt>
+      <dd>Other arguments passed to <code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code>.</dd>
       <dt>merge</dt>
       <dd>logical.  If <code>TRUE</code> the results of each bracket type will
 be merged by string.  <code>FALSE</code> returns a named list of lists of vectors
@@ -81,7 +91,26 @@ of bracketed text per bracket type.</dd>
     <div class="Value">
       <h2>Value</h2>
       
-      <p>Returns a character string with brackets removed.</p>
+      <p><code>rm_bracket</code> - returns a character string with
+multiple brackets removed.  If <code>extract = TRUE</code> the results are
+optionally merged and named by bracket type.  This is more flexible than
+<code>rm_bracket</code> but slower.</p>
+  
+      <p><code>rm_round</code> - returns a character string with round brackets removed.</p>
+  
+      <p><code>rm_square</code> - returns a character string with square brackets
+removed.</p>
+  
+      <p><code>rm_curly</code> - returns a character string with curly brackets
+removed.</p>
+  
+      <p><code>rm_angle</code> - returns a character string with angle brackets
+removed.</p>
+  
+      <p><code>rm_bracket_multiple</code> - returns a character string with
+multiple brackets removed.  If <code>extract = TRUE</code> the results are
+optionally merged and named by bracket type.  This is more flexible than
+<code>rm_bracket</code> but slower.</p>
   
     </div>
 
@@ -117,51 +146,51 @@ examp
 </div>
 <div class='input'>rm_bracket(examp$text, pattern = &quot;square&quot;)
 </div>
-<div class='output'>[1] &quot;I love chicken!&quot;                  &quot;Me too! (laughter) It&#39;s so good.&quot; &quot;Yep it&#39;s awesome {reading}.&quot;     
+<div class='output'>[1] &quot;I love chicken !&quot;                 &quot;Me too! (laughter) It&#39;s so good.&quot; &quot;Yep it&#39;s awesome {reading}.&quot;     
 [4] &quot;Agreed. {is so much fun}&quot;        
 </div>
 <div class='input'>rm_bracket(examp$text, pattern = &quot;curly&quot;)
 </div>
-<div class='output'>[1] &quot;I love chicken [unintelligible]!&quot;                &quot;Me too! (laughter) It&#39;s so good. [interrupting]&quot;
-[3] &quot;Yep it&#39;s awesome.&quot;                               &quot;Agreed.&quot;                                        
+<div class='output'>[1] &quot;I love chicken [unintelligible]!&quot;               &quot;Me too! (laughter) It&#39;s so good.[interrupting]&quot;
+[3] &quot;Yep it&#39;s awesome .&quot;                             &quot;Agreed.&quot;                                       
 </div>
 <div class='input'>rm_bracket(examp$text, pattern = c(&quot;square&quot;, &quot;round&quot;))
 </div>
-<div class='output'>[1] &quot;I love chicken!&quot;             &quot;Me too! It&#39;s so good.&quot;       &quot;Yep it&#39;s awesome {reading}.&quot;
+<div class='output'>[1] &quot;I love chicken !&quot;            &quot;Me too! It&#39;s so good.&quot;       &quot;Yep it&#39;s awesome {reading}.&quot;
 [4] &quot;Agreed. {is so much fun}&quot;   
 </div>
 <div class='input'>rm_bracket(examp$text)
 </div>
-<div class='output'>[1] &quot;I love chicken!&quot;       &quot;Me too! It&#39;s so good.&quot; &quot;Yep it&#39;s awesome.&quot;     &quot;Agreed.&quot;              
+<div class='output'>[1] &quot;I love chicken !&quot;      &quot;Me too! It&#39;s so good.&quot; &quot;Yep it&#39;s awesome .&quot;    &quot;Agreed.&quot;              
 </div>
 <div class='input'>
 rm_bracket(examp$text, pattern = &quot;square&quot;, extract=TRUE)
 </div>
-<div class='output'>$square1
+<div class='output'>[[1]]
 [1] &quot;unintelligible&quot;
 
-$square2
+[[2]]
 [1] &quot;interrupting&quot;
 
-$square3
-character(0)
+[[3]]
+[1] NA
 
-$square4
-character(0)
+[[4]]
+[1] NA
 
 </div>
 <div class='input'>rm_bracket(examp$text, pattern = &quot;curly&quot;, extract=TRUE)
 </div>
-<div class='output'>$curly1
-character(0)
+<div class='output'>[[1]]
+[1] NA
 
-$curly2
-character(0)
+[[2]]
+[1] NA
 
-$curly3
+[[3]]
 [1] &quot;reading&quot;
 
-$curly4
+[[4]]
 [1] &quot;is so much fun&quot;
 
 </div>
@@ -171,84 +200,133 @@ $curly4
 [1] &quot;unintelligible&quot;
 
 [[2]]
-[1] &quot;interrupting&quot; &quot;laughter&quot;    
+[1] &quot;laughter&quot;     &quot;interrupting&quot;
 
 [[3]]
-character(0)
+[1] NA
 
 [[4]]
-character(0)
+[1] NA
 
 </div>
 <div class='input'>rm_bracket(examp$text, pattern = c(&quot;square&quot;, &quot;round&quot;), merge = FALSE, extract=TRUE)
 </div>
-<div class='output'>$square
-$square[[1]]
+<div class='output'>[[1]]
 [1] &quot;unintelligible&quot;
 
-$square[[2]]
-[1] &quot;interrupting&quot;
+[[2]]
+[1] &quot;laughter&quot;     &quot;interrupting&quot;
 
-$square[[3]]
-character(0)
+[[3]]
+[1] NA
 
-$square[[4]]
-character(0)
-
-
-$round
-$round[[1]]
-character(0)
-
-$round[[2]]
-[1] &quot;laughter&quot;
-
-$round[[3]]
-character(0)
-
-$round[[4]]
-character(0)
-
+[[4]]
+[1] NA
 
 </div>
 <div class='input'>rm_bracket(examp$text, extract=TRUE)
 </div>
-<div class='output'>$all1
+<div class='output'>[[1]]
 [1] &quot;unintelligible&quot;
 
-$all2
+[[2]]
 [1] &quot;laughter&quot;     &quot;interrupting&quot;
 
-$all3
+[[3]]
 [1] &quot;reading&quot;
 
-$all4
+[[4]]
 [1] &quot;is so much fun&quot;
 
 </div>
-<div class='input'>rm_bracket(examp$tex, include.bracket=TRUE, extract=TRUE)
+<div class='input'>rm_bracket(examp$tex, include.markers=TRUE, extract=TRUE)
 </div>
-<div class='output'>$all1
+<div class='output'>[[1]]
 [1] &quot;[unintelligible]&quot;
 
-$all2
+[[2]]
 [1] &quot;(laughter)&quot;     &quot;[interrupting]&quot;
 
-$all3
+[[3]]
 [1] &quot;{reading}&quot;
 
-$all4
+[[4]]
 [1] &quot;{is so much fun}&quot;
 
 </div>
-<div class='input'>## &lt;strong&gt;Not run&lt;/strong&gt;: 
+<div class='input'>
+## &lt;strong&gt;Not run&lt;/strong&gt;: 
 # qdap::paste2(rm_bracket(examp$tex, pattern=&quot;curly&quot;, extract=TRUE))
 # ## &lt;strong&gt;End(Not run)&lt;/strong&gt;
+
+x &lt;- &quot;I like [bots] (not). And &lt;likely&gt; many do not {he he}&quot;
+
+rm_round(x)
+</div>
+<div class='output'>[1] &quot;I like [bots] . And &lt;likely&gt; many do not {he he}&quot;
+</div>
+<div class='input'>rm_round(x, extract = TRUE)
+</div>
+<div class='output'>[[1]]
+[1] &quot;not&quot;
+
+</div>
+<div class='input'>
+rm_round(x, include.marker = FALSE)
+</div>
+<div class='output'>[1] &quot;I like [bots] (). And &lt;likely&gt; many do not {he he}&quot;
+</div>
+<div class='input'>rm_round(x, extract = TRUE, include.marker = TRUE)
+</div>
+<div class='output'>[[1]]
+[1] &quot;(not)&quot;
+
+</div>
+<div class='input'>
+rm_square(x)
+</div>
+<div class='output'>[1] &quot;I like (not). And &lt;likely&gt; many do not {he he}&quot;
+</div>
+<div class='input'>rm_square(x, extract = TRUE)
+</div>
+<div class='output'>[[1]]
+[1] &quot;bots&quot;
+
+</div>
+<div class='input'>
+rm_curly(x)
+</div>
+<div class='output'>[1] &quot;I like [bots] (not). And &lt;likely&gt; many do not&quot;
+</div>
+<div class='input'>rm_curly(x, extract = TRUE)
+</div>
+<div class='output'>[[1]]
+[1] &quot;he he&quot;
+
+</div>
+<div class='input'>
+rm_angle(x)
+</div>
+<div class='output'>[1] &quot;I like [bots] (not). And many do not {he he}&quot;
+</div>
+<div class='input'>rm_angle(x, extract = TRUE)
+</div>
+<div class='output'>[[1]]
+[1] &quot;likely&quot;
+
+</div>
+<div class='input'>
+lapply(rm_between(&#39;She said, &quot;I am!&quot; and he responded...&quot;Am what?&quot;.&#39;,
+    left=&#39;&quot;&#39;, right=&#39;&quot;&#39;, extract = TRUE), &quot;[&quot;, c(TRUE, FALSE))
+</div>
+<div class='output'>[[1]]
+[1] &quot;I am!&quot;    &quot;Am what?&quot;
+
 </div></pre>
   </div>
   <div class="span4">
     <!-- <ul>
-      <li>rm_bracket</li>
+      <li>rm_angle</li><li>rm_bracket</li><li>rm_bracket_multiple</li><li>rm_curly</li><li>rm_round</li><li>rm_square</li>
     </ul>
     <ul>
       <li>bracket</li>
@@ -257,7 +335,8 @@ $all4
     <h2>See also</h2>
     
 <code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code>,
-<code>rm_between</code>
+<code>rm_between</code>,
+<code><a href='http://www.inside-r.org/packages/cran/stringi/docs/stri_extract_regex'>stri_extract_all_regex</a></code>
 
     
     <h2>Author</h2>

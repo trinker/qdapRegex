@@ -40,7 +40,8 @@
 <div class="row">
   <div class="span8">
     <h2>Usage</h2>
-    <pre><div>rm_between(text.var, left, right, trim&nbsp;=&nbsp;TRUE, clean&nbsp;=&nbsp;TRUE, replacement&nbsp;=&nbsp;"", extract&nbsp;=&nbsp;FALSE, include.markers&nbsp;=&nbsp;FALSE, merge&nbsp;=&nbsp;TRUE)</div></pre>
+    <pre><div>rm_between(text.var, left, right, trim&nbsp;=&nbsp;TRUE, clean&nbsp;=&nbsp;TRUE, replacement&nbsp;=&nbsp;"", extract&nbsp;=&nbsp;FALSE, include.markers&nbsp;=&nbsp;ifelse(extract, FALSE, TRUE), dictionary&nbsp;=&nbsp;getOption("regex.library"), ...)</div>
+<div>rm_between_multiple(text.var, left, right, trim&nbsp;=&nbsp;TRUE, clean&nbsp;=&nbsp;TRUE, replacement&nbsp;=&nbsp;"", extract&nbsp;=&nbsp;FALSE, include.markers&nbsp;=&nbsp;FALSE, merge&nbsp;=&nbsp;TRUE)</div></pre>
     
     <h2>Arguments</h2>
     <dl>
@@ -66,6 +67,11 @@ list of vectors.</dd>
       <dt>include.markers</dt>
       <dd>logical.  If <code>TRUE</code> and <code>extract = TRUE</code> returns
 the markers (left/right) and the text between.</dd>
+      <dt>dictionary</dt>
+      <dd>A dictionary of canned regular expressions to search within
+if <code>pattern</code> begins with <code>"@rm_"</code>.</dd>
+      <dt>...</dt>
+      <dd>Other arguments passed to <code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code>.</dd>
       <dt>merge</dt>
       <dd>logical.  If <code>TRUE</code> the results of each bracket type will
 be merged by string.  <code>FALSE</code> returns a named list of lists of vectors
@@ -80,7 +86,12 @@ of markered text per marker type.</dd>
     <div class="Value">
       <h2>Value</h2>
       
-      <p>Returns a character string with markers removed.</p>
+      <p>Returns a character string with markers removed.  If
+<code>rm_between</code> returns merged strings and is significantly faster.  If
+<code>rm_between_multiple</code> the strings are optionally merged by
+<code>left</code>/<code>right</code> symbols.  The latter approach is more flexible and
+names extracted strings by symbol boundaries,however, it is slower than
+<code>rm_between</code>.</p>
   
     </div>
 
@@ -92,14 +103,49 @@ of markered text per marker type.</dd>
     </div>
     
     <h2 id="examples">Examples</h2>
-    <pre class="examples"><div class='input'>x &lt;- c(&quot;Where is the /big dog#?&quot;,
+    <pre class="examples"><div class='input'>x &lt;-  &quot;I like [bots] (not).&quot;
+
+rm_between(x, &quot;(&quot;, &quot;)&quot;)
+</div>
+<div class='output'>[1] &quot;I like [bots] .&quot;
+</div>
+<div class='input'>rm_between(x, &quot;(&quot;, &quot;)&quot;, extract=TRUE)
+</div>
+<div class='output'>[[1]]
+[1] &quot;not&quot;
+
+</div>
+<div class='input'>rm_between(x, c(&quot;(&quot;, &quot;[&quot;), c(&quot;)&quot;, &quot;]&quot;))
+</div>
+<div class='output'>[1] &quot;I like .&quot;
+</div>
+<div class='input'>rm_between(x, c(&quot;(&quot;, &quot;[&quot;), c(&quot;)&quot;, &quot;]&quot;), extract=TRUE)
+</div>
+<div class='output'>[[1]]
+[1] &quot;bots&quot; &quot;not&quot; 
+
+</div>
+<div class='input'>
+rm_between(x, c(&quot;(&quot;, &quot;[&quot;), c(&quot;)&quot;, &quot;]&quot;), include.markers=FALSE)
+</div>
+<div class='output'>[1] &quot;I like [] ().&quot;
+</div>
+<div class='input'>rm_between(x, c(&quot;(&quot;, &quot;[&quot;), c(&quot;)&quot;, &quot;]&quot;), extract=TRUE, include.markers=TRUE)
+</div>
+<div class='output'>[[1]]
+[1] &quot;[bots]&quot; &quot;(not)&quot; 
+
+</div>
+<div class='input'>
+## multiple (naming and ability to keep separate bracket types but slower)
+x &lt;- c(&quot;Where is the /big dog#?&quot;,
     &quot;I think he&#39;s @arunning@b with /little cat#.&quot;)
 
-rm_between(x, &quot;@a&quot;, &quot;@b&quot;)
+rm_between_multiple(x, &quot;@a&quot;, &quot;@b&quot;)
 </div>
 <div class='output'>[1] &quot;Where is the /big dog#?&quot;         &quot;I think he&#39;s with /little cat#.&quot;
 </div>
-<div class='input'>rm_between(x, &quot;@a&quot;, &quot;@b&quot;, extract=TRUE)
+<div class='input'>rm_between_multiple(x, &quot;@a&quot;, &quot;@b&quot;, extract=TRUE)
 </div>
 <div class='output'>$`@a  :  @b1`
 character(0)
@@ -108,11 +154,11 @@ $`@a  :  @b2`
 [1] &quot;running&quot;
 
 </div>
-<div class='input'>rm_between(x, c(&quot;/&quot;, &quot;@a&quot;), c(&quot;#&quot;, &quot;@b&quot;))
+<div class='input'>rm_between_multiple(x, c(&quot;/&quot;, &quot;@a&quot;), c(&quot;#&quot;, &quot;@b&quot;))
 </div>
 <div class='output'>[1] &quot;Where is the?&quot;      &quot;I think he&#39;s with.&quot;
 </div>
-<div class='input'>rm_between(x, c(&quot;/&quot;, &quot;@a&quot;), c(&quot;#&quot;, &quot;@b&quot;), extract=TRUE)
+<div class='input'>rm_between_multiple(x, c(&quot;/&quot;, &quot;@a&quot;), c(&quot;#&quot;, &quot;@b&quot;), extract=TRUE)
 </div>
 <div class='output'>[[1]]
 [1] &quot;big dog&quot;
@@ -124,11 +170,11 @@ $`@a  :  @b2`
 <div class='input'>
 x2 &lt;- c(&quot;Where is the L1big dogL2?&quot;,
     &quot;I think he&#39;s 98running99 with L1little catL2.&quot;)
-rm_between(x2, c(&quot;L1&quot;, 98), c(&quot;L2&quot;, 99))
+rm_between_multiple(x2, c(&quot;L1&quot;, 98), c(&quot;L2&quot;, 99))
 </div>
 <div class='output'>[1] &quot;Where is the?&quot;      &quot;I think he&#39;s with.&quot;
 </div>
-<div class='input'>rm_between(x2, c(&quot;L1&quot;, 98), c(&quot;L2&quot;, 99), extract=TRUE)
+<div class='input'>rm_between_multiple(x2, c(&quot;L1&quot;, 98), c(&quot;L2&quot;, 99), extract=TRUE)
 </div>
 <div class='output'>[[1]]
 [1] &quot;big dog&quot;
@@ -144,14 +190,14 @@ state &lt;- c(&quot;Computer is fun. Not too fun.&quot;, &quot;No it&#39;s not, 
     &quot;What are you talking about?&quot;, &quot;Shall we move on?  Good then.&quot;,
     &quot;I&#39;m hungry.  Let&#39;s eat.  You already?&quot;)
 
-rm_between(x2, c(&quot;is&quot;, &quot;we&quot;), c(&quot;too&quot;, &quot;on&quot;))
+rm_between_multiple(x2, c(&quot;is&quot;, &quot;we&quot;), c(&quot;too&quot;, &quot;on&quot;))
 </div>
 <div class='output'>[1] &quot;Where is the L1big dogL2?&quot;                     &quot;I think he&#39;s 98running99 with L1little catL2.&quot;
 </div></pre>
   </div>
   <div class="span4">
     <!-- <ul>
-      <li>rm_between</li>
+      <li>rm_between</li><li>rm_between_multiple</li>
     </ul>
     <ul>
       
@@ -160,7 +206,8 @@ rm_between(x2, c(&quot;is&quot;, &quot;we&quot;), c(&quot;too&quot;, &quot;on&qu
     <h2>See also</h2>
     
 <code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code>,
-<code>rm_bracket</code>
+<code>rm_bracket</code>,
+<code><a href='http://www.inside-r.org/packages/cran/stringi/docs/stri_extract_regex'>stri_extract_all_regex</a></code>
 
         
   </div>

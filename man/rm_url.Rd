@@ -71,7 +71,6 @@ x <- c("download file from http://example.com",
          "twitter type: t.co/N1kq0F26tG",
          "still another one https://t.co/N1kq0F26tG :-)")
 
-
 rm_twitter_url(x)
 rm_twitter_url(x, extract=TRUE)
 

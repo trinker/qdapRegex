@@ -1,9 +1,9 @@
 library(staticdocs)
 
 sd_section("Removing/Extracting/Replacing",
-  "Function to clean and parse text data.",
+  "Function for removing/extracting/replacing text with regular expressions.",
   c(
-  	"pastex", 
+  	"rm_default",
   	"rm_",
   	"rm_abbreviation",
   	"rm_between",
@@ -12,7 +12,7 @@ sd_section("Removing/Extracting/Replacing",
   	"rm_city_state",
   	"rm_city_state_zip",  	
   	"rm_date",
-    "rm_dollar",
+  	"rm_dollar",
     "rm_email",
   	"rm_emoticon",
     "rm_hash",
@@ -24,7 +24,15 @@ sd_section("Removing/Extracting/Replacing",
     "rm_time", 
   	"rm_title_name", 
     "rm_url",
-    "rm_zip",
+    "rm_zip"
+  )
+)
+
+sd_section("qdapRegex Tools",
+ "Functions used within qdapRegex that are not specific to removing/extracting/replacing text with regular expressions.",
+  c(
+  	"escape",
+  	"pastex",
   	"validate"
   )
 )

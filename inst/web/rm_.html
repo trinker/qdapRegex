@@ -40,31 +40,31 @@
 <div class="row">
   <div class="span8">
     <h2>Usage</h2>
-    <pre><div>rm_(trim&nbsp;=&nbsp;!extract, clean&nbsp;=&nbsp;TRUE, pattern, replacement&nbsp;=&nbsp;"", extract&nbsp;=&nbsp;FALSE, dictionary&nbsp;=&nbsp;getOption("regex.library"), ...)</div></pre>
+    <pre><div>rm_(...)</div></pre>
     
     <h2>Arguments</h2>
     <dl>
-      <dt>trim</dt>
-      <dd>logical.  If <code>TRUE</code> removes leading and trailing white
+      <dt>...</dt>
+      <dd>Arguments passed to <code>rm_default</code>.
+Generally, <code>pattern</code> and <code>extract</code> are the most useful parameters
+to change.  Arguments that can be set include:
+<dl>
+<dt>text.var</dt><dd>The text variable.</dd>
+<dt>trim</dt><dd>logical.  If <code>TRUE</code> removes leading and trailing white
 spaces.</dd>
-      <dt>clean</dt>
-      <dd>trim logical.  If <code>TRUE</code> extra white spaces and escaped
+<dt>clean</dt><dd>logical.  If <code>TRUE</code> extra white spaces and escaped
 character will be removed.</dd>
-      <dt>pattern</dt>
-      <dd>A character string containing a regular expression (or
+<dt>pattern</dt><dd>A character string containing a regular expression (or
 character string for <code>fixed = TRUE</code>) to be matched in the given
 character vector.</dd>
-      <dt>replacement</dt>
-      <dd>Replacement for matched <code>pattern</code>.</dd>
-      <dt>extract</dt>
-      <dd>logical.  If <code>TRUE</code> strings are extracted into a list of
+<dt>replacement</dt><dd>Replacement for matched <code>pattern</code>.</dd>
+<dt>extract</dt><dd>logical.  If <code>TRUE</code> strings are extracted into a list of
 vectors.</dd>
-      <dt>dictionary</dt>
-      <dd>A dictionary of canned regular expressions to search within
+<dt>dictionary</dt><dd>A dictionary of canned regular expressions to search within
 if <code>pattern</code> begins with <code>"@rm_"</code>.</dd>
-      <dt>...</dt>
-      <dd>A default <code>text.var</code> or other arguments passed to
-<code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code>.</dd>
+<dt>...</dt><dd>Other arguments passed to <code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code>.</dd>
+</dl>
+</dd>
     </dl>
     
     <div class="Remove/Replace/Extract Function Generator">
@@ -124,20 +124,20 @@ extract_word_after_a &lt;- rm_(extract=TRUE, pattern=&quot;@after_a&quot;)
 extract_word_after_the(x)
 </div>
 <div class='output'>[[1]]
-[1] NA
+[1] &quot;dog&quot; &quot;map&quot;
 
 </div>
 <div class='input'>extract_word_after_a(x)
 </div>
 <div class='output'>[[1]]
-[1] NA
+[1] &quot;man&quot;   &quot;apple&quot;
 
 </div>
 <div class='input'>
 f &lt;- rm_(pattern=&quot;@time_12_hours&quot;)
 f(&quot;I will go at 12:35 pm&quot;)
 </div>
-<div class='output'>[1] &quot;I will go at 12:35 pm&quot;
+<div class='output'>[1] &quot;I will go at&quot;
 </div></pre>
   </div>
   <div class="span4">

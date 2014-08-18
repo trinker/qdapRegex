@@ -75,10 +75,9 @@ path <- "inst/web"
 path2 <- file.path(path, "/index.html")
 rdme <- "C:/Users/trinker/GitHub/qdapRegex/inst/extra_statdoc/readme.R"
 library(acc.roxygen2); library(qdap);
-## extras <- qcv("")
+extras <- qcv("%|%", "rm_twitter_url")
 ## drops <- qcv()
-## expand_statdoc(path2,  readme = rdme)
-readme_statdoc(path2, rdme, path2)
+expand_statdoc(path2, to.icon = extras, readme = rdme)
 
 x <- readLines(path2)
 x[grepl("<h2>Authors</h2>", x)] <- paste(c("<h2>Author</h2>", 

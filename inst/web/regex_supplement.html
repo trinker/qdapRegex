@@ -50,7 +50,7 @@
     <div class="Format">
       <h2>Format</h2>
       
-      <p>A list with 7 elements</p>
+      <p>A list with 10 elements</p>
   
     </div>
 
@@ -76,7 +76,10 @@ desired.</p>
 <dt>before_</dt><dd>find sing word before ? word (? = user defined); note contains <code>"%s"</code> that is replaced by <code><a href='http://www.inside-r.org/packages/cran/base/docs/sprintf'>sprintf</a></code> and is not a valid regex on its own</dd>
 <dt>hexadecimal</dt><dd>substring beginning with hash (#) followed by either 3 or 6 select characters (a-f, A-F, and 0-9)</dd>
 <dt>ip_address</dt><dd>substring of four chunks of 1-3 consecutive digits separated with dots (.)</dd>
+<dt>thousands_separator</dt><dd>chunks digits > 4 into groups of 3 from right to left allowing for easy insertion of thousands separator; regex pattern retrieved from <a href = 'http://stackoverflow.com/'>StackOverflow</a>'s stema: <a href = 'http://stackoverflow.com/a/10612685/1000343'>http://stackoverflow.com/a/10612685/1000343</a></dd>
 <dt>time_12_hours</dt><dd>substring of valid hours (1-12) followed by a colon (:) followed by valid minutes (0-60), followed by an optional space and the character chunk <em>am</em> or <em>pm</em></dd>
+<dt>version</dt><dd>substring starting with "v" or "version" optionally folled by a space and then period separated digits for <major>.<minor>.<release>.<build>; the build sequence is optional and the "version"/"v" IS NOT contained in the substring</dd>
+<dt>version2</dt><dd>substring starting with "v" or "version" optionally folled by a space and then period separated digits for <major>.<minor>.<release>.<build>; the build sequence is optional and the "version"/"v" IS contained in the substring</dd>
 </dl></p>
   
       <p>Regexes from this data set can be added to the <code>pattern</code> argument of any
@@ -91,7 +94,59 @@ character string <code>%s</code>.</p>
     <pre class="examples"><div class='input'>time &lt;- rm_(pattern=&quot;@time_12_hours&quot;)
 time(&quot;I will go at 12:35 pm&quot;)
 </div>
-<div class='output'>[1] &quot;I will go at 12:35 pm&quot;
+<div class='output'>[1] &quot;I will go at&quot;
+</div>
+<div class='input'>
+x &lt;- &quot;v6.0.156 for Windows 2000/2003/XP/Vista
+Server version 1.1.20
+Client Manager version 1.1.24&quot;
+
+rm_default(x, pattern = &quot;@version&quot;, extract=TRUE)
+</div>
+<div class='output'>[[1]]
+[1] &quot;6.0.156&quot; &quot;1.1.20&quot;  &quot;1.1.24&quot; 
+
+</div>
+<div class='input'>rm_default(x, pattern = &quot;@version2&quot;, extract=TRUE)
+</div>
+<div class='output'>[[1]]
+[1] &quot;v6.0.156&quot;       &quot;version 1.1.20&quot; &quot;version 1.1.24&quot;
+
+</div>
+<div class='input'>
+x &lt;- &quot;this is 1000000 big 4356.  And little 123 number.&quot;
+rm_default(x, pattern=&quot;@thousands_separator&quot;, replacement=&quot;\\1,&quot;)
+</div>
+<div class='output'>[1] &quot;this is 1,000,000 big 4,356. And little 123 number.&quot;
+</div>
+<div class='input'>rm_default(x, pattern=&quot;@thousands_separator&quot;, replacement=&quot;\\1.&quot;)
+</div>
+<div class='output'>[1] &quot;this is 1.000.000 big 4.356. And little 123 number.&quot;
+</div>
+<div class='input'>
+## &lt;strong&gt;Not run&lt;/strong&gt;: 
+# library(qdap)&#39;library(ggplot2);library(reshape2)
+# 
+# out &lt;- setNames(lapply(c(&quot;@after_a&quot;, &quot;@after_the&quot;), function(x) {
+#     o &lt;- rm_default(stringi:::stri_trans_tolower(pres_debates2012$dialogue),
+#         pattern = x, extract=TRUE)
+#     m &lt;- qdapTools::matrix2df(data.frame(freq=sort(table(unlist(o)), TRUE)), &quot;word&quot;)
+#     m[m$freq&gt; 7, ]
+# }), c(&quot;a&quot;, &quot;the&quot;))
+# 
+# 
+# dat &lt;- setNames(Reduce(function(x, y) {
+#     merge(x, y, by = &quot;word&quot;, all = TRUE)}, out), c(&quot;Word&quot;, &quot;A&quot;, &quot;THE&quot;))
+# 
+# dat &lt;- reshape2::melt(dat, id=&quot;Word&quot;, variable.name=&quot;Article&quot;, value.name=&quot;freq&quot;)
+# 
+# dat &lt;- dat[order(dat$freq, dat$Word), ]
+# 
+# ord &lt;- aggregate(freq ~ Word, dat, sum)
+# 
+# dat$word &lt;- factor(dat$Word, levels=ord[order(ord[[2]]), 1])
+# ggplot(dat, aes(x=freq, y=Word)) + geom_point()+ facet_grid(~Article)
+# ## &lt;strong&gt;End(Not run)&lt;/strong&gt;
 </div></pre>
   </div>
   <div class="span4">

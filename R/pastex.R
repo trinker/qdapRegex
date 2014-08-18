@@ -1,8 +1,9 @@
 #' Paste Regular Expressions
 #' 
-#' A wrapper for \code{paste(collapse="|")} that also searches the default and 
-#' supplemental (\code{\link[qdapRegex]{regex_supplement}}) dictionaries for 
-#' regular expressions before pasting them together with a pipe \code{|} separator.
+#' \code{pastex} - A wrapper for \code{paste(collapse="|")} that also searches 
+#' the default and supplemental (\code{\link[qdapRegex]{regex_supplement}}) 
+#' dictionaries for regular expressions before pasting them together with a pipe 
+#' (\code{|}) separator.
 #' 
 #' @param \ldots Ray regular expressions to paste together or a named expression 
 #' from the default regular expression dictionary prefixed with single at 
@@ -17,6 +18,7 @@
 #' also be used to call a single regex from the default regional dictionary or 
 #' the supplemental dictionary (\code{\link[qdapRegex]{regex_supplement}}) (see 
 #' \bold{Examples}).
+#' @rdname pastex
 #' @export
 #' @seealso \code{\link[base]{paste}}
 #' @examples
@@ -33,9 +35,47 @@
 #' pastex("@@rm_email")
 #' pastex("@@rm_url3")
 #' pastex("@@version")
+#' 
+#' ## pipe operator (%|%)
+#' "x" %|% "y"
+#' "@@rm_url" %|% "@@rm_twitter_url"
+#' 
+#' ## Remove Twitter Short URL
+#' x <- c("download file from http://example.com", 
+#'          "this is the link to my website http://example.com", 
+#'          "go to http://example.com from more info.",
+#'          "Another url ftp://www.example.com",
+#'          "And https://www.example.net",
+#'          "twitter type: t.co/N1kq0F26tG",
+#'          "still another one https://t.co/N1kq0F26tG :-)")
+#' 
+#' rm_twitter_url(x)
+#' rm_twitter_url(x, extract=TRUE)
+#' 
+#' ## Combine removing Twitter URLs adn standard URLs
+#' rm_twitter_n_url <- rm_(pattern="@@rm_twitter_url" %|% "@@rm_url")  
+#' rm_twitter_n_url(x)
+#' rm_twitter_n_url(x, extract=TRUE)
 pastex <- function(..., dictionary = getOption("regex.library")){
 
-    out <- lapply(list(...), reg_check, dictionary=dictionary)
+    out <- lapply(list(...), function(x) {
+    	reg_check(x, dictionary=dictionary)
+    })
     paste(unlist(out), collapse="|")
 
 }
+
+
+
+#' Paste Regular Expressions
+#' 
+#' \code{\%|\%} - A binary operator version of \code{pastex} that joins two 
+#' character strings. 
+#' 
+#' @param x,y Two regular expressions to paste together.
+#' @rdname pastex
+#' @export 
+`%|%` <- function(x, y) pastex(x, y)
+
+
+
