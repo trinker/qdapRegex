@@ -9,8 +9,8 @@ pastex(..., dictionary = getOption("regex.library"))
 \item{\ldots}{Ray regular expressions to paste together or a named expression
 from the default regular expression dictionary prefixed with single at
 (\code{@}) (e.g., \code{"@rm_hash"}) or a regular expression from
-\code{\link[qdapRegex]{regex_supplement}} dictionary prefixed with double at
-(\code{@@}) (e.g., \code{"@@time_12_hours"}).}
+\code{\link[qdapRegex]{regex_supplement}} dictionary prefixed with an at
+(\code{@}) (e.g., \code{"@time_12_hours"}).}
 
 \item{dictionary}{A dictionary of canned regular expressions to search within.}
 }
@@ -34,15 +34,15 @@ x <- c("There is $5.50 for me.", "that's 45.6\% of the pizza",
     "14\% is $26 or $25.99", "It's 12:30 pm to 4:00 am")
 
 pastex("@rm_percent", "@rm_dollar")
-pastex("@rm_percent", "@@time_12_hours")
+pastex("@rm_percent", "@time_12_hours")
 
 rm_dollar(x, extract=TRUE, pattern=pastex("@rm_percent", "@rm_dollar"))
-rm_dollar(x, extract=TRUE, pattern=pastex("@rm_dollar", "@rm_percent", "@@time_12_hours"))
+rm_dollar(x, extract=TRUE, pattern=pastex("@rm_dollar", "@rm_percent", "@time_12_hours"))
 
 ## retrieve regexes from dictionary
 pastex("@rm_email")
 pastex("@rm_url3")
-pastex("@@version")
+pastex("@version")
 }
 \seealso{
 \code{\link[base]{paste}}

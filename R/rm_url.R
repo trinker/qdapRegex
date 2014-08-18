@@ -1,6 +1,6 @@
 #' Remove/Replace/Extract URLs
 #' 
-#' Remove/replace/extract URLs from a string.
+#' \code{rm_url} - Remove/replace/extract URLs from a string.
 #' 
 #' @param text.var The text variable.
 #' @param trim logical.  If \code{TRUE} removes leading and trailing white 
@@ -23,11 +23,12 @@
 #' liberal.  More constained versions can be accessed
 #' via \code{pattern = "@@rm_url2"} & \code{pattern = "@@rm_url3"} see 
 #' \bold{Examples}).
-#' @keywords url www http
+#' @keywords url www http t.co ftp
 #' @references The more constrained url regular expressions (\code{"@@rm_url2"}
 #' and \code{"@@rm_url3"} was adapted from imme_emosol's response: 
 #' \url{https://mathiasbynens.be/demo/url-regex}
 #' @export
+#' @rdname rm_url
 #' @seealso \code{\link[base]{gsub}},
 #' \code{\link[stringi]{stri_extract_all_regex}}
 #' @examples
@@ -56,3 +57,29 @@ rm_url <- function(text.var, trim = !extract, clean = TRUE, pattern = "@rm_url",
     if (clean) out <- clean(out)
     out
 }
+
+#' Remove/Replace/Extract URLs
+#' 
+#' \code{rm_twitter_url} - Remove/replace/extract Twitter Short URLs from a string.
+#' 
+#' @export
+#' @rdname rm_url
+rm_twitter_url <- function(text.var, trim = !extract, clean = TRUE, 
+	pattern = "@rm_twitter_url", replacement = "", extract = FALSE, 
+	dictionary = getOption("regex.library"), ...) {
+
+	pattern <- reg_check(pattern = pattern, dictionary = dictionary)
+
+    if (extract) {
+    	if (!trim) {
+            return(stringi::stri_extract_all_regex(text.var, pattern))
+    	}
+    	return(lapply(return(stringi::stri_extract_all_regex(text.var, pattern)), Trim))
+    }
+    
+    out <- gsub(pattern, replacement, text.var, perl = TRUE, ...)
+    if (trim) out <- Trim(out)
+    if (clean) out <- clean(out)
+    out
+}
+

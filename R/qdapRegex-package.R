@@ -103,17 +103,17 @@ NULL
 #' Server version 1.1.20
 #' Client Manager version 1.1.24"
 #' 
-#' rm_default(x, pattern = "@@@@version", extract=TRUE)
-#' rm_default(x, pattern = "@@@@version2", extract=TRUE)
+#' rm_default(x, pattern = "@@version", extract=TRUE)
+#' rm_default(x, pattern = "@@version2", extract=TRUE)
 #' 
 #' x <- "this is 1000000 big 4356.  And little 123 number."
-#' rm_default(x, pattern="@@@@thousands_separator", replacement="\\1,")
-#' rm_default(x, pattern="@@@@thousands_separator", replacement="\\1.")
+#' rm_default(x, pattern="@@thousands_separator", replacement="\\1,")
+#' rm_default(x, pattern="@@thousands_separator", replacement="\\1.")
 #' 
 #' \dontrun{
 #' library(qdap)'library(ggplot2);library(reshape2)
 #' 
-#' out <- setNames(lapply(c("@@@@after_a", "@@@@after_the"), function(x) {
+#' out <- setNames(lapply(c("@@after_a", "@@after_the"), function(x) {
 #'     o <- rm_default(stringi:::stri_trans_tolower(pres_debates2012$dialogue), 
 #'         pattern = x, extract=TRUE)
 #'     m <- qdapTools::matrix2df(data.frame(freq=sort(table(unlist(o)), TRUE)), "word")

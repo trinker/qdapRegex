@@ -90,8 +90,8 @@ reg_check <- function(pattern, dictionary, backup = qdapRegex::regex_usa,
         reglook <- dictionary[[substring(pattern, 2)]]
         if (!is.null(reglook)) return(reglook)
     } 
-    if (substring(pattern, 1, 2) == "@@") {
-        reglook <- backup2[[substring(pattern, 3)]]
+    if (substring(pattern, 1, 1) == "@") {
+        reglook <- backup2[[substring(pattern, 2)]]
         if (!is.null(reglook)) return(reglook)
     } 	
     pattern
