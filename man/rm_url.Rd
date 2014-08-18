@@ -43,7 +43,9 @@ Returns a character string with URLs removed.
 \description{
 \code{rm_url} - Remove/replace/extract URLs from a string.
 
-\code{rm_twitter_url} - Remove/replace/extract Twitter Short URLs from a string.
+\code{rm_twitter_url} - Remove/replace/extract
+\href{https://support.twitter.com/articles/109623-about-twitter-s-link-service-http-t-co}{Twitter Short URLs}
+from a string.
 }
 \details{
 The default regex pattern \code{"(http[^ ]*)|(www\\.[^ ]*)"} is more
@@ -59,6 +61,24 @@ rm_url(x, extract=TRUE)
 
 rm_url(x, pattern = "@rm_url2", extract=TRUE)
 rm_url(x, pattern = "@rm_url3", extract=TRUE)
+
+## Remove Twitter Short URL
+x <- c("download file from http://example.com",
+         "this is the link to my website http://example.com",
+         "go to http://example.com from more info.",
+         "Another url ftp://www.example.com",
+         "And https://www.example.net",
+         "twitter type: t.co/N1kq0F26tG",
+         "still another one https://t.co/N1kq0F26tG :-)")
+
+
+rm_twitter_url(x)
+rm_twitter_url(x, extract=TRUE)
+
+## Combine removing Twitter URLs adn standard URLs
+rm_twitter_n_url <- rm_(pattern=pastex("@rm_twitter_url", "@rm_url"))
+rm_twitter_n_url(x)
+rm_twitter_n_url(x, extract=TRUE)
 }
 \references{
 The more constrained url regular expressions (\code{"@rm_url2"}
