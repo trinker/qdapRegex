@@ -1,9 +1,7 @@
 context("Checking rmz_")
 
-test_that("rmz_ is making a function, and operating as expected",{
+test_that("rm_ is making a function, and operating as expected",{
 	
-	expect_warning(rm_(trim = FALSE))
-
 	x <- "I like icecream."
 	
     rm_digit <- rm_(pattern="[0-9]")

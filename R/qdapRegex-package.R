@@ -60,7 +60,7 @@ NULL
 #' }
 #' @name regex_usa 
 #' @usage data(regex_usa) 
-#' @format A list with 25 elements 
+#' @format A list with 28 elements 
 NULL
 
 #' Supplemental Canned Regular Expressions
@@ -94,7 +94,7 @@ NULL
 #' expression does not contain non-regex such as \code{\link[base]{sprintf}} 
 #' character string \code{\%s}.
 #' @usage data(regex_supplement) 
-#' @format A list with 9 elements
+#' @format A list with 10 elements
 #' @examples 
 #' time <- rm_(pattern="@@time_12_hours")
 #' time("I will go at 12:35 pm")

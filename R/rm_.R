@@ -4,20 +4,25 @@
 #' to make regex functions that operate typical of other \pkg{qdapRegex} 
 #' \code{rm_XXX} functions.
 #' 
-#' @param trim logical.  If \code{TRUE} removes leading and trailing white 
-#' spaces.
-#' @param clean trim logical.  If \code{TRUE} extra white spaces and escaped 
-#' character will be removed.
-#' @param pattern A character string containing a regular expression (or 
+#' @param \ldots Arguments passed to \code{\link[qdapRegex]{rm_default}}.  
+#' Generally, \code{pattern} and \code{extract} are the most useful parameters 
+#' to change.  Arguments that can be set include:
+#' \describe{
+#' \item{text.var}{The text variable.}
+#' \item{trim}{logical.  If \code{TRUE} removes leading and trailing white 
+#' spaces.}
+#' \item{clean}{logical.  If \code{TRUE} extra white spaces and escaped 
+#' character will be removed.}
+#' \item{pattern}{A character string containing a regular expression (or 
 #' character string for \code{fixed = TRUE}) to be matched in the given 
-#' character vector.  
-#' @param replacement Replacement for matched \code{pattern}.
-#' @param extract logical.  If \code{TRUE} strings are extracted into a list of 
-#' vectors.
-#' @param dictionary A dictionary of canned regular expressions to search within 
-#' if \code{pattern} begins with \code{"@@rm_"}.
-#' @param \dots A default \code{text.var} or other arguments passed to 
-#' \code{\link[base]{gsub}}.
+#' character vector.}  
+#' \item{replacement}{Replacement for matched \code{pattern}.}
+#' \item{extract}{logical.  If \code{TRUE} strings are extracted into a list of 
+#' vectors.}
+#' \item{dictionary}{A dictionary of canned regular expressions to search within 
+#' if \code{pattern} begins with \code{"@@rm_"}.}
+#' \item{\dots}{Other arguments passed to \code{\link[base]{gsub}}.}
+#' }
 #' @return Returns a function that operates typical of other \pkg{qdapRegex} 
 #' \code{rm_XXX} functions but with user defined defaults.
 #' @export
@@ -46,14 +51,14 @@
 #' 
 #' f <- rm_(pattern="@@time_12_hours")
 #' f("I will go at 12:35 pm")
-rm_ <- function(trim = !extract, clean = TRUE, pattern, replacement = "", 
-	extract = FALSE, dictionary = getOption("regex.library"), ...){
+rm_ <- function(...){
 
-    if(missing(pattern)) warning("Did not supply a default to `pattern`")
+    rm_raw <- rm_default
 
-    pryr::partial(rm_default, trim = trim, clean = clean, pattern = pattern, 
-        replacement = replacement, extract = extract, dictionary = dictionary, 
-    	...)
-
+    args <- list(...)
+    invisible(lapply(seq_along(args), function(i) {
+        formals(rm_raw)[[names(args)[i]]] <<- args[[i]]
+    }))
+    rm_raw
 }
 
