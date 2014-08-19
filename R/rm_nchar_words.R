@@ -66,5 +66,3 @@ rm_nchar_words <- function(text.var, n, trim = !extract, clean = TRUE,
     if (clean) out <- clean(out)
     out
 }
-
-

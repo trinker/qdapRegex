@@ -31,21 +31,5 @@
 #'    "hello world")
 #' rm_city_state_zip(x)
 #' rm_city_state_zip(x, extract=TRUE)
-rm_city_state_zip <- function(text.var, trim = !extract, clean = TRUE,
-    pattern = "@rm_city_state_zip", replacement = "", extract = FALSE, 
-	dictionary = getOption("regex.library"), ...) {
+rm_city_state_zip <- hijack(rm_default, pattern = "@rm_city_state_zip")
 
-	pattern <- reg_check(pattern = pattern, dictionary = dictionary)
-
-    if (extract) {
-    	if (!trim) {
-            return(stringi::stri_extract_all_regex(text.var, pattern))
-    	}
-    	return(lapply(return(stringi::stri_extract_all_regex(text.var, pattern)), Trim))
-    }
-
-    out <- gsub(pattern, replacement, text.var, perl = TRUE, ...)
-    if (trim) out <- Trim(out)
-    if (clean) out <- clean(out)
-    out
-}

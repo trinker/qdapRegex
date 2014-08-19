@@ -55,22 +55,4 @@
 #' 
 #' ## Grab all types
 #' rm_date(c(x, x2, x3), pattern="@@rm_date4", extract=TRUE)
-rm_date <- function(text.var, trim = !extract, clean = TRUE,
-    pattern = "@rm_date", replacement = "", extract = FALSE, 
-    dictionary = getOption("regex.library"), ...) {
-
-	pattern <- reg_check(pattern = pattern, dictionary = dictionary)
-
-    if (extract) {
-    	if (!trim) {
-            return(stringi::stri_extract_all_regex(text.var, pattern))
-    	}
-    	return(lapply(return(stringi::stri_extract_all_regex(text.var, pattern)), Trim))
-    }
-
-    out <- gsub(pattern, replacement, text.var, perl = TRUE, ...)
-    if (trim) out <- Trim(out)
-    if (clean) out <- clean(out)
-    out
-}
-
+rm_date <- hijack(rm_default, pattern = "@rm_date")

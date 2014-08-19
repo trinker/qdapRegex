@@ -49,22 +49,4 @@
 #' 
 #' ## more restrictive Twitter regex
 #' rm_tag(x, extract=TRUE, pattern="@@rm_tag2") 
-rm_tag <- function(text.var, trim = !extract, clean = TRUE, pattern = "@rm_tag", 
-	replacement = "", extract = FALSE, dictionary = getOption("regex.library"), 
-	...) {
-
-	pattern <- reg_check(pattern = pattern, dictionary = dictionary)
-
-    if (extract) {
-    	if (!trim) {
-            return(stringi::stri_extract_all_regex(text.var, pattern))
-    	}
-    	return(lapply(return(stringi::stri_extract_all_regex(text.var, pattern)), Trim))
-    }
-
-    out <- gsub(pattern, replacement, text.var, perl=TRUE, ...)
-    if (trim) out <- Trim(out)
-    if (clean) out <- clean(out)
-    out
-}
-
+rm_tag <- hijack(rm_default, pattern = "@rm_tag")

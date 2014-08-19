@@ -23,6 +23,7 @@
 #' @return Returns a character string with abbreviations removed.
 #' @keywords abbreviation
 #' @export
+#' @include rm_default.R utils.R
 #' @seealso \code{\link[base]{gsub}},
 #' \code{\link[stringi]{stri_extract_all_regex}}
 #' @examples
@@ -31,21 +32,5 @@
 #'     "Hello world.", "In the U. S. A.")
 #' rm_abbreviation(x)
 #' rm_abbreviation(x, extract=TRUE)
-rm_abbreviation <- function(text.var, trim = !extract, clean = TRUE,
-    pattern = "@rm_abbreviation", replacement = "", extract = FALSE, 
-	dictionary = getOption("regex.library"), ...) {
+rm_abbreviation <- hijack(rm_default, pattern = "@rm_abbreviation")
 
-	pattern <- reg_check(pattern = pattern, dictionary = dictionary)
-
-    if (extract) {
-    	if (!trim) {
-            return(stringi::stri_extract_all_regex(text.var, pattern))
-    	}
-    	return(lapply(return(stringi::stri_extract_all_regex(text.var, pattern)), Trim))
-    }
-
-    out <- gsub(pattern, replacement, text.var, perl = TRUE, ...)
-    if (trim) out <- Trim(out)
-    if (clean) out <- clean(out)
-    out
-}

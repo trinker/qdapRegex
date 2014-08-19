@@ -29,21 +29,4 @@
 #' 
 #' rm_title_name(x)
 #' rm_title_name(x, extract=TRUE)
-rm_title_name <- function(text.var, trim = !extract, clean = TRUE, 
-	pattern = "@rm_title_name", replacement = "", extract = FALSE, 
-	dictionary = getOption("regex.library"), ...) {
-
-	pattern <- reg_check(pattern = pattern, dictionary = dictionary)
-
-    if (extract) {
-    	if (!trim) {
-            return(stringi::stri_extract_all_regex(text.var, pattern))
-    	}
-    	return(lapply(return(stringi::stri_extract_all_regex(text.var, pattern)), Trim))
-    }
-
-    out <- gsub(pattern, replacement, text.var, ...)
-    if (trim) out <- Trim(out)
-    if (clean) out <- clean(out)
-    out
-}
+rm_title_name <- hijack(rm_default, pattern = "@rm_title_name")

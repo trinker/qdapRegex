@@ -33,21 +33,4 @@
 #'
 #' rm_time(x)
 #' rm_time(x, extract=TRUE)
-rm_time <- function(text.var, trim = !extract, clean = TRUE, pattern = "@rm_time", 
-	replacement = "", extract = FALSE, dictionary = getOption("regex.library"), 
-	...) {
-
-	pattern <- reg_check(pattern = pattern, dictionary = dictionary)
-
-    if (extract) {
-    	if (!trim) {
-            return(stringi::stri_extract_all_regex(text.var, pattern))
-    	}
-    	return(lapply(return(stringi::stri_extract_all_regex(text.var, pattern)), Trim))
-    }
-
-    out <- gsub(pattern, replacement, text.var, perl = TRUE, ...)
-    if (trim) out <- Trim(out)
-    if (clean) out <- clean(out)
-    out
-}
+rm_time <- hijack(rm_default, pattern = "@rm_time")

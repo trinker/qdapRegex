@@ -29,21 +29,4 @@
 #' rm_caps(x)
 #' rm_caps(x, replacement="\\L\\1")
 #' rm_caps(x, extract=TRUE)
-rm_caps <- function(text.var, trim = !extract, clean = TRUE,
-    pattern = "@rm_caps", replacement = "", extract = FALSE, 
-    dictionary = getOption("regex.library"), ...) {
-
-	pattern <- reg_check(pattern = pattern, dictionary = dictionary)
-
-    if (extract) {
-    	if (!trim) {
-            return(stringi::stri_extract_all_regex(text.var, pattern))
-    	}
-    	return(lapply(return(stringi::stri_extract_all_regex(text.var, pattern)), Trim))
-    }
-
-    out <- gsub(pattern, replacement, text.var, perl = TRUE, ...)
-    if (trim) out <- Trim(out)
-    if (clean) out <- clean(out)
-    out
-}
+rm_caps <- hijack(rm_default, pattern = "@rm_caps")

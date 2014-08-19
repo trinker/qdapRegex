@@ -32,22 +32,4 @@
 #'     "hello world -.q")
 #' rm_number(x)
 #' rm_number(x, extract=TRUE)
-rm_number <- function(text.var, trim = !extract, clean = TRUE, 
-	pattern = "@rm_number", replacement = "", extract = FALSE, 
-	dictionary = getOption("regex.library"), ...) {
-
-	pattern <- reg_check(pattern = pattern, dictionary = dictionary)
-
-    if (extract) {
-    	if (!trim) {
-            return(stringi::stri_extract_all_regex(text.var, pattern))
-    	}
-    	return(lapply(return(stringi::stri_extract_all_regex(text.var, pattern)), Trim))
-    }
-
-    out <- gsub(pattern, replacement, text.var, perl = TRUE, ...)
-    if (trim) out <- Trim(out)
-    if (clean) out <- clean(out)
-    out
-}
-
+rm_number <- hijack(rm_default, pattern = "@rm_number")

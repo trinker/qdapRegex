@@ -29,21 +29,4 @@
 #' 
 #' rm_emoticon(x)
 #' rm_emoticon(x, extract=TRUE)
-rm_emoticon <- function(text.var, trim = !extract, clean = TRUE, 
-    pattern = "@rm_emoticon", replacement = "", extract = FALSE, 
-	dictionary = getOption("regex.library"), ...) {
-
-	pattern <- reg_check(pattern = pattern, dictionary = dictionary)
-
-    if (extract) {
-    	if (!trim) {
-            return(stringi::stri_extract_all_regex(text.var, pattern))
-    	}
-    	return(lapply(return(stringi::stri_extract_all_regex(text.var, pattern)), Trim))
-    }
-
-    out <- gsub(pattern, replacement, text.var, ...)
-    if (trim) out <- Trim(out)
-    if (clean) out <- clean(out)
-    out
-}
+rm_emoticon <- hijack(rm_default, pattern = "@rm_emoticon")

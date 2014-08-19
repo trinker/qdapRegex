@@ -29,7 +29,9 @@
 #' names extracted strings by symbol boundaries, however, it is slower than 
 #' \code{rm_between}.
 #' @rdname rm_between
+#' @include rm_default.R utils.R
 #' @export
+#' @include rm_default.R utils.R
 #' @seealso \code{\link[base]{gsub}},
 #' \code{\link[qdapRegex]{rm_bracket}},
 #' \code{\link[stringi]{stri_extract_all_regex}}

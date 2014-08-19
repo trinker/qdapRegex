@@ -23,6 +23,7 @@
 #' be merged by string.  \code{FALSE} returns a named list of lists of vectors 
 #' of bracketed text per bracket type.  
 #' @rdname rm_bracket
+#' @include rm_default.R utils.R
 #' @return \code{rm_bracket} - returns a character string with 
 #' multiple brackets removed.  If \code{extract = TRUE} the results are 
 #' optionally merged and named by bracket type.  This is more flexible than 

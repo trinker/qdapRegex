@@ -19,6 +19,7 @@
 #' the supplemental dictionary (\code{\link[qdapRegex]{regex_supplement}}) (see 
 #' \bold{Examples}).
 #' @rdname pastex
+#' @include rm_default.R utils.R
 #' @export
 #' @seealso \code{\link[base]{paste}}
 #' @examples

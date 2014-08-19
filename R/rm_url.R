@@ -56,24 +56,8 @@
 #' rm_twitter_n_url <- rm_(pattern=pastex("@@rm_twitter_url", "@@rm_url"))
 #' rm_twitter_n_url(x)
 #' rm_twitter_n_url(x, extract=TRUE)
-rm_url <- function(text.var, trim = !extract, clean = TRUE, pattern = "@rm_url", 
-	replacement = "", extract = FALSE, dictionary = getOption("regex.library"), 
-	...) {
+rm_url <- hijack(rm_default, pattern = "@rm_url")
 
-	pattern <- reg_check(pattern = pattern, dictionary = dictionary)
-
-    if (extract) {
-    	if (!trim) {
-            return(stringi::stri_extract_all_regex(text.var, pattern))
-    	}
-    	return(lapply(return(stringi::stri_extract_all_regex(text.var, pattern)), Trim))
-    }
-    
-    out <- gsub(pattern, replacement, text.var, perl = TRUE, ...)
-    if (trim) out <- Trim(out)
-    if (clean) out <- clean(out)
-    out
-}
 
 #' Remove/Replace/Extract URLs
 #' 
@@ -83,22 +67,4 @@ rm_url <- function(text.var, trim = !extract, clean = TRUE, pattern = "@rm_url",
 #' 
 #' @export
 #' @rdname rm_url
-rm_twitter_url <- function(text.var, trim = !extract, clean = TRUE, 
-	pattern = "@rm_twitter_url", replacement = "", extract = FALSE, 
-	dictionary = getOption("regex.library"), ...) {
-
-	pattern <- reg_check(pattern = pattern, dictionary = dictionary)
-
-    if (extract) {
-    	if (!trim) {
-            return(stringi::stri_extract_all_regex(text.var, pattern))
-    	}
-    	return(lapply(return(stringi::stri_extract_all_regex(text.var, pattern)), Trim))
-    }
-    
-    out <- gsub(pattern, replacement, text.var, perl = TRUE, ...)
-    if (trim) out <- Trim(out)
-    if (clean) out <- clean(out)
-    out
-}
-
+rm_twitter_url <- hijack(rm_default, pattern = "@rm_twitter_url")

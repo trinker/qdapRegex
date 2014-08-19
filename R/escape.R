@@ -14,6 +14,7 @@
 #' the character string and tells the \pkg{qdapRegex} functions not to parse it 
 #' (i.e., keep it as a literal string).
 #' @export
+#' @include rm_default.R utils.R
 #' @examples
 #' escape("@@rm_caps")
 #' 

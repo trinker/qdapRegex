@@ -31,21 +31,4 @@
 #'    "I like Movies, PG13")
 #' rm_city_state(x)
 #' rm_city_state(x, extract=TRUE)
-rm_city_state <- function(text.var, trim = !extract, clean = TRUE,
-    pattern = "@rm_city_state", replacement = "", extract = FALSE, 
-	dictionary = getOption("regex.library"), ...) {
-
-	pattern <- reg_check(pattern = pattern, dictionary = dictionary)
-
-    if (extract) {
-    	if (!trim) {
-            return(stringi::stri_extract_all_regex(text.var, pattern))
-    	}
-    	return(lapply(return(stringi::stri_extract_all_regex(text.var, pattern)), Trim))
-    }
-
-    out <- gsub(pattern, replacement, text.var, perl = TRUE, ...)
-    if (trim) out <- Trim(out)
-    if (clean) out <- clean(out)
-    out
-}
+rm_city_state <- hijack(rm_default, pattern = "@rm_city_state")
