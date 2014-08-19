@@ -40,6 +40,7 @@ Collate:
     'rm_dollar.R'
     'rm_email.R'
     'rm_emoticon.R'
+    'rm_endmark.R'
     'rm_hash.R'
     'rm_nchar_words.R'
     'rm_number.R'

@@ -42,6 +42,9 @@ NULL
 #'   \item{rm_dollar}{substring with dollar sign ($) followed by (1) just dollars (no decimal), (2) dollars and cents (whole number and decimal), or (3) just cents (decimal value)}
 #'   \item{rm_email}{substring with (1) alphanumeric characters or dash (-), plus (+), or underscore (_) (\emph{This may be repeated}) (2) followed by at (@@), followed by the same regex sequence as before the at (@@), and ending with dot (.) and 2-14 digits}
 #'   \item{rm_emoticon}{common emoticons (logic is complicated to explain in words) using ">?[:;=8XB]\{1\}[-~+o^]?[|\")(&gt;DO>\{pP3/]+|</?3|XD+|D:<|x[-~+o^]?[|\")(&gt;DO>\{pP3/]+" regex pattern; general pattern is optional hat character, followed by eyes character, followed by optional nose character, and ending with a mouth character}
+#'   \item{rm_endmark}{substring of the last endmark group in a string; endmarks include (! ? . * OR |)}
+#'   \item{rm_endmark3}{substring of the last endmark group in a string; endmarks include (! ? OR .)}
+#'   \item{rm_endmark3}{substring of the last endmark group in a string; endmarks include (! ? . * | ; OR :)}
 #'   \item{rm_hash}{substring that begins with a hash (#) followed by a word}
 #'   \item{rm_nchar_words}{substring of letters (that may contain apostrophes) n letters long (apostrophe not counted in length); note contains \code{"\%s"} that is replaced by \code{\link[base]{sprintf}} and is not a valid regex on its own}
 #'   \item{rm_nchar_words2}{substring of letters (that may contain apostrophes) n letters long (apostrophe counted in length); note contains \code{"\%s"} that is replaced by \code{\link[base]{sprintf}} and is not a valid regex on its own}
