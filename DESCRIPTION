@@ -50,5 +50,6 @@ Collate:
     'rm_time.R'
     'rm_title_name.R'
     'rm_url.R'
+    'rm_white.R'
     'rm_zip.R'
     'validate.R'

@@ -44,6 +44,16 @@ The following canned regular expressions are included:
   \item{rm_url}{substring beginning with \emph{http}, \emph{www.}, or \emph{ftp} and ending on a space or end of string (whichever comes first); note that this regex is simple and may not cover all valid URLs or may include invalid URLs}
   \item{rm_url2}{substring beginning with \emph{http}, \emph{www.}, or \emph{ftp} and more constrained than \code{rm_url}; based on @imme_emosol's response from \url{https://mathiasbynens.be/demo/url-regex}}
   \item{rm_url3}{substring beginning with \emph{http} or \emph{ftp} and more constrained than \code{rm_url} & \code{rm_url2} though light-weight, making it ideal for validation purposes; taken from @imme_emosol's response found \url{https://mathiasbynens.be/demo/url-regex}}
+  \item{rm_white}{substring of white space(s); this regular expression combines \code{rm_white_bracket}, \code{rm_white_colon}, \code{rm_white_comma}, \code{rm_white_endmark}, \code{rm_white_lead}, \code{rm_white_trail}, and \code{rm_white_multiple}}
+  \item{rm_white_bracket}{substring of white space(s) following left brackets ("\{", "(", "[") or preceding right brackets ("\}", ")", "]")}
+  \item{rm_white_colon}{substring of white space(s) preceding colon(s)/semicolon(s)}
+  \item{rm_white_comma}{substring of white space(s) preceding a comma}
+  \item{rm_white_double}{substring of multiple white space(s)}
+  \item{rm_white_endmark}{substring of white space(s) preceding a single occurrence/combination of period(s), question mark(s), and exclamation point(s)}
+  \item{rm_white_lead}{substring of leading white space(s)}
+  \item{rm_white_trail}{substring of trailing white space(s)}
+  \item{rm_white_lead_trail}{substring of leading/trailing white space(s)}
+  \item{rm_white_punctuation}{substring of white space(s) preceding a comma or a single occurrence/combination of colon(s), semicolon(s), period(s), question mark(s), and exclamation point(s)}
   \item{rm_zip}{substring of 5 digits optionally followed by a dash and 4 more digits}
 }
 }

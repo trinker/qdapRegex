@@ -25,9 +25,7 @@ The following canned regular expressions are included:
   \item{ip_address}{substring of four chunks of 1-3 consecutive digits separated with dots (.)}
   \item{thousands_separator}{chunks digits > 4 into groups of 3 from right to left allowing for easy insertion of thousands separator; regex pattern retrieved from \href{http://stackoverflow.com/}{StackOverflow}'s stema: \url{http://stackoverflow.com/a/10612685/1000343}}
   \item{time_12_hours}{substring of valid hours (1-12) followed by a colon (:) followed by valid minutes (0-60), followed by an optional space and the character chunk \emph{am} or \emph{pm}}
-  \item{white_lead}{substring of leading white space(s)}
-  \item{white_trail}{substring of trailing white space(s)},
-  \item{white_trim}{substring of leading/trailing white space(s)}
+  \item{white_after_comma}{substring of white space after a comma}
   \item{version}{substring starting with "v" or "version" optionally followed by a space and then period separated digits for <major>.<minor>.<release>.<build>; the build sequence is optional and the "version"/"v" IS NOT contained in the substring}
   \item{version2}{substring starting with "v" or "version" optionally followed by a space and then period separated digits for <major>.<minor>.<release>.<build>; the build sequence is optional and the "version"/"v" IS contained in the substring}
 }
