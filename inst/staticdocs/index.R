@@ -25,16 +25,12 @@ sd_section("Removing/Extracting/Replacing",
     "rm_time", 
   	"rm_title_name", 
     "rm_url",
+  	"rm_white",
     "rm_zip"
   )
 )
 
-sd_section("Removing/Extracting/Replacing White Space",
-  "Function for removing/extracting/replacing white space.",
-  c(
-  	"rm_white"
-  )
-)
+
 
 sd_section("qdapRegex Tools",
  "Functions used within qdapRegex that are not specific to removing/extracting/replacing text with regular expressions.",
