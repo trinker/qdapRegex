@@ -111,7 +111,7 @@ space before a single or consecutive combination of a colon, semicolon, or
 endmark (period, question mark, or exclamation point).
 }
 \examples{
-x <-  c(" There is ( $5.50 ) for me . ", " that's [ 45.6\% ] of! the pizza !",
+x <-  c(" There is ( $5.50 ) for , me . ", " that's [ 45.6\% ] of! the pizza !",
     "     14\% is { $26  } or $25.99 ?", "Oh ;  here's colon : Yippee !")
 
 rm_white(x)
@@ -124,6 +124,13 @@ rm_white_trail(x)
 rm_white_lead_trail(x)
 rm_white_multiple(x)
 rm_white_punctuation(x)
+}
+\author{
+\code{rm_white_endmark}/\code{rm_white_punctuation} - \href{http://stackoverflow.com}{stackoverflow}'s akrun and Tyler Rinker <tyler.rinker@gmail.com>.
+}
+\references{
+The \code{rm_white_endmark}/\code{rm_white_punctuation} regular expression was taken from:
+\url{http://stackoverflow.com/a/25447294/1000343}
 }
 \seealso{
 \code{\link[base]{gsub}},

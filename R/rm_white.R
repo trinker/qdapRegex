@@ -29,7 +29,7 @@
 #' @seealso \code{\link[base]{gsub}},
 #' \code{\link[stringi]{stri_extract_all_regex}}
 #' @examples
-#' x <-  c(" There is ( $5.50 ) for me . ", " that's [ 45.6% ] of! the pizza !", 
+#' x <-  c(" There is ( $5.50 ) for , me . ", " that's [ 45.6% ] of! the pizza !", 
 #'     "     14% is { $26  } or $25.99 ?", "Oh ;  here's colon : Yippee !")
 #'
 #' rm_white(x)
@@ -76,6 +76,9 @@ rm_white_comma <- hijack(rm_default, pattern = "@rm_white_comma")
 #' 
 #' @rdname rm_white
 #' @export
+#' @author \code{rm_white_endmark}/\code{rm_white_punctuation} - \href{http://stackoverflow.com}{stackoverflow}'s akrun and Tyler Rinker <tyler.rinker@@gmail.com>. 
+#' @references The \code{rm_white_endmark}/\code{rm_white_punctuation} regular expression was taken from: 
+#' \url{http://stackoverflow.com/a/25447294/1000343}
 rm_white_endmark <- hijack(rm_default, pattern = "@rm_white_endmark")
 
 #' Remove/Replace/Extract White Space

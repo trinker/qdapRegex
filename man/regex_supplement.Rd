@@ -51,6 +51,9 @@ x <- "this is 1000000 big 4356.  And little 123 number."
 rm_default(x, pattern="@thousands_separator", replacement="\\\\1,")
 rm_default(x, pattern="@thousands_separator", replacement="\\\\1.")
 
+rm_default("I was,but it costs 10,000.", pattern="@white_after_comma",
+    replacement=", ")
+
 \dontrun{
 library(qdap)'library(ggplot2);library(reshape2)
 

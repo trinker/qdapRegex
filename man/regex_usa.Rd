@@ -48,12 +48,12 @@ The following canned regular expressions are included:
   \item{rm_white_bracket}{substring of white space(s) following left brackets ("\{", "(", "[") or preceding right brackets ("\}", ")", "]")}
   \item{rm_white_colon}{substring of white space(s) preceding colon(s)/semicolon(s)}
   \item{rm_white_comma}{substring of white space(s) preceding a comma}
-  \item{rm_white_double}{substring of multiple white space(s)}
   \item{rm_white_endmark}{substring of white space(s) preceding a single occurrence/combination of period(s), question mark(s), and exclamation point(s)}
   \item{rm_white_lead}{substring of leading white space(s)}
-  \item{rm_white_trail}{substring of trailing white space(s)}
   \item{rm_white_lead_trail}{substring of leading/trailing white space(s)}
+  \item{rm_white_multiple}{substring of multiple, consecutive white spaces}
   \item{rm_white_punctuation}{substring of white space(s) preceding a comma or a single occurrence/combination of colon(s), semicolon(s), period(s), question mark(s), and exclamation point(s)}
+  \item{rm_white_trail}{substring of trailing white space(s)}
   \item{rm_zip}{substring of 5 digits optionally followed by a dash and 4 more digits}
 }
 }
