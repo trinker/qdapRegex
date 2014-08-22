@@ -1,7 +1,7 @@
 library(staticdocs)
 
 sd_section("Removing/Extracting/Replacing",
-  "Function for removing/extracting/replacing text with regular expressions.",
+  "Function for removing/extracting/replacing text using regular expressions.",
   c(
   	"rm_default",
   	"rm_",
@@ -26,6 +26,13 @@ sd_section("Removing/Extracting/Replacing",
   	"rm_title_name", 
     "rm_url",
     "rm_zip"
+  )
+)
+
+sd_section("Removing/Extracting/Replacing White Space",
+  "Function for removing/extracting/replacing white space.",
+  c(
+  	"rm_white"
   )
 )
 

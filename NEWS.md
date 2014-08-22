@@ -23,6 +23,9 @@ qdapRegex 0.1.0
 
 **NEW FEATURES**
 
+* `rm_white` and accompanying family of `rm_white` functions added to remove 
+  white space.
+
 **MINOR FEATURES**
 
 **IMPROVEMENTS**

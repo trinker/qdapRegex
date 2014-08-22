@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>rm_white. qdapRegex 0.1.0</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="
+&lt;code&gt;rm_white_endmark&lt;/code&gt;/&lt;code&gt;rm_white_punctuation&lt;/code&gt; - &lt;a href = 'http://stackoverflow.com'&gt;stackoverflow&lt;/a&gt;'s akrun and Tyler Rinker &lt;tyler.rinker@gmail.com&gt;.
+">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">qdapRegex 0.1.0</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Remove/Replace/Extract White Space</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><div>rm_white(text.var, trim&nbsp;=&nbsp;FALSE, clean&nbsp;=&nbsp;FALSE, pattern&nbsp;=&nbsp;"@rm_white", replacement&nbsp;=&nbsp;"", extract&nbsp;=&nbsp;FALSE, dictionary&nbsp;=&nbsp;getOption("regex.library"), ...)</div>
+<div>rm_white_bracket(text.var, trim&nbsp;=&nbsp;!extract, clean&nbsp;=&nbsp;TRUE, pattern&nbsp;=&nbsp;"@rm_white_bracket", replacement&nbsp;=&nbsp;"", extract&nbsp;=&nbsp;FALSE, dictionary&nbsp;=&nbsp;getOption("regex.library"), ...)</div>
+<div>rm_white_colon(text.var, trim&nbsp;=&nbsp;!extract, clean&nbsp;=&nbsp;TRUE, pattern&nbsp;=&nbsp;"@rm_white_colon", replacement&nbsp;=&nbsp;"", extract&nbsp;=&nbsp;FALSE, dictionary&nbsp;=&nbsp;getOption("regex.library"), ...)</div>
+<div>rm_white_comma(text.var, trim&nbsp;=&nbsp;!extract, clean&nbsp;=&nbsp;TRUE, pattern&nbsp;=&nbsp;"@rm_white_comma", replacement&nbsp;=&nbsp;"", extract&nbsp;=&nbsp;FALSE, dictionary&nbsp;=&nbsp;getOption("regex.library"), ...)</div>
+<div>rm_white_endmark(text.var, trim&nbsp;=&nbsp;!extract, clean&nbsp;=&nbsp;TRUE, pattern&nbsp;=&nbsp;"@rm_white_endmark", replacement&nbsp;=&nbsp;"", extract&nbsp;=&nbsp;FALSE, dictionary&nbsp;=&nbsp;getOption("regex.library"), ...)</div>
+<div>rm_white_lead(text.var, trim&nbsp;=&nbsp;FALSE, clean&nbsp;=&nbsp;FALSE, pattern&nbsp;=&nbsp;"@rm_white_lead", replacement&nbsp;=&nbsp;"", extract&nbsp;=&nbsp;FALSE, dictionary&nbsp;=&nbsp;getOption("regex.library"), ...)</div>
+<div>rm_white_lead_trail(text.var, trim&nbsp;=&nbsp;FALSE, clean&nbsp;=&nbsp;FALSE, pattern&nbsp;=&nbsp;"@rm_white_lead_trail", replacement&nbsp;=&nbsp;"", extract&nbsp;=&nbsp;FALSE, dictionary&nbsp;=&nbsp;getOption("regex.library"), ...)</div>
+<div>rm_white_trail(text.var, trim&nbsp;=&nbsp;FALSE, clean&nbsp;=&nbsp;FALSE, pattern&nbsp;=&nbsp;"@rm_white_trail", replacement&nbsp;=&nbsp;"", extract&nbsp;=&nbsp;FALSE, dictionary&nbsp;=&nbsp;getOption("regex.library"), ...)</div>
+<div>rm_white_multiple(text.var, trim&nbsp;=&nbsp;!extract, clean&nbsp;=&nbsp;TRUE, pattern&nbsp;=&nbsp;"@rm_white_multiple", replacement&nbsp;=&nbsp;"", extract&nbsp;=&nbsp;FALSE, dictionary&nbsp;=&nbsp;getOption("regex.library"), ...)</div>
+<div>rm_white_punctuation(text.var, trim&nbsp;=&nbsp;!extract, clean&nbsp;=&nbsp;TRUE, pattern&nbsp;=&nbsp;"@rm_white_punctuation", replacement&nbsp;=&nbsp;"", extract&nbsp;=&nbsp;FALSE, dictionary&nbsp;=&nbsp;getOption("regex.library"), ...)</div></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>text.var</dt>
+      <dd>The text variable.</dd>
+      <dt>trim</dt>
+      <dd>logical.  If <code>TRUE</code> removes leading and trailing white
+spaces.</dd>
+      <dt>clean</dt>
+      <dd>trim logical.  If <code>TRUE</code> extra white spaces and escaped
+character will be removed.</dd>
+      <dt>pattern</dt>
+      <dd>A character string containing a regular expression (or
+character string for <code>fixed = TRUE</code>) to be matched in the given
+character vector.  Default, <code>@rm_dollar</code> uses the
+<code>rm_dollar</code> regex from the regular expression dictionary from
+the <code>dictionary</code> argument.</dd>
+      <dt>replacement</dt>
+      <dd>Replacement for matched <code>pattern</code>.</dd>
+      <dt>extract</dt>
+      <dd>logical.  If <code>TRUE</code> the dollar strings are extracted into a
+list of vectors.</dd>
+      <dt>dictionary</dt>
+      <dd>A dictionary of canned regular expressions to search within
+if <code>pattern</code> begins with <code>"@rm_"</code>.</dd>
+      <dt>...</dt>
+      <dd>Other arguments passed to <code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code>.</dd>
+    </dl>
+    
+    <div class="Remove/Replace/Extract White Space">
+      <h2>Remove/Replace/Extract White Space</h2>
+      
+    </div>
+
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>Returns a character string with extra white space removed.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p><code>rm_white</code> - Remove multiple white space (> 1 becomes a single white
+space), white space before a comma, white space before a single or
+consecutive combination of a colon, semicolon, or endmark (period, question
+mark, or exclamation point), white space after a left bracket ("", "(", "[")
+or before a right bracket ("", ")", "]"), leading or trailing white space.</p>
+  
+      <p><code>rm_white_bracket</code> - Remove white space after a left bracket ("", "(", "[")
+or before a right bracket ("", ")", "]").</p>
+  
+      <p><code>rm_white_colon</code> - Remove white space before a single or consecutive
+combination of a colon, semicolon.</p>
+  
+      <p><code>rm_white_comma</code> - Remove white spacebefore a comma.</p>
+  
+      <p><code>rm_white_endmark</code> - Remove white space before endmark(s) (".", "?", "!").</p>
+  
+      <p><code>rm_white_lead</code> - Remove leading white space.</p>
+  
+      <p><code>rm_white_lead_trail</code> - Remove leading or trailing white space.</p>
+  
+      <p><code>rm_white_trail</code> - Remove trailing white space.</p>
+  
+      <p><code>rm_white_multiple</code> - Remove multiple white space (> 1 becomes a single
+white space).</p>
+  
+      <p><code>rm_white_punctuation</code> - Remove multiple white space before a comma, white
+space before a single or consecutive combination of a colon, semicolon, or
+endmark (period, question mark, or exclamation point).</p>
+  
+    </div>
+
+    <div class="References">
+      <h2>References</h2>
+      
+      <p>The <code>rm_white_endmark</code>/<code>rm_white_punctuation</code> regular expression was taken from:
+<a href = 'http://stackoverflow.com/a/25447294/1000343'>http://stackoverflow.com/a/25447294/1000343</a></p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'>x &lt;-  c(&quot; There is ( $5.50 ) for , me . &quot;, &quot; that&#39;s [ 45.6% ] of! the pizza !&quot;,
+    &quot;     14% is { $26  } or $25.99 ?&quot;, &quot;Oh ;  here&#39;s colon : Yippee !&quot;)
+
+rm_white(x)
+</div>
+<div class='output'>[1] &quot;There is ($5.50) for, me.&quot;     &quot;that&#39;s [45.6%] of! the pizza!&quot; &quot;14% is {$26} or $25.99?&quot;      
+[4] &quot;Oh; here&#39;s colon: Yippee!&quot;    
+</div>
+<div class='input'>rm_white_bracket(x)
+</div>
+<div class='output'>[1] &quot;There is ($5.50) for , me .&quot;    &quot;that&#39;s [45.6%] of! the pizza !&quot;
+[3] &quot;14% is {$26} or $25.99 ?&quot;       &quot;Oh ; here&#39;s colon : Yippee !&quot;  
+</div>
+<div class='input'>rm_white_colon(x)
+</div>
+<div class='output'>[1] &quot;There is ( $5.50 ) for , me .&quot;    &quot;that&#39;s [ 45.6% ] of! the pizza !&quot;
+[3] &quot;14% is { $26 } or $25.99 ?&quot;       &quot;Oh; here&#39;s colon: Yippee !&quot;      
+</div>
+<div class='input'>rm_white_comma(x)
+</div>
+<div class='output'>[1] &quot;There is ( $5.50 ) for, me .&quot;     &quot;that&#39;s [ 45.6% ] of! the pizza !&quot;
+[3] &quot;14% is { $26 } or $25.99 ?&quot;       &quot;Oh ; here&#39;s colon : Yippee !&quot;    
+</div>
+<div class='input'>rm_white_endmark(x)
+</div>
+<div class='output'>[1] &quot;There is ( $5.50 ) for , me.&quot;    &quot;that&#39;s [ 45.6% ] of! the pizza!&quot;
+[3] &quot;14% is { $26 } or $25.99?&quot;       &quot;Oh ; here&#39;s colon : Yippee!&quot;    
+</div>
+<div class='input'>rm_white_lead(x)
+</div>
+<div class='output'>[1] &quot;There is ( $5.50 ) for , me . &quot;   &quot;that&#39;s [ 45.6% ] of! the pizza !&quot;
+[3] &quot;14% is { $26  } or $25.99 ?&quot;      &quot;Oh ;  here&#39;s colon : Yippee !&quot;   
+</div>
+<div class='input'>rm_white_trail(x)
+</div>
+<div class='output'>[1] &quot; There is ( $5.50 ) for , me .&quot;    &quot; that&#39;s [ 45.6% ] of! the pizza !&quot;
+[3] &quot;     14% is { $26  } or $25.99 ?&quot;  &quot;Oh ;  here&#39;s colon : Yippee !&quot;    
+</div>
+<div class='input'>rm_white_lead_trail(x)
+</div>
+<div class='output'>[1] &quot;There is ( $5.50 ) for , me .&quot;    &quot;that&#39;s [ 45.6% ] of! the pizza !&quot;
+[3] &quot;14% is { $26  } or $25.99 ?&quot;      &quot;Oh ;  here&#39;s colon : Yippee !&quot;   
+</div>
+<div class='input'>rm_white_multiple(x)
+</div>
+<div class='output'>[1] &quot;There is ( $5.50 ) for , me .&quot;    &quot;that&#39;s [ 45.6% ] of! the pizza !&quot;
+[3] &quot;14% is { $26 } or $25.99 ?&quot;       &quot;Oh ; here&#39;s colon : Yippee !&quot;    
+</div>
+<div class='input'>rm_white_punctuation(x)
+</div>
+<div class='output'>[1] &quot;There is ( $5.50 ) for, me.&quot;     &quot;that&#39;s [ 45.6% ] of! the pizza!&quot;
+[3] &quot;14% is { $26 } or $25.99?&quot;       &quot;Oh; here&#39;s colon: Yippee!&quot;      
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>rm_white</li><li>rm_white_bracket</li><li>rm_white_colon</li><li>rm_white_comma</li><li>rm_white_endmark</li><li>rm_white_lead</li><li>rm_white_lead_trail</li><li>rm_white_multiple</li><li>rm_white_punctuation</li><li>rm_white_trail</li>
+    </ul>
+    <ul>
+      <li>percent</li>
+    </ul> -->
+      
+    <h2>See also</h2>
+    
+<code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code>,
+<code><a href='http://www.inside-r.org/packages/cran/stringi/docs/stri_extract_regex'>stri_extract_all_regex</a></code>
+
+    
+    <h2>Author</h2>
+    
+<code>rm_white_endmark</code>/<code>rm_white_punctuation</code> - <a href = 'http://stackoverflow.com'>stackoverflow</a>'s akrun and Tyler Rinker <tyler.rinker@gmail.com>.
+
+    
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

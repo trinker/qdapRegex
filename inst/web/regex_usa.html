@@ -80,6 +80,9 @@ in various functions within the <span class = "pkg">qdapRegex</span> package.</p
 <dt>rm_dollar</dt><dd>substring with dollar sign ($) followed by (1) just dollars (no decimal), (2) dollars and cents (whole number and decimal), or (3) just cents (decimal value)</dd>
 <dt>rm_email</dt><dd>substring with (1) alphanumeric characters or dash (-), plus (+), or underscore (_) (<em>This may be repeated</em>) (2) followed by at (@), followed by the same regex sequence as before the at (@), and ending with dot (.) and 2-14 digits</dd>
 <dt>rm_emoticon</dt><dd>common emoticons (logic is complicated to explain in words) using ">?[:;=8XB]{1}[-~+o^]?[|\")(&gt;DO>{pP3/]+|</?3|XD+|D:<|x[-~+o^]?[|\")(&gt;DO>{pP3/]+" regex pattern; general pattern is optional hat character, followed by eyes character, followed by optional nose character, and ending with a mouth character</dd>
+<dt>rm_endmark</dt><dd>substring of the last endmark group in a string; endmarks include (! ? . * OR |)</dd>
+<dt>rm_endmark3</dt><dd>substring of the last endmark group in a string; endmarks include (! ? OR .)</dd>
+<dt>rm_endmark3</dt><dd>substring of the last endmark group in a string; endmarks include (! ? . * | ; OR :)</dd>
 <dt>rm_hash</dt><dd>substring that begins with a hash (#) followed by a word</dd>
 <dt>rm_nchar_words</dt><dd>substring of letters (that may contain apostrophes) n letters long (apostrophe not counted in length); note contains <code>"%s"</code> that is replaced by <code><a href='http://www.inside-r.org/packages/cran/base/docs/sprintf'>sprintf</a></code> and is not a valid regex on its own</dd>
 <dt>rm_nchar_words2</dt><dd>substring of letters (that may contain apostrophes) n letters long (apostrophe counted in length); note contains <code>"%s"</code> that is replaced by <code><a href='http://www.inside-r.org/packages/cran/base/docs/sprintf'>sprintf</a></code> and is not a valid regex on its own</dd>
@@ -91,9 +94,19 @@ in various functions within the <span class = "pkg">qdapRegex</span> package.</p
 <dt>rm_title_name</dt><dd>substring beginning with title (Mrs., Mr., Ms., Dr.) that is case independent or full title (Miss, Mizz, mizz) followed by a single lower case word or multiple capitalized words</dd>
 <dt>rm_time</dt><dd>substring that (1) must begin with 0-2 digits, (2) must be followed by a single colon (:), (3) optionally may be followed by either a colon (:) or a dot (.), (4) optionally may be followed by 1-infinite digits (if previous condition is true)</dd>
 <dt>rm_twitter_url</dt><dd><a href = 'https://twitter.com/'>Twitter</a> <a href = 'https://support.twitter.com/articles/109623-about-twitter-s-link-service-http-t-co'>short link/url</a>; substring optionally beginning with <em>http</em>, followed by <em>t.co</em> ending on a space or end of string (whichever comes first)</dd>
-<dt>rm_url</dt><dd>substring beginning with <em>http</em>, <em>www.</em>, or <em>ftp</em> and ending on a space or end of string (whichever comes first); note that this regex is simple and may not cover all valid urls or may include invalid urls</dd>
+<dt>rm_url</dt><dd>substring beginning with <em>http</em>, <em>www.</em>, or <em>ftp</em> and ending on a space or end of string (whichever comes first); note that this regex is simple and may not cover all valid URLs or may include invalid URLs</dd>
 <dt>rm_url2</dt><dd>substring beginning with <em>http</em>, <em>www.</em>, or <em>ftp</em> and more constrained than <code>rm_url</code>; based on @imme_emosol's response from <a href = 'https://mathiasbynens.be/demo/url-regex'>https://mathiasbynens.be/demo/url-regex</a></dd>
-<dt>rm_url3</dt><dd>substring beginning with <em>http</em> or <em>ftp</em> and more constrained than <code>rm_url</code> & <code>rm_url2</code> though lightwieght, making it ideal for validation purposes; taken from @imme_emosol's response found <a href = 'https://mathiasbynens.be/demo/url-regex'>https://mathiasbynens.be/demo/url-regex</a></dd>
+<dt>rm_url3</dt><dd>substring beginning with <em>http</em> or <em>ftp</em> and more constrained than <code>rm_url</code> & <code>rm_url2</code> though light-weight, making it ideal for validation purposes; taken from @imme_emosol's response found <a href = 'https://mathiasbynens.be/demo/url-regex'>https://mathiasbynens.be/demo/url-regex</a></dd>
+<dt>rm_white</dt><dd>substring of white space(s); this regular expression combines <code>rm_white_bracket</code>, <code>rm_white_colon</code>, <code>rm_white_comma</code>, <code>rm_white_endmark</code>, <code>rm_white_lead</code>, <code>rm_white_trail</code>, and <code>rm_white_multiple</code></dd>
+<dt>rm_white_bracket</dt><dd>substring of white space(s) following left brackets ("{", "(", "[") or preceding right brackets ("}", ")", "]")</dd>
+<dt>rm_white_colon</dt><dd>substring of white space(s) preceding colon(s)/semicolon(s)</dd>
+<dt>rm_white_comma</dt><dd>substring of white space(s) preceding a comma</dd>
+<dt>rm_white_endmark</dt><dd>substring of white space(s) preceding a single occurrence/combination of period(s), question mark(s), and exclamation point(s)</dd>
+<dt>rm_white_lead</dt><dd>substring of leading white space(s)</dd>
+<dt>rm_white_lead_trail</dt><dd>substring of leading/trailing white space(s)</dd>
+<dt>rm_white_multiple</dt><dd>substring of multiple, consecutive white spaces</dd>
+<dt>rm_white_punctuation</dt><dd>substring of white space(s) preceding a comma or a single occurrence/combination of colon(s), semicolon(s), period(s), question mark(s), and exclamation point(s)</dd>
+<dt>rm_white_trail</dt><dd>substring of trailing white space(s)</dd>
 <dt>rm_zip</dt><dd>substring of 5 digits optionally followed by a dash and 4 more digits</dd>
 </dl></p>
   

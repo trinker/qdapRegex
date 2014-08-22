@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>rm_date. qdapRegex 0.1.0</title>
+<title>rm_endmark. qdapRegex 0.1.0</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="">
 
@@ -35,12 +35,12 @@
         
       </header>
       
-      <h1>Remove/Replace/Extract Dates</h1>
+      <h1>Remove/Replace/Extract Endmarks</h1>
 
 <div class="row">
   <div class="span8">
     <h2>Usage</h2>
-    <pre><div>rm_date(text.var, trim&nbsp;=&nbsp;!extract, clean&nbsp;=&nbsp;TRUE, pattern&nbsp;=&nbsp;"@rm_date", replacement&nbsp;=&nbsp;"", extract&nbsp;=&nbsp;FALSE, dictionary&nbsp;=&nbsp;getOption("regex.library"), ...)</div></pre>
+    <pre><div>rm_endmark(text.var, trim&nbsp;=&nbsp;!extract, clean&nbsp;=&nbsp;TRUE, pattern&nbsp;=&nbsp;"@rm_endmark", replacement&nbsp;=&nbsp;"", extract&nbsp;=&nbsp;FALSE, dictionary&nbsp;=&nbsp;getOption("regex.library"), ...)</div></pre>
     
     <h2>Arguments</h2>
     <dl>
@@ -55,13 +55,13 @@ character will be removed.</dd>
       <dt>pattern</dt>
       <dd>A character string containing a regular expression (or
 character string for <code>fixed = TRUE</code>) to be matched in the given
-character vector (see <b>Details</b> for additional information).  Default,
-<code>@rm_date</code> uses the <code>rm_date</code> regex from the regular expression
-dictionary from the <code>dictionary</code> argument.</dd>
+character vector.  Default, <code>@rm_endmark</code> uses the
+<code>rm_dollar</code> regex from the regular expression dictionary from
+the <code>dictionary</code> argument.</dd>
       <dt>replacement</dt>
       <dd>Replacement for matched <code>pattern</code>.</dd>
       <dt>extract</dt>
-      <dd>logical.  If <code>TRUE</code> the dates are extracted into a
+      <dd>logical.  If <code>TRUE</code> the endmark strings are extracted into a
 list of vectors.</dd>
       <dt>dictionary</dt>
       <dd>A dictionary of canned regular expressions to search within
@@ -70,100 +70,129 @@ if <code>pattern</code> begins with <code>"@rm_"</code>.</dd>
       <dd>Other arguments passed to <code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code>.</dd>
     </dl>
     
-    <div class="Remove/Replace/Extract Dates">
-      <h2>Remove/Replace/Extract Dates</h2>
+    <div class="Remove/Replace/Extract Endmarks">
+      <h2>Remove/Replace/Extract Endmarks</h2>
       
     </div>
 
     <div class="Value">
       <h2>Value</h2>
       
-      <p>Returns a character string with dates removed.</p>
+      <p>Returns a character string with endmarks removed.</p>
   
     </div>
 
     <div class="Description">
       <h2>Description</h2>
       
-      <p>Remove/replace/extract dates from a string in the form of (1) XX/XX/XXXX,
-XX/XX/XX, XX-XX-XXXX, XX-XX-XX, XX.XX.XXXX, or XX.XX.XX OR
-(2) March XX, XXXX or Mar XX, XXXX OR (3) both forms.</p>
+      <p>Remove/replace/extract endmarks from a string.</p>
   
     </div>
 
     <div class="Details">
       <h2>Details</h2>
       
-      <p>The default regular expression used by <code>rm_date</code> finds numeric
-representations not word/abbreviations.  This means that
-<code>"June 13, 2002"</code> is not matched.  This behavior can be altered (to
-include month names/abbreviations) by using a secondary regular expression
-from the <code>regex_usa</code> data (or other dictionary) via
-(<code>pattern = "@rm_date2"</code>, <code>pattern = "@rm_date3"</code>, or
-<code>pattern = "@rm_date4"</code>). See
+      <p>The default regular expression used by <code>rm_endmark</code> finds
+endmark punctuation used in the <span class = "pkg">qdap</span> package; this includes ! . ? * AND
+|.  This behavior can be altered (to ; AND : or to use just ! . AND ?) by
+using a secondary regular expression from the
+<code>regex_usa</code> data (or other dictionary) via
+(<code>pattern = "@rm_endmark2"</code> or <code>pattern = "@rm_endmark3"</code>). See
 <b>Examples</b> for example usage.</p>
   
     </div>
     
     <h2 id="examples">Examples</h2>
-    <pre class="examples"><div class='input'>## Numeric Date Representation
+    <pre class="examples"><div class='input'>x &lt;- c(&quot;I like the dog.&quot;, &quot;I want it *|&quot;, &quot;I;&quot;,
+    &quot;Who is| that?&quot;, &quot;Hello world&quot;, &quot;You...&quot;)
 
-x &lt;- paste0(&quot;Format dates as 04/12/2014, 04-12-2014, 04.12.2014. or&quot;,
-    &quot; 04/12/14 but leaves mismatched: 12.12/2014&quot;)
-rm_date(x)
+rm_endmark(x)
 </div>
-<div class='output'>[1] &quot;Format dates as , , . or but leaves mismatched: 12.12/2014&quot;
+<div class='output'>[1] &quot;I like the dog&quot; &quot;I want it&quot;      &quot;I;&quot;             &quot;Who is| that&quot;   &quot;Hello world&quot;   
+[6] &quot;You&quot;           
 </div>
-<div class='input'>rm_date(x, extract=TRUE)
+<div class='input'>rm_endmark(x, extract=TRUE)
 </div>
 <div class='output'>[[1]]
-[1] &quot;04/12/2014&quot; &quot;04-12-2014&quot; &quot;04.12.2014&quot; &quot;04/12/14&quot;  
-
-</div>
-<div class='input'>
-## Word/Abbreviation Date Representation
-
-x2 &lt;- paste0(&quot;Format dates as Sept 09, 2002 or October 22, 1887&quot;,
-  &quot;but not 04-12-2014 and may match good 00, 9999&quot;)
-rm_date(x2, pattern=&quot;@rm_date2&quot;)
-</div>
-<div class='output'>[1] &quot;Format dates as or but not 04-12-2014 and may match&quot;
-</div>
-<div class='input'>rm_date(x2, pattern=&quot;@rm_date2&quot;, extract=TRUE)
-</div>
-<div class='output'>[[1]]
-[1] &quot;Sept 09, 2002&quot;    &quot;October 22, 1887&quot; &quot;good 00, 9999&quot;   
-
-</div>
-<div class='input'>
-
-## Year-Month-Day Representation
-x3 &lt;- sprintf(&quot;R uses time in this format %s.&quot;, Sys.time())
-rm_date(x3, pattern=&quot;@rm_date3&quot;)
-</div>
-<div class='output'>[1] &quot;R uses time in this format 10:26:03.&quot;
-</div>
-<div class='input'>
-## Grab all types
-rm_date(c(x, x2, x3), pattern=&quot;@rm_date4&quot;, extract=TRUE)
-</div>
-<div class='output'>[[1]]
-[1] &quot;04/12/2014&quot; &quot;04-12-2014&quot; &quot;04.12.2014&quot; &quot;04/12/14&quot;  
+[1] &quot;.&quot;
 
 [[2]]
-[1] &quot;Sept 09, 2002&quot;    &quot;October 22, 1887&quot; &quot;04-12-2014&quot;       &quot;good 00, 9999&quot;   
+[1] &quot;*|&quot;
 
 [[3]]
-[1] &quot;2014-08-22&quot;
+[1] NA
+
+[[4]]
+[1] &quot;?&quot;
+
+[[5]]
+[1] NA
+
+[[6]]
+[1] &quot;...&quot;
+
+</div>
+<div class='input'>
+rm_endmark(x, pattern=&quot;@rm_endmark2&quot;)
+</div>
+<div class='output'>[1] &quot;I like the dog&quot; &quot;I want it *|&quot;   &quot;I;&quot;             &quot;Who is| that&quot;   &quot;Hello world&quot;   
+[6] &quot;You&quot;           
+</div>
+<div class='input'>rm_endmark(x, extract=TRUE, pattern=&quot;@rm_endmark2&quot;)
+</div>
+<div class='output'>[[1]]
+[1] &quot;.&quot;
+
+[[2]]
+[1] NA
+
+[[3]]
+[1] NA
+
+[[4]]
+[1] &quot;?&quot;
+
+[[5]]
+[1] NA
+
+[[6]]
+[1] &quot;...&quot;
+
+</div>
+<div class='input'>
+rm_endmark(x, pattern=&quot;@rm_endmark3&quot;)
+</div>
+<div class='output'>[1] &quot;I like the dog&quot; &quot;I want it&quot;      &quot;I&quot;              &quot;Who is| that&quot;   &quot;Hello world&quot;   
+[6] &quot;You&quot;           
+</div>
+<div class='input'>rm_endmark(x, extract=TRUE, pattern=&quot;@rm_endmark3&quot;)
+</div>
+<div class='output'>[[1]]
+[1] &quot;.&quot;
+
+[[2]]
+[1] &quot;*|&quot;
+
+[[3]]
+[1] &quot;;&quot;
+
+[[4]]
+[1] &quot;?&quot;
+
+[[5]]
+[1] NA
+
+[[6]]
+[1] &quot;...&quot;
 
 </div></pre>
   </div>
   <div class="span4">
     <!-- <ul>
-      <li>rm_date</li>
+      <li>rm_endmark</li>
     </ul>
     <ul>
-      <li>date</li>
+      <li>percent</li>
     </ul> -->
       
     <h2>See also</h2>

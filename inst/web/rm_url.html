@@ -98,7 +98,7 @@ from a string.</p>
       <h2>Details</h2>
       
       <p>The default regex pattern <code>"(http[^ ]*)|(www\.[^ ]*)"</code> is more
-liberal.  More constained versions can be accessed
+liberal.  More constrained versions can be accessed
 via <code>pattern = "@rm_url2"</code> & <code>pattern = "@rm_url3"</code> see
 <b>Examples</b>).</p>
   
@@ -154,9 +154,12 @@ x &lt;- c(&quot;download file from http://example.com&quot;,
 
 rm_twitter_url(x)
 </div>
-<div class='output'>[1] &quot;download file from http://example.com&quot;             &quot;this is the link to my website http://example.com&quot;
-[3] &quot;go to http://example.com from more info.&quot;          &quot;Another url ftp://www.example.com&quot;                
-[5] &quot;And https://www.example.net&quot;                       &quot;twitter type:&quot;                                    
+<div class='output'>[1] &quot;download file from http://example.com&quot;            
+[2] &quot;this is the link to my website http://example.com&quot;
+[3] &quot;go to http://example.com from more info.&quot;         
+[4] &quot;Another url ftp://www.example.com&quot;                
+[5] &quot;And https://www.example.net&quot;                      
+[6] &quot;twitter type:&quot;                                    
 [7] &quot;still another one :-)&quot;                            
 </div>
 <div class='input'>rm_twitter_url(x, extract=TRUE)
@@ -184,12 +187,13 @@ rm_twitter_url(x)
 
 </div>
 <div class='input'>
-## Combine removing Twitter URLs adn standard URLs
+## Combine removing Twitter URLs and standard URLs
 rm_twitter_n_url &lt;- rm_(pattern=pastex(&quot;@rm_twitter_url&quot;, &quot;@rm_url&quot;))
 rm_twitter_n_url(x)
 </div>
-<div class='output'>[1] &quot;download file from&quot;             &quot;this is the link to my website&quot; &quot;go to from more info.&quot;         
-[4] &quot;Another url&quot;                    &quot;And&quot;                            &quot;twitter type:&quot;                 
+<div class='output'>[1] &quot;download file from&quot;             &quot;this is the link to my website&quot;
+[3] &quot;go to from more info.&quot;          &quot;Another url&quot;                   
+[5] &quot;And&quot;                            &quot;twitter type:&quot;                 
 [7] &quot;still another one :-)&quot;         
 </div>
 <div class='input'>rm_twitter_n_url(x, extract=TRUE)
