@@ -70,6 +70,7 @@ NULL
 #'   \item{rm_white_punctuation}{substring of white space(s) preceding a comma or a single occurrence/combination of colon(s), semicolon(s), period(s), question mark(s), and exclamation point(s)}
 #'   \item{rm_white_trail}{substring of trailing white space(s)}
 #'   \item{rm_zip}{substring of 5 digits optionally followed by a dash and 4 more digits} 
+#'   \item{youtube_id}{substring of the video id from a \href{YouTube}{https://www.youtube.com/} video; ; taken from Jacob Overgaard's submissionfound \url{http://regex101.com/r/kU7bP8/1}}
 #' }
 #' @name regex_usa 
 #' @usage data(regex_usa) 

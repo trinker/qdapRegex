@@ -66,7 +66,8 @@ regex_supplement <- list(
     time_12_hours = "(1[012]|[1-9]):[0-5][0-9](\\s?)(am|pm)",
     white_after_comma = "(?!\\s+),(?=\\D)",	
     version = "(?<=\\b(v|version)\\s?)([0-9]+)\\.([0-9]+)\\.([0-9]+)(?:\\.([0-9]+))?\\b",
-    version2 = "\\b(v(ersion)*\\s*)([0-9]+)\\.([0-9]+)\\.([0-9]+)(?:\\.([0-9]+))?\\b"
+    version2 = "\\b(v(ersion)*\\s*)([0-9]+)\\.([0-9]+)\\.([0-9]+)(?:\\.([0-9]+))?\\b",
+    youtube_id = "(?<=\\d\\/|\\.be\\/|v[=\\/])([\\w\\-]{11,})|^([\\w\\-]{11})"
 )
 
 #  pack.skel(regex_usa, regex_supplement)
