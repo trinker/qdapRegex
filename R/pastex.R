@@ -53,7 +53,7 @@
 #' rm_twitter_url(x)
 #' rm_twitter_url(x, extract=TRUE)
 #' 
-#' ## Combine removing Twitter URLs adn standard URLs
+#' ## Combine removing Twitter URLs and standard URLs
 #' rm_twitter_n_url <- rm_(pattern="@@rm_twitter_url" %|% "@@rm_url")  
 #' rm_twitter_n_url(x)
 #' rm_twitter_n_url(x, extract=TRUE)

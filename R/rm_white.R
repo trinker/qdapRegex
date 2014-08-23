@@ -76,9 +76,9 @@ rm_white_comma <- hijack(rm_default, pattern = "@rm_white_comma")
 #' 
 #' @rdname rm_white
 #' @export
-#' @author \code{rm_white_endmark}/\code{rm_white_punctuation} - \href{http://stackoverflow.com}{stackoverflow}'s akrun and Tyler Rinker <tyler.rinker@@gmail.com>. 
+#' @author \code{rm_white_endmark}/\code{rm_white_punctuation} - \href{http://stackoverflow.com}{stackoverflow}'s hwnd and Tyler Rinker <tyler.rinker@@gmail.com>. 
 #' @references The \code{rm_white_endmark}/\code{rm_white_punctuation} regular expression was taken from: 
-#' \url{http://stackoverflow.com/a/25447294/1000343}
+#' \url{http://stackoverflow.com/a/25464921/1000343}
 rm_white_endmark <- hijack(rm_default, pattern = "@rm_white_endmark")
 
 #' Remove/Replace/Extract White Space
