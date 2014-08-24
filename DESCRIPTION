@@ -43,6 +43,7 @@ Collate:
     'rm_endmark.R'
     'rm_hash.R'
     'rm_nchar_words.R'
+    'rm_non_ascii.R'
     'rm_number.R'
     'rm_percent.R'
     'rm_phone.R'

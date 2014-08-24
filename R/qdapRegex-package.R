@@ -48,6 +48,7 @@ NULL
 #'   \item{rm_hash}{substring that begins with a hash (#) followed by a word}
 #'   \item{rm_nchar_words}{substring of letters (that may contain apostrophes) n letters long (apostrophe not counted in length); note contains \code{"\%s"} that is replaced by \code{\link[base]{sprintf}} and is not a valid regex on its own}
 #'   \item{rm_nchar_words2}{substring of letters (that may contain apostrophes) n letters long (apostrophe counted in length); note contains \code{"\%s"} that is replaced by \code{\link[base]{sprintf}} and is not a valid regex on its own}
+#'   \item{rm_non_ascii}{substring of 2 digits or letters a-f inside of a left and right angle brace in the form of \code{"<a4>"}}
 #'   \item{rm_number}{substring that may begin with dash (-) for negatives, and is (1) just whole number (no decimal), (2) whole number and decimal, or (3) just decimal value}
 #'   \item{rm_percent}{substring beginning with (1) just whole number (no decimal), (2) whole number and decimal, or (3) just decimal value and followed by a percent sign (\%)}
 #'   \item{rm_phone}{phone numbers in the form of optional country code, valid 3 digit prefix, and 7 digits (may contain hyphens and parenthesis); logic is complex to explain (see \url{http://stackoverflow.com/a/21008254/1000343} for more)}
@@ -74,7 +75,7 @@ NULL
 #' }
 #' @name regex_usa 
 #' @usage data(regex_usa) 
-#' @format A list with 28 elements 
+#' @format A list with 42 elements 
 NULL
 
 #' Supplemental Canned Regular Expressions
@@ -109,7 +110,7 @@ NULL
 #' expression does not contain non-regex such as \code{\link[base]{sprintf}} 
 #' character string \code{\%s}.
 #' @usage data(regex_supplement) 
-#' @format A list with 10 elements
+#' @format A list with 12 elements
 #' @examples 
 #' time <- rm_(pattern="@@time_12_hours")
 #' time("I will go at 12:35 pm")

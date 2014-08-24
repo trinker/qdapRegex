@@ -26,6 +26,8 @@ qdapRegex 0.1.0
 * `rm_white` and accompanying family of `rm_white` functions added to remove 
   white space.
 
+* `rm_non_ascii` added to remove non-ASCII characters from a string.
+
 **MINOR FEATURES**
 
 **IMPROVEMENTS**

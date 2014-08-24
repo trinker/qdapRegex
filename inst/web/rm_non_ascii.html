@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>rm_non_ascii. qdapRegex 0.1.0</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="
+&lt;a href = 'http://stackoverflow.com'&gt;stackoverflow&lt;/a&gt;'s MrFlick, hwnd, and Tyler Rinker &lt;tyler.rinker@gmail.com&gt;.
+">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">qdapRegex 0.1.0</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Remove/Replace/Extract Non-ASCII</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><div>rm_non_ascii(text.var, trim&nbsp;=&nbsp;!extract, clean&nbsp;=&nbsp;TRUE, pattern&nbsp;=&nbsp;"@rm_non_ascii", replacement&nbsp;=&nbsp;"", extract&nbsp;=&nbsp;FALSE, dictionary&nbsp;=&nbsp;getOption("regex.library"), ascii.out&nbsp;=&nbsp;TRUE, ...)</div></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>text.var</dt>
+      <dd>The text variable.</dd>
+      <dt>trim</dt>
+      <dd>logical.  If <code>TRUE</code> removes leading and trailing white
+spaces.</dd>
+      <dt>clean</dt>
+      <dd>trim logical.  If <code>TRUE</code> extra white spaces and escaped
+character will be removed.</dd>
+      <dt>pattern</dt>
+      <dd>A character string containing a regular expression (or
+character string for <code>fixed = TRUE</code>) to be matched in the given
+character vector.  Default, <code>@rm_non_ascii</code> uses the
+<code>rm_non_ascii</code> regex from the regular expression dictionary from
+the <code>dictionary</code> argument.  If <code>extract = FALSE</code>
+<code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code> is not used as with other <code>rm_XXX</code> functions,
+rather <code><a href='http://www.inside-r.org/packages/cran/base/docs/iconv'>iconv</a></code> with the <code>sub</code> argument set is used to
+conduct the subbing.</dd>
+      <dt>replacement</dt>
+      <dd>Replacement for matched <code>pattern</code>.</dd>
+      <dt>extract</dt>
+      <dd>logical.  If <code>TRUE</code> the all non-ASCII strings are extracted
+into a list of vectors.</dd>
+      <dt>dictionary</dt>
+      <dd>A dictionary of canned regular expressions to search within
+if <code>pattern</code> begins with <code>"@rm_"</code>.</dd>
+      <dt>ascii.out</dt>
+      <dd>logical.  If <code>TRUE</code> output is given in non-ASCII format,
+otherwise <code>"byte"</code> is used.</dd>
+      <dt>...</dt>
+      <dd>ignored.</dd>
+    </dl>
+    
+    <div class="Remove/Replace/Extract Non-ASCII">
+      <h2>Remove/Replace/Extract Non-ASCII</h2>
+      
+    </div>
+
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>Returns a character string with "all caps" removed.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>Remove/replace/extract non-ASCII substring from a string.  This is the template used by
+other <span class = "pkg">qdapRegex</span> <code>rm_XXX</code> functions.</p>
+  
+    </div>
+
+    <div class="Warning">
+      <h2>Warning</h2>
+      
+      <p><code><a href='http://www.inside-r.org/packages/cran/base/docs/iconv'>iconv</a></code> is used within <code>rm_non_ascii</code>.
+<code><a href='http://www.inside-r.org/packages/cran/base/docs/iconv'>iconv</a></code>'s behavior across operating systems may not be
+consistent.</p>
+  
+    </div>
+
+    <div class="References">
+      <h2>References</h2>
+      
+      <p>The email regular expression was taken from:
+<a href = 'http://stackoverflow.com/a/25469131/1000343'>http://stackoverflow.com/a/25469131/1000343</a></p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'>x &lt;- c(&quot;Hello World&quot;, &quot;Ekstr\xf8m&quot;, &quot;J\xf6reskog&quot;, &quot;bi\xdfchen Z\xfcrcher&quot;)
+Encoding(x) &lt;- &quot;latin1&quot;
+x
+</div>
+<div class='output'>[1] &quot;Hello World&quot;     &quot;Ekstrøm&quot;         &quot;Jöreskog&quot;        &quot;bißchen Zürcher&quot;
+</div>
+<div class='input'>
+rm_non_ascii(x)
+</div>
+<div class='output'>[1] &quot;Hello World&quot;   &quot;Ekstrm&quot;        &quot;Jreskog&quot;       &quot;bichen Zrcher&quot;
+</div>
+<div class='input'>rm_non_ascii(x, replacement=&quot;&lt;&lt;FLAG&gt;&gt;&quot;)
+</div>
+<div class='output'>[1] &quot;Hello World&quot;                   &quot;Ekstr&lt;&lt;FLAG&gt;&gt;m&quot;                &quot;J&lt;&lt;FLAG&gt;&gt;reskog&quot;              
+[4] &quot;bi&lt;&lt;FLAG&gt;&gt;chen Z&lt;&lt;FLAG&gt;&gt;rcher&quot;
+</div>
+<div class='input'>rm_non_ascii(x, extract=TRUE)
+</div>
+<div class='output'>[[1]]
+[1] NA
+
+[[2]]
+[1] &quot;&lt;f8&gt;&quot;
+
+[[3]]
+[1] &quot;&lt;f6&gt;&quot;
+
+[[4]]
+[1] &quot;&lt;df&gt;&quot; &quot;&lt;fc&gt;&quot;
+
+</div>
+<div class='input'>rm_non_ascii(x, extract=TRUE, ascii.out=FALSE)
+</div>
+<div class='output'>[[1]]
+[1] NA
+
+[[2]]
+[1] &quot;ø&quot;
+
+[[3]]
+[1] &quot;ö&quot;
+
+[[4]]
+[1] &quot;ß&quot; &quot;ü&quot;
+
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>rm_non_ascii</li>
+    </ul>
+    <ul>
+      <li>ascii</li><li>unicode</li>
+    </ul> -->
+      
+    <h2>See also</h2>
+    
+<code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code>,
+<code><a href='http://www.inside-r.org/packages/cran/stringi/docs/stri_extract_regex'>stri_extract_all_regex</a></code>
+
+    
+    <h2>Author</h2>
+    
+<a href = 'http://stackoverflow.com'>stackoverflow</a>'s MrFlick, hwnd, and Tyler Rinker <tyler.rinker@gmail.com>.
+
+    
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

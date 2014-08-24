@@ -40,7 +40,7 @@ rm_default <- function(text.var, trim = !extract, clean = TRUE, pattern,
     	if (!trim) {
             return(stringi::stri_extract_all_regex(text.var, pattern))
     	}
-    	return(lapply(return(stringi::stri_extract_all_regex(text.var, pattern)), Trim))
+    	return(lapply(stringi::stri_extract_all_regex(text.var, pattern), Trim))
     }
 
     out <- gsub(pattern, replacement, text.var, perl = TRUE, ...)

@@ -50,7 +50,7 @@
     <div class="Format">
       <h2>Format</h2>
       
-      <p>A list with 28 elements</p>
+      <p>A list with 42 elements</p>
   
     </div>
 
@@ -86,6 +86,7 @@ in various functions within the <span class = "pkg">qdapRegex</span> package.</p
 <dt>rm_hash</dt><dd>substring that begins with a hash (#) followed by a word</dd>
 <dt>rm_nchar_words</dt><dd>substring of letters (that may contain apostrophes) n letters long (apostrophe not counted in length); note contains <code>"%s"</code> that is replaced by <code><a href='http://www.inside-r.org/packages/cran/base/docs/sprintf'>sprintf</a></code> and is not a valid regex on its own</dd>
 <dt>rm_nchar_words2</dt><dd>substring of letters (that may contain apostrophes) n letters long (apostrophe counted in length); note contains <code>"%s"</code> that is replaced by <code><a href='http://www.inside-r.org/packages/cran/base/docs/sprintf'>sprintf</a></code> and is not a valid regex on its own</dd>
+<dt>rm_non_ascii</dt><dd>substring of 2 digits or letters a-f inside of a left and right angle brace in the form of <code>"<a4>"</code></dd>
 <dt>rm_number</dt><dd>substring that may begin with dash (-) for negatives, and is (1) just whole number (no decimal), (2) whole number and decimal, or (3) just decimal value</dd>
 <dt>rm_percent</dt><dd>substring beginning with (1) just whole number (no decimal), (2) whole number and decimal, or (3) just decimal value and followed by a percent sign (%)</dd>
 <dt>rm_phone</dt><dd>phone numbers in the form of optional country code, valid 3 digit prefix, and 7 digits (may contain hyphens and parenthesis); logic is complex to explain (see <a href = 'http://stackoverflow.com/a/21008254/1000343'>http://stackoverflow.com/a/21008254/1000343</a> for more)</dd>
@@ -108,6 +109,7 @@ in various functions within the <span class = "pkg">qdapRegex</span> package.</p
 <dt>rm_white_punctuation</dt><dd>substring of white space(s) preceding a comma or a single occurrence/combination of colon(s), semicolon(s), period(s), question mark(s), and exclamation point(s)</dd>
 <dt>rm_white_trail</dt><dd>substring of trailing white space(s)</dd>
 <dt>rm_zip</dt><dd>substring of 5 digits optionally followed by a dash and 4 more digits</dd>
+<dt>youtube_id</dt><dd>substring of the video id from a <a href = 'YouTube'>https://www.youtube.com/</a> video; ; taken from Jacob Overgaard's submissionfound <a href = 'http://regex101.com/r/kU7bP8/1'>http://regex101.com/r/kU7bP8/1</a></dd>
 </dl></p>
   
       <p></p>
