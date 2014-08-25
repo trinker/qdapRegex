@@ -24,6 +24,7 @@ URL: http://trinker.github.com/qdapRegex/
 BugReports: http://github.com/trinker/qdapRegex/issues
 Roxygen: list(wrap = FALSE)
 Collate:
+    'S.R'
     'utils.R'
     'rm_default.R'
     'escape.R'

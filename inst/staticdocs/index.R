@@ -38,6 +38,7 @@ sd_section("qdapRegex Tools",
   c(
   	"escape",
   	"pastex",
+  	"S",
   	"validate"
   )
 )
