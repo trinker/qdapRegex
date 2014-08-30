@@ -28,6 +28,7 @@ Collate:
     'utils.R'
     'rm_default.R'
     'escape.R'
+    'grab.R'
     'pastex.R'
     'qdapRegex-package.R'
     'rm_.R'

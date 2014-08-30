@@ -63,6 +63,7 @@ regex_supplement <- list(
     before_ = "\\w+?(?= ((%s|%s)\\b))",
     hexadecimal = "#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})",
     ip_address = "\\b\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\b",
+	split_keep_delim = "(?<=[^%s])(?=[%s])",
     thousands_separator = "(\\d)(?:(?=\\d+(?=[^\\d.]))(?=(?:[0-9]{3})+\\b)|(?=\\d+(?=\\.))(?=(?:[0-9]{3})+(?=\\.)))",
     time_12_hours = "(1[012]|[1-9]):[0-5][0-9](\\s?)(am|pm)",
     white_after_comma = "(?!\\s+),(?=\\D)",	

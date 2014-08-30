@@ -23,6 +23,7 @@ The following canned regular expressions are included:
   \item{before_}{find sing word before ? word (? = user defined); note contains \code{"\%s"} that is replaced by \code{\link[base]{sprintf}} and is not a valid regex on its own}
   \item{hexadecimal}{substring beginning with hash (#) followed by either 3 or 6 select characters (a-f, A-F, and 0-9)}
   \item{ip_address}{substring of four chunks of 1-3 consecutive digits separated with dots (.)}
+  \item{split_keep_delim}{regex string that splits on a delimiter and retains the delimiter}
   \item{thousands_separator}{chunks digits > 4 into groups of 3 from right to left allowing for easy insertion of thousands separator; regex pattern retrieved from \href{http://stackoverflow.com/}{StackOverflow}'s stema: \url{http://stackoverflow.com/a/10612685/1000343}}
   \item{time_12_hours}{substring of valid hours (1-12) followed by a colon (:) followed by valid minutes (0-60), followed by an optional space and the character chunk \emph{am} or \emph{pm}}
   \item{white_after_comma}{substring of white space after a comma}
@@ -53,6 +54,11 @@ rm_default(x, pattern="@thousands_separator", replacement="\\\\1.")
 
 rm_default("I was,but it costs 10,000.", pattern="@white_after_comma",
     replacement=", ")
+
+x <- "I like; the donuts; a lot"
+strsplit(x, ";")
+strsplit(x, S(grab("split_keep_delim"), ";"), perl=TRUE)
+stringi::stri_split_regex(x, S(grab("split_keep_delim"), ";"))
 
 \dontrun{
 library(qdap)'library(ggplot2);library(reshape2)

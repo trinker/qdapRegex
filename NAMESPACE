@@ -3,6 +3,7 @@
 export("%|%")
 export(S)
 export(escape)
+export(grab)
 export(pastex)
 export(rm_)
 export(rm_abbreviation)
