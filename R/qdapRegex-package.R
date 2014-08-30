@@ -134,6 +134,8 @@ NULL
 #' strsplit(x, ";")
 #' strsplit(x, S(grab("split_keep_delim"), ";"), perl=TRUE)
 #' stringi::stri_split_regex(x, S(grab("split_keep_delim"), ";"))
+#' stringi::stri_split_regex("I like; the donuts; a lot:cool", 
+#'     S(grab("split_keep_delim"), ";|:"))
 #' 
 #' \dontrun{
 #' library(qdap)'library(ggplot2);library(reshape2)
