@@ -19,7 +19,7 @@ And constructed with the following guidelines:
 qdapRegex 0.1.0
 ----------------------------------------------------------------
 
-**BUG FIXES**
+Planned CRAN release on 09/20/2014.
 
 **NEW FEATURES**
 
@@ -30,15 +30,12 @@ qdapRegex 0.1.0
 
 * `around_` added to extract word(s) around a given point.
 
-**MINOR FEATURES**
-
 **IMPROVEMENTS**
 
 * `rm_XXX` family of functions now use `stringi::stri_extract_all_regex` as this 
   approach is much faster than the 
   `regmatches(text.var, gregexpr(pattern, text.var, perl = TRUE))` approach.
 
-**CHANGES**
 
 
 qdapRegex 0.0.1
