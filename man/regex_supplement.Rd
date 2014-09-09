@@ -40,8 +40,8 @@ expression does not contain non-regex such as \code{\link[base]{sprintf}}
 character string \code{\%s}.
 }
 \section{Warning}{
- Note that regexes containing \code{\%s}(s)  are replaced by
-\code{\link[base]{sprintf}} and is not a valid regex on its own. The
+ Note that regexes containing \code{\%s} are replaced by
+\code{\link[base]{sprintf}} and are not a valid regex on their own. The
 \code{\link[qdapRegex]{S}} is usefult for adding these missing \code{\%s}
 parameters.
 }
