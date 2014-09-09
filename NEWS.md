@@ -28,6 +28,8 @@ qdapRegex 0.1.0
 
 * `rm_non_ascii` added to remove non-ASCII characters from a string.
 
+* `around_` added to extract word(s) around a given point.
+
 **MINOR FEATURES**
 
 **IMPROVEMENTS**

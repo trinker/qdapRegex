@@ -19,7 +19,9 @@ The following canned regular expressions are included:
 \describe{
   \item{after_a}{single word after the word "a"}
   \item{after_the}{single word after the word "the"}
-  \item{after_}{find sing word after ? word (? = user defined); note contains \code{"\%s"} that is replaced by \code{\link[base]{sprintf}} and is not a valid regex on its own}
+  \item{after_}{find single word after ? word (? = user defined); note contains \code{"\%s"} that is replaced by \code{\link[base]{sprintf}} and is not a valid regex on its own (user supplies (1) n before, (2) the point, & (3) n after)}
+  \item{around_}{find n words (not including punctuation) before or after  ? word (? = user defined); note contains \code{"\%s"} that is replaced by \code{\link[base]{sprintf}} and is not a valid regex on its own (user supplies (1) n before, (2) the point, & (3) n after)}
+  \item{around2_}{find n words (plus punctuation) before or after  ? word (? = user defined); note contains \code{"\%s"} that is replaced by \code{\link[base]{sprintf}} and is not a valid regex on its own}
   \item{before_}{find sing word before ? word (? = user defined); note contains \code{"\%s"} that is replaced by \code{\link[base]{sprintf}} and is not a valid regex on its own}
   \item{hexadecimal}{substring beginning with hash (#) followed by either 3 or 6 select characters (a-f, A-F, and 0-9)}
   \item{ip_address}{substring of four chunks of 1-3 consecutive digits separated with dots (.)}
@@ -36,6 +38,12 @@ Regexes from this data set can be added to the \code{pattern} argument of any
 this data set (e.g., \code{pattern = "@after_the"}) provided the regular
 expression does not contain non-regex such as \code{\link[base]{sprintf}}
 character string \code{\%s}.
+}
+\section{Warning}{
+ Note that regexes containing \code{\%s}(s)  are replaced by
+\code{\link[base]{sprintf}} and is not a valid regex on its own. The
+\code{\link[qdapRegex]{S}} is usefult for adding these missing \code{\%s}
+parameters.
 }
 \examples{
 time <- rm_(pattern="@time_12_hours")
@@ -61,6 +69,36 @@ strsplit(x, S(grab("split_keep_delim"), ";"), perl=TRUE)
 stringi::stri_split_regex(x, S(grab("split_keep_delim"), ";"))
 stringi::stri_split_regex("I like; the donuts; a lot:cool",
     S(grab("split_keep_delim"), ";|:"))
+
+## Grab words around a point
+x <- c(
+    "the magic word is e",
+    "the dog is red and they are blue",
+    "I am new but she is not new",
+    "hello world",
+    "why is it so cold?  Perhaps it is Winter.",
+    "It is not true the 7 is 8.",
+    "Is that my drink?"
+)
+
+rm_default(x, pattern = S("@around_", 1, "is", 1), extract=TRUE)
+rm_default(x, pattern = S("@around_", 2, "is", 2), extract=TRUE)
+rm_default(x, pattern = S("@around_", 1, "is|are|am", 1), extract=TRUE)
+rm_default(x, pattern = S("@around_", 1, "is not|is|are|am", 1), extract=TRUE)
+rm_default(x, pattern = S("@around_", 1,
+    "is not|[Ii]s|[Aa]re|[Aa]m", 1), extract=TRUE)
+
+x <- c(
+    "hello world",
+    "45",
+    "45 & 5 makes 50",
+    "x and y",
+    "abc and def",
+    "her him foo & bar for Jack and Jill then"
+)
+
+around_and <- rm_(pattern = S("@around_", 1, "and|\\\\&", 1), extract=TRUE)
+around_and(x)
 
 \dontrun{
 library(qdap)'library(ggplot2);library(reshape2)

@@ -60,6 +60,8 @@ regex_supplement <- list(
     after_a = "(?<=\\b(an|An)\\s)(\\w+)|(?<=\\b(a|A)\\s)(\\w+)",
     after_the = "(?<=\\b(the|The)\\s)(\\w+)",
     after_ = "(?<=\\b(%s|%s)\\s)(\\w+)",  
+    around_ = "(?:[^[:punct:]|\\s]+\\s+){0,%s}(%s)(?:\\s+[^[:punct:]|\\s]+){0,%s}",
+    around2_ = "(?:[[:alpha:]]+\\s+){0,%s}(%s)(?:\\s+[[:alpha:]]+){0,%s}",	
     before_ = "\\w+?(?= ((%s|%s)\\b))",
     hexadecimal = "#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})",
     ip_address = "\\b\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\b",
