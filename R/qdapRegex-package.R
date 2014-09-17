@@ -99,6 +99,8 @@ NULL
 #'   \item{before_}{find sing word before ? word (? = user defined); note contains \code{"\%s"} that is replaced by \code{\link[base]{sprintf}} and is not a valid regex on its own}
 #'   \item{hexadecimal}{substring beginning with hash (#) followed by either 3 or 6 select characters (a-f, A-F, and 0-9)}
 #'   \item{ip_address}{substring of four chunks of 1-3 consecutive digits separated with dots (.)}
+#'   \item{pages}{substring with "pp." or "p.", optionally followed by a space, followed by 1 or more digits, optionally followed by a dash, optionally followed by 1 or more digits, optionally followed by a semicolon, optionally followed by a space, optionally followed by 1 or more digits; intended for extraction/removal purposes}
+#'   \item{pages2}{substring 1 or more digits, optionally followed by a dash, optionally followed by 1 or more digits, optionally followed by a semicolon, optionally followed by a space, optionally followed by 1 or more digits; intended for validation purposes}
 #'   \item{split_keep_delim}{regex string that splits on a delimiter and retains the delimiter}
 #'   \item{thousands_separator}{chunks digits > 4 into groups of 3 from right to left allowing for easy insertion of thousands separator; regex pattern retrieved from \href{http://stackoverflow.com/}{StackOverflow}'s stema: \url{http://stackoverflow.com/a/10612685/1000343}}
 #'   \item{time_12_hours}{substring of valid hours (1-12) followed by a colon (:) followed by valid minutes (0-60), followed by an optional space and the character chunk \emph{am} or \emph{pm}} 
@@ -195,5 +197,19 @@ NULL
 #' 
 #' dat$word <- factor(dat$Word, levels=ord[order(ord[[2]]), 1])
 #' ggplot(dat, aes(x=freq, y=Word)) + geom_point()+ facet_grid(~Article)
+#' 
+#' ## remove/extract pages numbers
+#' x <- c("I read p. 36 and then pp. 45-49", "it's on pp. 23-24;28")
+#' 
+#' rm_pages <- rm_(pattern="@@pages", extract=TRUE)
+#' rm_pages(x)
+#' 
+#' rm_default(x, pattern = "@@pages")
+#' rm_default(x, pattern = "@@pages", extract=TRUE)
+#' rm_default(x, pattern = "@@pages2", extract=TRUE)
+#' 
+#' ## Validate pages
+#' page_val <- validate("@@pages2", FALSE)
+#' page_val(c(66, "78-82", "hello world", TRUE, "44-45; 56"))
 #' }
 NULL

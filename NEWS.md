@@ -30,6 +30,9 @@ Planned CRAN release on 09/20/2014.
 
 * `around_` added to extract word(s) around a given point.
 
+* `pages` and `pages2` added to the `regex_supplement` data set for 
+  removing/extracting/validating page numbers.
+
 **IMPROVEMENTS**
 
 * `rm_XXX` family of functions now use `stringi::stri_extract_all_regex` as this 
