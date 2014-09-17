@@ -10,6 +10,21 @@ The **qdapRegex** package does not aim to compete with string manipulation packa
 
 The functions in **qdapRegex** work on a dictionary system.  The current implementation defaults to a United States flavor of canned regular expressions.  Users may submit proposed region specific regular expression dictionaries that contain the same fields as the [`regex_usa`](http://trinker.github.io/qdapRegex/regex_usa.html) data set or improvements to regular expressions in current dictionaries. Please submit proposed regional regular expression dictionaries via: https://github.com/trinker/qdapRegex/issues
 
+## Educational
+
+The **qdapRegex** package serves a dual purpose of being both functional and educational.  While the canned regexes are useful in and of themselves they also serve as a platform for understanding regular expressions in the context of meaningful, purposeful usage.  In the same way I learned guitar while trying to mimic Eric Clapton, not by learning scales and theory, some folks may enjoy an approach of learning regular expressions in a more pragmatic, experiential interaction.  Users are encouraged to look at the regular expressions being used and figure out how they work.  I have found slow repeated exposures to information in a purposeful context results in acquired knowledge.  
+
+The following regular expressions sites were very helpful to my own regular expression education:
+
+1. [Regular-Expression.info](http://www.regular-expressions.info/tutorial.html)    
+2. [Rex  Egg](http://www.rexegg.com/)    
+3. [Regular Expressions as used in R](https://stat.ethz.ch/R-manual/R-devel/library/base/html/regex.html)
+
+Being able to discuss and ask questions is also important to learning...in this case regular expressions.  I have found the following forums extremely helpful to learning about regular expressions:
+
+1. [Talk Stats](http://www.talkstats.com/)    
+2. [stackoverflow](http://stackoverflow.com/)
+
 ## Installation
 
 To download the development version of qdapRegex:
