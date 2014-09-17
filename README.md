@@ -12,7 +12,7 @@ The functions in **qdapRegex** work on a dictionary system.  The current impleme
 
 ## Educational
 
-The **qdapRegex** package serves a dual purpose of being both functional and educational.  While the canned regexes are useful in and of themselves they also serve as a platform for understanding regular expressions in the context of meaningful, purposeful usage.  In the same way I learned guitar while trying to mimic Eric Clapton, not by learning scales and theory, some folks may enjoy an approach of learning regular expressions in a more pragmatic, experiential interaction.  Users are encouraged to look at the regular expressions being used and figure out how they work.  I have found slow repeated exposures to information in a purposeful context results in acquired knowledge.  
+The **qdapRegex** package serves a dual purpose of being both functional and educational.  While the canned regexes are useful in and of themselves they also serve as a platform for understanding regular expressions in the context of meaningful, purposeful usage.  In the same way I learned guitar while trying to mimic Eric Clapton, not by learning scales and theory, some folks may enjoy an approach of learning regular expressions in a more pragmatic, experiential interaction.  Users are encouraged to look at the regular expressions being used (`?regex_usa` and `regex_supplement` are the default regex dictionaries used by **qdapRegex**) and unpack how they work.  I have found slow repeated exposures to information in a purposeful context results in acquired knowledge.  
 
 The following regular expressions sites were very helpful to my own regular expression education:
 
