@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>S. qdapRegex 0.1.0</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">qdapRegex 0.1.0</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Use C-style String Formatting Commands</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><div>S(x, ...)</div></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>x</dt>
+      <dd>A single string containing <code>"%s"</code>.</dd>
+      <dt>...</dt>
+      <dd>A vector of substitutions equal in length to the number of
+<code>"%s"</code> in <code>x</code> or of length one (if length one ... will be recycled).</dd>
+    </dl>
+    
+    <div class="Use C-style String Formatting Commands">
+      <h2>Use C-style String Formatting Commands</h2>
+      
+    </div>
+
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>Returns a string with <code>"%s"</code> replaced.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>Convience wrapper for <code><a href='http://www.inside-r.org/packages/cran/base/docs/sprintf'>sprintf</a></code> that allows recycling of
+... of length one.</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'>S(&quot;@after_&quot;, &quot;the&quot;, &quot;the&quot;)
+</div>
+<div class='output'>[1] &quot;(?&lt;=\\b(the|the)\\s)(\\w+)&quot;
+</div>
+<div class='input'># Recycle
+S(&quot;@after_&quot;, &quot;the&quot;)
+</div>
+<div class='output'>[1] &quot;(?&lt;=\\b(the|the)\\s)(\\w+)&quot;
+</div>
+<div class='input'>S(&quot;@rm_between&quot;, &quot;LEFT&quot;, &quot;RIGHT&quot;)
+</div>
+<div class='output'>[1] &quot;(LEFT).*?(RIGHT)&quot;
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>S</li>
+    </ul>
+    <ul>
+      
+    </ul> -->
+      
+    <h2>See also</h2>
+    
+<code><a href='http://www.inside-r.org/packages/cran/base/docs/sprintf'>sprintf</a></code>
+
+        
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>
