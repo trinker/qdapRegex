@@ -18,11 +18,20 @@ dictionaries.
 \description{
 A conveinence function to
 }
+\details{
+Many R regular expressions contain doubled backslashes that are not
+used in other regex interpreters.  Using \code{\link[base]{cat}} can remove
+backslash escapes (see \bold{Examples}).
+}
 \examples{
 grab("@rm_white")
 \dontrun{
 ## Throws an error
 grab("@foo")
+}
+cat(grab("@pages2"))
+\dontrun{
+cat(grab("@pages2"), file="clipboard")
 }
 }
 \keyword{get}

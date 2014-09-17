@@ -8,12 +8,19 @@
 #' @return Returns a single string regular expressionfrom one of the pkg{qdapRegex} 
 #' dictionaries.
 #' @keywords get grab
+#' @details Many R regular expressions contain doubled backslashes that are not 
+#' used in other regex interpreters.  Using \code{\link[base]{cat}} can remove 
+#' backslash escapes (see \bold{Examples}).
 #' @export
 #' @examples
 #' grab("@@rm_white")
 #' \dontrun{
 #' ## Throws an error
 #' grab("@@foo")
+#' }
+#' cat(grab("@@pages2"))
+#' \dontrun{
+#' cat(grab("@@pages2"), file="clipboard")
 #' }
 grab <- function (pattern, dictionary = getOption("regex.library")) {
 
