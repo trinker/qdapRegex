@@ -22,8 +22,8 @@ The following regular expressions sites were very helpful to my own regular expr
 
 Being able to discuss and ask questions is also important to learning...in this case regular expressions.  I have found the following forums extremely helpful to learning about regular expressions:
 
-1. [Talk Stats](http://www.talkstats.com/)    
-2. [stackoverflow](http://stackoverflow.com/)
+1. [Talk Stats](http://www.talkstats.com/)  +  [Posting Guidelines](http://www.talkstats.com/showthread.php/14960-Forum-Guidelines-Smart-posting-behavior-pays-off)    
+2. [stackoverflow](http://stackoverflow.com/)  +  [Posting Guidelines](http://stackoverflow.com/help/how-to-ask)
 
 ## Installation
 
