@@ -36,6 +36,7 @@ Collate:
     'rm_between.R'
     'rm_bracket.R'
     'rm_caps.R'
+    'rm_citation.R'
     'rm_city_state.R'
     'rm_city_state_zip.R'
     'rm_date.R'

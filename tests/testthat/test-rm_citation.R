@@ -1,0 +1,46 @@
+context("Checking rm_citation")
+
+test_that("rm_citation is removing citation strings",{
+
+    x <- c("Hello World (V. Raptor, 1986) bye",
+        "Narcissism is not dead (Rinker, 2014)",
+        "The R Core Team (2014) has many members.",
+        paste("Bunn (2005) said, \"As for elegance, R is refined, tasteful, and",
+            "beautiful. When I grow up, I want to marry R.\""),
+        "It is wrong to blame ANY tool for our own shortcomings (Baer, 2005).",
+        "Uwe Ligges (2007) says, \"RAM is cheap and thinking hurts\""
+    )
+
+    
+    x2 <- c("Hello World bye", "Narcissism is not dead", "has many members.", 
+        "said, \"As for elegance, R is refined, tasteful, and beautiful. When I grow up, I want to marry R.\"", 
+        "It is wrong to blame ANY tool for our own shortcomings .", 
+    	"says, \"RAM is cheap and thinking hurts\""
+        )
+
+
+    expect_true(identical(rm_citation(x), x2))
+	
+})
+
+
+test_that("rm_citation is extracting citation strings",{
+
+    x <- c("Hello World (V. Raptor, 1986) bye",
+        "Narcissism is not dead (Rinker, 2014)",
+        "The R Core Team (2014) has many members.",
+        paste("Bunn (2005) said, \"As for elegance, R is refined, tasteful, and",
+            "beautiful. When I grow up, I want to marry R.\""),
+        "It is wrong to blame ANY tool for our own shortcomings (Baer, 2005).",
+        "Uwe Ligges (2007) says, \"RAM is cheap and thinking hurts\""
+    )
+
+
+	x3 <- list("(V. Raptor, 1986)", "(Rinker, 2014)", "The R Core Team (2014)", 
+        "Bunn (2005)", "(Baer, 2005)", "Uwe Ligges (2007)")
+
+    expect_true(identical(rm_citation(x, extract=TRUE), x3))
+})
+
+
+
