@@ -1,12 +1,12 @@
 #' Grab Regular Expressions from Dictionaries
 #' 
-#' A conveinence function to 
+#' convenience function to 
 #' 
 #' @param pattern A character string starting with \code{"@@"} and a regular 
 #' expression from a pkg{qdapRegex} dictionary.
 #' @param dictionary A dictionary of canned regular expressions to search within.
-#' @return Returns a single string regular expressionfrom one of the pkg{qdapRegex} 
-#' dictionaries.
+#' @return Returns a single string regular expression from one of the 
+#' \pkg{qdapRegex} dictionaries.
 #' @keywords get grab
 #' @details Many R regular expressions contain doubled backslashes that are not 
 #' used in other regex interpreters.  Using \code{\link[base]{cat}} can remove 

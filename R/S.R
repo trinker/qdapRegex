@@ -1,6 +1,6 @@
 #' Use C-style String Formatting Commands
 #' 
-#' Convience wrapper for \code{\link[base]{sprintf}} that allows recycling of 
+#' Convenience wrapper for \code{\link[base]{sprintf}} that allows recycling of 
 #' \ldots of length one.
 #' 
 #' @param x A single string containing \code{"\%s"}.

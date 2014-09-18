@@ -71,7 +71,7 @@ NULL
 #'   \item{rm_white_punctuation}{substring of white space(s) preceding a comma or a single occurrence/combination of colon(s), semicolon(s), period(s), question mark(s), and exclamation point(s)}
 #'   \item{rm_white_trail}{substring of trailing white space(s)}
 #'   \item{rm_zip}{substring of 5 digits optionally followed by a dash and 4 more digits} 
-#'   \item{youtube_id}{substring of the video id from a \href{YouTube}{https://www.youtube.com/} video; ; taken from Jacob Overgaard's submissionfound \url{http://regex101.com/r/kU7bP8/1}}
+#'   \item{youtube_id}{substring of the video id from a \href{YouTube}{https://www.youtube.com/} video; ; taken from Jacob Overgaard's submission found \url{http://regex101.com/r/kU7bP8/1}}
 #' }
 #' @name regex_usa 
 #' @usage data(regex_usa) 
@@ -116,7 +116,7 @@ NULL
 #' character string \code{\%s}.
 #' @section Warning: Note that regexes containing \code{\%s} are replaced by 
 #' \code{\link[base]{sprintf}} and are not a valid regex on their own. The
-#' \code{\link[qdapRegex]{S}} is usefult for adding these missing \code{\%s} 
+#' \code{\link[qdapRegex]{S}} is useful for adding these missing \code{\%s} 
 #' parameters.
 #' @usage data(regex_supplement) 
 #' @format A list with 12 elements

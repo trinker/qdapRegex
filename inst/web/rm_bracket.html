@@ -53,17 +53,17 @@ Martin Morgan and Tyler Rinker &lt;tyler.rinker@gmail.com&gt;.
     <dl>
       <dt>text.var</dt>
       <dd>The text variable.</dd>
+      <dt>pattern</dt>
+      <dd>The type of bracket (and encased text) to remove.  This is one
+or more of the strings <code>"curly"</code>/<code>"\{"</code>, <code>"square"</code>/<code>"["</code>,
+<code>"round"</code>/<code>"("</code>, <code>"angle"</code>/<code>"<"</code> and <code>"all"</code>.  These
+strings correspond to: {, [, (, < or all four types.</dd>
       <dt>trim</dt>
       <dd>logical.  If <code>TRUE</code> removes leading and trailing white
 spaces.</dd>
       <dt>clean</dt>
       <dd>trim logical.  If <code>TRUE</code> extra white spaces and escaped
 character will be removed.</dd>
-      <dt>pattern</dt>
-      <dd>The type of bracket (and encased text) to remove.  This is one
-or more of the strings <code>"curly"</code>/<code>"\{"</code>, <code>"square"</code>/<code>"["</code>,
-<code>"round"</code>/<code>"("</code>, <code>"angle"</code>/<code>"<"</code> and <code>"all"</code>.  These
-strings correspond to: {, [, (, < or all four types.</dd>
       <dt>replacement</dt>
       <dd>Replacement for matched <code>pattern</code>.</dd>
       <dt>extract</dt>
@@ -75,12 +75,12 @@ the markers (left/right) and the text between.</dd>
       <dt>dictionary</dt>
       <dd>A dictionary of canned regular expressions to search within
 if <code>pattern</code> begins with <code>"@rm_"</code>.</dd>
-      <dt>...</dt>
-      <dd>Other arguments passed to <code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code>.</dd>
       <dt>merge</dt>
       <dd>logical.  If <code>TRUE</code> the results of each bracket type will
 be merged by string.  <code>FALSE</code> returns a named list of lists of vectors
 of bracketed text per bracket type.</dd>
+      <dt>...</dt>
+      <dd>Other arguments passed to <code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code>.</dd>
     </dl>
     
     <div class="Remove/Replace/Extract Brackets">
@@ -146,25 +146,21 @@ examp
 </div>
 <div class='input'>rm_bracket(examp$text, pattern = &quot;square&quot;)
 </div>
-<div class='output'>[1] &quot;I love chicken !&quot;                 &quot;Me too! (laughter) It&#39;s so good.&quot;
-[3] &quot;Yep it&#39;s awesome {reading}.&quot;      &quot;Agreed. {is so much fun}&quot;        
+<div class='output'>[1] &quot;I love chicken !&quot;                 &quot;Me too! (laughter) It&#39;s so good.&quot; &quot;Yep it&#39;s awesome {reading}.&quot;     
+[4] &quot;Agreed. {is so much fun}&quot;        
 </div>
 <div class='input'>rm_bracket(examp$text, pattern = &quot;curly&quot;)
 </div>
-<div class='output'>[1] &quot;I love chicken [unintelligible]!&quot;              
-[2] &quot;Me too! (laughter) It&#39;s so good.[interrupting]&quot;
-[3] &quot;Yep it&#39;s awesome .&quot;                            
-[4] &quot;Agreed.&quot;                                       
+<div class='output'>[1] &quot;I love chicken [unintelligible]!&quot;               &quot;Me too! (laughter) It&#39;s so good.[interrupting]&quot;
+[3] &quot;Yep it&#39;s awesome .&quot;                             &quot;Agreed.&quot;                                       
 </div>
 <div class='input'>rm_bracket(examp$text, pattern = c(&quot;square&quot;, &quot;round&quot;))
 </div>
-<div class='output'>[1] &quot;I love chicken !&quot;            &quot;Me too! It&#39;s so good.&quot;       &quot;Yep it&#39;s awesome {reading}.&quot;
-[4] &quot;Agreed. {is so much fun}&quot;   
+<div class='output'>[1] &quot;I love chicken !&quot;            &quot;Me too! It&#39;s so good.&quot;       &quot;Yep it&#39;s awesome {reading}.&quot; &quot;Agreed. {is so much fun}&quot;   
 </div>
 <div class='input'>rm_bracket(examp$text)
 </div>
-<div class='output'>[1] &quot;I love chicken !&quot;      &quot;Me too! It&#39;s so good.&quot; &quot;Yep it&#39;s awesome .&quot;   
-[4] &quot;Agreed.&quot;              
+<div class='output'>[1] &quot;I love chicken !&quot;      &quot;Me too! It&#39;s so good.&quot; &quot;Yep it&#39;s awesome .&quot;    &quot;Agreed.&quot;              
 </div>
 <div class='input'>
 rm_bracket(examp$text, pattern = &quot;square&quot;, extract=TRUE)

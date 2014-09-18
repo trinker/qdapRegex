@@ -64,7 +64,7 @@ rm_white_colon <- hijack(rm_default, pattern = "@rm_white_colon")
 
 #' Remove/Replace/Extract White Space
 #' 
-#' \code{rm_white_comma} - Remove white spacebefore a comma.
+#' \code{rm_white_comma} - Remove white space before a comma.
 #' 
 #' @rdname rm_white
 #' @export
