@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>rm_citation. qdapRegex 0.1.0</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">qdapRegex 0.1.0</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Remove/Replace/Extract Citations</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><div>rm_citation(text.var, trim&nbsp;=&nbsp;!extract, clean&nbsp;=&nbsp;TRUE, pattern&nbsp;=&nbsp;"@rm_citation", replacement&nbsp;=&nbsp;"", extract&nbsp;=&nbsp;FALSE, dictionary&nbsp;=&nbsp;getOption("regex.library"), ...)</div></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>text.var</dt>
+      <dd>The text variable.</dd>
+      <dt>trim</dt>
+      <dd>logical.  If <code>TRUE</code> removes leading and trailing white
+spaces.</dd>
+      <dt>clean</dt>
+      <dd>trim logical.  If <code>TRUE</code> extra white spaces and escaped
+character will be removed.</dd>
+      <dt>pattern</dt>
+      <dd>A character string containing a regular expression (or
+character string for <code>fixed = TRUE</code>) to be matched in the given
+character vector (see <b>Details</b> for additional information).  Default,
+<code>@rm_citation</code> uses the <code>rm_citation</code> regex from the regular
+expression dictionary from the <code>dictionary</code> argument.</dd>
+      <dt>replacement</dt>
+      <dd>Replacement for matched <code>pattern</code>.</dd>
+      <dt>extract</dt>
+      <dd>logical.  If <code>TRUE</code> the dates are extracted into a
+list of vectors.</dd>
+      <dt>dictionary</dt>
+      <dd>A dictionary of canned regular expressions to search within
+if <code>pattern</code> begins with <code>"@rm_"</code>.</dd>
+      <dt>...</dt>
+      <dd>Other arguments passed to <code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code>.</dd>
+    </dl>
+    
+    <div class="Remove/Replace/Extract Citations">
+      <h2>Remove/Replace/Extract Citations</h2>
+      
+    </div>
+
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>Returns a character string with citations removed.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>Remove/replace/extract APA6 style citations from a string.</p>
+  
+    </div>
+
+    <div class="Details">
+      <h2>Details</h2>
+      
+      <p>The default regular expression used by <code>rm_citation</code> finds
+in-text and parenthetical citations.  This behavior can be altered by using a
+secondary regular expression from the <code>regex_usa</code>
+data (or other dictionary) via (<code>pattern = "@rm_citation1"</code> or
+<code>pattern = "@rm_citation2"</code>). See <b>Examples</b> for example usage.</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'>## All Citations
+x &lt;- c(&quot;Hello World (V. Raptor, 1986) bye&quot;,
+    &quot;Narcissism is not dead (Rinker, 2014)&quot;,
+    &quot;The R Core Team (2014) has many members.&quot;,
+    paste(&quot;Bunn (2005) said, \&quot;As for elegance, R is refined, tasteful, and&quot;,
+        &quot;beautiful. When I grow up, I want to marry R.\&quot;&quot;),
+    &quot;It is wrong to blame ANY tool for our own shortcomings (Baer, 2005).&quot;,
+    &quot;Wickham&#39;s (in press) Tidy Data should be out soon.&quot;,
+    &quot;Rinker&#39;s (n.d.) dissertation not s much.&quot;,
+    &quot;Uwe Ligges (2007) says, \&quot;RAM is cheap and thinking hurts\&quot;&quot;
+)
+
+rm_citation(x)
+</div>
+<div class='output'>[1] &quot;Hello World bye&quot;                                                                                     
+[2] &quot;Narcissism is not dead&quot;                                                                              
+[3] &quot;has many members.&quot;                                                                                   
+[4] &quot;said, \&quot;As for elegance, R is refined, tasteful, and beautiful. When I grow up, I want to marry R.\&quot;&quot;
+[5] &quot;It is wrong to blame ANY tool for our own shortcomings .&quot;                                            
+[6] &quot;Tidy Data should be out soon.&quot;                                                                       
+[7] &quot;dissertation not s much.&quot;                                                                            
+[8] &quot;says, \&quot;RAM is cheap and thinking hurts\&quot;&quot;                                                           
+</div>
+<div class='input'>rm_citation(x, extract=TRUE)
+</div>
+<div class='output'>[[1]]
+[1] &quot;(V. Raptor, 1986)&quot;
+
+[[2]]
+[1] &quot;(Rinker, 2014)&quot;
+
+[[3]]
+[1] &quot;The R Core Team (2014)&quot;
+
+[[4]]
+[1] &quot;Bunn (2005)&quot;
+
+[[5]]
+[1] &quot;(Baer, 2005)&quot;
+
+[[6]]
+[1] &quot;Wickham&#39;s (in press)&quot;
+
+[[7]]
+[1] &quot;Rinker&#39;s (n.d.)&quot;
+
+[[8]]
+[1] &quot;Uwe Ligges (2007)&quot;
+
+</div>
+<div class='input'>rm_citation(x, replacement=&quot;[CITATION HERE]&quot;)
+</div>
+<div class='output'>[1] &quot;Hello World [CITATION HERE] bye&quot;                                                                                     
+[2] &quot;Narcissism is not dead [CITATION HERE]&quot;                                                                              
+[3] &quot;[CITATION HERE] has many members.&quot;                                                                                   
+[4] &quot;[CITATION HERE] said, \&quot;As for elegance, R is refined, tasteful, and beautiful. When I grow up, I want to marry R.\&quot;&quot;
+[5] &quot;It is wrong to blame ANY tool for our own shortcomings [CITATION HERE].&quot;                                             
+[6] &quot;[CITATION HERE] Tidy Data should be out soon.&quot;                                                                       
+[7] &quot;[CITATION HERE] dissertation not s much.&quot;                                                                            
+[8] &quot;[CITATION HERE] says, \&quot;RAM is cheap and thinking hurts\&quot;&quot;                                                           
+</div>
+<div class='input'>## &lt;strong&gt;Not run&lt;/strong&gt;: 
+# qdapTools::vect2df(sort(table(unlist(rm_citation(x, extract=TRUE)))),
+#     &quot;citation&quot;, &quot;count&quot;)
+# ## &lt;strong&gt;End(Not run)&lt;/strong&gt;
+
+## In-Text
+rm_citation(x, extract=TRUE, pattern=&quot;@rm_citation2&quot;)
+</div>
+<div class='output'>[[1]]
+[1] NA
+
+[[2]]
+[1] NA
+
+[[3]]
+[1] &quot;The R Core Team (2014)&quot;
+
+[[4]]
+[1] &quot;Bunn (2005)&quot;
+
+[[5]]
+[1] NA
+
+[[6]]
+[1] &quot;Wickham&#39;s (in press)&quot;
+
+[[7]]
+[1] &quot;Rinker&#39;s (n.d.)&quot;
+
+[[8]]
+[1] &quot;Uwe Ligges (2007)&quot;
+
+</div>
+<div class='input'>
+## Parenthetical
+rm_citation(x, extract=TRUE, pattern=&quot;@rm_citation3&quot;)
+</div>
+<div class='output'>[[1]]
+[1] &quot;(V. Raptor, 1986)&quot;
+
+[[2]]
+[1] &quot;(Rinker, 2014)&quot;
+
+[[3]]
+[1] NA
+
+[[4]]
+[1] NA
+
+[[5]]
+[1] &quot;(Baer, 2005)&quot;
+
+[[6]]
+[1] NA
+
+[[7]]
+[1] NA
+
+[[8]]
+[1] NA
+
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>rm_citation</li>
+    </ul>
+    <ul>
+      <li>date</li>
+    </ul> -->
+      
+    <h2>See also</h2>
+    
+<code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code>,
+<code><a href='http://www.inside-r.org/packages/cran/stringi/docs/stri_extract_regex'>stri_extract_all_regex</a></code>
+
+        
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>
