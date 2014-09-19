@@ -3,7 +3,7 @@
 \name{regex_supplement}
 \alias{regex_supplement}
 \title{Supplemental Canned Regular Expressions}
-\format{A list with 12 elements}
+\format{A list with 17 elements}
 \usage{
 data(regex_supplement)
 }

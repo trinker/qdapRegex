@@ -78,7 +78,7 @@ NULL
 #' }
 #' @name regex_usa 
 #' @usage data(regex_usa) 
-#' @format A list with 42 elements 
+#' @format A list with 45 elements 
 NULL
 
 #' Supplemental Canned Regular Expressions
@@ -122,7 +122,7 @@ NULL
 #' \code{\link[qdapRegex]{S}} is useful for adding these missing \code{\%s} 
 #' parameters.
 #' @usage data(regex_supplement) 
-#' @format A list with 12 elements
+#' @format A list with 17 elements
 #' @examples 
 #' time <- rm_(pattern="@@time_12_hours")
 #' time("I will go at 12:35 pm")
