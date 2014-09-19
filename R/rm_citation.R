@@ -17,7 +17,7 @@
 #' list of vectors.
 #' @param dictionary A dictionary of canned regular expressions to search within 
 #' if \code{pattern} begins with \code{"@@rm_"}.
-#' @param \dots Other arguments passed to \code{\link[base]{gsub}}.
+#' @param \dots Ignored.
 #' @return Returns a character string with citations removed.
 #' @keywords date
 #' @details The default regular expression used by \code{rm_citation} finds 
@@ -37,7 +37,8 @@
 #'         "beautiful. When I grow up, I want to marry R.\""),
 #'     "It is wrong to blame ANY tool for our own shortcomings (Baer, 2005).",
 #'     "Wickham's (in press) Tidy Data should be out soon.",
-#'     "Rinker's (n.d.) dissertation not s much.",
+#'     "Rinker's (n.d.) dissertation not so much.",
+#'     "I always consult xkcd comics for guidance (Foo, 2012; Bar, 2014).",
 #'     "Uwe Ligges (2007) says, \"RAM is cheap and thinking hurts\""
 #' )
 #' 
@@ -54,4 +55,23 @@
 #' 
 #' ## Parenthetical
 #' rm_citation(x, extract=TRUE, pattern="@@rm_citation3")
-rm_citation <- hijack(rm_default, pattern = "@rm_citation")
+rm_citation <- 
+function (text.var, trim = !extract, clean = TRUE, pattern = "@rm_citation", 
+    replacement = "", extract = FALSE, dictionary = getOption("regex.library"), 
+    ...) {
+    pattern <- reg_check(pattern = pattern, dictionary = dictionary)
+    if (extract) {
+        if (!trim) {
+            return(stringi::stri_extract_all_regex(text.var, 
+                pattern))
+        }
+        return(lapply(stringi::stri_extract_all_regex(text.var, 
+            pattern), Trim))
+    }
+    out <- stringi::stri_replace_all_regex(text.var, pattern, replacement)
+    if (trim) 
+        out <- Trim(out)
+    if (clean) 
+        out <- clean(out)
+    out
+}

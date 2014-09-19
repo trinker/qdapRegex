@@ -67,7 +67,7 @@ list of vectors.</dd>
       <dd>A dictionary of canned regular expressions to search within
 if <code>pattern</code> begins with <code>"@rm_"</code>.</dd>
       <dt>...</dt>
-      <dd>Other arguments passed to <code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code>.</dd>
+      <dd>Ignored.</dd>
     </dl>
     
     <div class="Remove/Replace/Extract Citations">
@@ -109,28 +109,30 @@ x &lt;- c(&quot;Hello World (V. Raptor, 1986) bye&quot;,
         &quot;beautiful. When I grow up, I want to marry R.\&quot;&quot;),
     &quot;It is wrong to blame ANY tool for our own shortcomings (Baer, 2005).&quot;,
     &quot;Wickham&#39;s (in press) Tidy Data should be out soon.&quot;,
-    &quot;Rinker&#39;s (n.d.) dissertation not s much.&quot;,
+    &quot;Rinker&#39;s (n.d.) dissertation not so much.&quot;,
+    &quot;I always consult xkcd comics for guidance (Foo, 2012; Bar, 2014).&quot;,
     &quot;Uwe Ligges (2007) says, \&quot;RAM is cheap and thinking hurts\&quot;&quot;
 )
 
 rm_citation(x)
 </div>
-<div class='output'>[1] &quot;Hello World bye&quot;                                                                                     
-[2] &quot;Narcissism is not dead&quot;                                                                              
+<div class='output'>[1] &quot;Hello World () bye&quot;                                                                                  
+[2] &quot;Narcissism is not dead ()&quot;                                                                           
 [3] &quot;has many members.&quot;                                                                                   
 [4] &quot;said, \&quot;As for elegance, R is refined, tasteful, and beautiful. When I grow up, I want to marry R.\&quot;&quot;
-[5] &quot;It is wrong to blame ANY tool for our own shortcomings .&quot;                                            
+[5] &quot;It is wrong to blame ANY tool for our own shortcomings ().&quot;                                          
 [6] &quot;Tidy Data should be out soon.&quot;                                                                       
-[7] &quot;dissertation not s much.&quot;                                                                            
-[8] &quot;says, \&quot;RAM is cheap and thinking hurts\&quot;&quot;                                                           
+[7] &quot;dissertation not so much.&quot;                                                                           
+[8] &quot;I always consult xkcd comics for guidance (; ).&quot;                                                     
+[9] &quot;says, \&quot;RAM is cheap and thinking hurts\&quot;&quot;                                                           
 </div>
 <div class='input'>rm_citation(x, extract=TRUE)
 </div>
 <div class='output'>[[1]]
-[1] &quot;(V. Raptor, 1986)&quot;
+[1] &quot;V. Raptor, 1986&quot;
 
 [[2]]
-[1] &quot;(Rinker, 2014)&quot;
+[1] &quot;Rinker, 2014&quot;
 
 [[3]]
 [1] &quot;The R Core Team (2014)&quot;
@@ -139,7 +141,7 @@ rm_citation(x)
 [1] &quot;Bunn (2005)&quot;
 
 [[5]]
-[1] &quot;(Baer, 2005)&quot;
+[1] &quot;Baer, 2005&quot;
 
 [[6]]
 [1] &quot;Wickham&#39;s (in press)&quot;
@@ -148,19 +150,23 @@ rm_citation(x)
 [1] &quot;Rinker&#39;s (n.d.)&quot;
 
 [[8]]
+[1] &quot;Foo, 2012&quot; &quot;Bar, 2014&quot;
+
+[[9]]
 [1] &quot;Uwe Ligges (2007)&quot;
 
 </div>
 <div class='input'>rm_citation(x, replacement=&quot;[CITATION HERE]&quot;)
 </div>
-<div class='output'>[1] &quot;Hello World [CITATION HERE] bye&quot;                                                                                     
-[2] &quot;Narcissism is not dead [CITATION HERE]&quot;                                                                              
+<div class='output'>[1] &quot;Hello World ([CITATION HERE]) bye&quot;                                                                                   
+[2] &quot;Narcissism is not dead ([CITATION HERE])&quot;                                                                            
 [3] &quot;[CITATION HERE] has many members.&quot;                                                                                   
 [4] &quot;[CITATION HERE] said, \&quot;As for elegance, R is refined, tasteful, and beautiful. When I grow up, I want to marry R.\&quot;&quot;
-[5] &quot;It is wrong to blame ANY tool for our own shortcomings [CITATION HERE].&quot;                                             
+[5] &quot;It is wrong to blame ANY tool for our own shortcomings ([CITATION HERE]).&quot;                                           
 [6] &quot;[CITATION HERE] Tidy Data should be out soon.&quot;                                                                       
-[7] &quot;[CITATION HERE] dissertation not s much.&quot;                                                                            
-[8] &quot;[CITATION HERE] says, \&quot;RAM is cheap and thinking hurts\&quot;&quot;                                                           
+[7] &quot;[CITATION HERE] dissertation not so much.&quot;                                                                           
+[8] &quot;I always consult xkcd comics for guidance ([CITATION HERE]; [CITATION HERE]).&quot;                                       
+[9] &quot;[CITATION HERE] says, \&quot;RAM is cheap and thinking hurts\&quot;&quot;                                                           
 </div>
 <div class='input'>## &lt;strong&gt;Not run&lt;/strong&gt;: 
 # qdapTools::vect2df(sort(table(unlist(rm_citation(x, extract=TRUE)))),
@@ -192,6 +198,9 @@ rm_citation(x, extract=TRUE, pattern=&quot;@rm_citation2&quot;)
 [1] &quot;Rinker&#39;s (n.d.)&quot;
 
 [[8]]
+[1] NA
+
+[[9]]
 [1] &quot;Uwe Ligges (2007)&quot;
 
 </div>
@@ -200,10 +209,10 @@ rm_citation(x, extract=TRUE, pattern=&quot;@rm_citation2&quot;)
 rm_citation(x, extract=TRUE, pattern=&quot;@rm_citation3&quot;)
 </div>
 <div class='output'>[[1]]
-[1] &quot;(V. Raptor, 1986)&quot;
+[1] &quot;V. Raptor, 1986&quot;
 
 [[2]]
-[1] &quot;(Rinker, 2014)&quot;
+[1] &quot;Rinker, 2014&quot;
 
 [[3]]
 [1] NA
@@ -212,7 +221,7 @@ rm_citation(x, extract=TRUE, pattern=&quot;@rm_citation3&quot;)
 [1] NA
 
 [[5]]
-[1] &quot;(Baer, 2005)&quot;
+[1] &quot;Baer, 2005&quot;
 
 [[6]]
 [1] NA
@@ -221,6 +230,9 @@ rm_citation(x, extract=TRUE, pattern=&quot;@rm_citation3&quot;)
 [1] NA
 
 [[8]]
+[1] &quot;Foo, 2012&quot; &quot;Bar, 2014&quot;
+
+[[9]]
 [1] NA
 
 </div></pre>

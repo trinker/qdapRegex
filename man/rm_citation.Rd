@@ -30,7 +30,7 @@ list of vectors.}
 \item{dictionary}{A dictionary of canned regular expressions to search within
 if \code{pattern} begins with \code{"@rm_"}.}
 
-\item{\dots}{Other arguments passed to \code{\link[base]{gsub}}.}
+\item{\dots}{Ignored.}
 }
 \value{
 Returns a character string with citations removed.
@@ -54,7 +54,8 @@ x <- c("Hello World (V. Raptor, 1986) bye",
         "beautiful. When I grow up, I want to marry R.\\""),
     "It is wrong to blame ANY tool for our own shortcomings (Baer, 2005).",
     "Wickham's (in press) Tidy Data should be out soon.",
-    "Rinker's (n.d.) dissertation not s much.",
+    "Rinker's (n.d.) dissertation not so much.",
+    "I always consult xkcd comics for guidance (Foo, 2012; Bar, 2014).",
     "Uwe Ligges (2007) says, \\"RAM is cheap and thinking hurts\\""
 )
 
