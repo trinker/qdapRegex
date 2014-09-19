@@ -36,6 +36,8 @@
 #'     paste("Bunn (2005) said, \"As for elegance, R is refined, tasteful, and",
 #'         "beautiful. When I grow up, I want to marry R.\""),
 #'     "It is wrong to blame ANY tool for our own shortcomings (Baer, 2005).",
+#'     "Wickham's (in press) Tidy Data should be out soon.",
+#'     "Rinker's (n.d.) dissertation not s much.",
 #'     "Uwe Ligges (2007) says, \"RAM is cheap and thinking hurts\""
 #' )
 #' 
