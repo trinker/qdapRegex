@@ -110,7 +110,11 @@ rm_bracket(examp$text, extract=TRUE)
 rm_bracket(examp$tex, include.markers=TRUE, extract=TRUE)
 
 \dontrun{
-qdap::paste2(rm_bracket(examp$tex, pattern="curly", extract=TRUE))
+library(qdap)
+rm_bracket(examp$tex, pattern="curly", extract=TRUE) \%>\%
+  unlist() \%>\%
+  na.omit() \%>\%
+  paste2()
 }
 
 x <- "I like [bots] (not). And <likely> many do not {he he}"

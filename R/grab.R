@@ -3,7 +3,7 @@
 #' convenience function to 
 #' 
 #' @param pattern A character string starting with \code{"@@"} and a regular 
-#' expression from a pkg{qdapRegex} dictionary.
+#' expression from a \pkg{qdapRegex} dictionary.
 #' @param dictionary A dictionary of canned regular expressions to search within.
 #' @return Returns a single string regular expression from one of the 
 #' \pkg{qdapRegex} dictionaries.

@@ -86,7 +86,7 @@ state <- c("Computer is fun. Not too fun.", "No it's not, it's dumb.",
     "What are you talking about?", "Shall we move on?  Good then.",
     "I'm hungry.  Let's eat.  You already?")
 
-rm_between_multiple(x2, c("is", "we"), c("too", "on"))
+rm_between_multiple(state, c("is", "we"), c("too", "on"))
 }
 \seealso{
 \code{\link[base]{gsub}},

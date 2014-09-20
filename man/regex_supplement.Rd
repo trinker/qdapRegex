@@ -103,7 +103,7 @@ around_and <- rm_(pattern = S("@around_", 1, "and|\\\\&", 1), extract=TRUE)
 around_and(x)
 
 \dontrun{
-library(qdap)'library(ggplot2);library(reshape2)
+library(qdap);library(ggplot2);library(reshape2)
 
 out <- setNames(lapply(c("@after_a", "@after_the"), function(x) {
     o <- rm_default(stringi:::stri_trans_tolower(pres_debates2012$dialogue),

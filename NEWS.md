@@ -16,12 +16,15 @@ And constructed with the following guidelines:
   (and resets the patch)
 * Bug fixes and misc changes bumps the patch
 
-qdapRegex 0.1.0
+qdapRegex 0.1.1
 ----------------------------------------------------------------
 
-Planned CRAN release on 09/20/2014.
+First CRAN Release
 
 **NEW FEATURES**
+
+* `rm_citation` added for removing/extracting/replacing APA 6 style in-text 
+  citations.
 
 * `rm_white` and accompanying family of `rm_white` functions added to remove 
   white space.

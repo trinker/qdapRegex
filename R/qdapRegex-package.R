@@ -1,7 +1,7 @@
-#' qdapRegex: Regular expression removal/extraction/replacement tools for the \pkg{qdap} package
+#' qdapRegex: Regular Expression Removal, Extraction, & Replacement Tools for the \pkg{qdap} Package
 #'
-#' This package is a collection of  regular expression tools associated with the
-#' \pkg{qdap} package that may be useful outside of the context of discourse
+#' \pkg{qdapRegex} is a collection of  regular expression tools associated with 
+#' the \pkg{qdap} package that may be useful outside of the context of discourse
 #' analysis.  Tools include removal/extraction/replacement of abbreviations, 
 #' dates, dollar amounts, email addresses, hash tags, numbers, percentages, 
 #' person tags, phone numbers, times, and zip codes.
@@ -179,7 +179,7 @@ NULL
 #' around_and(x)
 #' 
 #' \dontrun{
-#' library(qdap)'library(ggplot2);library(reshape2)
+#' library(qdap);library(ggplot2);library(reshape2)
 #' 
 #' out <- setNames(lapply(c("@@after_a", "@@after_the"), function(x) {
 #'     o <- rm_default(stringi:::stri_trans_tolower(pres_debates2012$dialogue), 

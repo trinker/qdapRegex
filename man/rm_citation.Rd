@@ -42,8 +42,8 @@ Remove/replace/extract APA6 style citations from a string.
 The default regular expression used by \code{rm_citation} finds
 in-text and parenthetical citations.  This behavior can be altered by using a
 secondary regular expression from the \code{\link[qdapRegex]{regex_usa}}
-data (or other dictionary) via (\code{pattern = "@rm_citation1"} or
-\code{pattern = "@rm_citation2"}). See \bold{Examples} for example usage.
+data (or other dictionary) via (\code{pattern = "@rm_citation2"} or
+\code{pattern = "@rm_citation3"}). See \bold{Examples} for example usage.
 }
 \examples{
 ## All Citations
