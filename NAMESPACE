@@ -2,6 +2,7 @@
 
 export("%|%")
 export(S)
+export(bind)
 export(escape)
 export(grab)
 export(pastex)

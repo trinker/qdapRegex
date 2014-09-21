@@ -37,6 +37,7 @@ sd_section("Removing/Extracting/Replacing",
 sd_section("qdapRegex Tools",
  "Functions used within qdapRegex that are not specific to removing/extracting/replacing text with regular expressions.",
   c(
+  	"bind",
   	"grab",
   	"escape",
   	"pastex",

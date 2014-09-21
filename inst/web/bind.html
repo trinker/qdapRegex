@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>bind. qdapRegex 0.1.2</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">qdapRegex 0.1.2</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Add Left/Right Character(s) Boundaries</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><div>bind(x, left&nbsp;=&nbsp;"\\b", right&nbsp;=&nbsp;left)</div></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>x</dt>
+      <dd>A character vector.</dd>
+      <dt>left</dt>
+      <dd>A single length character vector to use as the left bound.</dd>
+      <dt>right</dt>
+      <dd>A single length character vector to use as the right bound.</dd>
+    </dl>
+    
+    <div class="Add Left/Right Character(s) Boundaries">
+      <h2>Add Left/Right Character(s) Boundaries</h2>
+      
+    </div>
+
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>Returns a character vector.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>This convenience function wraps left and right boundaries of each element of
+a character vector.  The default is to use <code>"\b"</code> for left and right
+boundaries.</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'>bind(LETTERS, &quot;[&quot;, &quot;]&quot;)
+</div>
+<div class='output'> [1] &quot;[A]&quot; &quot;[B]&quot; &quot;[C]&quot; &quot;[D]&quot; &quot;[E]&quot; &quot;[F]&quot; &quot;[G]&quot; &quot;[H]&quot; &quot;[I]&quot; &quot;[J]&quot; &quot;[K]&quot; &quot;[L]&quot; &quot;[M]&quot; &quot;[N]&quot; &quot;[O]&quot; &quot;[P]&quot; &quot;[Q]&quot; &quot;[R]&quot; &quot;[S]&quot;
+[20] &quot;[T]&quot; &quot;[U]&quot; &quot;[V]&quot; &quot;[W]&quot; &quot;[X]&quot; &quot;[Y]&quot; &quot;[Z]&quot;
+</div>
+<div class='input'>
+## More useful default parameters/usage
+x &lt;- c(&quot;Computer is fun. Not too fun.&quot;, &quot;No it&#39;s not, it&#39;s dumb.&quot;,
+    &quot;What should we do?&quot;, &quot;You liar, it stinks!&quot;, &quot;I am telling the truth!&quot;,
+    &quot;How can we be certain?&quot;, &quot;There is no way.&quot;, &quot;I distrust you.&quot;,
+    &quot;What are you talking about?&quot;, &quot;Shall we move on?  Good then.&quot;,
+    &quot;I&#39;m hungry.  Let&#39;s eat.  You already?&quot;)
+
+Fry25 &lt;- c(&quot;the&quot;, &quot;of&quot;, &quot;and&quot;, &quot;a&quot;, &quot;to&quot;, &quot;in&quot;, &quot;is&quot;, &quot;you&quot;, &quot;that&quot;, &quot;it&quot;,
+    &quot;he&quot;, &quot;was&quot;, &quot;for&quot;, &quot;on&quot;, &quot;are&quot;, &quot;as&quot;, &quot;with&quot;, &quot;his&quot;, &quot;they&quot;,
+    &quot;I&quot;, &quot;at&quot;, &quot;be&quot;, &quot;this&quot;, &quot;have&quot;, &quot;from&quot;)
+
+gsub(pastex(list(bind(Fry25))), &quot;[[ELIM]]&quot;, x)
+</div>
+<div class='output'> [1] &quot;Computer [[ELIM]] fun. Not too fun.&quot;          &quot;No [[ELIM]]&#39;s not, [[ELIM]]&#39;s dumb.&quot;         
+ [3] &quot;What should we do?&quot;                           &quot;You liar, [[ELIM]] stinks!&quot;                  
+ [5] &quot;[[ELIM]] am telling [[ELIM]] truth!&quot;          &quot;How can we [[ELIM]] certain?&quot;                
+ [7] &quot;There [[ELIM]] no way.&quot;                       &quot;[[ELIM]] distrust [[ELIM]].&quot;                 
+ [9] &quot;What [[ELIM]] [[ELIM]] talking about?&quot;        &quot;Shall we move [[ELIM]]?  Good then.&quot;         
+[11] &quot;[[ELIM]]&#39;m hungry.  Let&#39;s eat.  You already?&quot;
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>bind</li>
+    </ul>
+    <ul>
+      
+    </ul> -->
+      
+    <h2>See also</h2>
+    
+<code><a href='http://www.inside-r.org/packages/cran/base/docs/paste'>paste0</a></code>
+
+        
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

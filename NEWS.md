@@ -24,6 +24,9 @@ qdapRegex 0.1.2
 
 **NEW FEATURES**
 
+* `bind` added as a convenience function to add a left and right boundary to 
+  each element of a character vector.
+
 **MINOR FEATURES**
 
 **IMPROVEMENTS**
