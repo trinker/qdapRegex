@@ -1,7 +1,7 @@
 Package: qdapRegex
 Type: Package
-Title: Regular Expression Removal, Extraction, & Replacement Tools
-Version: 0.1.1
+Title: Regular Expression Removal, Extraction, and Replacement Tools
+Version: 0.1.2
 Date: 2014-04-19
 Authors@R: c(person("Jason", "Gray", "", role = "ctb"),
     person("Tyler", "Rinker", email = "tyler.rinker@gmail.com",
@@ -14,11 +14,11 @@ Imports:
 Suggests:
     testthat
 LazyData: TRUE
-Description: A collection of regex tools associated with the qdap package that
-    may be useful outside of the context of discourse analysis.  Tools include
-    removal/extraction/replacement of abbreviations, dates, dollar amounts,
-    email addresses, hash tags, numbers, percentages, person tags, phone
-    numbers, times, and zip codes.
+Description: A collection of regular expression tools associated with the qdap 
+    package that may be useful outside of the context of discourse analysis.  
+    Tools include removal/extraction/replacement of abbreviations, dates, dollar 
+    amounts, email addresses, hash tags, numbers, percentages, person tags, 
+    phone numbers, times, and zip codes.
 License: GPL-2
 URL: http://trinker.github.com/qdapRegex/
 BugReports: http://github.com/trinker/qdapRegex/issues
