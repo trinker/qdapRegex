@@ -17,21 +17,31 @@ And constructed with the following guidelines:
 * Bug fixes and misc changes bumps the patch
 
 
-qdapRegex 0.1.2
+qdapRegex 0.1.3
 ----------------------------------------------------------------
 
 **BUG FIXES**
 
-**NEW FEATURES**
+* `pastex` would throw a warning on a vector (e.g., `pastex(letters)`).  This 
+  has been fixed.
 
-* `bind` added as a convenience function to add a left and right boundary to 
-  each element of a character vector.
+**NEW FEATURES**
 
 **MINOR FEATURES**
 
 **IMPROVEMENTS**
 
 **CHANGES**
+
+qdapRegex 0.1.2
+----------------------------------------------------------------
+
+CRAN fix for oldrel Windows.  Updated to R version 3.1.0 in Description file.
+
+**NEW FEATURES**
+
+* `bind` added as a convenience function to add a left and right boundary to 
+  each element of a character vector.
 
 
 qdapRegex 0.1.1

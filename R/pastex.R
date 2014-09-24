@@ -57,14 +57,16 @@
 #' rm_twitter_n_url <- rm_(pattern="@@rm_twitter_url" %|% "@@rm_url")  
 #' rm_twitter_n_url(x)
 #' rm_twitter_n_url(x, extract=TRUE)
-pastex <- function(..., dictionary = getOption("regex.library")){
-
+pastex <-
+function (..., dictionary = getOption("regex.library")) {
     out <- lapply(list(...), function(x) {
-    	reg_check(x, dictionary=dictionary)
+        if (length(x) > 1) return(x)
+        reg_check(x, dictionary = dictionary)
     })
-    paste(unlist(out), collapse="|")
 
+    paste(unlist(out), collapse = "|")
 }
+
 
 
 
