@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>is.regex. qdapRegex 0.1.3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">qdapRegex 0.1.3</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Test Regular Expression Validity</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><div>is.regex(pattern)</div></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>pattern</dt>
+      <dd>A regular expression to be tested.</dd>
+    </dl>
+    
+    <div class="Test Regular Expression Validity">
+      <h2>Test Regular Expression Validity</h2>
+      
+    </div>
+
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>Returns a logical (<code>TRUE</code> is a valid regular expression).</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>Acts as a logical test of a regular expression's validity.  <code>is.regex</code>
+uses <code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code> and tests for errors to determine a regular
+expression's validity.  The regular expression must conform to R's regular
+expression rules (see <code>?regex</code> for details about how R handles regular
+expressions).</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'>is.regex(&quot;I|***&quot;)
+</div>
+<div class='output'>[1] FALSE
+</div>
+<div class='input'>is.regex(&quot;I|i&quot;)
+</div>
+<div class='output'>[1] TRUE
+</div>
+<div class='input'>
+sapply(regex_usa, is.regex)
+</div>
+<div class='output'>     rm_abbreviation           rm_between          rm_between2              rm_caps          rm_citation 
+                TRUE                 TRUE                 TRUE                 TRUE                FALSE 
+        rm_citation2         rm_citation3        rm_city_state    rm_city_state_zip              rm_date 
+                TRUE                FALSE                 TRUE                 TRUE                 TRUE 
+            rm_date2             rm_date3             rm_date4            rm_dollar             rm_email 
+                TRUE                 TRUE                 TRUE                 TRUE                 TRUE 
+         rm_emoticon           rm_endmark          rm_endmark2          rm_endmark3              rm_hash 
+                TRUE                 TRUE                 TRUE                 TRUE                 TRUE 
+      rm_nchar_words      rm_nchar_words2         rm_non_ascii            rm_number           rm_percent 
+                TRUE                 TRUE                 TRUE                 TRUE                 TRUE 
+            rm_phone               rm_tag              rm_tag2        rm_title_name              rm_time 
+                TRUE                 TRUE                 TRUE                 TRUE                 TRUE 
+      rm_twitter_url               rm_url              rm_url2              rm_url3             rm_white 
+                TRUE                 TRUE                 TRUE                 TRUE                 TRUE 
+    rm_white_bracket       rm_white_colon       rm_white_comma     rm_white_endmark        rm_white_lead 
+                TRUE                 TRUE                 TRUE                 TRUE                 TRUE 
+ rm_white_lead_trail    rm_white_multiple rm_white_punctuation       rm_white_trail               rm_zip 
+                TRUE                 TRUE                 TRUE                 TRUE                 TRUE 
+</div>
+<div class='input'>sapply(regex_supplement, is.regex) ## `version` is not a valid regex
+</div>
+<div class='output'>            after_a           after_the              after_             around_            around2_             before_ 
+               TRUE                TRUE                TRUE                TRUE                TRUE                TRUE 
+        hexadecimal          ip_address               pages              pages2    split_keep_delim thousands_separator 
+               TRUE                TRUE                TRUE                TRUE                TRUE                TRUE 
+      time_12_hours   white_after_comma             version            version2          youtube_id 
+               TRUE                TRUE               FALSE                TRUE                TRUE 
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>is.regex</li>
+    </ul>
+    <ul>
+      <li>regex,</li><li>valid</li>
+    </ul> -->
+      
+    <h2>See also</h2>
+    
+<code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code>
+
+        
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

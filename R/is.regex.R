@@ -2,7 +2,7 @@
 #' 
 #' Acts as a logical test of a regular expression's validity.  \code{is.regex} 
 #' uses \code{\link[base]{gsub}} and tests for errors to determine a regular 
-#' expression's validity.  Teh regular expression must conform to R's regular 
+#' expression's validity.  The regular expression must conform to R's regular 
 #' expression rules (see \code{?regex} for details about how R handles regular 
 #' expressions).
 #' 
