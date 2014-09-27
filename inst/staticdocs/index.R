@@ -40,6 +40,7 @@ sd_section("qdapRegex Tools",
   	"bind",
   	"grab",
   	"escape",
+  	"is.regex",
   	"pastex",
   	"S",
   	"validate"
