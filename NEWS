@@ -27,6 +27,9 @@ BUG FIXES
 
 NEW FEATURES
 
+* `is.regex` added as a logical check of a regular expression's validy (conforms 
+  to R's regular expression rules).
+
 MINOR FEATURES
 
 IMPROVEMENTS

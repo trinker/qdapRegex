@@ -30,6 +30,7 @@ Collate:
     'rm_default.R'
     'escape.R'
     'grab.R'
+    'is.regex.R'
     'pastex.R'
     'qdapRegex-package.R'
     'rm_.R'
