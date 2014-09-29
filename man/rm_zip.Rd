@@ -50,6 +50,37 @@ x <- c("Mr. Bean bought 2 tickets 2-613-213-4567",
 
 rm_zip(x)
 rm_zip(x, extract=TRUE)
+
+## ======================= ##
+## BUILD YOUR OWN FUNCTION ##
+## ======================= ##
+
+## example from: http://stackoverflow.com/a/26092576/1000343
+zips <- data.frame(id = seq(1, 6),
+    address = c("Company, 18540 Main Ave., City, ST 12345",
+    "Company 18540 Main Ave. City ST 12345-0000",
+    "Company 18540 Main Ave. City State 12345",
+    "Company, 18540 Main Ave., City, ST 12345 USA",
+    "Company, One Main Ave Suite 18540m, City, ST 12345",
+    "company 12345678")
+)
+
+## Function to grab even if a character follows the zip
+
+# paste together a more flexible regular expression
+pat <- pastex(
+    "@rm_zip",
+    "(?<!\\\\d)\\\\d{5}(?!\\\\d)",
+    "(?<!\\\\d)\\\\d{5}-\\\\d{4}(?!\\\\d)"
+)
+# Create your own function that extract is set to TRUE
+rm_zip2 <- rm_(pattern=pat, extract=TRUE)
+rm_zip2(zips$address)
+
+## Function to extract just 5 digit zips
+
+rm_zip3 <- rm_(pattern="(?<!\\\\d)\\\\d{5}(?!\\\\d)", extract=TRUE)
+rm_zip3(zips$address)
 }
 \author{
 \href{http://stackoverflow.com/}{stackoverflow's} hwnd and Tyler Rinker <tyler.rinker@gmail.com>.
