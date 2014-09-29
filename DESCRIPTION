@@ -52,6 +52,7 @@ Collate:
     'rm_number.R'
     'rm_percent.R'
     'rm_phone.R'
+    'rm_postal_code.R'
     'rm_tag.R'
     'rm_time.R'
     'rm_title_name.R'

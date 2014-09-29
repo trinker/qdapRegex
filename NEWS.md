@@ -27,6 +27,11 @@ qdapRegex 0.1.3
 
 **NEW FEATURES**
 
+* `is.regex` added as a logical check of a regular expression's validy (conforms 
+  to R's regular expression rules).
+
+* `rm_postal_code` added for removing/extracting/replacing U.s. postal codes.
+
 **MINOR FEATURES**
 
 **IMPROVEMENTS**
