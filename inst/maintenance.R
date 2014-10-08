@@ -102,7 +102,8 @@ rdme <- "C:/Users/trinker/GitHub/qdapRegex/inst/extra_statdoc/readme.R"
 library(acc.roxygen2); library(qdap);
 extras <- qcv("%|%", "rm_twitter_url", "rm_white_bracket", "rm_white_colon", 
 	"rm_white_comma", "rm_white_endmark", "rm_white_lead", "rm_white_trail", 
-	"rm_white_lead_trail", "rm_white_multiple", "rm_white_punctuation")
+	"rm_white_lead_trail", "rm_white_multiple", "rm_white_punctuation", "L", 
+	"U")
 ## drops <- qcv()
 expand_statdoc(path2, to.icon = extras, readme = rdme)
 
@@ -142,7 +143,8 @@ rdme <- "C:/Users/trinker/GitHub/qdapRegex/inst/extra_statdoc/readme.R"
 library(acc.roxygen2); library(qdap);
 extras <- qcv("%|%", "rm_twitter_url", "rm_white_bracket", "rm_white_colon", 
 	"rm_white_comma", "rm_white_endmark", "rm_white_lead", "rm_white_trail", 
-	"rm_white_lead_trail", "rm_white_multiple", "rm_white_punctuation")
+	"rm_white_lead_trail", "rm_white_multiple", "rm_white_punctuation", "L", 
+	"U")
 ## drops <- qcv()
 expand_statdoc(path2, to.icon = extras, readme = rdme)
 

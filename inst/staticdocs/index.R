@@ -44,6 +44,7 @@ sd_section("qdapRegex Tools",
   	"is.regex",
   	"pastex",
   	"S",
+  	"TC", 
   	"validate"
   )
 )

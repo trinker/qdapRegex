@@ -139,6 +139,77 @@ rm_zip(x)
 [[7]]
 [1] NA
 
+</div>
+<div class='input'>
+## ======================= ##
+## BUILD YOUR OWN FUNCTION ##
+## ======================= ##
+
+## example from: http://stackoverflow.com/a/26092576/1000343
+zips &lt;- data.frame(id = seq(1, 6),
+    address = c(&quot;Company, 18540 Main Ave., City, ST 12345&quot;,
+    &quot;Company 18540 Main Ave. City ST 12345-0000&quot;,
+    &quot;Company 18540 Main Ave. City State 12345&quot;,
+    &quot;Company, 18540 Main Ave., City, ST 12345 USA&quot;,
+    &quot;Company, One Main Ave Suite 18540m, City, ST 12345&quot;,
+    &quot;company 12345678&quot;)
+)
+
+## Function to grab even if a character follows the zip
+
+# paste together a more flexible regular expression
+pat &lt;- pastex(
+    &quot;@rm_zip&quot;,
+    &quot;(?&lt;!\\d)\\d{5}(?!\\d)&quot;,
+    &quot;(?&lt;!\\d)\\d{5}-\\d{4}(?!\\d)&quot;
+)
+# Create your own function that extract is set to TRUE
+rm_zip2 &lt;- rm_(pattern=pat, extract=TRUE)
+rm_zip2(zips$address)
+</div>
+<div class='output'>[[1]]
+[1] &quot;18540&quot; &quot;12345&quot;
+
+[[2]]
+[1] &quot;18540&quot;      &quot;12345-0000&quot;
+
+[[3]]
+[1] &quot;18540&quot; &quot;12345&quot;
+
+[[4]]
+[1] &quot;18540&quot; &quot;12345&quot;
+
+[[5]]
+[1] &quot;18540&quot; &quot;12345&quot;
+
+[[6]]
+[1] NA
+
+</div>
+<div class='input'>
+## Function to extract just 5 digit zips
+
+rm_zip3 &lt;- rm_(pattern=&quot;(?&lt;!\\d)\\d{5}(?!\\d)&quot;, extract=TRUE)
+rm_zip3(zips$address)
+</div>
+<div class='output'>[[1]]
+[1] &quot;18540&quot; &quot;12345&quot;
+
+[[2]]
+[1] &quot;18540&quot; &quot;12345&quot;
+
+[[3]]
+[1] &quot;18540&quot; &quot;12345&quot;
+
+[[4]]
+[1] &quot;18540&quot; &quot;12345&quot;
+
+[[5]]
+[1] &quot;18540&quot; &quot;12345&quot;
+
+[[6]]
+[1] NA
+
 </div></pre>
   </div>
   <div class="span4">

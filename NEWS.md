@@ -30,7 +30,10 @@ qdapRegex 0.1.3
 * `is.regex` added as a logical check of a regular expression's validy (conforms 
   to R's regular expression rules).
 
-* `rm_postal_code` added for removing/extracting/replacing U.s. postal codes.
+* `rm_postal_code` added for removing/extracting/replacing U.S. postal codes.
+
+* Case wrapper functions, `TC` (title case), `U` (upper case), and `L` (lower 
+  case) added for convenient case manipulation.
 
 **MINOR FEATURES**
 
