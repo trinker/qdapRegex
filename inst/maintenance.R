@@ -69,6 +69,7 @@ regex_supplement <- list(
     before_ = "\\w+?(?= ((%s|%s)\\b))",
     hexadecimal = "#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})",
     ip_address = "\\b\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\b",
+	last_occurrence = "%s(?=[^%s]+$)",
     pages = "p{1,2}\\.\\s*\\d+\\-*\\d*;*\\s*\\d*",	
     pages2 = "\\d+\\-*\\d*;*\\s*\\d*",	
 	split_keep_delim = "(?<=[^%s])(?=[%s])",

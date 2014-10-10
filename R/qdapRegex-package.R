@@ -103,6 +103,7 @@ NULL
 #'   \item{before_}{find sing word before ? word (? = user defined); note contains \code{"\%s"} that is replaced by \code{\link[base]{sprintf}} and is not a valid regex on its own}
 #'   \item{hexadecimal}{substring beginning with hash (#) followed by either 3 or 6 select characters (a-f, A-F, and 0-9)}
 #'   \item{ip_address}{substring of four chunks of 1-3 consecutive digits separated with dots (.)}
+#'   \item{last_occurrence}{last occurrence of a delimiter; note contains \code{"\%s"} that is replaced by \code{\link[base]{sprintf}} and is not a valid regex on its own (user supplies the delimiter)}
 #'   \item{pages}{substring with "pp." or "p.", optionally followed by a space, followed by 1 or more digits, optionally followed by a dash, optionally followed by 1 or more digits, optionally followed by a semicolon, optionally followed by a space, optionally followed by 1 or more digits; intended for extraction/removal purposes}
 #'   \item{pages2}{substring 1 or more digits, optionally followed by a dash, optionally followed by 1 or more digits, optionally followed by a semicolon, optionally followed by a space, optionally followed by 1 or more digits; intended for validation purposes}
 #'   \item{split_keep_delim}{regex string that splits on a delimiter and retains the delimiter}
@@ -123,7 +124,7 @@ NULL
 #' \code{\link[qdapRegex]{S}} is useful for adding these missing \code{\%s} 
 #' parameters.
 #' @usage data(regex_supplement) 
-#' @format A list with 17 elements
+#' @format A list with 18 elements
 #' @examples 
 #' time <- rm_(pattern="@@time_12_hours")
 #' time("I will go at 12:35 pm")
@@ -215,5 +216,16 @@ NULL
 #' ## Validate pages
 #' page_val <- validate("@@pages2", FALSE)
 #' page_val(c(66, "78-82", "hello world", TRUE, "44-45; 56"))
+#' 
+#' ## Split on last occurrence
+#' x <- c(
+#'     "test@@aol@@fg.com", 
+#'     "test@@hotmail.com", 
+#'     "test@@xyz@@rr@@lk.edu", 
+#'     "test@@abc.xx@@zz.net"
+#' )
+#' 
+#' strsplit(x, S("@@last_occurrence", "\\."), perl=TRUE)
+#' strsplit(x, S("@@last_occurrence", "@@"), perl=TRUE)
 #' }
 NULL

@@ -37,9 +37,13 @@ qdapRegex 0.1.3
 
 **MINOR FEATURES**
 
+* `last_occurrence` regex added to the `regex_supplement` dictionary to find the
+  last occurrence of delimiter.
+
 **IMPROVEMENTS**
 
 **CHANGES**
+
 
 qdapRegex 0.1.2
 ----------------------------------------------------------------
