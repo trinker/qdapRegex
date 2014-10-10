@@ -25,6 +25,9 @@ qdapRegex 0.1.3
 * `pastex` would throw a warning on a vector (e.g., `pastex(letters)`).  This 
   has been fixed.
 
+* `youtube_id` was documented under `qdap_usa` rather than `qdap_supplement` and
+  contained an invalid hyper reference.  This has been fixed.
+
 **NEW FEATURES**
 
 * `is.regex` added as a logical check of a regular expression's validy (conforms 
@@ -39,6 +42,10 @@ qdapRegex 0.1.3
 
 * `last_occurrence` regex added to the `regex_supplement` dictionary to find the
   last occurrence of delimiter.
+
+* `word_boundary`, `word_boundary_left`, and `word_boundary_right` added to
+  `regex_supplement` dictionary to provide a true word boundary.  Regexes 
+  adapted from: <a href="http://www.rexegg.com/regex-boundaries.html#real-word-boundary" target="_blank">http://www.rexegg.com/regex-boundaries.html#real-word-boundary</a>
 
 **IMPROVEMENTS**
 

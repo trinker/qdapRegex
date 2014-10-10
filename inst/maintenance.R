@@ -75,9 +75,12 @@ regex_supplement <- list(
 	split_keep_delim = "(?<=[^%s])(?=[%s])",
     thousands_separator = "(\\d)(?:(?=\\d+(?=[^\\d.]))(?=(?:[0-9]{3})+\\b)|(?=\\d+(?=\\.))(?=(?:[0-9]{3})+(?=\\.)))",
     time_12_hours = "(1[012]|[1-9]):[0-5][0-9](\\s?)(am|pm)",
-    white_after_comma = "(?!\\s+),(?=\\D)",	
     version = "(?<=\\b(v|version)\\s?)([0-9]+)\\.([0-9]+)\\.([0-9]+)(?:\\.([0-9]+))?\\b",
     version2 = "\\b(v(ersion)*\\s*)([0-9]+)\\.([0-9]+)\\.([0-9]+)(?:\\.([0-9]+))?\\b",
+    white_after_comma = "(?!\\s+),(?=\\D)",		
+    word_boundary = "(?i)(?<=^|[^a-z])(%s)(?=$|[^a-z])",
+    word_boundary_left = "(?i)(?<=^|[^a-z])",
+    word_boundary_right = "(?=$|[^a-z])",	
     youtube_id = "(?<=\\d\\/|\\.be\\/|v[=\\/])([\\w\\-]{11,})|^([\\w\\-]{11})"
 )
 

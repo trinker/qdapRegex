@@ -75,7 +75,6 @@ NULL
 #'   \item{rm_white_punctuation}{substring of white space(s) preceding a comma or a single occurrence/combination of colon(s), semicolon(s), period(s), question mark(s), and exclamation point(s)}
 #'   \item{rm_white_trail}{substring of trailing white space(s)}
 #'   \item{rm_zip}{substring of 5 digits optionally followed by a dash and 4 more digits} 
-#'   \item{youtube_id}{substring of the video id from a \href{YouTube}{https://www.youtube.com/} video; ; taken from Jacob Overgaard's submission found \url{http://regex101.com/r/kU7bP8/1}}
 #' }
 #' @name regex_usa 
 #' @usage data(regex_usa) 
@@ -109,9 +108,13 @@ NULL
 #'   \item{split_keep_delim}{regex string that splits on a delimiter and retains the delimiter}
 #'   \item{thousands_separator}{chunks digits > 4 into groups of 3 from right to left allowing for easy insertion of thousands separator; regex pattern retrieved from \href{http://stackoverflow.com/}{StackOverflow}'s stema: \url{http://stackoverflow.com/a/10612685/1000343}}
 #'   \item{time_12_hours}{substring of valid hours (1-12) followed by a colon (:) followed by valid minutes (0-60), followed by an optional space and the character chunk \emph{am} or \emph{pm}} 
-#'   \item{white_after_comma}{substring of white space after a comma}
 #'   \item{version}{substring starting with "v" or "version" optionally followed by a space and then period separated digits for <major>.<minor>.<release>.<build>; the build sequence is optional and the "version"/"v" IS NOT contained in the substring}
 #'   \item{version2}{substring starting with "v" or "version" optionally followed by a space and then period separated digits for <major>.<minor>.<release>.<build>; the build sequence is optional and the "version"/"v" IS contained in the substring}
+#'   \item{white_after_comma}{substring of white space after a comma}
+#'   \item{word_boundary}{A true word boundary that only includes alphabetic characters; ; based on \url{www.rexegg.com}'s suggestion taken from \href{http://www.rexegg.com/regex-boundaries.html#real-word-boundary}{discussion of true word boundaries}; note contains \code{"\%s"} that is replaced by \code{\link[base]{sprintf}} and is not a valid regex on its own}
+#'   \item{word_boundary_left}{A true left word boundary that only includes alphabetic characters; ; based on \url{www.rexegg.com}'s suggestion taken from \href{http://www.rexegg.com/regex-boundaries.html#real-word-boundary}{discussion of true word boundaries}}
+#'   \item{word_boundary_right}{A true right word boundary that only includes alphabetic characters; ; based on \url{www.rexegg.com}'s suggestion taken from \href{http://www.rexegg.com/regex-boundaries.html#real-word-boundary}{discussion of true word boundaries}}	
+#'   \item{youtube_id}{substring of the video id from a \href{https://www.youtube.com}{YouTube} video; ; taken from Jacob Overgaard's submission found \url{http://regex101.com/r/kU7bP8/1}}
 #' } 
 #' 
 #' Regexes from this data set can be added to the \code{pattern} argument of any 
@@ -124,7 +127,7 @@ NULL
 #' \code{\link[qdapRegex]{S}} is useful for adding these missing \code{\%s} 
 #' parameters.
 #' @usage data(regex_supplement) 
-#' @format A list with 18 elements
+#' @format A list with 21 elements
 #' @examples 
 #' time <- rm_(pattern="@@time_12_hours")
 #' time("I will go at 12:35 pm")
@@ -227,5 +230,12 @@ NULL
 #' 
 #' strsplit(x, S("@@last_occurrence", "\\."), perl=TRUE)
 #' strsplit(x, S("@@last_occurrence", "@@"), perl=TRUE)
+#' 
+#' ## True Word Boundaries
+#' x <- "this is _not a word666 and this is not a word too." 
+#' ## Standard regex word boundary
+#' rm_default(x, pattern=bind("not a word"))
+#' ## Alphabetic only word boundaries
+#' rm_default(x, pattern=S("@@word_boundary", "not a word"))
 #' }
 NULL
