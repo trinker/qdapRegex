@@ -50,6 +50,17 @@
 #' 
 #' f <- rm_(pattern="@@time_12_hours")
 #' f("I will go at 12:35 pm")
+#' 
+#' x <- c(
+#'     "test@@aol.fg.com",
+#'     "test@@hotmail.com",
+#'     "test@@xyzrr.lk.edu",
+#'     "test@@abc.xx.zz.vv.net"
+#' )
+#' 
+#' file_ext2 <- rm_(pattern="(?<=\\.)[a-z]*$", extract=TRUE)
+#' tools::file_ext(x)
+#' file_ext2(x)
 rm_ <- function(...){
 
     rm_raw <- rm_default

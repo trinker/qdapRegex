@@ -142,10 +142,10 @@ page_val(c(66, "78-82", "hello world", TRUE, "44-45; 56"))
 
 ## Split on last occurrence
 x <- c(
-    "test@aol@fg.com",
+    "test@aol@fg.mm.com",
     "test@hotmail.com",
     "test@xyz@rr@lk.edu",
-    "test@abc.xx@zz.net"
+    "test@abc.xx@zz.vv.net"
 )
 
 strsplit(x, S("@last_occurrence", "\\\\."), perl=TRUE)
