@@ -26,7 +26,7 @@ qdapRegex 0.1.3
   has been fixed.
 
 * `youtube_id` was documented under `qdap_usa` rather than `qdap_supplement` and
-  contained an invalid hyper reference.  This has been fixed.
+  contained an invalid hyperlink.  This has been fixed.
 
 **NEW FEATURES**
 
