@@ -49,6 +49,10 @@ qdapRegex 0.1.3
 
 **IMPROVEMENTS**
 
+* The `regex_usa` dictionary regular expressions: `rm_hash`, `rm_tag`, and
+  `rm_tag2` pick up grouping that allows for replacement of individual sections 
+  of the substring.  See `?rm_hash` and `?rm_tag` for examples.
+
 **CHANGES**
 
 
