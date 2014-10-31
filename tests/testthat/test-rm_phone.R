@@ -36,4 +36,3 @@ test_that("rm_phone is extracting phone strings",{
 })
 
 
-

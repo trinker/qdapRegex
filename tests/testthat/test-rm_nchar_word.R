@@ -21,4 +21,3 @@ test_that("rm_nchar_words is extracting nchar_words strings",{
 })
 
 
-

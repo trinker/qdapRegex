@@ -46,4 +46,3 @@ test_that("rm_between_multiple is extracting betweened text multiple markers",{
     expect_true(identical(rm_between_multiple(y, c("L1", 98), c("L2", 99), extract=TRUE), z3))
 		
 })
-

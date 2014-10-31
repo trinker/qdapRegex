@@ -24,4 +24,3 @@ test_that("rm_caps is extracting 'all caps' strings",{
 })
 
 
-

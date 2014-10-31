@@ -24,4 +24,3 @@ test_that("rm_percent is extracting percent strings",{
 })
 
 
-

@@ -52,4 +52,3 @@ test_that("rm_bracket is extracting bracketed text",{
     "{is so much fun}")))
     
 })
-

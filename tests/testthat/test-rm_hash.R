@@ -34,4 +34,3 @@ test_that("rm_hash is extracting hash strings",{
 })
 
 
-

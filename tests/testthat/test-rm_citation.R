@@ -52,4 +52,3 @@ test_that("rm_citation is extracting citation strings",{
 })
 
 
-

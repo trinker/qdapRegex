@@ -26,4 +26,3 @@ test_that("rm_city_state is extracting city_state strings",{
 })
 
 
-

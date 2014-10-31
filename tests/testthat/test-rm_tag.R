@@ -34,4 +34,3 @@ test_that("rm_tag is extracting tag strings",{
 })
 
 
-

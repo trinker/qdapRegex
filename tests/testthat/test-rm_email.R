@@ -26,4 +26,3 @@ test_that("rm_email is extracting email strings",{
 })
 
 
-

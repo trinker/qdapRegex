@@ -8,7 +8,7 @@ test_that("validate is validating true/false or multiple if `single = TRUE`",{
     
     ## Multiple elements
     valid_email_1 <- validate("@rm_email", single=FALSE)
-    expect_identical(valid_email_1(c("tyler.rinker@gmail.com", "@trinker")), 
+    expect_equivalent(valid_email_1(c("tyler.rinker@gmail.com", "@trinker")), 
         c(TRUE, FALSE))
     
     ## single element address
@@ -26,7 +26,6 @@ test_that("validate is validating true/false or multiple if `single = TRUE`",{
 
 	
 })
-
 
 
 

@@ -9,4 +9,3 @@ test_that("is.regex correctly tests regular expression strings.",{
 
 
 
-

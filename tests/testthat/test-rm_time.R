@@ -27,4 +27,3 @@ test_that("rm_time is extracting time strings",{
 })
 
 
-

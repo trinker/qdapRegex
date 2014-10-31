@@ -38,6 +38,9 @@ NEW FEATURES
 * Case wrapper functions, `TC` (title case), `U` (upper case), and `L` (lower 
   case) added for convenient case manipulation.
 
+* `group` function added to allow for convenient wrapping of grouping 
+  parenthesis around regular expressions.
+
 MINOR FEATURES
 
 * `last_occurrence` regex added to the `regex_supplement` dictionary to find the

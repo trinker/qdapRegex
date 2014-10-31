@@ -24,4 +24,3 @@ test_that("rm_title_name is extracting date strings",{
 })
 
 
-

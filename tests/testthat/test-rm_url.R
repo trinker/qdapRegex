@@ -23,4 +23,3 @@ test_that("rm_url is extracting url strings",{
 })
 
 
-

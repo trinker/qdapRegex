@@ -5,7 +5,7 @@
 #' dictionaries for regular expressions before pasting them together with a pipe 
 #' (\code{|}) separator.
 #' 
-#' @param \ldots Ray regular expressions to paste together or a named expression 
+#' @param \ldots Regular expressions to paste together or a named expression 
 #' from the default regular expression dictionary prefixed with single at 
 #' (\code{@@}) (e.g., \code{"@@rm_hash"}) or a regular expression from 
 #' \code{\link[qdapRegex]{regex_supplement}} dictionary prefixed with an at 

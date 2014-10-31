@@ -24,4 +24,3 @@ test_that("rm_dollar is extracting dollar strings",{
 })
 
 
-

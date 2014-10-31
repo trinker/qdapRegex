@@ -1,19 +1,28 @@
+root <- switch(Sys.info()[["user"]],
+    Tyler = "C:/Users/Tyler",
+    trinker = "C:/Users/trinker", 
+    message("Computer name not found")
+)
+
+repo <- pack <- basename(getwd())
+
 curd <- getwd()
-loc <- "C:/Users/trinker/Desktop"
+loc <- file.path(root, "Desktop")
 setwd(loc)
 
-qman <- function(x = "qdapRegex", db = "C:/Users/trinker/Dropbox/Public", dir=loc) {
+base.git <- file.path(root, "GitHub")
+
+
+qman <- function(x = repo, db = file.path(root, "/Dropbox/Public"), dir=loc) {
     path <- file.path(dir, paste0(x, ".pdf"))
-	if (!file.exists(path)) stop(paste(x, "does not exist..."))
+    if (!file.exists(path)) stop(paste(x, "does not exist..."))
     opath <- file.path(db, paste0(x, ".pdf"))
     file.copy(path, opath, overwrite = TRUE)
     message("manual copied!\n")
 }
 
 
-repo <- pack <- "qdapRegex"
-base.git = "C:/Users/trinker/GitHub"
-quick = TRUE
+quick <-  TRUE
 library(devtools)
 
 unlink(paste0(pack, ".pdf"), recursive = TRUE, force = TRUE)
@@ -28,4 +37,3 @@ system(paste(shQuote(file.path(R.home("bin"), "R")),
 qman(repo, dir=loc)
 setwd(curd)
 message("Done!")
-

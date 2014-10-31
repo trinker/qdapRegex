@@ -26,4 +26,3 @@ test_that("rm_number is extracting 'all number' strings",{
 })
 
 
-

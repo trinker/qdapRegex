@@ -26,4 +26,3 @@ test_that("rm_city_state_zip is extracting city_state_zip strings",{
 })
 
 
-

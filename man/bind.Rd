@@ -3,14 +3,21 @@
 \alias{bind}
 \title{Add Left/Right Character(s) Boundaries}
 \usage{
-bind(x, left = "\\\\b", right = left)
+bind(..., left = "\\\\b", right = left,
+  dictionary = getOption("regex.library"))
 }
 \arguments{
-\item{x}{A character vector.}
-
 \item{left}{A single length character vector to use as the left bound.}
 
 \item{right}{A single length character vector to use as the right bound.}
+
+\item{dictionary}{A dictionary of canned regular expressions to search within.}
+
+\item{\ldots}{Regular expressions to add grouping prenthesis to a named
+expression from the default regular expression dictionary prefixed with
+single at (\code{@}) (e.g., \code{"@rm_hash"}) or a regular expression from
+\code{\link[qdapRegex]{regex_supplement}} dictionary prefixed with an at
+(\code{@}) (e.g., \code{"@time_12_hours"}).}
 }
 \value{
 Returns a character vector.

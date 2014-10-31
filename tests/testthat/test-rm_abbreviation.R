@@ -27,4 +27,3 @@ test_that("rm_abbreviation is extracting 'all abbreviation' strings",{
 })
 
 
-

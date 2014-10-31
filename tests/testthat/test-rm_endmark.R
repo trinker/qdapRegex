@@ -24,4 +24,3 @@ test_that("rm_endmark is extracting emoticon strings",{
 })
 
 
-

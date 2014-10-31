@@ -29,4 +29,3 @@ test_that("rm_emoticon is extracting emoticon strings",{
 })
 
 
-

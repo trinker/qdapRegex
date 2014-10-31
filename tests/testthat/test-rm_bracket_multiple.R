@@ -56,4 +56,3 @@ test_that("rm_bracket_multiple is extracting bracketed text",{
     expect_true(identical(rm_bracket_multiple(examp$text, include.markers = TRUE, extract=TRUE), expected2[[6]]))
     
 })
-
