@@ -66,6 +66,10 @@ rm_tag(x, extract=TRUE)
 
 ## more restrictive Twitter regex
 rm_tag(x, extract=TRUE, pattern="@rm_tag2")
+
+## Remove only the @ sign
+rm_tag(x, replacement = "\\\\3")
+rm_tag(x, replacement = "\\\\3", pattern="@rm_tag2")
 }
 \seealso{
 \code{\link[base]{gsub}},

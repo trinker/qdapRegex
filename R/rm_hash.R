@@ -37,4 +37,7 @@
 #' rm_hash(x)
 #' rm_hash(rm_tag(x))
 #' rm_hash(x, extract=TRUE)
+#' 
+#' ## remove just the hash symbol
+#' rm_hash(x, replace="\\3")
 rm_hash <- hijack(rm_default, pattern = "@rm_hash")
