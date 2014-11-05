@@ -28,6 +28,8 @@ qdapRegex 0.1.3
 * `youtube_id` was documented under `qdap_usa` rather than `qdap_supplement` and
   contained an invalid hyperlink.  This has been fixed.
 
+* `rm_citation` contained a bug that would not operate on citations with a comma in multiple authors before the and/& sign.  See <a href="https://github.com/trinker/qdapRegex/issues/4">issue #4</a>
+
 **NEW FEATURES**
 
 * `is.regex` added as a logical check of a regular expression's validy (conforms 
@@ -37,6 +39,9 @@ qdapRegex 0.1.3
 
 * Case wrapper functions, `TC` (title case), `U` (upper case), and `L` (lower 
   case) added for convenient case manipulation.
+
+* `group` function added to allow for convenient wrapping of grouping 
+  parenthesis around regular expressions.
 
 **MINOR FEATURES**
 

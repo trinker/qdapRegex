@@ -28,6 +28,9 @@ BUG FIXES
 * `youtube_id` was documented under `qdap_usa` rather than `qdap_supplement` and
   contained an invalid hyperlink.  This has been fixed.
 
+* `rm_citation` contained a bug that would not operate on citations with a comma 
+  in multiple authors before the and/& sign.  See issue #4
+
 NEW FEATURES
 
 * `is.regex` added as a logical check of a regular expression's validy (conforms 
