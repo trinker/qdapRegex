@@ -26,19 +26,22 @@
 #' L(y)
 #' U(y)
 #' TC(y)
-TC <- function(text.var, lower = NULL, ...) {
+TC <- function (text.var, lower = NULL, ...) {
     m <- lapply(text.var, stringi::stri_trans_totitle, ...)
-    if (!is.null(lower) && !lower) return(m)
+    if (!is.null(lower) && !lower) 
+        return(m)
     if (is.null(lower)) {
-        lower <- c("A", "An", "And", "As", "At", "But", "By", "Down", "Even", 
-            "For", "From", "If", "In", "Into", "Like", "Near", "Nor", "Of", 
-            "On", "Once", "Onto", "Or", "Over", "Past", "So", "Than", "That", 
-            "The", "Till", "To", "Upon", "When", "With", "Yet")
+        lower <- c("A", "An", "And", "As", "At", "But", "By", 
+            "Down", "Even", "For", "From", "If", "In", "Into", 
+            "Like", "Near", "Nor", "Of", "On", "Once", "Onto", 
+            "Or", "Over", "Past", "So", "Than", "That", "The", 
+            "Till", "To", "Upon", "When", "With", "Yet")
     }
-    lower1 <- bind(lower, "\\s", "\\b")
-    lower2 <- bind(stringi::stri_trans_tolower(lower), " ", "")
-    for(i in seq_along(lower1)) { 
-        m <- lapply(m, stringi::stri_replace_all_regex, paste0(lower1[i], "(?![:punct:]*$)"), lower2[i]) 
+    lower1 <- bind(lower, left="\\s", right="\\b")
+    lower2 <- bind(stringi::stri_trans_tolower(lower), left=" ", right="")
+    for (i in seq_along(lower1)) {
+        m <- lapply(m, stringi::stri_replace_all_regex, paste0(lower1[i], 
+            "(?![:punct:]*$)"), lower2[i])
     }
     m
 }
