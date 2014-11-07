@@ -77,5 +77,5 @@ rm_citation(x, extract=TRUE, pattern="@rm_citation3")
 \code{\link[base]{gsub}},
 \code{\link[stringi]{stri_extract_all_regex}}
 }
-\keyword{date}
+\keyword{citation}
 

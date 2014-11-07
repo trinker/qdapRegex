@@ -19,7 +19,7 @@
 #' if \code{pattern} begins with \code{"@@rm_"}.
 #' @param \dots Ignored.
 #' @return Returns a character string with citations removed.
-#' @keywords date
+#' @keywords citation
 #' @details The default regular expression used by \code{rm_citation} finds 
 #' in-text and parenthetical citations.  This behavior can be altered by using a 
 #' secondary regular expression from the \code{\link[qdapRegex]{regex_usa}} 

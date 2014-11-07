@@ -23,7 +23,7 @@ test_that("rm_citation is removing citation strings",{
         "I always consult xkcd comics for guidance (; ).", "says, \"RAM is cheap and thinking hurts\""
         )
 
-    expect_true(identical(rm_citation(x), x2))
+    expect_equal(rm_citation(x), x2)
 	
 })
 
@@ -48,7 +48,7 @@ test_that("rm_citation is extracting citation strings",{
         c("Foo, 2012", "Bar, 2014"), "Uwe Ligges (2007)")
 
 
-    expect_true(identical(rm_citation(x, extract=TRUE), x3))
+    expect_equal(rm_citation(x, extract=TRUE), x3)
 })
 
 

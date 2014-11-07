@@ -44,6 +44,9 @@ NEW FEATURES
 * `group` function added to allow for convenient wrapping of grouping 
   parenthesis around regular expressions.
 
+* `rm_citation_tex` added to remove/extract/replace bibkey citations from a .tex 
+  (LaTeX) file.
+
 MINOR FEATURES
 
 * `last_occurrence` regex added to the `regex_supplement` dictionary to find the
