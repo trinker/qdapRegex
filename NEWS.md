@@ -28,7 +28,8 @@ qdapRegex 0.1.3
 * `youtube_id` was documented under `qdap_usa` rather than `qdap_supplement` and
   contained an invalid hyperlink.  This has been fixed.
 
-* `rm_citation` contained a bug that would not operate on citations with a comma in multiple authors before the and/& sign.  See <a href="https://github.com/trinker/qdapRegex/issues/4">issue #4</a>
+* `rm_citation` contained a bug that would not operate on citations with a comma 
+  in multiple authors before the and/& sign.  See <a href="https://github.com/trinker/qdapRegex/issues/4">issue #4</a>
 
 **NEW FEATURES**
 
@@ -42,6 +43,9 @@ qdapRegex 0.1.3
 
 * `group` function added to allow for convenient wrapping of grouping 
   parenthesis around regular expressions.
+
+* `rm_citation_tex` added to remove/extract/replace bibkey citations from a .tex 
+  (LaTeX) file.
 
 **MINOR FEATURES**
 
