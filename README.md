@@ -3,10 +3,9 @@
 [![Build Status](https://travis-ci.org/trinker/qdapRegex.png?branch=master)](https://travis-ci.org/trinker/qdapRegex)
 [![DOI](https://zenodo.org/badge/5398/trinker/qdapRegex.png)](http://dx.doi.org/10.5281/zenodo.11284)
 
-![qdapicon](https://dl.dropbox.com/u/61803503/qdapicon.png)   
+<img src="inst/qdapRegex_logo/r_qdapRegex.png" width="45%"> 
 [qdapRegex](http://trinker.github.com/qdapRegex_dev) is a collection of regular expression tools associated with the **qdap** package that may be useful outside of the context of discourse analysis.  Tools include removal/extraction/replacement of abbreviations, dates, dollar amounts, email addresses, hash tags, numbers, percentages, person tags, phone numbers, times, and zip codes.
 
-<img src="inst/qdapRegex_logo/r_qdapRegex.png" width="45%">
 
 The **qdapRegex** package does not aim to compete with string manipulation packages such as [**stringr**](http://cran.r-project.org/web/packages/stringr/index.html) or [**stringi**](http://cran.r-project.org/web/packages/stringi/index.html) but is meant to provide access to canned, common regular expression patterns that can be used within **qdapRegex**, with **R**'s own regular expression functions, or add on string manipulation packages such as **stringr** and **stringi**.
 
