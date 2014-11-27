@@ -85,6 +85,22 @@ regex_supplement <- list(
     youtube_id = "(?<=\\d\\/|\\.be\\/|v[=\\/])([\\w\\-]{11,})|^([\\w\\-]{11})"
 )
 
+regex_cheat <- structure(list(
+        Name = c("Lookahead", "Lookbehind", "Negative Lookahead", 
+            "Negative Lookbehind", "Exception", "Case Insensitive"), 
+        Regex = c("(?=foo)", "(?<=foo)", "(?!foo)", "(?<!foo)", "[^X]", 
+            "(?i:foo)"), 
+        `What it Does` = c(
+            "What follows is `foo`", 
+            "What precedes is `foo`", 
+            "What follows is not `foo`", 
+            "What precedes is not `foo`", 
+            "Match everything except `X`", 
+            "Matches irregardless of case; `Foo` & `foO` matched"
+    )), 
+    .Names = c("Name", "Regex", "What it Does"), row.names = c(NA, 6L), class = "data.frame"
+)
+
 #  pack.skel(regex_usa, regex_supplement)
 
 #========================

@@ -39,6 +39,7 @@ sd_section("qdapRegex Tools",
  "Functions used within qdapRegex that are not specific to removing/extracting/replacing text with regular expressions.",
   c(
   	"bind",
+    "cheat",
   	"grab",
     "group",
   	"escape",
@@ -53,6 +54,7 @@ sd_section("qdapRegex Tools",
 sd_section("Regular Expression Dictionaries",
  "Data sets with canned regular expressions.",
   c(
+    "regex_cheat", 
     "regex_usa",
   	"regex_supplement"
   )

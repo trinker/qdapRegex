@@ -27,6 +27,7 @@ Collate:
     'S.R'
     'bind.R'
     'case.R'
+    'cheat.R'
     'utils.R'
     'rm_default.R'
     'escape.R'
