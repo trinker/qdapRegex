@@ -10,7 +10,7 @@ test_that("rm_time is removing/replacing time strings",{
         "We'll meet at .", "He ran it in")
 
 
-    expect_true(identical(rm_time(x), x2))	
+    expect_equivalent(rm_time(x), x2)	
 	
 })
 
@@ -23,7 +23,7 @@ test_that("rm_time is extracting time strings",{
 
     x3 <- list(NA_character_, c("3:00", "4:30:20"), "6:33", ":22.34")
 
-    expect_true(identical(rm_time(x, extract=TRUE), x3))
+    expect_equivalent(rm_time(x, extract=TRUE), x3)
 })
 
 

@@ -41,6 +41,7 @@ Collate:
     'rm_between.R'
     'rm_bracket.R'
     'rm_caps.R'
+    'rm_caps_phrase.R'
     'rm_citation.R'
     'rm_citation_tex.R'
     'rm_city_state.R'

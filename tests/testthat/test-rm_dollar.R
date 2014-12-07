@@ -8,7 +8,7 @@ test_that("rm_dollar is removing dollar strings",{
     
     x2 <- c("There is for me.", "that's 45.6% of the pizza", "14% is or")
 
-    expect_true(identical(rm_dollar(x), x2))
+    expect_equivalent(rm_dollar(x), x2)
 	
 })
 
@@ -20,7 +20,7 @@ test_that("rm_dollar is extracting dollar strings",{
     
     x3 <- list("$5.50", NA_character_, c("$26", "$25.99"))
 
-    expect_true(identical(rm_dollar(x, extract=TRUE), x3))
+    expect_equivalent(rm_dollar(x, extract=TRUE), x3)
 })
 
 

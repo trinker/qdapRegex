@@ -16,7 +16,7 @@ test_that("rm_zip is removing/replacing zip strings",{
         "Grab zips with spaces or no space before", "I like 1234567 dogs"
         )
 
-    expect_true(identical(rm_zip(x), x2))	
+    expect_equivalent(rm_zip(x), x2)	
 	
 })
 
@@ -35,7 +35,7 @@ test_that("rm_zip is extracting zip strings",{
     x3 <- list(NA_character_, NA_character_, "12345", NA_character_, c("12345-6789", 
         "12345-6789"), c("12345 6789", "12345 6789"), NA_character_)
 
-    expect_true(identical(rm_zip(x, extract=TRUE), x3))
+    expect_equivalent(rm_zip(x, extract=TRUE), x3)
 })
 
 

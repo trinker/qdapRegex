@@ -17,10 +17,10 @@ test_that("rm_bracket_multiple is removing bracketed text",{
         ), c("I love chicken!", "Me too! It's so good.", "Yep it's awesome.", 
         "Agreed."))
     
-    expect_true(identical(rm_bracket_multiple(examp$text, pattern = "square"), expected1[[1]]))
-    expect_true(identical(rm_bracket_multiple(examp$text, pattern = "curly"), expected1[[2]]))
-    expect_true(identical(rm_bracket_multiple(examp$text, pattern = c("square", "round")), expected1 [[3]]))
-    expect_true(identical(rm_bracket_multiple(examp$text), expected1 [[4]]))
+    expect_equivalent(rm_bracket_multiple(examp$text, pattern = "square"), expected1[[1]])
+    expect_equivalent(rm_bracket_multiple(examp$text, pattern = "curly"), expected1[[2]])
+    expect_equivalent(rm_bracket_multiple(examp$text, pattern = c("square", "round")), expected1 [[3]])
+    expect_equivalent(rm_bracket_multiple(examp$text), expected1 [[4]])
 })
 
 
@@ -48,11 +48,11 @@ test_that("rm_bracket_multiple is extracting bracketed text",{
             all4 = "{is so much fun}"), .Names = c("all1", "all2", "all3", 
         "all4")), "reading is so much fun")
     
-    expect_true(identical(rm_bracket_multiple(examp$text, extract=TRUE, pattern = "square"), expected2[[1]]))
-    expect_true(identical(rm_bracket_multiple(examp$text, extract=TRUE, pattern = "curly"), expected2[[2]]))
-    expect_true(identical(rm_bracket_multiple(examp$text, extract=TRUE, pattern = c("square", "round")), expected2 [[3]]))
-    expect_true(identical(rm_bracket_multiple(examp$text, extract=TRUE, pattern = c("square", "round"), merge = FALSE), expected2 [[4]]))
-    expect_true(identical(rm_bracket_multiple(examp$text, extract=TRUE), expected2[[5]]))
-    expect_true(identical(rm_bracket_multiple(examp$text, include.markers = TRUE, extract=TRUE), expected2[[6]]))
+    expect_equivalent(rm_bracket_multiple(examp$text, extract=TRUE, pattern = "square"), expected2[[1]])
+    expect_equivalent(rm_bracket_multiple(examp$text, extract=TRUE, pattern = "curly"), expected2[[2]])
+    expect_equivalent(rm_bracket_multiple(examp$text, extract=TRUE, pattern = c("square", "round")), expected2 [[3]])
+    expect_equivalent(rm_bracket_multiple(examp$text, extract=TRUE, pattern = c("square", "round"), merge = FALSE), expected2 [[4]])
+    expect_equivalent(rm_bracket_multiple(examp$text, extract=TRUE), expected2[[5]])
+    expect_equivalent(rm_bracket_multiple(examp$text, include.markers = TRUE, extract=TRUE), expected2[[6]])
     
 })

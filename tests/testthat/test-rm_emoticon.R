@@ -10,7 +10,7 @@ test_that("rm_emoticon is removing/replacing emoticon strings",{
         "as I with a to the and in you his was"
     )
 
-    expect_true(identical(rm_emoticon(x), x2))
+    expect_equivalent(rm_emoticon(x), x2)
 
 })
 
@@ -25,7 +25,7 @@ test_that("rm_emoticon is extracting emoticon strings",{
         ":-/"), c(":-D", "xD", ":^)", "=D", "=)", "8D", ":3", "=3", "8)", 
         "B^D"))
 
-    expect_true(identical(rm_emoticon(x, extract=TRUE), x3))
+    expect_equivalent(rm_emoticon(x, extract=TRUE), x3)
 })
 
 

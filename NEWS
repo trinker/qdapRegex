@@ -50,6 +50,8 @@ NEW FEATURES
 * `regex_cheat` data set and `cheat` function added to act as a quick reference 
   for common regex task operations such a lookaheads.
 
+* `rm_caps_phrase` added to supplement `rm_caps`, extending the search to phases.
+
 MINOR FEATURES
 
 * `last_occurrence` regex added to the `regex_supplement` dictionary to find the

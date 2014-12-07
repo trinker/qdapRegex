@@ -14,9 +14,9 @@ test_that("TC makes title case",{
         list("I'm Liking It but Not Too Much.", "How Much Are You into It?", 
             "I'd Say It's yet Awesome Yet."))
 	
-    expect_equal(L(y), expected[[1]])
-    expect_equal(U(y), expected[[2]])
-    expect_equal(TC(y), expected[[3]])
+    expect_equivalent(L(y), expected[[1]])
+    expect_equivalent(U(y), expected[[2]])
+    expect_equivalent(TC(y), expected[[3]])
 	
 })
 

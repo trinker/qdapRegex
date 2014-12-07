@@ -8,8 +8,8 @@ test_that("rm_caps is removing 'all caps' strings",{
 	x3 <- "uggg! When I use caps I am yelling!"
 
 
-    expect_true(identical(rm_caps(x), x2))
-	expect_true(identical(rm_caps(x, replacement="\\L\\1"), x3))
+    expect_equivalent(rm_caps(x), x2)
+	expect_equivalent(rm_caps(x, replacement="\\L\\1"), x3)
 	
 })
 
@@ -20,7 +20,7 @@ test_that("rm_caps is extracting 'all caps' strings",{
     
     x4 <- list(c("UGGG", "YELLING"))
 
-    expect_true(identical(rm_caps(x, extract=TRUE), x4))
+    expect_equivalent(rm_caps(x, extract=TRUE), x4)
 })
 
 

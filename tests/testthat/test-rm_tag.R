@@ -14,7 +14,7 @@ test_that("rm_tag is removing/replacing tag strings",{
         "Slides from great talk: : Interactive slides from Interactive Visualization presentation #user2014. http://ramnathv.github.io/user2014-rcharts/#1"
         )
 
-    expect_true(identical(rm_tag(x), x2))	
+    expect_equivalent(rm_tag(x), x2)	
 	
 })
 
@@ -30,7 +30,7 @@ test_that("rm_tag is extracting tag strings",{
 
     x3 <- list("@hadley", "@timelyportfolio", "@ramnath_vaidya")
 
-    expect_true(identical(rm_tag(x, extract=TRUE), x3))
+    expect_equivalent(rm_tag(x, extract=TRUE), x3)
 })
 
 

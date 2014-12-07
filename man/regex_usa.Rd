@@ -3,7 +3,7 @@
 \name{regex_usa}
 \alias{regex_usa}
 \title{Canned Regular Expressions (United States of America)}
-\format{A list with 46 elements}
+\format{A list with 47 elements}
 \usage{
 data(regex_usa)
 }
@@ -18,6 +18,7 @@ The following canned regular expressions are included:
   \item{rm_between}{Remove characters between a left and right boundary including the boundaries; note contains \code{"\%s"} that is replaced by \code{\link[base]{sprintf}} and is not a valid regex on its own}
   \item{rm_between2}{Remove characters between a left and right boundary NOT including the boundaries; note contains \code{"\%s"} that is replaced by \code{\link[base]{sprintf}} and is not a valid regex on its own}
   \item{rm_caps}{words containing 2 or more consecutive upper case letters and no lower case}
+  \item{rm_caps_phrase}{phrases of 1 word or more containing 1 or more consecutive upper case letters and no lower case; if phrase is one word long then phrase must be 2 or more consecutive capital letters}
   \item{rm_citation}{substring that looks for in-text and parenthetical APA6 style citations (attempts to exclude references)}
   \item{rm_citation2}{substring that looks for in-text APA6 style citations (attempts to exclude references)}
   \item{rm_citation3}{substring that looks for parenthetical APA6 style citations (attempts to exclude references)}

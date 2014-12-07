@@ -9,7 +9,7 @@ test_that("rm_number is removing 'all number' strings",{
     x2 <- c("is an integer. and are not.", "is alot mor than", "hello world -.q"
         )
 
-    expect_true(identical(rm_number(x), x2))
+    expect_equivalent(rm_number(x), x2)
 	
 })
 
@@ -22,7 +22,7 @@ test_that("rm_number is extracting 'all number' strings",{
     
     x3 <- list(c("-2", "-4.3", "3.33"), c("123,456", "-.2"), NA_character_)
 
-    expect_true(identical(rm_number(x, extract=TRUE), x3))
+    expect_equivalent(rm_number(x, extract=TRUE), x3)
 })
 
 

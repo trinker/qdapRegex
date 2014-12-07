@@ -8,7 +8,7 @@ test_that("rm_city_state is removing city_state strings",{
 
     x2 <- "I went to for food! It's in West , near !I like Movies, PG13"
 	
-    expect_true(identical(rm_city_state(x), x2))
+    expect_equivalent(rm_city_state(x), x2)
 	
 })
 
@@ -22,7 +22,7 @@ test_that("rm_city_state is extracting city_state strings",{
     x3 <- list(c("Washington Heights, NY", "ven,PA", "Bolly Bolly Bolly, CA"
         ))
 
-    expect_true(identical(rm_city_state(x, extract=TRUE), x3))
+    expect_equivalent(rm_city_state(x, extract=TRUE), x3)
 })
 
 

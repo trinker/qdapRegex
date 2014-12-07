@@ -8,7 +8,7 @@ test_that("rm_date is removing date strings",{
     x2 <- c("Format dates as , , . or", "But leaves mismatched: 12.12/2014"
         )
 
-    expect_true(identical(rm_date(x), x2))
+    expect_equivalent(rm_date(x), x2)
 	
 })
 
@@ -21,7 +21,7 @@ test_that("rm_date is extracting date strings",{
     x3 <- list(c("04/12/2014", "04-12-2014", "04.12.2014", "04/12/14"), 
         NA_character_)
 
-    expect_true(identical(rm_date(x, extract=TRUE), x3))
+    expect_equivalent(rm_date(x, extract=TRUE), x3)
 })
 
 

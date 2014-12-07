@@ -7,7 +7,7 @@ test_that("rm_title_name is removing date strings",{
     
     x2 <- c("is 's in 's.", "Where is . and ?")
 
-    expect_true(identical(rm_title_name(x), x2))
+    expect_equivalent(rm_title_name(x), x2)
 	
 })
 
@@ -20,7 +20,7 @@ test_that("rm_title_name is extracting date strings",{
     x3 <- list(c("Dr. Brend", "mizz hart", "mrs. Holtz"), c("mr. Bob Jr", 
         "Ms. John Kennedy"))
 
-    expect_true(identical(rm_title_name(x, extract=TRUE), x3))
+    expect_equivalent(rm_title_name(x, extract=TRUE), x3)
 })
 
 

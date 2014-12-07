@@ -14,7 +14,7 @@ test_that("rm_phone is removing/replacing phone strings",{
         "Please contact Mr. Bean", "is his #1 number", "", "I like 1234567 dogs"
         )
 
-    expect_true(identical(rm_phone(x), x2))	
+    expect_equivalent(rm_phone(x), x2)	
 	
 })
 
@@ -32,7 +32,7 @@ test_that("rm_phone is extracting phone strings",{
     x3 <- list(c("613-213-4567", "5555555555"), "613 213 4567", "(613)2134567", 
         "1.575.555.5555", "7164347566", NA_character_)
 
-    expect_true(identical(rm_phone(x, extract=TRUE), x3))
+    expect_equivalent(rm_phone(x, extract=TRUE), x3)
 })
 
 
