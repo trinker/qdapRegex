@@ -6,7 +6,7 @@
 grab(pattern, dictionary = getOption("regex.library"))
 }
 \arguments{
-\item{pattern}{A character string starting with \code{"@"} and a regular
+\item{pattern}{A character string starting with \code{"@"} that is a regular
 expression from a \pkg{qdapRegex} dictionary.}
 
 \item{dictionary}{A dictionary of canned regular expressions to search within.}

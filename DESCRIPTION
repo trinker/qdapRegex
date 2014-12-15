@@ -31,6 +31,7 @@ Collate:
     'utils.R'
     'rm_default.R'
     'escape.R'
+    'explain.R'
     'grab.R'
     'group.R'
     'is.regex.R'
