@@ -3,36 +3,46 @@
 \alias{explain}
 \title{Visualize Regular Expressions}
 \usage{
-explain(pattern, dictionary = getOption("regex.library"))
+explain(pattern, open = FALSE, dictionary = getOption("regex.library"))
 }
 \arguments{
 \item{pattern}{A character string containing a regular expression or a
 character string starting with \code{"@"} that is a regular
 expression from a \pkg{qdapRegex} dictionary.}
 
+\item{open}{logical.  If \code{TRUE} the the default browser will attempt to
+open \url{http://www.regexper.com} page.}
+
 \item{dictionary}{A dictionary of canned regular expressions to search within.}
 }
 \value{
-Attemps to open the url to the visual representation provided by
-\url{http://www.regexper.com} and invisibly returns the url string.
+Prints \url{http://rick.measham.id.au/paste/explain} to the console,
+attemps to open the url to the visual representation provided by
+\url{http://www.regexper.com}, and invisibly returns a list with the URLs.
 }
 \description{
-Visualize regular expressions using \url{http://www.regexper.com}.
+Visualize regular expressions using \url{http://www.regexper.com} &
+\url{http://rick.measham.id.au/paste/explain}.
 }
 \examples{
-\dontrun{
 explain("\\\\s*foo[A-Z]\\\\d{2,3}")
 explain("@rm_time")
+\dontrun{
+explain("\\\\s*foo[A-Z]\\\\d{2,3}", open = TRUE)
+explain("@rm_time", open = TRUE)
 }
 }
 \author{
 Ananda Mahto and Tyler Rinker <tyler.rinker@gmail.com>.
 }
 \references{
-\url{http://stackoverflow.com/a/27489977/1000343}
+\url{http://stackoverflow.com/a/27489977/1000343} \cr
+\url{http://www.regexper.com} \cr
+\url{http://rick.measham.id.au/paste/explain}
 }
 \seealso{
-\url{http://www.regexper.com}
+\url{http://www.regexper.com} \cr
+\url{http://rick.measham.id.au/paste/explain}
 }
 \keyword{explain}
 \keyword{regex}

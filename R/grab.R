@@ -10,7 +10,8 @@
 #' @keywords get grab
 #' @details Many R regular expressions contain doubled backslashes that are not 
 #' used in other regex interpreters.  Using \code{\link[base]{cat}} can remove 
-#' backslash escapes (see \bold{Examples}).
+#' backslash escapes (see \bold{Examples}) or \code{\link[utils]{URLencode}}
+#' if using in a url.
 #' @export
 #' @examples
 #' grab("@@rm_white")
