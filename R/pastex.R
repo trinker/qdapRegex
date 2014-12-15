@@ -10,6 +10,8 @@
 #' (\code{@@}) (e.g., \code{"@@rm_hash"}) or a regular expression from 
 #' \code{\link[qdapRegex]{regex_supplement}} dictionary prefixed with an at 
 #' (\code{@@}) (e.g., \code{"@@time_12_hours"}).
+#' @param sep The separator to use between the expressions when they are 
+#' collapsed.
 #' @param dictionary A dictionary of canned regular expressions to search within.
 #' @return Returns a single string of regular expressions pasted together with 
 #' pipe(s) (\code{|}).
@@ -58,13 +60,13 @@
 #' rm_twitter_n_url(x)
 #' rm_twitter_n_url(x, extract=TRUE)
 pastex <-
-function (..., dictionary = getOption("regex.library")) {
+function (..., sep = "|", dictionary = getOption("regex.library")) {
     out <- lapply(list(...), function(x) {
         if (length(x) > 1) return(x)
         reg_check(x, dictionary = dictionary)
     })
 
-    paste(unlist(out), collapse = "|")
+    paste(unlist(out), collapse = sep)
 }
 
 

@@ -4,11 +4,14 @@
 \alias{pastex}
 \title{Paste Regular Expressions}
 \usage{
-pastex(..., dictionary = getOption("regex.library"))
+pastex(..., sep = "|", dictionary = getOption("regex.library"))
 
 x \%|\% y
 }
 \arguments{
+\item{sep}{The separator to use between the expressions when they are
+collapsed.}
+
 \item{dictionary}{A dictionary of canned regular expressions to search within.}
 
 \item{x,y}{Two regular expressions to paste together.}

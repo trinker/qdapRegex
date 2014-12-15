@@ -47,6 +47,11 @@ qdapRegex 0.1.3
 * `rm_citation_tex` added to remove/extract/replace bibkey citations from a .tex 
   (LaTeX) file.
 
+* `regex_cheat` data set and `cheat` function added to act as a quick reference 
+  for common regex task operations such a lookaheads.
+
+* `rm_caps_phrase` added to supplement `rm_caps`, extending the search to phases.
+
 **MINOR FEATURES**
 
 * `last_occurrence` regex added to the `regex_supplement` dictionary to find the
@@ -61,6 +66,9 @@ qdapRegex 0.1.3
 * The `regex_usa` dictionary regular expressions: `rm_hash`, `rm_tag`, and
   `rm_tag2` pick up grouping that allows for replacement of individual sections 
   of the substring.  See `?rm_hash` and `?rm_tag` for examples.
+
+* `pastex` picks up a `sep` argument to allow the user to choose what string
+  is used to separate the collapsed expressions.
 
 **CHANGES**
 
