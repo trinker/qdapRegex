@@ -18,9 +18,9 @@ character will be removed.}
 
 \item{pattern}{A character string containing a regular expression (or
 character string for \code{fixed = TRUE}) to be matched in the given
-character vector.  Default, \code{@rm_time} uses the
-\code{rm_time} regex from the regular expression dictionary from
-the \code{dictionary} argument.}
+character vector (see \bold{Details} for additional information).  Default,
+\code{@rm_time} uses the \code{rm_time} regex from the regular expression
+dictionary from the \code{dictionary} argument.}
 
 \item{replacement}{Replacement for matched \code{pattern}.}
 
@@ -38,6 +38,13 @@ Returns a character string with time removed.
 \description{
 Remove/replace/extract time from a string.
 }
+\details{
+The default regular expression used by \code{rm_time} finds
+time with no AM/PM.  This behavior can be altered by using a
+secondary regular expression from the \code{\link[qdapRegex]{regex_usa}}
+data (or other dictionary) via (\code{pattern = "@rm_time2"}. See
+\bold{Examples} for example usage.
+}
 \examples{
 x <-  c("R uses 1:5 for 1, 2, 3, 4, 5.",
     "At 3:00 we'll meet up and leave by 4:30:20",
@@ -45,6 +52,20 @@ x <-  c("R uses 1:5 for 1, 2, 3, 4, 5.",
 
 rm_time(x)
 rm_time(x, extract=TRUE)
+
+## With AM/PM
+x <- c(
+    "I'm getting 3:04 AM just fine, but...",
+    "for 10:47 AM I'm getting 0:47 AM instead.",
+    "no time here",
+    "Some time has 12:04 with no AM/PM after it",
+    "Some time has 12:04 a.m. or the form 1:22 pm"
+)
+
+rm_time(x, extract=TRUE)
+rm_time(x, pat="@rm_time2", extract=TRUE)
+rm_time(x, pat="@rm_time2")
+rm_time(x, pat=pastex("@rm_time2", "@rm_time"), extract=TRUE)
 }
 \author{
 \href{http://stackoverflow.com/}{stackoverflow's} hwnd and Tyler Rinker <tyler.rinker@gmail.com>.

@@ -61,6 +61,8 @@ qdapRegex 0.1.3
   `regex_supplement` dictionary to provide a true word boundary.  Regexes 
   adapted from: <a href="http://www.rexegg.com/regex-boundaries.html#real-word-boundary" target="_blank">http://www.rexegg.com/regex-boundaries.html#real-word-boundary</a>
 
+* `rm_time2` regex added to the `regex_usa` dictionary to find time + AM/PM
+
 **IMPROVEMENTS**
 
 * The `regex_usa` dictionary regular expressions: `rm_hash`, `rm_tag`, and
