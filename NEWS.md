@@ -53,8 +53,9 @@ qdapRegex 0.1.3
 * `rm_caps_phrase` added to supplement `rm_caps`, extending the search to phases.
 
 * `explain` added to view a visual representation of a regular expression using 
-  <a href="http://www.regexper.com." target="_blank">http://www.regexper.com.</a>  Also takes named regular expressions from the 
-  `regex_usa` or other supplied dictionary.
+  <a href="http://www.regexper.com" target="_blank">http://www.regexper.com</a> and <a href="http://rick.measham.id.au/paste/explain." target="_blank">http://rick.measham.id.au/paste/explain.</a>  Also 
+  takes named regular expressions from the `regex_usa` or other supplied 
+  dictionary.
 
 **MINOR FEATURES**
 

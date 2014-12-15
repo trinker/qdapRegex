@@ -53,8 +53,9 @@ NEW FEATURES
 * `rm_caps_phrase` added to supplement `rm_caps`, extending the search to phases.
 
 * `explain` added to view a visual representation of a regular expression using 
-  http://www.regexper.com.  Also takes named regular expressions from the 
-  `regex_usa` or other supplied dictionary.
+  http://www.regexper.com and http://rick.measham.id.au/paste/explain.  Also 
+  takes named regular expressions from the `regex_usa` or other supplied 
+  dictionary.
 
 MINOR FEATURES
 
