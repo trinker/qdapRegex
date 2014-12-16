@@ -77,6 +77,9 @@ IMPROVEMENTS
 * `pastex` picks up a `sep` argument to allow the user to choose what string
   is used to separate the collapsed expressions.
 
+* `rm_citation`, `rm_citation2`, and `rm_citation3` now attempt to include last 
+  names that contain the  lower case particles: von, van, de, da, and du.
+
 CHANGES
 
 
