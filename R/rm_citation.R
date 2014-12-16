@@ -58,7 +58,8 @@
 #' 
 #' \dontrun{
 #' ## Mining Citations
-#' url_dl("http://eportfolio.lagcc.cuny.edu/gallery/old_system_eportfolios/paola_dalmonech/documents/ResearchPaper.docx")
+#' url_dl(paste0("http://eportfolio.lagcc.cuny.edu/gallery/old_system_eportfolios/",
+#'     "paola_dalmonech/documents/ResearchPaper.docx"))
 #' (txt <- read_docx("ResearchPaper.docx"))
 #' 
 #' library(qdapTools); library(ggplot2); library(qdap)
