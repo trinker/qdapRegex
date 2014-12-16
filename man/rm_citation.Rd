@@ -72,6 +72,47 @@ rm_citation(x, extract=TRUE, pattern="@rm_citation2")
 
 ## Parenthetical
 rm_citation(x, extract=TRUE, pattern="@rm_citation3")
+
+\dontrun{
+## Mining Citations
+url_dl("http://eportfolio.lagcc.cuny.edu/gallery/old_system_eportfolios/paola_dalmonech/documents/ResearchPaper.docx")
+(txt <- read_docx("ResearchPaper.docx"))
+
+library(qdapTools); library(ggplot2); library(qdap)
+txt <- rm_non_ascii(txt)
+
+parts <- split_vector(txt, split = "References", include = TRUE, regex=TRUE)
+
+parts[[1]]
+
+rm_citation(unbag(parts[[1]]), extract=TRUE)[[1]]
+
+## By line
+rm_citation(parts[[1]], extract=TRUE)
+
+## Frequency
+left_just(cites <- list2df(sort(table(rm_citation(unbag(parts[[1]]),
+    extract=TRUE)), T), "freq", "citation")[2:1])
+
+## Distribution of citations (find locations and then plot)
+cite_locs <- do.call(rbind, lapply(cites[[1]], function(x){
+    m <- gregexpr(x, unbag(parts[[1]]), fixed=TRUE)
+    data.frame(
+        citation=x,
+        start = m[[1]] -25,
+        end =  m[[1]] + 25 + attributes(m[[1]])[["match.length"]]
+    )
+}))
+
+ggplot(cite_locs) +
+    geom_segment(aes(x=start, xend=end, y=citation, yend=citation), size=3,
+        color="yellow") +
+    xlab("Duration") +
+    scale_x_continuous(expand = c(0,0),
+        limits = c(0, nchar(unbag(parts[[1]])) + 25)) +
+    theme_black() +
+    theme(panel.grid.major=element_line(color="grey20"))
+}
 }
 \seealso{
 \code{\link[base]{gsub}},
