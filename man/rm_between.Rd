@@ -87,6 +87,10 @@ state <- c("Computer is fun. Not too fun.", "No it's not, it's dumb.",
     "I'm hungry.  Let's eat.  You already?")
 
 rm_between_multiple(state, c("is", "we"), c("too", "on"))
+
+## Use Grouping
+s <- "something before stuff $some text$ in between $1$ and after"
+rm_between(s, "$", "$", replacement="<B>\\\\2<E>")
 }
 \seealso{
 \code{\link[base]{gsub}},

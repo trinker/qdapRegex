@@ -70,9 +70,9 @@ qdapRegex 0.1.3
 
 **IMPROVEMENTS**
 
-* The `regex_usa` dictionary regular expressions: `rm_hash`, `rm_tag`, and
-  `rm_tag2` pick up grouping that allows for replacement of individual sections 
-  of the substring.  See `?rm_hash` and `?rm_tag` for examples.
+* The `regex_usa` dictionary regular expressions: `rm_hash`, `rm_tag`, `rm_tag2` 
+  and `rm_between` pick up grouping that allows for replacement of individual 
+  sections of the substring.  See `?rm_hash` and `?rm_tag` for examples.
 
 * `pastex` picks up a `sep` argument to allow the user to choose what string
   is used to separate the collapsed expressions.

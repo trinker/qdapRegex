@@ -13,7 +13,7 @@ devtools::test()
 #==========================
 regex_usa <- list(
     rm_abbreviation = "([A-Za-z][\\.]\\s*){1,}([A-Za-z][\\.])",
-    rm_between = "(%s).*?(%s)",
+    rm_between = "(%s)(.*?)(%s)",
     rm_between2 = "(?<=%s).*?(?=%s)",    
     rm_caps = "(\\b[A-Z]{2,}\\b)",
     rm_caps_phrase = "(([A-Z'-]+\\b\\s*){2,})|(\\b[A-Z]{2,}\\b)",

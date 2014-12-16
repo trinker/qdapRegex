@@ -67,6 +67,10 @@
 #'     "I'm hungry.  Let's eat.  You already?")
 #' 
 #' rm_between_multiple(state, c("is", "we"), c("too", "on"))
+#' 
+#' ## Use Grouping
+#' s <- "something before stuff $some text$ in between $1$ and after"
+#' rm_between(s, "$", "$", replacement="<B>\\2<E>")
 rm_between <- function(text.var, left, right, trim = TRUE, clean = TRUE, 
     replacement = "", extract = FALSE,
     include.markers = ifelse(extract, FALSE, TRUE),
