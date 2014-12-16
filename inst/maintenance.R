@@ -14,7 +14,7 @@ devtools::test()
 regex_usa <- list(
     rm_abbreviation = "([A-Za-z][\\.]\\s*){1,}([A-Za-z][\\.])",
     rm_between = "(%s).*?(%s)",
-    rm_between2 = "(?<=%s).*?(?=%s)",	
+    rm_between2 = "(?<=%s).*?(?=%s)",    
     rm_caps = "(\\b[A-Z]{2,}\\b)",
     rm_caps_phrase = "(([A-Z'-]+\\b\\s*){2,})|(\\b[A-Z]{2,}\\b)",
     rm_citation = paste0("(((((((\\b(v[oa]n|d[eua])\\s)*[A-Z]{1}[a-zA-Z-]+,\\s)*(\\b(v[oa]n|d[eua])\\s)*[A-Z]{1}[a-zA-Z-]+,*\\s(\\&|and))\\s)*([A-Z]\\.\\s)*(\\b(v[oa]n|d[eua])\\s)*[A-Z]{1}[a-zA-Z-]+\\s(et\\sal\\.\\s){0,1})|((\\b(v[oa]n|d[eua])\\s)*[A-Z][A-Za-z'-]*\\s)+)\\(((\\d{4}[a-z]{0,1}(,\\s*\\d{4}[a-z]{0,1})*)|(n\\.d\\.)|(in press))\\))",
@@ -46,7 +46,7 @@ regex_usa <- list(
     rm_tag2 = "(?<![@\\w])(@)(([a-z0-9_]{1,15})\\b)",  
     rm_title_name = "(((Dr|Mr|Mrs|Ms|dr|mr|mrs|ms)(\\.))|(Miss|Mizz|mizz))(\\s+)([A-Za-z]+)(\\s[A-Z][A-Za-z]*\\b)*",
     rm_time = "\\d{0,2}:\\d{2}(?:[:.]\\d+)?", 
-    rm_time2 = "\\d{0,2}:\\d{2}(?:[:.]\\d+)?\\s+(([AP]\\.{0,1}M\\.{0,1})|([ap]\\.{0,1}m\\.{0,1}))", 	
+    rm_time2 = "(\\d{0,2}:\\d{2}(?:[:.]\\d+)?)(\\s+(([AP]\\.{0,1}M\\.{0,1})|([ap]\\.{0,1}m\\.{0,1})))", 	
     rm_twitter_url = "(https?://t\\.co[^ ]*)|(t\\.co[^ ]*)",	
     rm_url = "(http[^ ]*)|(ftp[^ ]*)|(www\\.[^ ]*)", 
     rm_url2 = "(((https?|ftps?)://)|(www\\.))(-\\.)?([^\\s/?\\.#-]+\\.?)+(/[^\\s]*)?",
