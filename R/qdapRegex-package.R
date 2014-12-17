@@ -100,6 +100,9 @@ NULL
 #'   \item{rm_zip}{substring of 5 digits optionally followed by a dash and 4 more digits} 
 #' }
 #' @name regex_usa 
+#' @details Use \code{qdapRegex:::examine_regex()} to interactively explore the 
+#' regular expressions in \code{regex_usa}.  This will provide a browser + console
+#' based break down of each regex in the dictionary.
 #' @usage data(regex_usa) 
 #' @format A list with 49 elements 
 NULL
@@ -150,6 +153,9 @@ NULL
 #' \code{\link[qdapRegex]{S}} is useful for adding these missing \code{\%s} 
 #' parameters.
 #' @usage data(regex_supplement) 
+#' @details Use \code{qdapRegex:::examine_regex(regex_supplement)} to 
+#' interactively explore the regular expressions in \code{regex_usa}.  This will 
+#' provide a browser + console based break down of each regex in the dictionary.
 #' @format A list with 21 elements
 #' @examples 
 #' time <- rm_(pattern="@@time_12_hours")

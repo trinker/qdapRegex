@@ -146,3 +146,29 @@ hijack <- function(FUN, ...){
 	
     .FUN
 }
+
+## Function to visualize regex dictionaries
+examine_regex <- function(dictionary = qdapRegex::regex_usa){
+
+    lapply(seq_along(dictionary), function(i){
+    
+        message(sprintf("\nHere's the regex for `%s`:\n\n  %s", names(dictionary)[i], 
+            dictionary[[i]]), "\n\nDo you want to view it?")
+        ans <- menu(c("Yes", "No"))
+        if (ans == "2") {
+            return(NULL)
+        } else {
+            open <- TRUE
+            if (grepl("\\(\\?\\<[=!]", dictionary[[i]], perl=TRUE)) {
+                warning(immediate. = TRUE, paste("Pattern contains a Lookbehind and is not",
+                    "viewable to the Java based `www.regexper.com`\n\n",
+                    "Setting `open = FALSE`"))
+                flush.console()
+                Sys.sleep(1)
+                open <- FALSE
+            } 
+            explain(dictionary[[i]], open=open)
+        }
+    
+    })
+}

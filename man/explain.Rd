@@ -24,6 +24,10 @@ attemps to open the url to the visual representation provided by
 Visualize regular expressions using \url{http://www.regexper.com} &
 \url{http://rick.measham.id.au/paste/explain}.
 }
+\details{
+Note that \url{http://www.regexper.com} is a Java based regexular
+expression viewer. Lookbehind and negative lookbehinds are not respected.
+}
 \examples{
 explain("\\\\s*foo[A-Z]\\\\d{2,3}")
 explain("@rm_time")

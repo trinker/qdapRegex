@@ -13,6 +13,8 @@
 #' attemps to open the url to the visual representation provided by
 #' \url{http://www.regexper.com}, and invisibly returns a list with the URLs.
 #' @keywords explain regex 
+#' @details Note that \url{http://www.regexper.com} is a Java based regexular 
+#' expression viewer. Lookbehind and negative lookbehinds are not respected. 
 #' @export
 #' @seealso \url{http://www.regexper.com} \cr
 #' \url{http://rick.measham.id.au/paste/explain}
@@ -32,22 +34,28 @@ explain <- function(pattern, open = FALSE, dictionary = getOption("regex.library
     pattern <- reg_check(pattern, dictionary = dictionary)
     URL <- paste0("http://www.regexper.com/#", 
         utils::URLencode(pattern))
-    if (isTRUE(open)) utils::browseURL(URL)
+    if (isTRUE(open)) {
+
+        if (grepl("\\(\\?\\<[=!]", pattern, perl=TRUE)) {
+            warning(paste("Pattern contains a Lookbehind and may not be",
+                "viewable to the Java based `www.regexper.com`"))
+        }
+        utils::browseURL(URL)
+    }    
 
     URL2 <- gsub(";", "%3B", paste0("http://rick.measham.id.au/paste/explain.pl?regex=",
         utils::URLencode(pattern)), fixed=TRUE)
     lns <- readLines(URL2)
     lns <- gsub("&quot;", "\"", lns[grep("NODE", lns):(length(lns) - 2)], fixed=TRUE)
-    lns <- gsub("&lt;", "<", lns, fixed=TRUE)
+    lns <- gsub("&gt;", ">", gsub("&lt;", "<", lns, fixed=TRUE), fixed=TRUE)
     lns <- gsub("\\", "\\\\", lns, fixed=TRUE)
     lets <- c("n", "r", "t", "f", "a")
     for (i in seq_len(length(lets))){
         lns <- gsub(paste0("\\\\", lets[i]), paste0("\\", lets[i]), lns, fixed=TRUE)
     }
     lns[length(lns)] <- gsub("</pre>$", "", lns[length(lns)])
-    message(paste(lns, collapse="\n"), "\n\n")
+    message(paste0(paste(lns, collapse="\n"), "\n\n"))
 
     return(invisible(list(`www.regexper.com`=URL, 
         `http://rick.measham.id.au/paste/explain`=URL2)))
-
 }

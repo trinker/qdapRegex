@@ -74,10 +74,10 @@ rm_citation(x, extract=TRUE, pattern="@rm_citation2")
 rm_citation(x, extract=TRUE, pattern="@rm_citation3")
 
 \dontrun{
-## Mining Citations
-url_dl(paste0("http://eportfolio.lagcc.cuny.edu/gallery/old_system_eportfolios/",
-    "paola_dalmonech/documents/ResearchPaper.docx"))
-(txt <- read_docx("ResearchPaper.docx"))
+## Mining Citation
+url_dl("http://umlreading.weebly.com/uploads/2/5/2/5/25253346/whole_language_timeline-updated.docx")
+
+(txt <- read_docx("whole_language_timeline-updated.docx"))
 
 library(qdapTools); library(ggplot2); library(qdap)
 txt <- rm_non_ascii(txt)
@@ -100,8 +100,8 @@ cite_locs <- do.call(rbind, lapply(cites[[1]], function(x){
     m <- gregexpr(x, unbag(parts[[1]]), fixed=TRUE)
     data.frame(
         citation=x,
-        start = m[[1]] -25,
-        end =  m[[1]] + 25 + attributes(m[[1]])[["match.length"]]
+        start = m[[1]] -5,
+        end =  m[[1]] + 5 + attributes(m[[1]])[["match.length"]]
     )
 }))
 
