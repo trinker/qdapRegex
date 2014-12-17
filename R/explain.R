@@ -34,10 +34,11 @@ explain <- function(pattern, open = FALSE, dictionary = getOption("regex.library
         utils::URLencode(pattern))
     if (isTRUE(open)) utils::browseURL(URL)
 
-    URL2 <- paste0("http://rick.measham.id.au/paste/explain.pl?regex=",
-        utils::URLencode(pattern))
+    URL2 <- gsub(";", "%3B", paste0("http://rick.measham.id.au/paste/explain.pl?regex=",
+        utils::URLencode(pattern)), fixed=TRUE)
     lns <- readLines(URL2)
     lns <- gsub("&quot;", "\"", lns[grep("NODE", lns):(length(lns) - 2)], fixed=TRUE)
+    lns <- gsub("&lt;", "<", lns, fixed=TRUE)
     lns <- gsub("\\", "\\\\", lns, fixed=TRUE)
     lets <- c("n", "r", "t", "f", "a")
     for (i in seq_len(length(lets))){
