@@ -16,6 +16,7 @@ test_that("rm_citation is removing citation strings",{
         "I want Feet (n.d., 1999) and his esteemeded colleagues (Foo, in press, 1999; Bar, 2012)",
         "I saw it (viz. Smith, 2009, 2008), and then (cf., Jones, 1992a)",
         "Some (e.g. Con, 1888; Peirce, 1998) but then (e.g., Smith, in press, n.d.) see)",
+        "It's intrinsically wrong (Walker, 2008, p. 34).",
         "Here too |Yeps, 1212 and Jones (19959)"
     )
 
@@ -26,8 +27,8 @@ test_that("rm_citation is removing citation strings",{
         "I always consult xkcd comics for guidance (; ).", "says, \"RAM is cheap and thinking hurts\" yep ()", 
         "I like as well as toes ()", "I want and his esteemeded colleagues (; )", 
         "I saw it (viz. ), and then (cf., )", "Some (e.g. ; ) but then (e.g., ) see)", 
-        "Here too |Yeps, 1212 and Jones (19959)")
-
+        "It's intrinsically wrong (, p. 34).", "Here too |Yeps, 1212 and Jones (19959)"
+        )
 
     expect_equivalent(rm_citation(x), x2)
 	
@@ -50,6 +51,7 @@ test_that("rm_citation is extracting citation strings",{
         "I want Feet (n.d., 1999) and his esteemeded colleagues (Foo, in press, 1999; Bar, 2012)",
         "I saw it (viz. Smith, 2009, 2008), and then (cf., Jones, 1992a)",
         "Some (e.g. Con, 1888; Peirce, 1998) but then (e.g., Smith, in press, n.d.) see)",
+        "It's intrinsically wrong (Walker, 2008, p. 34).",
         "Here too |Yeps, 1212 and Jones (19959)"
     )
 
@@ -59,7 +61,10 @@ test_that("rm_citation is extracting citation strings",{
             "Uwe, in press"), c("van Feet (2003, 2002)", "de Foot, 2013, 1012, 2000"
             ), c("Feet (n.d., 1999)", "Foo, in press, 1999", "Bar, 2012"
             ), c("Smith, 2009, 2008", "Jones, 1992a"), c("Con, 1888", 
-            "Peirce, 1998", "Smith, in press, n.d."), NA_character_)
+            "Peirce, 1998", "Smith, in press, n.d."), "Walker, 2008", 
+            NA_character_)
+
+
 
     expect_equivalent(rm_citation(x, extract=TRUE), x3)
 })
