@@ -43,6 +43,14 @@ explain <- function(pattern, open = FALSE, dictionary = getOption("regex.library
         utils::browseURL(URL)
     }    
 
+    if (open == 2) {
+        ## Experimental/tempermental viewing from:
+        ## https://www.debuggex.com
+        view_regex <- source(system.file("additional_script/view_regex", 
+            package = "qdapRegex"))
+        view_regex[["value"]](pattern = pattern)
+    }  
+    
     URL2 <- gsub(";", "%3B", paste0("http://rick.measham.id.au/paste/explain.pl?regex=",
         utils::URLencode(pattern)), fixed=TRUE)
     lns <- readLines(URL2)
