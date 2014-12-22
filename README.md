@@ -36,8 +36,7 @@ Download the [zip ball](https://github.com/trinker/qdapRegex/zipball/master) or 
 ```r
 # install.packages("devtools")
 
-library(devtools)
-install_github("trinker/qdapRegex")
+devtools::install_github("trinker/qdapRegex")
 ```
 
 ## Help
