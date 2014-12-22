@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>grab. qdapRegex 0.1.3</title>
+<title>grab. qdapRegex 0.2.1</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="">
 
@@ -20,7 +20,7 @@
     <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">qdapRegex 0.1.3</a>
+      <a class="brand" href="#">qdapRegex 0.2.1</a>
       <div class="nav">
         <ul class="nav">
           <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
@@ -45,7 +45,7 @@
     <h2>Arguments</h2>
     <dl>
       <dt>pattern</dt>
-      <dd>A character string starting with <code>"@"</code> and a regular
+      <dd>A character string starting with <code>"@"</code> that is a regular
 expression from a <span class = "pkg">qdapRegex</span> dictionary.</dd>
       <dt>dictionary</dt>
       <dd>A dictionary of canned regular expressions to search within.</dd>
@@ -76,7 +76,8 @@ expression from a <span class = "pkg">qdapRegex</span> dictionary.</dd>
       
       <p>Many R regular expressions contain doubled backslashes that are not
 used in other regex interpreters.  Using <code><a href='http://www.inside-r.org/packages/cran/base/docs/cat'>cat</a></code> can remove
-backslash escapes (see <b>Examples</b>).</p>
+backslash escapes (see <b>Examples</b>) or <code><a href='http://www.inside-r.org/packages/cran/utils/docs/URLencode'>URLencode</a></code>
+if using in a url.</p>
   
     </div>
     

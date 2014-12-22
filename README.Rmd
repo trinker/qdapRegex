@@ -56,14 +56,12 @@ You are welcome to:
 
 The following examples demonstrate some of the functionality of **qdapRegex**.
 
-
-```r
+```{r, echo-FALSE}
 library(qdapRegex)
 ```
 
 ### Extract Citations
-
-```r
+```{r}
 w <- c("Hello World (V. Raptor, 1986) bye",
     "Narcissism is not dead (Rinker, 2014)",
     "The R Core Team (2014) has many members.",
@@ -79,39 +77,9 @@ w <- c("Hello World (V. Raptor, 1986) bye",
 rm_citation(w, extract=TRUE)
 ```
 
-```
-## [[1]]
-## [1] "V. Raptor, 1986"
-## 
-## [[2]]
-## [1] "Rinker, 2014"
-## 
-## [[3]]
-## [1] "The R Core Team (2014)"
-## 
-## [[4]]
-## [1] "Bunn (2005)"
-## 
-## [[5]]
-## [1] "Baer, 2005"
-## 
-## [[6]]
-## [1] "Wickham's (in press)"
-## 
-## [[7]]
-## [1] "Rinker's (n.d.)"
-## 
-## [[8]]
-## [1] "Foo, 2012" "Bar, 2014"
-## 
-## [[9]]
-## [1] "Uwe Ligges (2007)"
-```
-
 ### Extract Twitter Hash Tags, Name Tages, & URLs
 
-
-```r
+```{r}
 x <- c("@hadley I like #rstats for #ggplot2 work.",
     "Difference between #magrittr and #pipeR, both implement pipeline operators for #rstats:
         http://renkun.me/r/2014/07/26/difference-between-magrittr-and-pipeR.html @timelyportfolio",
@@ -120,154 +88,29 @@ x <- c("@hadley I like #rstats for #ggplot2 work.",
 )
 
 rm_hash(x, extract=TRUE)
-```
-
-```
-## [[1]]
-## [1] "#rstats"  "#ggplot2"
-## 
-## [[2]]
-## [1] "#magrittr" "#pipeR"    "#rstats"  
-## 
-## [[3]]
-## [1] "#user2014"
-```
-
-```r
 rm_tag(x, extract=TRUE)
-```
-
-```
-## [[1]]
-## [1] "@hadley"
-## 
-## [[2]]
-## [1] "@timelyportfolio"
-## 
-## [[3]]
-## [1] "@ramnath_vaidya"
-```
-
-```r
 rm_url(x, extract=TRUE)
-```
-
-```
-## [[1]]
-## [1] NA
-## 
-## [[2]]
-## [1] "http://renkun.me/r/2014/07/26/difference-between-magrittr-and-pipeR.html"
-## 
-## [[3]]
-## [1] "http://ramnathv.github.io/user2014-rcharts/#1"
 ```
 
 ### Extract Bracketed Text
 
-
-```r
+```{r}
 y <- c("I love chicken [unintelligible]!", 
     "Me too! (laughter) It's so good.[interrupting]",
     "Yep it's awesome {reading}.", "Agreed. {is so much fun}")
 
 rm_bracket(y, extract=TRUE)
-```
-
-```
-## [[1]]
-## [1] "unintelligible"
-## 
-## [[2]]
-## [1] "laughter"     "interrupting"
-## 
-## [[3]]
-## [1] "reading"
-## 
-## [[4]]
-## [1] "is so much fun"
-```
-
-```r
 rm_curly(y, extract=TRUE)
-```
-
-```
-## [[1]]
-## [1] NA
-## 
-## [[2]]
-## [1] NA
-## 
-## [[3]]
-## [1] "reading"
-## 
-## [[4]]
-## [1] "is so much fun"
-```
-
-```r
 rm_round(y, extract=TRUE)
-```
-
-```
-## [[1]]
-## [1] NA
-## 
-## [[2]]
-## [1] "laughter"
-## 
-## [[3]]
-## [1] NA
-## 
-## [[4]]
-## [1] NA
-```
-
-```r
 rm_square(y, extract=TRUE)
-```
-
-```
-## [[1]]
-## [1] "unintelligible"
-## 
-## [[2]]
-## [1] "interrupting"
-## 
-## [[3]]
-## [1] NA
-## 
-## [[4]]
-## [1] NA
-```
+````
 
 ### Extract Numbers
 
-
-```r
+```{r}
 z <- c("-2 is an integer.  -4.3 and 3.33 are not.",
     "123,456 is a lot more than -.2",
     "hello world -.q")
 rm_number(z)
-```
-
-```
-## [1] "is an integer. and are not." "is a lot more than"         
-## [3] "hello world -.q"
-```
-
-```r
 rm_number(z, extract=TRUE)
-```
-
-```
-## [[1]]
-## [1] "-2"   "-4.3" "3.33"
-## 
-## [[2]]
-## [1] "123,456" "-.2"    
-## 
-## [[3]]
-## [1] NA
 ```

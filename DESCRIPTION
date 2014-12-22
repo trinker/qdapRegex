@@ -1,7 +1,7 @@
 Package: qdapRegex
 Type: Package
 Title: Regular Expression Removal, Extraction, and Replacement Tools
-Version: 0.2.0
+Version: 0.2.1
 Date: 2014-04-19
 Authors@R: c(person("Jason", "Gray", "", role = "ctb"),
     person("Tyler", "Rinker", email = "tyler.rinker@gmail.com",

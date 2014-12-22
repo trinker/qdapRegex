@@ -11,6 +11,7 @@ sd_section("Removing/Extracting/Replacing",
   	"rm_caps",
     "rm_caps_phrase", 
   	"rm_citation", 
+    "rm_citation_tex",       
   	"rm_city_state",
   	"rm_city_state_zip",  	
   	"rm_date",
@@ -34,22 +35,34 @@ sd_section("Removing/Extracting/Replacing",
   )
 )
 
+sd_section("Testing",
+ "Functions for testing regular expressions.",
+  c(
+  	"is.regex",
+  	"validate"
+  )
+)
+
+sd_section("Educational",
+ "Functions used within qdapRegex that are intended for education around regular expressions.",
+  c(
+    "cheat",
+    "grab",
+  	"explain"
+  )
+)
 
 
 sd_section("qdapRegex Tools",
- "Functions used within qdapRegex that are not specific to removing/extracting/replacing text with regular expressions.",
+ "Other functions used within qdapRegex that are not specific to removing/extracting/replacing text with regular expressions.",
   c(
   	"bind",
-    "cheat",
   	"grab",
     "group",
   	"escape",
-  	"explain",
-  	"is.regex",
   	"pastex",
   	"S",
-  	"TC", 
-  	"validate"
+  	"TC"
   )
 )
 

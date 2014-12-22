@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>pastex. qdapRegex 0.1.3</title>
+<title>pastex. qdapRegex 0.2.1</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="">
 
@@ -20,7 +20,7 @@
     <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">qdapRegex 0.1.3</a>
+      <a class="brand" href="#">qdapRegex 0.2.1</a>
       <div class="nav">
         <ul class="nav">
           <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
@@ -40,17 +40,20 @@
 <div class="row">
   <div class="span8">
     <h2>Usage</h2>
-    <pre><div>pastex(..., dictionary&nbsp;=&nbsp;getOption("regex.library"))</div>
+    <pre><div>pastex(..., sep&nbsp;=&nbsp;"|", dictionary&nbsp;=&nbsp;getOption("regex.library"))</div>
 <div>x %|% y</div></pre>
     
     <h2>Arguments</h2>
     <dl>
+      <dt>sep</dt>
+      <dd>The separator to use between the expressions when they are
+collapsed.</dd>
       <dt>dictionary</dt>
       <dd>A dictionary of canned regular expressions to search within.</dd>
       <dt>x,y</dt>
       <dd>Two regular expressions to paste together.</dd>
       <dt>...</dt>
-      <dd>Ray regular expressions to paste together or a named expression
+      <dd>Regular expressions to paste together or a named expression
 from the default regular expression dictionary prefixed with single at
 (<code>@</code>) (e.g., <code>"@rm_hash"</code>) or a regular expression from
 <code>regex_supplement</code> dictionary prefixed with an at

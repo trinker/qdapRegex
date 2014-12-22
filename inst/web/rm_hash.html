@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>rm_hash. qdapRegex 0.1.3</title>
+<title>rm_hash. qdapRegex 0.2.1</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="
 &lt;a href = 'http://stackoverflow.com/'&gt;stackoverflow's&lt;/a&gt; hwnd and Tyler Rinker &lt;tyler.rinker@gmail.com&gt;.
@@ -22,7 +22,7 @@
     <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">qdapRegex 0.1.3</a>
+      <a class="brand" href="#">qdapRegex 0.2.1</a>
       <div class="nav">
         <ul class="nav">
           <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
@@ -130,6 +130,14 @@ rm_hash(x)
 [[3]]
 [1] &quot;#user2014&quot;
 
+</div>
+<div class='input'>
+## remove just the hash symbol
+rm_hash(x, replace=&quot;\\3&quot;)
+</div>
+<div class='output'>[1] &quot;@hadley I like rstats for ggplot2 work.&quot;                                                                                                                                       
+[2] &quot;Difference between magrittr and pipeR, both implement pipeline operators for rstats: http://renkun.me/r/2014/07/26/difference-between-magrittr-and-pipeR.html @timelyportfolio&quot;
+[3] &quot;Slides from great talk: @ramnath_vaidya: Interactive slides from Interactive Visualization presentation user2014. http://ramnathv.github.io/user2014-rcharts/#1&quot;               
 </div></pre>
   </div>
   <div class="span4">
@@ -143,7 +151,7 @@ rm_hash(x)
     <h2>See also</h2>
     
 <code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code>,
-<code><a href='http://www.inside-r.org/packages/cran/stringi/docs/stri_extract_regex'>stri_extract_all_regex</a></code>
+<code><a href='http://www.inside-r.org/packages/cran/stringi/docs/stri_extract'>stri_extract_all_regex</a></code>
 
     
     <h2>Author</h2>

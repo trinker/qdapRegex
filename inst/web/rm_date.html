@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>rm_date. qdapRegex 0.1.3</title>
+<title>rm_date. qdapRegex 0.2.1</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="">
 
@@ -20,7 +20,7 @@
     <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">qdapRegex 0.1.3</a>
+      <a class="brand" href="#">qdapRegex 0.2.1</a>
       <div class="nav">
         <ul class="nav">
           <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
@@ -141,7 +141,7 @@ rm_date(x2, pattern=&quot;@rm_date2&quot;)
 x3 &lt;- sprintf(&quot;R uses time in this format %s.&quot;, Sys.time())
 rm_date(x3, pattern=&quot;@rm_date3&quot;)
 </div>
-<div class='output'>[1] &quot;R uses time in this format 22:31:45.&quot;
+<div class='output'>[1] &quot;R uses time in this format 13:07:01.&quot;
 </div>
 <div class='input'>
 ## Grab all types
@@ -154,7 +154,7 @@ rm_date(c(x, x2, x3), pattern=&quot;@rm_date4&quot;, extract=TRUE)
 [1] &quot;Sept 09, 2002&quot;    &quot;October 22, 1887&quot; &quot;04-12-2014&quot;       &quot;good 00, 9999&quot;   
 
 [[3]]
-[1] &quot;2014-10-07&quot;
+[1] &quot;2014-12-22&quot;
 
 </div></pre>
   </div>
@@ -169,7 +169,7 @@ rm_date(c(x, x2, x3), pattern=&quot;@rm_date4&quot;, extract=TRUE)
     <h2>See also</h2>
     
 <code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code>,
-<code><a href='http://www.inside-r.org/packages/cran/stringi/docs/stri_extract_regex'>stri_extract_all_regex</a></code>
+<code><a href='http://www.inside-r.org/packages/cran/stringi/docs/stri_extract'>stri_extract_all_regex</a></code>
 
         
   </div>

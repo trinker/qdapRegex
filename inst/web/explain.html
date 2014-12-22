@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>explain. qdapRegex 0.2.1</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="
+Ananda Mahto, Matthew Flickinger, and Tyler Rinker &lt;tyler.rinker@gmail.com&gt;.
+">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">qdapRegex 0.2.1</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Visualize Regular Expressions</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><div>explain(pattern, open&nbsp;=&nbsp;FALSE, dictionary&nbsp;=&nbsp;getOption("regex.library"))</div></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>pattern</dt>
+      <dd>A character string containing a regular expression or a
+character string starting with <code>"@"</code> that is a regular
+expression from a <span class = "pkg">qdapRegex</span> dictionary.</dd>
+      <dt>open</dt>
+      <dd>logical.  If <code>TRUE</code> the default browser will attempt to
+open <a href = 'http://www.regexper.com'>http://www.regexper.com</a> page.  Setting <code>open = 2</code> will
+utilize an unstable visualization via <a href = 'https://www.debuggex.com'>https://www.debuggex.com</a>.  This
+approach utilizes a non-api scrape that is subject to change and not
+guaranteed to be stable.  The regex is set to Python flavor which handles
+lookbehinds that the Java based <a href = 'http://www.regexper.com'>http://www.regexper.com</a> does not.  This
+functionality was developed by
+<a href = 'http://www.matthewflickinger.com'>Matthew Flickinger</a> (see
+<a href = 'http://stackoverflow.com/a/27574103/1000343'>http://stackoverflow.com/a/27574103/1000343</a> for details).  Note that
+the user must have <span class = "pkg">httr</span> installed or will be prompted if the package
+cannot be <code><a href='http://www.inside-r.org/packages/cran/base/docs/library'>require</a></code>d.</dd>
+      <dt>dictionary</dt>
+      <dd>A dictionary of canned regular expressions to search within.</dd>
+    </dl>
+    
+    <div class="Visualize Regular Expressions">
+      <h2>Visualize Regular Expressions</h2>
+      
+    </div>
+
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>Prints <a href = 'http://rick.measham.id.au/paste/explain'>http://rick.measham.id.au/paste/explain</a> to the console,
+attempts to open the url to the visual representation provided by
+<a href = 'http://www.regexper.com'>http://www.regexper.com</a>, and invisibly returns a list with the URLs.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>Visualize regular expressions using <a href = 'http://www.regexper.com'>http://www.regexper.com</a> &
+<a href = 'http://rick.measham.id.au/paste/explain'>http://rick.measham.id.au/paste/explain</a>.</p>
+  
+    </div>
+
+    <div class="Details">
+      <h2>Details</h2>
+      
+      <p>Note that <a href = 'http://www.regexper.com'>http://www.regexper.com</a> is a Java based regular
+expression viewer. Lookbehind and negative lookbehinds are not respected.</p>
+  
+    </div>
+
+    <div class="References">
+      <h2>References</h2>
+      
+      <p><a href = 'http://stackoverflow.com/a/27489977/1000343'>http://stackoverflow.com/a/27489977/1000343</a> 
+<a href = 'http://www.regexper.com'>http://www.regexper.com</a> 
+<a href = 'http://rick.measham.id.au/paste/explain'>http://rick.measham.id.au/paste/explain</a> 
+<a href = 'http://stackoverflow.com/a/27574103/1000343'>http://stackoverflow.com/a/27574103/1000343</a></p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'>explain(&quot;\\s*foo[A-Z]\\d{2,3}&quot;)
+</div>
+<strong class='message'>NODE                     EXPLANATION
+--------------------------------------------------------------------------------
+  \\s*                      whitespace (\n, \r, \t, \f, and &quot; &quot;) (0 or
+                           more times (matching the most amount
+                           possible))
+--------------------------------------------------------------------------------
+  foo                      &#39;foo&#39;
+--------------------------------------------------------------------------------
+  [A-Z]                    any character of: &#39;A&#39; to &#39;Z&#39;
+--------------------------------------------------------------------------------
+  \\d{2,3}                  digits (0-9) (between 2 and 3 times
+                           (matching the most amount possible))
+
+</strong>
+<div class='input'>explain(&quot;@rm_time&quot;)
+</div>
+<strong class='message'>NODE                     EXPLANATION
+--------------------------------------------------------------------------------
+  \\d{0,2}                  digits (0-9) (between 0 and 2 times
+                           (matching the most amount possible))
+--------------------------------------------------------------------------------
+  :                        &#39;:&#39;
+--------------------------------------------------------------------------------
+  \\d{2}                    digits (0-9) (2 times)
+--------------------------------------------------------------------------------
+  (?:                      group, but do not capture (optional
+                           (matching the most amount possible)):
+--------------------------------------------------------------------------------
+    [:.]                     any character of: &#39;:&#39;, &#39;.&#39;
+--------------------------------------------------------------------------------
+    \\d                       digits (0-9)
+--------------------------------------------------------------------------------
+                             &#39; &#39;
+--------------------------------------------------------------------------------
+  )?                       end of grouping
+
+</strong>
+<div class='input'>## &lt;strong&gt;Not run&lt;/strong&gt;: 
+# explain(&quot;\\s*foo[A-Z]\\d{2,3}&quot;, open = TRUE)
+# explain(&quot;@rm_time&quot;, open = TRUE)
+# ## &lt;strong&gt;End(Not run)&lt;/strong&gt;
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>explain</li>
+    </ul>
+    <ul>
+      <li>explain</li><li>regex</li>
+    </ul> -->
+      
+    <h2>See also</h2>
+    
+<a href = 'http://www.regexper.com'>http://www.regexper.com</a> 
+<a href = 'http://rick.measham.id.au/paste/explain'>http://rick.measham.id.au/paste/explain</a>
+
+    
+    <h2>Author</h2>
+    
+Ananda Mahto, Matthew Flickinger, and Tyler Rinker <tyler.rinker@gmail.com>.
+
+    
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

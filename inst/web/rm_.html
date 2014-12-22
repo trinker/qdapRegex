@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>rm_. qdapRegex 0.1.3</title>
+<title>rm_. qdapRegex 0.2.1</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="">
 
@@ -20,7 +20,7 @@
     <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">qdapRegex 0.1.3</a>
+      <a class="brand" href="#">qdapRegex 0.2.1</a>
       <div class="nav">
         <ul class="nav">
           <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
@@ -138,6 +138,34 @@ f &lt;- rm_(pattern=&quot;@time_12_hours&quot;)
 f(&quot;I will go at 12:35 pm&quot;)
 </div>
 <div class='output'>[1] &quot;I will go at&quot;
+</div>
+<div class='input'>
+x &lt;- c(
+    &quot;test@aol.fg.com&quot;,
+    &quot;test@hotmail.com&quot;,
+    &quot;test@xyzrr.lk.edu&quot;,
+    &quot;test@abc.xx.zz.vv.net&quot;
+)
+
+file_ext2 &lt;- rm_(pattern=&quot;(?&lt;=\\.)[a-z]*$&quot;, extract=TRUE)
+tools::file_ext(x)
+</div>
+<div class='output'>[1] &quot;com&quot; &quot;com&quot; &quot;edu&quot; &quot;net&quot;
+</div>
+<div class='input'>file_ext2(x)
+</div>
+<div class='output'>[[1]]
+[1] &quot;com&quot;
+
+[[2]]
+[1] &quot;com&quot;
+
+[[3]]
+[1] &quot;edu&quot;
+
+[[4]]
+[1] &quot;net&quot;
+
 </div></pre>
   </div>
   <div class="span4">

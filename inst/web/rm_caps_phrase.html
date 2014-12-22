@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>rm_percent. qdapRegex 0.2.1</title>
+<title>rm_caps_phrase. qdapRegex 0.2.1</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="">
 
@@ -35,12 +35,12 @@
         
       </header>
       
-      <h1>Remove/Replace/Extract Percentages</h1>
+      <h1>Remove/Replace/Extract All Caps Phrases</h1>
 
 <div class="row">
   <div class="span8">
     <h2>Usage</h2>
-    <pre><div>rm_percent(text.var, trim&nbsp;=&nbsp;!extract, clean&nbsp;=&nbsp;TRUE, pattern&nbsp;=&nbsp;"@rm_percent", replacement&nbsp;=&nbsp;"", extract&nbsp;=&nbsp;FALSE, dictionary&nbsp;=&nbsp;getOption("regex.library"), ...)</div></pre>
+    <pre><div>rm_caps_phrase(text.var, trim&nbsp;=&nbsp;!extract, clean&nbsp;=&nbsp;TRUE, pattern&nbsp;=&nbsp;"@rm_caps_phrase", replacement&nbsp;=&nbsp;"", extract&nbsp;=&nbsp;FALSE, dictionary&nbsp;=&nbsp;getOption("regex.library"), ...)</div></pre>
     
     <h2>Arguments</h2>
     <dl>
@@ -55,14 +55,14 @@ character will be removed.</dd>
       <dt>pattern</dt>
       <dd>A character string containing a regular expression (or
 character string for <code>fixed = TRUE</code>) to be matched in the given
-character vector.  Default, <code>@rm_percent</code> uses the
-<code>rm_percent</code> regex from the regular expression dictionary from
+character vector.  Default, <code>@rm_caps_phrae</code> uses the
+<code>rm_caps_phrase</code> regex from the regular expression dictionary from
 the <code>dictionary</code> argument.</dd>
       <dt>replacement</dt>
       <dd>Replacement for matched <code>pattern</code>.</dd>
       <dt>extract</dt>
-      <dd>logical.  If <code>TRUE</code> the percentages are extracted into a
-list of vectors.</dd>
+      <dd>logical.  If <code>TRUE</code> the all caps strings are extracted
+into a list of vectors.</dd>
       <dt>dictionary</dt>
       <dd>A dictionary of canned regular expressions to search within
 if <code>pattern</code> begins with <code>"@rm_"</code>.</dd>
@@ -70,52 +70,67 @@ if <code>pattern</code> begins with <code>"@rm_"</code>.</dd>
       <dd>Other arguments passed to <code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code>.</dd>
     </dl>
     
-    <div class="Remove/Replace/Extract Percentages">
-      <h2>Remove/Replace/Extract Percentages</h2>
+    <div class="Remove/Replace/Extract All Caps Phrases">
+      <h2>Remove/Replace/Extract All Caps Phrases</h2>
       
     </div>
 
     <div class="Value">
       <h2>Value</h2>
       
-      <p>Returns a character string with percentages removed.</p>
+      <p>Returns a character string with "all caps" removed.</p>
   
     </div>
 
     <div class="Description">
       <h2>Description</h2>
       
-      <p>Remove/replace/extract percentages from a string.</p>
+      <p>Remove/replace/extract 'all caps' phrases containing 1 or more consecutive
+upper case letters from a string.  If one word phrase the word must be 3+
+letters long.</p>
   
     </div>
     
     <h2 id="examples">Examples</h2>
-    <pre class="examples"><div class='input'>x &lt;-  c(&quot;There is $5.50 for me.&quot;, &quot;that&#39;s 45.6% of the pizza&quot;,
-    &quot;14% is $26 or $25.99&quot;)
-
-rm_percent(x)
+    <pre class="examples"><div class='input'>x &lt;- c(&quot;UGGG! When I use caps I am YELLING!&quot;,
+   &quot;Or it may mean this is VERY IMPORTANT!&quot;,
+   &quot;or trying to make a LITTLE SEEM like IT ISN&#39;T LITTLE&quot;
+)
+rm_caps_phrase(x)
 </div>
-<div class='output'>[1] &quot;There is $5.50 for me.&quot; &quot;that&#39;s of the pizza&quot;    &quot;is $26 or $25.99&quot;      
+<div class='output'>[1] &quot;! When I use caps I am !&quot; &quot;Or it may mean this is !&quot; &quot;or trying to make a like&quot;
 </div>
-<div class='input'>rm_percent(x, extract=TRUE)
+<div class='input'>rm_caps_phrase(x, extract=TRUE)
 </div>
 <div class='output'>[[1]]
-[1] NA
+[1] &quot;UGGG&quot;    &quot;YELLING&quot;
 
 [[2]]
-[1] &quot;45.6%&quot;
+[1] &quot;VERY IMPORTANT&quot;
 
 [[3]]
-[1] &quot;14%&quot;
+[1] &quot;LITTLE SEEM &quot;    &quot;IT ISN&#39;T LITTLE&quot;
+
+</div>
+<div class='input'>rm_caps_phrase(x, extract=TRUE, trim=TRUE)
+</div>
+<div class='output'>[[1]]
+[1] &quot;UGGG&quot;    &quot;YELLING&quot;
+
+[[2]]
+[1] &quot;VERY IMPORTANT&quot;
+
+[[3]]
+[1] &quot;LITTLE SEEM&quot;     &quot;IT ISN&#39;T LITTLE&quot;
 
 </div></pre>
   </div>
   <div class="span4">
     <!-- <ul>
-      <li>rm_percent</li>
+      <li>rm_caps_phrase</li>
     </ul>
     <ul>
-      <li>percent</li>
+      <li>capital</li><li>caps</li>
     </ul> -->
       
     <h2>See also</h2>

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>bind. qdapRegex 0.1.3</title>
+<title>bind. qdapRegex 0.2.1</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="">
 
@@ -20,7 +20,7 @@
     <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">qdapRegex 0.1.3</a>
+      <a class="brand" href="#">qdapRegex 0.2.1</a>
       <div class="nav">
         <ul class="nav">
           <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
@@ -40,16 +40,22 @@
 <div class="row">
   <div class="span8">
     <h2>Usage</h2>
-    <pre><div>bind(x, left&nbsp;=&nbsp;"\\b", right&nbsp;=&nbsp;left)</div></pre>
+    <pre><div>bind(..., left&nbsp;=&nbsp;"\\b", right&nbsp;=&nbsp;left, dictionary&nbsp;=&nbsp;getOption("regex.library"))</div></pre>
     
     <h2>Arguments</h2>
     <dl>
-      <dt>x</dt>
-      <dd>A character vector.</dd>
       <dt>left</dt>
       <dd>A single length character vector to use as the left bound.</dd>
       <dt>right</dt>
       <dd>A single length character vector to use as the right bound.</dd>
+      <dt>dictionary</dt>
+      <dd>A dictionary of canned regular expressions to search within.</dd>
+      <dt>...</dt>
+      <dd>Regular expressions to add grouping parenthesis to a named
+expression from the default regular expression dictionary prefixed with
+single at (<code>@</code>) (e.g., <code>"@rm_hash"</code>) or a regular expression from
+<code>regex_supplement</code> dictionary prefixed with an at
+(<code>@</code>) (e.g., <code>"@time_12_hours"</code>).</dd>
     </dl>
     
     <div class="Add Left/Right Character(s) Boundaries">
@@ -76,8 +82,9 @@ boundaries.</p>
     <h2 id="examples">Examples</h2>
     <pre class="examples"><div class='input'>bind(LETTERS, &quot;[&quot;, &quot;]&quot;)
 </div>
-<div class='output'> [1] &quot;[A]&quot; &quot;[B]&quot; &quot;[C]&quot; &quot;[D]&quot; &quot;[E]&quot; &quot;[F]&quot; &quot;[G]&quot; &quot;[H]&quot; &quot;[I]&quot; &quot;[J]&quot; &quot;[K]&quot; &quot;[L]&quot; &quot;[M]&quot; &quot;[N]&quot; &quot;[O]&quot; &quot;[P]&quot; &quot;[Q]&quot; &quot;[R]&quot; &quot;[S]&quot;
-[20] &quot;[T]&quot; &quot;[U]&quot; &quot;[V]&quot; &quot;[W]&quot; &quot;[X]&quot; &quot;[Y]&quot; &quot;[Z]&quot;
+<div class='output'> [1] &quot;\\bA\\b&quot; &quot;\\bB\\b&quot; &quot;\\bC\\b&quot; &quot;\\bD\\b&quot; &quot;\\bE\\b&quot; &quot;\\bF\\b&quot; &quot;\\bG\\b&quot; &quot;\\bH\\b&quot; &quot;\\bI\\b&quot; &quot;\\bJ\\b&quot;
+[11] &quot;\\bK\\b&quot; &quot;\\bL\\b&quot; &quot;\\bM\\b&quot; &quot;\\bN\\b&quot; &quot;\\bO\\b&quot; &quot;\\bP\\b&quot; &quot;\\bQ\\b&quot; &quot;\\bR\\b&quot; &quot;\\bS\\b&quot; &quot;\\bT\\b&quot;
+[21] &quot;\\bU\\b&quot; &quot;\\bV\\b&quot; &quot;\\bW\\b&quot; &quot;\\bX\\b&quot; &quot;\\bY\\b&quot; &quot;\\bZ\\b&quot; &quot;\\b[\\b&quot; &quot;\\b]\\b&quot;
 </div>
 <div class='input'>
 ## More useful default parameters/usage

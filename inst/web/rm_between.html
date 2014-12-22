@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>rm_between. qdapRegex 0.1.3</title>
+<title>rm_between. qdapRegex 0.2.1</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="">
 
@@ -20,7 +20,7 @@
     <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">qdapRegex 0.1.3</a>
+      <a class="brand" href="#">qdapRegex 0.2.1</a>
       <div class="nav">
         <ul class="nav">
           <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
@@ -192,10 +192,19 @@ state &lt;- c(&quot;Computer is fun. Not too fun.&quot;, &quot;No it&#39;s not, 
 
 rm_between_multiple(state, c(&quot;is&quot;, &quot;we&quot;), c(&quot;too&quot;, &quot;on&quot;))
 </div>
-<div class='output'> [1] &quot;Computer fun.&quot;                       &quot;No it&#39;s not, it&#39;s dumb.&quot;             &quot;What should we do?&quot;                 
- [4] &quot;You liar, it stinks!&quot;                &quot;I am telling the truth!&quot;             &quot;How can we be certain?&quot;             
- [7] &quot;There is no way.&quot;                    &quot;I distrust you.&quot;                     &quot;What are you talking about?&quot;        
-[10] &quot;Shall? Good then.&quot;                   &quot;I&#39;m hungry. Let&#39;s eat. You already?&quot;
+<div class='output'> [1] &quot;Computer fun.&quot;                       &quot;No it&#39;s not, it&#39;s dumb.&quot;            
+ [3] &quot;What should we do?&quot;                  &quot;You liar, it stinks!&quot;               
+ [5] &quot;I am telling the truth!&quot;             &quot;How can we be certain?&quot;             
+ [7] &quot;There is no way.&quot;                    &quot;I distrust you.&quot;                    
+ [9] &quot;What are you talking about?&quot;         &quot;Shall? Good then.&quot;                  
+[11] &quot;I&#39;m hungry. Let&#39;s eat. You already?&quot;
+</div>
+<div class='input'>
+## Use Grouping
+s &lt;- &quot;something before stuff $some text$ in between $1$ and after&quot;
+rm_between(s, &quot;$&quot;, &quot;$&quot;, replacement=&quot;&lt;B&gt;\\2&lt;E&gt;&quot;)
+</div>
+<div class='output'>[1] &quot;something before stuff &lt;B&gt;some text&lt;E&gt; in between &lt;B&gt;1&lt;E&gt; and after&quot;
 </div></pre>
   </div>
   <div class="span4">
@@ -210,7 +219,7 @@ rm_between_multiple(state, c(&quot;is&quot;, &quot;we&quot;), c(&quot;too&quot;,
     
 <code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code>,
 <code>rm_bracket</code>,
-<code><a href='http://www.inside-r.org/packages/cran/stringi/docs/stri_extract_regex'>stri_extract_all_regex</a></code>
+<code><a href='http://www.inside-r.org/packages/cran/stringi/docs/stri_extract'>stri_extract_all_regex</a></code>
 
         
   </div>

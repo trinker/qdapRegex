@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>rm_citation. qdapRegex 0.1.3</title>
+<title>rm_citation. qdapRegex 0.2.1</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="">
 
@@ -20,7 +20,7 @@
     <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">qdapRegex 0.1.3</a>
+      <a class="brand" href="#">qdapRegex 0.2.1</a>
       <div class="nav">
         <ul class="nav">
           <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
@@ -235,6 +235,49 @@ rm_citation(x, extract=TRUE, pattern=&quot;@rm_citation3&quot;)
 [[9]]
 [1] NA
 
+</div>
+<div class='input'>
+## &lt;strong&gt;Not run&lt;/strong&gt;: 
+# ## Mining Citation
+# url_dl(&quot;http://umlreading.weebly.com/uploads/2/5/2/5/25253346/whole_language_timeline-updated.docx&quot;)
+# 
+# (txt &lt;- read_docx(&quot;whole_language_timeline-updated.docx&quot;))
+# 
+# library(qdapTools); library(ggplot2); library(qdap)
+# txt &lt;- rm_non_ascii(txt)
+# 
+# parts &lt;- split_vector(txt, split = &quot;References&quot;, include = TRUE, regex=TRUE)
+# 
+# parts[[1]]
+# 
+# rm_citation(unbag(parts[[1]]), extract=TRUE)[[1]]
+# 
+# ## By line
+# rm_citation(parts[[1]], extract=TRUE)
+# 
+# ## Frequency
+# left_just(cites &lt;- list2df(sort(table(rm_citation(unbag(parts[[1]]),
+#     extract=TRUE)), T), &quot;freq&quot;, &quot;citation&quot;)[2:1])
+# 
+# ## Distribution of citations (find locations and then plot)
+# cite_locs &lt;- do.call(rbind, lapply(cites[[1]], function(x){
+#     m &lt;- gregexpr(x, unbag(parts[[1]]), fixed=TRUE)
+#     data.frame(
+#         citation=x,
+#         start = m[[1]] -5,
+#         end =  m[[1]] + 5 + attributes(m[[1]])[[&quot;match.length&quot;]]
+#     )
+# }))
+# 
+# ggplot(cite_locs) +
+#     geom_segment(aes(x=start, xend=end, y=citation, yend=citation), size=3,
+#         color=&quot;yellow&quot;) +
+#     xlab(&quot;Duration&quot;) +
+#     scale_x_continuous(expand = c(0,0),
+#         limits = c(0, nchar(unbag(parts[[1]])) + 25)) +
+#     theme_black() +
+#     theme(panel.grid.major=element_line(color=&quot;grey20&quot;))
+# ## &lt;strong&gt;End(Not run)&lt;/strong&gt;
 </div></pre>
   </div>
   <div class="span4">
@@ -242,13 +285,13 @@ rm_citation(x, extract=TRUE, pattern=&quot;@rm_citation3&quot;)
       <li>rm_citation</li>
     </ul>
     <ul>
-      <li>date</li>
+      <li>citation</li>
     </ul> -->
       
     <h2>See also</h2>
     
 <code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code>,
-<code><a href='http://www.inside-r.org/packages/cran/stringi/docs/stri_extract_regex'>stri_extract_all_regex</a></code>
+<code><a href='http://www.inside-r.org/packages/cran/stringi/docs/stri_extract'>stri_extract_all_regex</a></code>
 
         
   </div>

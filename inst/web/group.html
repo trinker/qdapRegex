@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>group. qdapRegex 0.2.1</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">qdapRegex 0.2.1</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Group Regular Expressions</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><div>group(..., left&nbsp;=&nbsp;"(", right&nbsp;=&nbsp;")", dictionary&nbsp;=&nbsp;getOption("regex.library"))</div></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>left</dt>
+      <dd>A single length character vector to use as the left bound.</dd>
+      <dt>right</dt>
+      <dd>A single length character vector to use as the right bound.</dd>
+      <dt>dictionary</dt>
+      <dd>A dictionary of canned regular expressions to search within.</dd>
+      <dt>...</dt>
+      <dd>Regular expressions to add grouping parenthesis to a named
+expression from the default regular expression dictionary prefixed with
+single at (<code>@</code>) (e.g., <code>"@rm_hash"</code>) or a regular expression from
+<code>regex_supplement</code> dictionary prefixed with an at
+(<code>@</code>) (e.g., <code>"@time_12_hours"</code>).</dd>
+    </dl>
+    
+    <div class="Group Regular Expressions">
+      <h2>Group Regular Expressions</h2>
+      
+    </div>
+
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>Returns a single string of regular expressions with grouping
+parenthesis added.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p><code>group</code> - A wrapper for <code>paste(collapse="|")</code> that also searches
+the default and supplemental (<code>regex_supplement</code>)
+dictionaries for regular expressions before pasting them together with a pipe
+(<code>|</code>) separator.</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'>group(LETTERS)
+</div>
+<div class='output'> [1] &quot;(A)&quot; &quot;(B)&quot; &quot;(C)&quot; &quot;(D)&quot; &quot;(E)&quot; &quot;(F)&quot; &quot;(G)&quot; &quot;(H)&quot; &quot;(I)&quot; &quot;(J)&quot; &quot;(K)&quot; &quot;(L)&quot; &quot;(M)&quot; &quot;(N)&quot; &quot;(O)&quot; &quot;(P)&quot; &quot;(Q)&quot;
+[18] &quot;(R)&quot; &quot;(S)&quot; &quot;(T)&quot; &quot;(U)&quot; &quot;(V)&quot; &quot;(W)&quot; &quot;(X)&quot; &quot;(Y)&quot; &quot;(Z)&quot;
+</div>
+<div class='input'>group(1)
+</div>
+<div class='output'>[1] &quot;(1)&quot;
+</div>
+<div class='input'>
+(grouped &lt;- group(&quot;(the|them)\\b&quot;, &quot;@rm_zip&quot;))
+</div>
+<div class='output'>[1] &quot;((the|them)\\b)&quot;                    &quot;((?&lt;!\\d)\\d{5}(?:[ -]\\d{4})?\\b)&quot;
+</div>
+<div class='input'>pastex(grouped)
+</div>
+<div class='output'>[1] &quot;((the|them)\\b)|((?&lt;!\\d)\\d{5}(?:[ -]\\d{4})?\\b)&quot;
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>group</li>
+    </ul>
+    <ul>
+      <li>group</li><li>regex</li>
+    </ul> -->
+      
+        
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>
