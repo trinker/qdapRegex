@@ -6,7 +6,7 @@
 \alias{qdapRegex-package}
 \title{qdapRegex: Regular Expression Removal, Extraction, & Replacement Tools for the \pkg{qdap} Package}
 \description{
-\pkg{qdapRegex} is a collection of  regular expression tools associated with
+\pkg{qdapRegex} is a collection of regular expression tools associated with
 the \pkg{qdap} package that may be useful outside of the context of discourse
 analysis.  Tools include removal/extraction/replacement of abbreviations,
 dates, dollar amounts, email addresses, hash tags, numbers, percentages,

@@ -16,7 +16,7 @@ U(text.var, ...)
 
 \item{lower}{A vector of words to retain lower case for (unless first or last word).}
 
-\item{\ldots}{Other erguments passed to: \code{\link[stringi]{stri_trans_tolower}},
+\item{\ldots}{Other arguments passed to: \code{\link[stringi]{stri_trans_tolower}},
 \code{\link[stringi]{stri_trans_toupper}}, and \code{\link[stringi]{stri_trans_totitle}}.}
 }
 \value{

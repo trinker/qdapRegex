@@ -2,7 +2,7 @@
 #' 
 #' Remove/replace/extract 'all caps' phrases containing 1 or more consecutive 
 #' upper case letters from a string.  If one word phrase the word must be 3+ 
-#' etter long.
+#' letters long.
 #' 
 #' @param text.var The text variable.
 #' @param trim logical.  If \code{TRUE} removes leading and trailing white 
@@ -28,7 +28,7 @@
 #' @examples
 #' x <- c("UGGG! When I use caps I am YELLING!",
 #'    "Or it may mean this is VERY IMPORTANT!",
-#'    "or trying to ake a LITTLE SEEM like IT ISN'T LITTLE"
+#'    "or trying to make a LITTLE SEEM like IT ISN'T LITTLE"
 #' )
 #' rm_caps_phrase(x)
 #' rm_caps_phrase(x, extract=TRUE)

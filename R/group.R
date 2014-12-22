@@ -1,11 +1,11 @@
 #' Group Regular Expressions
 #' 
-#' \code{groupex} - A wrapper for \code{paste(collapse="|")} that also searches 
+#' \code{group} - A wrapper for \code{paste(collapse="|")} that also searches 
 #' the default and supplemental (\code{\link[qdapRegex]{regex_supplement}}) 
 #' dictionaries for regular expressions before pasting them together with a pipe 
 #' (\code{|}) separator.
 #' 
-#' @param \ldots Regular expressions to add grouping prenthesis to a named 
+#' @param \ldots Regular expressions to add grouping parenthesis to a named 
 #' expression from the default regular expression dictionary prefixed with 
 #' single at (\code{@@}) (e.g., \code{"@@rm_hash"}) or a regular expression from 
 #' \code{\link[qdapRegex]{regex_supplement}} dictionary prefixed with an at 

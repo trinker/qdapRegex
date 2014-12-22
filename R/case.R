@@ -4,7 +4,7 @@
 #' 
 #' @param text.var The text variable.
 #' @param lower A vector of words to retain lower case for (unless first or last word).
-#' @param \ldots Other erguments passed to: \code{\link[stringi]{stri_trans_tolower}},
+#' @param \ldots Other arguments passed to: \code{\link[stringi]{stri_trans_tolower}},
 #' \code{\link[stringi]{stri_trans_toupper}}, and \code{\link[stringi]{stri_trans_totitle}}.
 #' @return Returns a character vector with new case (lower, upper, or title).
 #' @note \code{TC} utilizes additional rules for capitalization beyond 

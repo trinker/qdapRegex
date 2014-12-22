@@ -1,6 +1,6 @@
 #' qdapRegex: Regular Expression Removal, Extraction, & Replacement Tools for the \pkg{qdap} Package
 #'
-#' \pkg{qdapRegex} is a collection of  regular expression tools associated with 
+#' \pkg{qdapRegex} is a collection of regular expression tools associated with 
 #' the \pkg{qdap} package that may be useful outside of the context of discourse
 #' analysis.  Tools include removal/extraction/replacement of abbreviations, 
 #' dates, dollar amounts, email addresses, hash tags, numbers, percentages, 
@@ -20,7 +20,6 @@
 #' @aliases qdapRegex package-qdapRegex
 NULL
 
-#' A Cheatsheet of Common Regex Task Chunks
 #' 
 #' A dataset containing the regex chunk name, the regex string, and a 
 #' description of what the chunk does.
@@ -82,7 +81,7 @@ NULL
 #'   \item{rm_tag2}{\href{https://support.twitter.com/articles/101299-why-can-t-i-register-certain-usernames}{Twitter} substring that begins with an at (@@) followed by a word composed of alpha-numeric characters and underscores, no longer than 15 characters}
 #'   \item{rm_title_name}{substring beginning with title (Mrs., Mr., Ms., Dr.) that is case independent or full title (Miss, Mizz, mizz) followed by a single lower case word or multiple capitalized words}
 #'   \item{rm_time}{substring that (1) must begin with 0-2 digits, (2) must be followed by a single colon (:), (3) optionally may be followed by either a colon (:) or a dot (.), (4) optionally may be followed by 1-infinite digits (if previous condition is true)}
-#'   \item{rm_time2}{substring that is idential to \code{rm_time} witht he additional search for Ante Meridiem/Post Meridiem abbreviations (e.g., AM, p.m., etc.)}
+#'   \item{rm_time2}{substring that is identical to \code{rm_time} with the additional search for Ante Meridiem/Post Meridiem abbreviations (e.g., AM, p.m., etc.)}
 #'   \item{rm_twitter_url}{\href{https://twitter.com/}{Twitter} \href{https://support.twitter.com/articles/109623-about-twitter-s-link-service-http-t-co}{short link/url}; substring optionally beginning with \emph{http}, followed by \emph{t.co} ending on a space or end of string (whichever comes first)}
 #'   \item{rm_url}{substring beginning with \emph{http}, \emph{www.}, or \emph{ftp} and ending on a space or end of string (whichever comes first); note that this regex is simple and may not cover all valid URLs or may include invalid URLs}
 #'   \item{rm_url2}{substring beginning with \emph{http}, \emph{www.}, or \emph{ftp} and more constrained than \code{rm_url}; based on @@imme_emosol's response from \url{https://mathiasbynens.be/demo/url-regex}}
@@ -137,10 +136,10 @@ NULL
 #'   \item{version}{substring starting with "v" or "version" optionally followed by a space and then period separated digits for <major>.<minor>.<release>.<build>; the build sequence is optional and the "version"/"v" IS NOT contained in the substring}
 #'   \item{version2}{substring starting with "v" or "version" optionally followed by a space and then period separated digits for <major>.<minor>.<release>.<build>; the build sequence is optional and the "version"/"v" IS contained in the substring}
 #'   \item{white_after_comma}{substring of white space after a comma}
-#'   \item{word_boundary}{A true word boundary that only includes alphabetic characters; ; based on \url{www.rexegg.com}'s suggestion taken from \href{http://www.rexegg.com/regex-boundaries.html#real-word-boundary}{discussion of true word boundaries}; note contains \code{"\%s"} that is replaced by \code{\link[base]{sprintf}} and is not a valid regex on its own}
-#'   \item{word_boundary_left}{A true left word boundary that only includes alphabetic characters; ; based on \url{www.rexegg.com}'s suggestion taken from \href{http://www.rexegg.com/regex-boundaries.html#real-word-boundary}{discussion of true word boundaries}}
-#'   \item{word_boundary_right}{A true right word boundary that only includes alphabetic characters; ; based on \url{www.rexegg.com}'s suggestion taken from \href{http://www.rexegg.com/regex-boundaries.html#real-word-boundary}{discussion of true word boundaries}}	
-#'   \item{youtube_id}{substring of the video id from a \href{https://www.youtube.com}{YouTube} video; ; taken from Jacob Overgaard's submission found \url{http://regex101.com/r/kU7bP8/1}}
+#'   \item{word_boundary}{A true word boundary that only includes alphabetic characters; based on \url{www.rexegg.com}'s suggestion taken from \href{http://www.rexegg.com/regex-boundaries.html#real-word-boundary}{discussion of true word boundaries}; note contains \code{"\%s"} that is replaced by \code{\link[base]{sprintf}} and is not a valid regex on its own}
+#'   \item{word_boundary_left}{A true left word boundary that only includes alphabetic characters; based on \url{www.rexegg.com}'s suggestion taken from \href{http://www.rexegg.com/regex-boundaries.html#real-word-boundary}{discussion of true word boundaries}}
+#'   \item{word_boundary_right}{A true right word boundary that only includes alphabetic characters; based on \url{www.rexegg.com}'s suggestion taken from \href{http://www.rexegg.com/regex-boundaries.html#real-word-boundary}{discussion of true word boundaries}}	
+#'   \item{youtube_id}{substring of the video id from a \href{https://www.youtube.com}{YouTube} video; taken from Jacob Overgaard's submission found \url{http://regex101.com/r/kU7bP8/1}}
 #' } 
 #' 
 #' Regexes from this data set can be added to the \code{pattern} argument of any 

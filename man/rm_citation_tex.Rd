@@ -26,10 +26,10 @@ character string).}
 list of vectors.}
 
 \item{split}{logical.  If \code{TRUE} and \code{extract = TRUE} the bibkey
-will be removed from the the LaTeX citation code curly braces and split on
+will be removed from the LaTeX citation code curly braces and split on
 commas.}
 
-\item{unlist.extract}{logcal.  If \code{TRUE} the splits from between LaTeX
+\item{unlist.extract}{logical.  If \code{TRUE} the splits from between LaTeX
 citation code curly braces will be unlisted. if \code{FALSE} the list
 structure (1 per citation code curly brace) will be retained.}
 
@@ -48,7 +48,7 @@ Remove/replace/extract LaTeX citations from a string.
 \examples{
 x <- c(
     "I say \\\\parencite*{Ted2005, Moe1999} go there in \\\\textcite{Few2010} said to.",
-    "But then \\\\authorcite{Ware2013} siad it was so \\\\pcite[see][p. 22]{Get9999c}.",
+    "But then \\\\authorcite{Ware2013} said it was so \\\\pcite[see][p. 22]{Get9999c}.",
     "then I \\\\citep[p. 22]{Foo1882c} him")
 
 rm_citation_tex(x)

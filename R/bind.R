@@ -4,7 +4,7 @@
 #' a character vector.  The default is to use \code{"\\b"} for left and right 
 #' boundaries.
 #' 
-#' @param \ldots Regular expressions to add grouping prenthesis to a named 
+#' @param \ldots Regular expressions to add grouping parenthesis to a named 
 #' expression from the default regular expression dictionary prefixed with 
 #' single at (\code{@@}) (e.g., \code{"@@rm_hash"}) or a regular expression from 
 #' \code{\link[qdapRegex]{regex_supplement}} dictionary prefixed with an at 

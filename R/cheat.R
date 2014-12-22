@@ -1,11 +1,11 @@
-#' A Cheatsheet of Common Regex Task Chunks
+#' A Cheat Sheet of Common Regex Task Chunks
 #' 
-#' Print a cheatsheet of common regex task chunks.  \code{cheat} prints a left 
+#' Print a cheat sheet of common regex task chunks.  \code{cheat} prints a left 
 #' justified version of \code{\link[qdapRegex]{regex_cheat}}.
 #' 
 #' @param dictionary A dictionary of cheat terms.  Default is 
 #' \code{\link[qdapRegex]{regex_cheat}}.
-#' @param print logical.  If \code{TRUE} the left justified  output is printed 
+#' @param print logical.  If \code{TRUE} the left justified output is printed 
 #' to the console.
 #' @return Prints a cheat sheet of common regex tasks such as lookaheads.  
 #' Invisibly returns \code{\link[qdapRegex]{regex_cheat}}.

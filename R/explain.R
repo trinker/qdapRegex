@@ -6,23 +6,23 @@
 #' @param pattern A character string containing a regular expression or a
 #' character string starting with \code{"@@"} that is a regular 
 #' expression from a \pkg{qdapRegex} dictionary.
-#' @param open logical.  If \code{TRUE} the the default browser will attempt to 
+#' @param open logical.  If \code{TRUE} the default browser will attempt to 
 #' open \url{http://www.regexper.com} page.  Setting \code{open = 2} will 
 #' utilize an unstable visualization via \url{https://www.debuggex.com}.  This 
 #' approach utilizes a non-api scrape that is subject to change and not 
-#' garanteed to be stable.  The regex is set to Python flavor whch hadles 
-#' lookaheads that the Java based \url{http://www.regexper.com} does not.  This
+#' guaranteed to be stable.  The regex is set to Python flavor which handles 
+#' lookbehinds that the Java based \url{http://www.regexper.com} does not.  This
 #' functionality was developed by 
 #' \href{http://www.matthewflickinger.com}{Matthew Flickinger} (see 
 #' \url{http://stackoverflow.com/a/27574103/1000343} for details).  Note that 
 #' the user must have \pkg{httr} installed or will be prompted if the package
-#' can not be \code{\link[base]{require}}d.
+#' cannot be \code{\link[base]{require}}d.
 #' @param dictionary A dictionary of canned regular expressions to search within.
 #' @return Prints \url{http://rick.measham.id.au/paste/explain} to the console,
-#' attemps to open the url to the visual representation provided by
+#' attempts to open the url to the visual representation provided by
 #' \url{http://www.regexper.com}, and invisibly returns a list with the URLs.
 #' @keywords explain regex 
-#' @details Note that \url{http://www.regexper.com} is a Java based regexular 
+#' @details Note that \url{http://www.regexper.com} is a Java based regular 
 #' expression viewer. Lookbehind and negative lookbehinds are not respected. 
 #' @export
 #' @seealso \url{http://www.regexper.com} \cr
