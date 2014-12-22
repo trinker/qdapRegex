@@ -120,7 +120,7 @@ First CRAN Release
 
 
 
- <a href="https://github.com/trinker/qdapRegex" target="_blank">qdapRegex</a> 0.0.1
+ <a href="https://github.com/trinker/qdapRegex" target="_blank">qdapRegex</a> 0.0.1 - 0.2.0
 ----------------------------------------------------------------
 
 This package is a collection of regex tools associated with the qdap
