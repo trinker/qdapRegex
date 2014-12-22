@@ -88,20 +88,47 @@ regex_supplement <- list(
     youtube_id = "(?<=\\d\\/|\\.be\\/|v[=\\/])([\\w\\-]{11,})|^([\\w\\-]{11})"
 )
 
+
 regex_cheat <- structure(list(
         Name = c("Lookahead", "Lookbehind", "Negative Lookahead", 
-            "Negative Lookbehind", "Exception", "Case Insensitive"), 
-        Regex = c("(?=foo)", "(?<=foo)", "(?!foo)", "(?<!foo)", "[^X]", 
-            "(?i:foo)"), 
+            "Negative Lookbehind", "Non-Capturing Group", "Exception", "Dot", 
+            "Case Insensitive", "Digit", "Non-Digit", "Word", "Non-Word",
+            "Whitespace", "Non-Whitespace", "Word Boundary", "Non-Word Boundary",
+            "0-1 (Greedy)", "0-1 (Lazy)", ">= 0 (Grredy)", ">= 0 (Lazy)", 
+            ">= 1 (Grredy)", ">= 1 (Lazy)", "Exactly N", "Min-Max", "> N"), 
+        Regex = c("(?=foo)", "(?<=foo)", "(?!foo)", "(?<!foo)", "(?:foo)", 
+            "[^X]", ".", "(?i:foo)", "\\d", "\\D", "\\w", "\\W", "\\s", "\\S",
+            "\\b", "\\B", "x?", "x??", "x*", "x*?", "x+", "x+?", "x{4}", 
+            "x{4,8}", "x{9,}"), 
         `What it Does` = c(
             "What follows is `foo`", 
             "What precedes is `foo`", 
             "What follows is not `foo`", 
             "What precedes is not `foo`", 
-            "Match everything except `X`", 
-            "Matches irregardless of case; `Foo` & `foO` matched"
+            "Match this group (`foo`) but with no capture",
+            "Match everything except `X`",
+            "Match any character", 
+            "Matches irregardless of case; `Foo` & `foO` matched",
+            "Match digits (i.e., [0-9])",
+            "Match non-digits (i.e., [^0-9])",
+            "Match words (i.e., [_a-zA-Z0-9])",
+            "Match non-words (i.e., [^_a-zA-Z0-9])",
+            "Match whitespace (i.e., [ \\t\\r\\n\\f])",
+            "Match non-whitespace (i.e., [^ \\t\\r\\n\\f])",
+            "Match begining/end of word",
+            "Match not begining/end of word",
+            "Match 0-1 times greedy",
+            "Match 0-1 times lazy",
+            "Match 0 or more times greedy",
+            "Match 0 or more times lazy",
+            "Match 1 or more times greedy",
+            "Match 1 or more times lazy",  
+            "Match N times",
+            "Match min-max times",
+            "Match N or more times"  
     )), 
-    .Names = c("Name", "Regex", "What it Does"), row.names = c(NA, 6L), class = "data.frame"
+    .Names = c("Name", "Regex", "What it Does"), 
+        row.names = c(NA, 25L), class = "data.frame"
 )
 
 #  pack.skel(regex_usa, regex_supplement)

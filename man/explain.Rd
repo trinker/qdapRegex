@@ -11,7 +11,16 @@ character string starting with \code{"@"} that is a regular
 expression from a \pkg{qdapRegex} dictionary.}
 
 \item{open}{logical.  If \code{TRUE} the the default browser will attempt to
-open \url{http://www.regexper.com} page.}
+open \url{http://www.regexper.com} page.  Setting \code{open = 2} will
+utilize an unstable visualization via \url{https://www.debuggex.com}.  This
+approach utilizes a non-api scrape that is subject to change and not
+garanteed to be stable.  The regex is set to Python flavor whch hadles
+lookaheads that the Java based \url{http://www.regexper.com} does not.  This
+functionality was developed by
+\href{http://www.matthewflickinger.com}{Matthew Flickinger} (see
+\url{http://stackoverflow.com/a/27574103/1000343} for details).  Note that
+the user must have \pkg{httr} installed or will be prompted if the package
+can not be \code{\link[base]{require}}d.}
 
 \item{dictionary}{A dictionary of canned regular expressions to search within.}
 }
@@ -37,12 +46,13 @@ explain("@rm_time", open = TRUE)
 }
 }
 \author{
-Ananda Mahto and Tyler Rinker <tyler.rinker@gmail.com>.
+Ananda Mahto, Matthew Flickinger, and Tyler Rinker <tyler.rinker@gmail.com>.
 }
 \references{
 \url{http://stackoverflow.com/a/27489977/1000343} \cr
 \url{http://www.regexper.com} \cr
-\url{http://rick.measham.id.au/paste/explain}
+\url{http://rick.measham.id.au/paste/explain} \cr
+\url{http://stackoverflow.com/a/27574103/1000343}
 }
 \seealso{
 \url{http://www.regexper.com} \cr
