@@ -17,7 +17,7 @@ And constructed with the following guidelines:
 * Bug fixes and misc changes bumps the patch
 
 
-qdapRegex 0.1.3
+ <a href="https://github.com/trinker/qdapRegex" target="_blank">qdapRegex</a> 0.1.3
 ----------------------------------------------------------------
 
 **BUG FIXES**
@@ -80,10 +80,8 @@ qdapRegex 0.1.3
 * `rm_citation`, `rm_citation2`, and `rm_citation3` now attempt to include last 
   names that contain the  lower case particles: von, van, de, da, and du.
 
-**CHANGES**
 
-
-qdapRegex 0.1.2
+ <a href="https://github.com/trinker/qdapRegex" target="_blank">qdapRegex</a> 0.1.2
 ----------------------------------------------------------------
 
 CRAN fix for oldrel Windows.  Updated to R version 3.1.0 in Description file.
@@ -94,7 +92,7 @@ CRAN fix for oldrel Windows.  Updated to R version 3.1.0 in Description file.
   each element of a character vector.
 
 
-qdapRegex 0.1.1
+ <a href="https://github.com/trinker/qdapRegex" target="_blank">qdapRegex</a> 0.1.1
 ----------------------------------------------------------------
 
 First CRAN Release
@@ -122,7 +120,7 @@ First CRAN Release
 
 
 
-qdapRegex 0.0.1
+ <a href="https://github.com/trinker/qdapRegex" target="_blank">qdapRegex</a> 0.0.1
 ----------------------------------------------------------------
 
 This package is a collection of regex tools associated with the qdap

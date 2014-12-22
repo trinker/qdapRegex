@@ -80,8 +80,6 @@ IMPROVEMENTS
 * `rm_citation`, `rm_citation2`, and `rm_citation3` now attempt to include last 
   names that contain the  lower case particles: von, van, de, da, and du.
 
-CHANGES
-
 
 qdapRegex 0.1.2
 ----------------------------------------------------------------
