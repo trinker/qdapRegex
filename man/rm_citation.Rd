@@ -111,8 +111,16 @@ ggplot(cite_locs) +
     xlab("Duration") +
     scale_x_continuous(expand = c(0,0),
         limits = c(0, nchar(unbag(parts[[1]])) + 25)) +
-    theme_black() +
-    theme(panel.grid.major=element_line(color="grey20"))
+    theme_grey() +
+    theme(
+        panel.grid.major=element_line(color="grey20"),
+        panel.grid.minor=element_line(color="grey20"),
+        plot.background = element_rect(fill="black"),
+        panel.background = element_rect(fill="black"),
+        panel.border = element_rect(colour = "grey50", fill=NA, size=1),
+        axis.text=element_text(color="grey50"),
+        axis.title=element_text(color="grey50")
+    )
 }
 }
 \seealso{
