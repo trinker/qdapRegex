@@ -3,7 +3,8 @@
 \alias{explain}
 \title{Visualize Regular Expressions}
 \usage{
-explain(pattern, open = FALSE, dictionary = getOption("regex.library"))
+explain(pattern, open = FALSE, print = TRUE,
+  dictionary = getOption("regex.library"))
 }
 \arguments{
 \item{pattern}{A character string containing a regular expression or a
@@ -21,6 +22,8 @@ functionality was developed by
 \url{http://stackoverflow.com/a/27574103/1000343} for details).  Note that
 the user must have \pkg{httr} installed or will be prompted if the package
 cannot be \code{\link[base]{require}}d.}
+
+\item{print}{logical.  Should \code{explain} print output to the console?}
 
 \item{dictionary}{A dictionary of canned regular expressions to search within.}
 }

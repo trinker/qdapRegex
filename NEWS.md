@@ -21,6 +21,10 @@ And constructed with the following guidelines:
 
 **BUG FIXES**
 
+* `explain` used `message` to print to the console.  `explain` now returns an
+  object of the class `explain` with its own print method which uses `cat` 
+  rather than `message`.
+
 **NEW FEATURES**
 
 **MINOR FEATURES**

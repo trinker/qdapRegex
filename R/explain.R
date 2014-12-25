@@ -17,6 +17,7 @@
 #' \url{http://stackoverflow.com/a/27574103/1000343} for details).  Note that 
 #' the user must have \pkg{httr} installed or will be prompted if the package
 #' cannot be \code{\link[base]{require}}d.
+#' @param print logical.  Should \code{explain} print output to the console?
 #' @param dictionary A dictionary of canned regular expressions to search within.
 #' @return Prints \url{http://rick.measham.id.au/paste/explain} to the console,
 #' attempts to open the url to the visual representation provided by
@@ -39,7 +40,8 @@
 #' explain("\\s*foo[A-Z]\\d{2,3}", open = TRUE)
 #' explain("@@rm_time", open = TRUE)
 #' }
-explain <- function(pattern, open = FALSE, dictionary = getOption("regex.library")) {
+explain <- function(pattern, open = FALSE, print = TRUE,
+    dictionary = getOption("regex.library")) {
 
     pattern <- reg_check(pattern, dictionary = dictionary)
     URL <- paste0("http://www.regexper.com/#", 
@@ -72,8 +74,24 @@ explain <- function(pattern, open = FALSE, dictionary = getOption("regex.library
         lns <- gsub(paste0("\\\\", lets[i]), paste0("\\", lets[i]), lns, fixed=TRUE)
     }
     lns[length(lns)] <- gsub("</pre>$", "", lns[length(lns)])
-    message(paste0(paste(lns, collapse="\n"), "\n\n"))
 
-    return(invisible(list(`www.regexper.com`=URL, 
-        `http://rick.measham.id.au/paste/explain`=URL2)))
+    class(lns) <- c("explain", class(lns))
+    attributes(lns)[["www.regexper.com"]] <- URL
+    attributes(lns)[["http://rick.measham.id.au/paste/explain"]] <- URL2
+
+    lns
+}
+
+
+#' Prints a explain object
+#' 
+#' Prints a explain object
+#' 
+#' @param x The explain object
+#' @param \ldots ignored
+#' @export
+#' @method print explain
+print.explain <- function(x, ...){
+
+    cat(paste0(paste(x, collapse="\n"), "\n\n"))
 }
