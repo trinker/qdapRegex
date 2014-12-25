@@ -63,8 +63,17 @@ explain <- function(pattern, open = FALSE, print = TRUE,
         view_regex[["value"]](pattern = pattern)
     }  
     
-    URL2 <- gsub(";", "%3B", paste0("http://rick.measham.id.au/paste/explain.pl?regex=",
-        utils::URLencode(pattern)), fixed=TRUE)
+    URL2 <- paste0("http://rick.measham.id.au/paste/explain.pl?regex=",
+        utils::URLencode(pattern))
+
+    ## replace invalid characters
+    chars <- c(";", "+", "&")
+    reps <- c("%3B", "%2B", "%26")
+
+    for (i in seq_along(reps)){
+        URL2 <- gsub(chars[i], reps[i], URL2, fixed=TRUE)
+    }
+
     lns <- readLines(URL2)
     lns <- gsub("&quot;", "\"", lns[grep("NODE", lns):(length(lns) - 2)], fixed=TRUE)
     lns <- gsub("&gt;", ">", gsub("&lt;", "<", lns, fixed=TRUE), fixed=TRUE)

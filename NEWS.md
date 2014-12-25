@@ -23,7 +23,8 @@ And constructed with the following guidelines:
 
 * `explain` used `message` to print to the console.  `explain` now returns an
   object of the class `explain` with its own print method which uses `cat` 
-  rather than `message`.
+  rather than `message`. Additionally, the characters `+` and `&` were not 
+  handled correctly; this has been corrected.
 
 **NEW FEATURES**
 
