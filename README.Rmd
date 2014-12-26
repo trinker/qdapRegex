@@ -1,6 +1,7 @@
 # qdapRegex
 
 [![Build Status](https://travis-ci.org/trinker/qdapRegex.png?branch=master)](https://travis-ci.org/trinker/qdapRegex)
+[![Coverage Status](https://coveralls.io/repos/trinker/qdapRegex/badge.png)](https://coveralls.io/r/trinker/qdapRegex)
 [![DOI](https://zenodo.org/badge/5398/trinker/qdapRegex.png)](http://dx.doi.org/10.5281/zenodo.11284)
 
 <img src="inst/qdapRegex_logo/r_qdapRegex.png" width="45%">      
