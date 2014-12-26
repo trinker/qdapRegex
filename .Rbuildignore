@@ -14,3 +14,4 @@ inst/web
 contributors.geojson
 inst/build.R
 inst/r_qdapRegex.pptx
+README.Rmd
