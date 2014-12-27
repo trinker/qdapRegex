@@ -15,3 +15,5 @@ contributors.geojson
 inst/build.R
 inst/r_qdapRegex.pptx
 README.Rmd
+inst/dictionary_maintenance.R
+inst/regex_scripts

@@ -28,12 +28,18 @@ And constructed with the following guidelines:
 
 **NEW FEATURES**
 
-* `%+%` binary operator versio of `pastex(x, y, sep = "")` added to join
+* `%+%` binary operator version of `pastex(x, y, sep = "")` added to join
   regular expressions together.
 
 **MINOR FEATURES**
 
 **IMPROVEMENTS**
+
+* Regular Expression Dictionaries (e.g., `regex_usa` and `regex_supplement`) are
+  now managed with the **regexr** package.  This enables cleaner updating of the 
+  regular expressions with easier to read structure.  Longer files will be 
+  stored in this format.  Files located:
+  https://github.com/trinker/qdapRegex/tree/master/inst/regex_scripts
 
 **CHANGES**
 
