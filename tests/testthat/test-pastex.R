@@ -8,6 +8,7 @@ test_that("pastex gets strings and pastes together",{
     expect_equivalent(pastex("@rm_percent", "@time_12_hours"),
     	 "\\(?[0-9.]+\\)?%|(1[012]|[1-9]):[0-5][0-9](\\s?)(am|pm)")
 	expect_equivalent("X" %|% "Z", "X|Z")
+    expect_equivalent("X" %p% "Z", "XZ")
 })
 
 

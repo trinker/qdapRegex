@@ -43,6 +43,10 @@
 #' "x" %|% "y"
 #' "@@rm_url" %|% "@@rm_twitter_url"
 #' 
+#' ## pipe operator (%p%)
+#' "x" %p% "y"
+#' "@@rm_time" %p% "\\s[AP]M"
+#' 
 #' ## Remove Twitter Short URL
 #' x <- c("download file from http://example.com", 
 #'          "this is the link to my website http://example.com", 
@@ -75,7 +79,8 @@ function (..., sep = "|", dictionary = getOption("regex.library")) {
 #' Paste Regular Expressions
 #' 
 #' \code{\%|\%} - A binary operator version of \code{pastex} that joins two 
-#' character strings. 
+#' character strings with a regex or ("|").  Equivalent to 
+#' \code{pastex(x, y, sep="|")}.
 #' 
 #' @param x,y Two regular expressions to paste together.
 #' @rdname pastex
@@ -83,4 +88,13 @@ function (..., sep = "|", dictionary = getOption("regex.library")) {
 `%|%` <- function(x, y) pastex(x, y)
 
 
+#' Paste Regular Expressions
+#' 
+#' \code{\%p\%} - A binary operator version of \code{pastex} that joins two 
+#' character strings with no space. Equivalent to \code{pastex(x, y, sep="")}.
+#' 
+#' @param x,y Two regular expressions to paste together.
+#' @rdname pastex
+#' @export 
+`%p%` <- function(x, y) pastex(x, y, sep="")
 
