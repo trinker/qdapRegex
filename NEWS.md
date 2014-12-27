@@ -28,7 +28,7 @@ And constructed with the following guidelines:
 
 **NEW FEATURES**
 
-* `%p%` binary operator versio of `pastex(x, y, sep = "")` added to join
+* `%+%` binary operator versio of `pastex(x, y, sep = "")` added to join
   regular expressions together.
 
 **MINOR FEATURES**
