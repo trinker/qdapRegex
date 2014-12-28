@@ -18,12 +18,12 @@ rm_citation2 <- construct(
                     "("                                             %:)%  "GROUP 1A.1a START",  
           
                         "("                                             %:)%  "GROUP 1A.1a_i START",
-                            von_prefix =  "(\\b(v[oa]n|d[eua])\\s)*"       %:)%  "Find a von/van/de/du/da followed by...",
+                            von_prefix =  "(\\b([Vv][oa]n|[dD][eua])\\s)*"  %:)%  "Find a von/van/de/du/da followed by...",
                             last_name =   "[A-Z]{1}[a-zA-Z-']+"             %:)%  "A last name (capital followed by one or mor letters (1 or more times)",
                             comma_space = ",\\s"                            %:)%  "Comma and a space",
                         ")*"                                            %:)%  "GROUP 1A.1a_i END (zero or more times)",
                 
-                        von_prefix =  "(\\b(v[oa]n|d[eua])\\s)*"        %:)%  "Find a von/van/de/du/da followed by space",
+                        von_prefix =  "(\\b([Vv][oa]n|[dD][eua])\\s)*"  %:)%  "Find a von/van/de/du/da followed by space",
                         last_name =   "[A-Z]{1}[a-zA-Z-']+"             %:)%  "A last name (capital followed by one or more letters (1 or more times)",
                         comma_space = ",*\\s"                           %:)%  "Comma (0 or more) and a space",
                         and =         "(\\&|and)"                       %:)%  "And and sign",
@@ -34,7 +34,7 @@ rm_citation2 <- construct(
                 ")*"                                            %:)%  "GROUP 1A.1 END (zero or more times)",  
  
                 letter_period = "([A-Z]\\.\\s)*"                %:)%  "Single capital letter followed by a period (0 or more times)",         
-                von_prefix =  "(\\b(v[oa]n|d[eua])\\s)*"        %:)%  "Find a von/van/de/du/da followed by...",
+                von_prefix =  "(\\b([Vv][oa]n|[dD][eua])\\s)*"  %:)%  "Find a von/van/de/du/da followed by...",
                 last_name =   "[A-Z]{1}[a-zA-Z-'s]+"            %:)%  "A last name (capital followed by one or more letters (1 or more times)",
                 space =       "\\s",
                 et_al =       "(et\\sal\\.('s??)??\\s){0,1}"         %:)%  "et al. 0 or 1 times)",
@@ -43,7 +43,7 @@ rm_citation2 <- construct(
             or = "|"                                       %:)% "OR",
         
             "("                                            %:)%  "START GROUP 1B",
-                von_prefix =  "(\\b(v[oa]n|d[eua])\\s)*"        %:)%  "Find a von/van/de/du/da followed by...",
+                von_prefix =  "(\\b([Vv][oa]n|[dD][eua])\\s)*"  %:)%  "Find a von/van/de/du/da followed by...",
                 last_name =   "[A-Z][A-Za-z'-]*"                %:)%  "A last name (capital followed by one or more letters (1 or more times)",
                 space = "\\s"                                   %:)%  "Space",    
             ")+"                                           %:)%  "END GROUP 1B",
