@@ -40,7 +40,7 @@ rm_citation2 <- construct(
                 et_al =       "(et\\sal\\.('s??)??\\s){0,1}"         %:)%  "et al. 0 or 1 times)",
         
             ")"                                            %:)%  "GROUP 1A END",
-            or = "|"                                       %:)% "OR",
+            or = "|"                                       %:)%  "OR",
         
             "("                                            %:)%  "START GROUP 1B",
                 von_prefix =  "(\\b([Vv][oa]n|[dD][eua])\\s)*"  %:)%  "Find a von/van/de/du/da followed by...",
