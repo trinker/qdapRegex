@@ -58,7 +58,49 @@ test_that("rm_bracket is extracting bracketed text",{
         
     expect_equivalent(rm_bracket(examp$text, include.markers = TRUE, extract=TRUE), 
     	list("[unintelligible]", c("(laughter)", "[interrupting]"), "{reading}", 
-    "{is so much fun}"))
-        
+    "{is so much fun}"))       
+    
+})
+
+
+test_that("rm_round is removeing/extracting bracketed text",{
+
+    x <- "I like [bots] (not). And <likely> many do not {he he}"
+    
+    expect_equivalent(rm_round(x), "I like [bots] . And <likely> many do not {he he}")
+    expect_equivalent(rm_round(x, extract = TRUE), list("not"))
+    
+    expect_equivalent(rm_round(x, include.marker = FALSE), 
+        "I like [bots] (). And <likely> many do not {he he}")
+    
+    expect_equivalent(rm_round(x, extract = TRUE, include.marker = TRUE), list("(not)"))
+    
+})
+
+
+test_that("rm_square is removeing/extracting bracketed text",{
+
+    x <- "I like [bots] (not). And <likely> many do not {he he}"
+    
+    expect_equivalent(rm_square(x),  "I like (not). And <likely> many do not {he he}")
+    expect_equivalent(rm_square(x, extract = TRUE), list("bots"))
+
+})
+
+test_that("rm_curly is removeing/extracting bracketed text",{
+
+    x <- "I like [bots] (not). And <likely> many do not {he he}"
+    
+    expect_equivalent(rm_curly(x), "I like [bots] (not). And <likely> many do not")
+    expect_equivalent(rm_curly(x, extract = TRUE), list("he he"))
+    
+})
+
+test_that("rm_angle is removeing/extracting bracketed text",{
+
+    x <- "I like [bots] (not). And <likely> many do not {he he}"
+    
+    expect_equivalent(rm_angle(x), "I like [bots] (not). And many do not {he he}")
+    expect_equivalent(rm_angle(x, extract = TRUE), list("likely"))
     
 })
