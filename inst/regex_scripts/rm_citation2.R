@@ -39,14 +39,14 @@ rm_citation2 <- construct(
                 space =       "\\s",
                 et_al =       "(et\\sal\\.('s??)??\\s){0,1}"         %:)%  "et al. 0 or 1 times)",
         
-            ")"                                            %:)%  "END GROUP 1A",
+            ")"                                            %:)%  "GROUP 1A END",
             or = "|"                                       %:)% "OR",
         
             "("                                            %:)%  "START GROUP 1B",
                 von_prefix =  "(\\b([Vv][oa]n|[dD][eua])\\s)*"  %:)%  "Find a von/van/de/du/da followed by...",
                 last_name =   "[A-Z][A-Za-z'-]*"                %:)%  "A last name (capital followed by one or more letters (1 or more times)",
                 space = "\\s"                                   %:)%  "Space",    
-            ")+"                                           %:)%  "END GROUP 1B",
+            ")+"                                           %:)%  "GROUP 1B END",
 
         ")"                                             %:)%  "GROUP 1 END", 
   
