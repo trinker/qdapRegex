@@ -93,7 +93,6 @@ function (..., sep = "|", dictionary = getOption("regex.library")) {
 #' \code{\%+\%} - A binary operator version of \code{pastex} that joins two 
 #' character strings with no space. Equivalent to \code{pastex(x, y, sep="")}.
 #' 
-#' @param x,y Two regular expressions to paste together.
 #' @rdname pastex
 #' @export 
 `%+%` <- function(x, y) pastex(x, y, sep="")

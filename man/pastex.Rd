@@ -24,8 +24,6 @@ from the default regular expression dictionary prefixed with single at
 (\code{@}) (e.g., \code{"@rm_hash"}) or a regular expression from
 \code{\link[qdapRegex]{regex_supplement}} dictionary prefixed with an at
 (\code{@}) (e.g., \code{"@time_12_hours"}).}
-
-\item{x,y}{Two regular expressions to paste together.}
 }
 \value{
 Returns a single string of regular expressions pasted together with
