@@ -41,6 +41,9 @@ And constructed with the following guidelines:
   stored in this format.  Files located:
   https://github.com/trinker/qdapRegex/tree/master/inst/regex_scripts
 
+* `rm_caps_phrase` has a new regular expression that is more accurate and does 
+  not pull trailing white space.
+
 **CHANGES**
 
  <a href="https://github.com/trinker/qdapRegex" target="_blank">qdapRegex</a> 0.1.3 - 0.2.0

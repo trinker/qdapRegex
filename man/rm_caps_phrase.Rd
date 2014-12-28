@@ -33,7 +33,7 @@ if \code{pattern} begins with \code{"@rm_"}.}
 \item{\dots}{Other arguments passed to \code{\link[base]{gsub}}.}
 }
 \value{
-Returns a character string with "all caps" removed.
+Returns a character string with "all caps phrases" removed.
 }
 \description{
 Remove/replace/extract 'all caps' phrases containing 1 or more consecutive
@@ -47,7 +47,6 @@ x <- c("UGGG! When I use caps I am YELLING!",
 )
 rm_caps_phrase(x)
 rm_caps_phrase(x, extract=TRUE)
-rm_caps_phrase(x, extract=TRUE, trim=TRUE)
 }
 \seealso{
 \code{\link[base]{gsub}},

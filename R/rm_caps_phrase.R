@@ -20,7 +20,7 @@
 #' @param dictionary A dictionary of canned regular expressions to search within 
 #' if \code{pattern} begins with \code{"@@rm_"}.
 #' @param \dots Other arguments passed to \code{\link[base]{gsub}}.
-#' @return Returns a character string with "all caps" removed.
+#' @return Returns a character string with "all caps phrases" removed.
 #' @keywords caps capital
 #' @export
 #' @seealso \code{\link[base]{gsub}},
@@ -32,5 +32,4 @@
 #' )
 #' rm_caps_phrase(x)
 #' rm_caps_phrase(x, extract=TRUE)
-#' rm_caps_phrase(x, extract=TRUE, trim=TRUE)
 rm_caps_phrase <- hijack(rm_default, pattern = "@rm_caps_phrase")
