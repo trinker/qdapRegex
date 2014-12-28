@@ -25,7 +25,7 @@ transfer_data <- function(dat.loc = file.path(R_USER, "Desktop/temp/data"),
         file.path(dat.loc, dir(dat.loc)),
         pack.loc
     )
-    reports::delete(dat.loc)
+    reports::delete(dirname(dat.loc))
     message("File Transfered")
 }
 
