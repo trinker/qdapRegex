@@ -120,6 +120,5 @@ examine_regex <- function(dictionary = qdapRegex::regex_usa){
             flush.console(); Sys.sleep(1); open <- FALSE
         } 
         explain(dictionary[[i]], open=open)
-
     })
 }
