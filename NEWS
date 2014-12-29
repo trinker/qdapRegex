@@ -26,6 +26,11 @@ BUG FIXES
   rather than `message`. Additionally, the characters `+` and `&` were not 
   handled correctly; this has been corrected.
 
+* Documentation for `TC` "there is an incomplete sentence. It is as follows:
+  TC utilizes additional rules for capitalization beyond `stri_trans_totitle` 
+  that includes..." (found by rmsharp).  This has been corrected. See issue #8
+
+
 NEW FEATURES
 
 * `%+%` binary operator version of `pastex(x, y, sep = "")` added to join

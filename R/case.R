@@ -8,7 +8,12 @@
 #' \code{\link[stringi]{stri_trans_toupper}}, and \code{\link[stringi]{stri_trans_totitle}}.
 #' @return Returns a character vector with new case (lower, upper, or title).
 #' @note \code{TC} utilizes additional rules for capitalization beyond 
-#' \code{\link[stringi]{stri_trans_totitle}} that includes
+#' \code{\link[stringi]{stri_trans_totitle}} that include:
+#' \enumerate{
+#'   \item Capitalize the first & last word
+#'   \item Lowercase articles, coordinating conjunctions, & prepositions
+#'   \item Lowercase "to" in an infinitive
+#'   }
 #' @details Case wrapper functions for \pkg{stringi}'s \code{\link[stringi]{stri_trans_tolower}},
 #' \code{\link[stringi]{stri_trans_toupper}}, and \code{\link[stringi]{stri_trans_totitle}}.
 #' Functions are useful within \pkg{magrittr} style chaining.

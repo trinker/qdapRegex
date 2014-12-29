@@ -36,7 +36,12 @@ Functions are useful within \pkg{magrittr} style chaining.
 }
 \note{
 \code{TC} utilizes additional rules for capitalization beyond
-\code{\link[stringi]{stri_trans_totitle}} that includes
+\code{\link[stringi]{stri_trans_totitle}} that include:
+\enumerate{
+  \item Capitalize the first & last word
+  \item Lowercase articles, coordinating conjunctions, & prepositions
+  \item Lowercase "to" in an infinitive
+  }
 }
 \examples{
 y <- c(
