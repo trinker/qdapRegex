@@ -30,6 +30,8 @@ And constructed with the following guidelines:
   TC utilizes additional rules for capitalization beyond `stri_trans_totitle` 
   that includes..." (found by rmsharp).  This has been corrected. See <a href="https://github.com/trinker/qdapRegex/issues/8">issue #8</a>
 
+* `cheat` (and accompanying `regex_cheat` dictionary) contained misspellings in 
+  the words *greedy* and *beginning*.  This has been corrected.
 
 **NEW FEATURES**
 

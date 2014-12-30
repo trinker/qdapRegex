@@ -5,6 +5,7 @@ lapply(file.path("inst/regex_scripts", fls[tools::file_ext(fls) == "R"]), functi
     source(x)[["value"]]
 })
 source("inst/regex_scripts/meta/pack.skel.R")
+library(qdapRegex)
 
 ## summary(regex_usa[["rm_citation2"]])
 ## qdapRegex::explain(as.character(regex_usa[["rm_citation2"]]), open=2)
@@ -90,14 +91,17 @@ regex_supplement <- list(
     youtube_id = "(?<=\\d\\/|\\.be\\/|v[=\\/])([\\w\\-]{11,})|^([\\w\\-]{11})"
 )
 
+pack.skel(regex_supplement)
+transfer_data()
+
 
 regex_cheat <- structure(list(
         Name = c("Lookahead", "Lookbehind", "Negative Lookahead", 
             "Negative Lookbehind", "Non-Capturing Group", "Exception", "Dot", 
             "Case Insensitive", "Digit", "Non-Digit", "Word", "Non-Word",
             "Whitespace", "Non-Whitespace", "Word Boundary", "Non-Word Boundary",
-            "0-1 (Greedy)", "0-1 (Lazy)", ">= 0 (Grredy)", ">= 0 (Lazy)", 
-            ">= 1 (Grredy)", ">= 1 (Lazy)", "Exactly N", "Min-Max", "> N"), 
+            "0-1 (Greedy)", "0-1 (Lazy)", ">= 0 (Greedy)", ">= 0 (Lazy)", 
+            ">= 1 (Greedy)", ">= 1 (Lazy)", "Exactly N", "Min-Max", "> N"), 
         Regex = c("(?=foo)", "(?<=foo)", "(?!foo)", "(?<!foo)", "(?:foo)", 
             "[^X]", ".", "(?i:foo)", "\\d", "\\D", "\\w", "\\W", "\\s", "\\S",
             "\\b", "\\B", "x?", "x??", "x*", "x*?", "x+", "x+?", "x{4}", 
@@ -117,8 +121,8 @@ regex_cheat <- structure(list(
             "Match non-words (i.e., [^_a-zA-Z0-9])",
             "Match whitespace (i.e., [ \\t\\r\\n\\f])",
             "Match non-whitespace (i.e., [^ \\t\\r\\n\\f])",
-            "Match begining/end of word",
-            "Match not begining/end of word",
+            "Match beginning/end of word",
+            "Match not beginning/end of word",
             "Match 0-1 times greedy",
             "Match 0-1 times lazy",
             "Match 0 or more times greedy",
@@ -132,3 +136,6 @@ regex_cheat <- structure(list(
     .Names = c("Name", "Regex", "What it Does"), 
         row.names = c(NA, 25L), class = "data.frame"
 )
+
+pack.skel(regex_cheat)
+transfer_data()

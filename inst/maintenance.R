@@ -13,6 +13,11 @@ devtools::test()
 #==========================
 knitr::knit2html("README.Rmd", output ='README.md'); reports::delete("README.html")
 
+#==========================
+# UPDATE NEWS
+#==========================
+update_news()
+
 #========================
 #staticdocs dev version
 #========================
