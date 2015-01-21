@@ -33,6 +33,9 @@ And constructed with the following guidelines:
 * `cheat` (and accompanying `regex_cheat` dictionary) contained misspellings in 
   the words *greedy* and *beginning*.  This has been corrected.
 
+* `rm_number` incorrectly handled numbers containing leading or trailing zeros.
+  See <a href="https://github.com/trinker/qdapRegex/issues/9">issue #9</a>
+
 **NEW FEATURES**
 
 * `%+%` binary operator version of `pastex(x, y, sep = "")` added to join

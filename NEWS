@@ -33,6 +33,9 @@ BUG FIXES
 * `cheat` (and accompanying `regex_cheat` dictionary) contained misspellings in 
   the words *greedy* and *beginning*.  This has been corrected.
 
+* `rm_number` incorrectly handled numbers containing leading or trailing zeros.
+  See issue #9
+
 NEW FEATURES
 
 * `%+%` binary operator version of `pastex(x, y, sep = "")` added to join
