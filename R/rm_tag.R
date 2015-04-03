@@ -30,6 +30,8 @@
 #' composed of alpha-numeric characters and underscores, no longer than 15 
 #' characters.  This can be accessed via \code{pattern = "@@rm_tag2"} (see 
 #' \bold{Examples}).
+#' @family rm_ functions
+#' @include utils.R
 #' @export
 #' @seealso \code{\link[base]{gsub}},
 #' \code{\link[stringi]{stri_extract_all_regex}}

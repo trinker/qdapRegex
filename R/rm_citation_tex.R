@@ -24,6 +24,8 @@
 #' \code{\link[qdapRegex]{rm_default}}.
 #' @return Returns a character string with citations (bibkeys) removed.
 #' @keywords citation bibkey
+#' @family rm_ functions
+#' @include utils.R
 #' @export
 #' @seealso \code{\link[base]{gsub}},
 #' \code{\link[stringi]{stri_extract_all_regex}}
@@ -57,4 +59,3 @@ rm_citation_tex <- function(text.var, trim = !extract, clean = TRUE,
     }
     out
 }
-

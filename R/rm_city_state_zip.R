@@ -22,6 +22,8 @@
 #' @param \dots Other arguments passed to \code{\link[base]{gsub}}.
 #' @return Returns a character string with city, state, & zip removed.
 #' @keywords date
+#' @family rm_ functions
+#' @include utils.R
 #' @export
 #' @seealso \code{\link[base]{gsub}},
 #' \code{\link[stringi]{stri_extract_all_regex}}
@@ -32,4 +34,3 @@
 #' rm_city_state_zip(x)
 #' rm_city_state_zip(x, extract=TRUE)
 rm_city_state_zip <- hijack(rm_default, pattern = "@rm_city_state_zip")
-

@@ -21,7 +21,9 @@
 #' if \code{pattern} begins with \code{"@@rm_"}.
 #' @param \dots Other arguments passed to \code{\link[base]{gsub}}.
 #' @return Returns a character string with abbreviations removed.
+#' @family rm_ functions
 #' @keywords abbreviation
+#' @include utils.R
 #' @export
 #' @include rm_default.R utils.R
 #' @seealso \code{\link[base]{gsub}},
@@ -33,4 +35,3 @@
 #' rm_abbreviation(x)
 #' rm_abbreviation(x, extract=TRUE)
 rm_abbreviation <- hijack(rm_default, pattern = "@rm_abbreviation")
-

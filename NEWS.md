@@ -44,8 +44,9 @@ And constructed with the following guidelines:
 * `%+%` binary operator version of `pastex(x, y, sep = "")` added to join
   regular expressions together.
 
-* `rm_simile_as` and `rm_simile_like` added to replace "like" and "as" with a
-  marker that can be split on.
+* `group_or` added as a means of quickly wrapping mutiple sub-expression 
+  elements with grouping parenthesis and then concatenate/joins the grouped 
+  strings with regular expression or statement ("|").
 
 **MINOR FEATURES**
 

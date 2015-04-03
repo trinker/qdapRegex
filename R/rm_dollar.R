@@ -20,6 +20,8 @@
 #' @param \dots Other arguments passed to \code{\link[base]{gsub}}.
 #' @return Returns a character string with dollars removed.
 #' @keywords percent
+#' @family rm_ functions
+#' @include utils.R
 #' @export
 #' @seealso \code{\link[base]{gsub}},
 #' \code{\link[stringi]{stri_extract_all_regex}}
@@ -30,4 +32,3 @@
 #' rm_dollar(x)
 #' rm_dollar(x, extract=TRUE)
 rm_dollar <- hijack(rm_default, pattern = "@rm_dollar")
-

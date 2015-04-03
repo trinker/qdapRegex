@@ -75,6 +75,34 @@ The n letter/character word regular expression was taken from:
 \seealso{
 \code{\link[base]{gsub}},
 \code{\link[stringi]{stri_extract_all_regex}}
+
+Other rm_.functions: \code{\link{rm_abbreviation}};
+  \code{\link{rm_angle}}, \code{\link{rm_bracket}},
+  \code{\link{rm_bracket_multiple}},
+  \code{\link{rm_curly}}, \code{\link{rm_round}},
+  \code{\link{rm_square}}; \code{\link{rm_between}},
+  \code{\link{rm_between_multiple}};
+  \code{\link{rm_caps_phrase}}; \code{\link{rm_caps}};
+  \code{\link{rm_citation_tex}}; \code{\link{rm_citation}};
+  \code{\link{rm_city_state_zip}};
+  \code{\link{rm_city_state}}; \code{\link{rm_date}};
+  \code{\link{rm_default}}; \code{\link{rm_dollar}};
+  \code{\link{rm_email}}; \code{\link{rm_emoticon}};
+  \code{\link{rm_endmark}}; \code{\link{rm_hash}};
+  \code{\link{rm_non_ascii}}; \code{\link{rm_number}};
+  \code{\link{rm_percent}}; \code{\link{rm_phone}};
+  \code{\link{rm_postal_code}}; \code{\link{rm_tag}};
+  \code{\link{rm_time}}; \code{\link{rm_title_name}};
+  \code{\link{rm_twitter_url}}, \code{\link{rm_url}};
+  \code{\link{rm_white}}, \code{\link{rm_white_bracket}},
+  \code{\link{rm_white_colon}},
+  \code{\link{rm_white_comma}},
+  \code{\link{rm_white_endmark}},
+  \code{\link{rm_white_lead}},
+  \code{\link{rm_white_lead_trail}},
+  \code{\link{rm_white_multiple}},
+  \code{\link{rm_white_punctuation}},
+  \code{\link{rm_white_trail}}; \code{\link{rm_zip}}
 }
 \keyword{words}
 

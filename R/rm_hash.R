@@ -23,6 +23,8 @@
 #' @author \href{http://stackoverflow.com/}{stackoverflow's} hwnd and Tyler Rinker <tyler.rinker@@gmail.com>. 
 #' @references The hash tag regular expression was taken from: 
 #' \url{http://stackoverflow.com/a/25096474/1000343}
+#' @family rm_ functions
+#' @include utils.R
 #' @export
 #' @seealso \code{\link[base]{gsub}},
 #' \code{\link[stringi]{stri_extract_all_regex}}

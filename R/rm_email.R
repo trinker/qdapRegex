@@ -20,6 +20,8 @@
 #' @param \dots Other arguments passed to \code{\link[base]{gsub}}.
 #' @return Returns a character string with email addresses removed.
 #' @keywords email
+#' @family rm_ functions
+#' @include utils.R
 #' @export
 #' @author Barry Rowlingson and Tyler Rinker <tyler.rinker@@gmail.com>. 
 #' @references The email regular expression was taken from: 

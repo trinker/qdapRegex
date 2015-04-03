@@ -27,6 +27,8 @@
 #' @references The more constrained url regular expressions (\code{"@@rm_url2"}
 #' and \code{"@@rm_url3"} was adapted from imme_emosol's response: 
 #' \url{https://mathiasbynens.be/demo/url-regex}
+#' @family rm_ functions
+#' @include utils.R
 #' @export
 #' @rdname rm_url
 #' @seealso \code{\link[base]{gsub}},
@@ -65,6 +67,8 @@ rm_url <- hijack(rm_default, pattern = "@rm_url")
 #' \href{https://support.twitter.com/articles/109623-about-twitter-s-link-service-http-t-co}{Twitter Short URLs} 
 #' from a string.
 #' 
+#' @family rm_ functions
+#' @include utils.R
 #' @export
 #' @rdname rm_url
 rm_twitter_url <- hijack(rm_default, pattern = "@rm_twitter_url")

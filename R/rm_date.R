@@ -30,6 +30,8 @@
 #' (\code{pattern = "@@rm_date2"}, \code{pattern = "@@rm_date3"}, or 
 #' \code{pattern = "@@rm_date4"}). See 
 #' \bold{Examples} for example usage. 
+#' @family rm_ functions
+#' @include utils.R
 #' @export
 #' @seealso \code{\link[base]{gsub}},
 #' \code{\link[stringi]{stri_extract_all_regex}}

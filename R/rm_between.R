@@ -28,8 +28,10 @@
 #' \code{left}/\code{right} symbols.  The latter approach is more flexible and
 #' names extracted strings by symbol boundaries, however, it is slower than 
 #' \code{rm_between}.
+#' @family rm_ functions
 #' @rdname rm_between
 #' @include rm_default.R utils.R
+#' @include utils.R
 #' @export
 #' @include rm_default.R utils.R
 #' @seealso \code{\link[base]{gsub}},
@@ -109,6 +111,7 @@ rm_between_subber <- function(left, right, include.markers, dictionary) {
 .specchars <- c(".", "|", "(", ")", "[", "]", "{", "}", "^", "$", "*", "+", "?")
 
 
+#' @include utils.R
 #' @export
 #' @rdname rm_between
 rm_between_multiple <- function(text.var, left, right, trim = TRUE, clean = TRUE, 
@@ -194,4 +197,3 @@ function(text.var, left, right, with = FALSE, merge = TRUE){
     }
     out
 }
-

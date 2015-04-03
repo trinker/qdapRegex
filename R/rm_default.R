@@ -22,6 +22,8 @@
 #' @seealso \code{\link[qdapRegex]{rm_}},
 #' \code{\link[base]{gsub}},
 #' \code{\link[stringi]{stri_extract_all_regex}}
+#' @family rm_ functions
+#' @include utils.R
 #' @export
 #' @examples
 #' ## Built in regex dictionary

@@ -25,6 +25,8 @@
 #' secondary regular expression from the \code{\link[qdapRegex]{regex_usa}} 
 #' data (or other dictionary) via (\code{pattern = "@@rm_time2"}. See 
 #' \bold{Examples} for example usage. 
+#' @family rm_ functions
+#' @include utils.R
 #' @export
 #' @seealso \code{\link[base]{gsub}},
 #' \code{\link[stringi]{stri_extract_all_regex}}

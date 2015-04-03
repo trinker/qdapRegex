@@ -29,6 +29,8 @@
 #' \code{\link[qdapRegex]{regex_usa}} data (or other dictionary) via 
 #' (\code{pattern = "@@rm_nchar_words2"}). See \bold{Examples} for example
 #' usage. 
+#' @family rm_ functions
+#' @include utils.R
 #' @export
 #' @author \href{http://stackoverflow.com/}{stackoverflow's} CharlieB and Tyler Rinker <tyler.rinker@@gmail.com>. 
 #' @references The n letter/character word regular expression was taken from: 
