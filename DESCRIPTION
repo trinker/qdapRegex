@@ -8,8 +8,7 @@ Authors@R: c(person("Jason", "Gray", "", role = "ctb"),
     role = c("aut", "cre")))
 Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
 Depends:
-    R (>= 3.1.0),
-    regexr
+    R (>= 3.1.0)
 Imports:
     stringi (>= 0.3-1)
 Suggests:
@@ -37,6 +36,7 @@ Collate:
     'group.R'
     'is.regex.R'
     'pastex.R'
+    'print.regexr.R'
     'qdapRegex-package.R'
     'rm_.R'
     'rm_abbreviation.R'

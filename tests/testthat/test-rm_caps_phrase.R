@@ -22,7 +22,7 @@ test_that("rm_caps_phrase is extracting 'all caps' strings",{
 
     
     x3 <- list(c("UGGG", "YELLING"), "VERY IMPORTANT", c("LITTLE SEEM", 
-        "IT ISN'T", "LITTLE"), "I AM", "-T A", "U I")
+        "IT ISN'T LITTLE"), "I AM", "-T A", "U I")
 
 
     expect_equivalent(rm_caps_phrase(x, extract=TRUE), x3)
