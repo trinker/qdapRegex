@@ -12,6 +12,7 @@ library(qdapRegex)
 #==========================
 # Regex data set
 #==========================
+
 regex_usa <- list(
     rm_abbreviation = rm_abbreviation,
     rm_between = "(%s)(.*?)(%s)",
@@ -42,6 +43,10 @@ regex_usa <- list(
     rm_percent = "\\(?[0-9.]+\\)?%", 
     rm_phone = "(?:(?:\\+?1\\s*(?:[.-]\\s*)?)?(?:\\(\\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\\s*\\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\\s*(?:[.-]\\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\\s*(?:[.-]\\s*)?([0-9]{4})(?:\\s*(?:#|x\\.?|ext\\.?|extension)\\s*(\\d+))?", 
     rm_postal_code = "((A[LKZR])|(C[AOT])|(D[EC])|(FL)|(GA)|(HI)|(I[DLNA])|(K[SY])|(LA)|(M[EDAINSOT])|(N[EVHJMYCD])|(O[HKR])|(PA)|(RI)|(S[CD])|(T[NX])|(UT)|(V[TA])|(W[AVIY]))",
+    rm_repeated_phrases = "(?i)\\b(\\w.*)((?:\\s|\\.{3}|,)+\\1)+\\b",
+    rm_repeated_words = "(?i)\\b(\\w+)\\s+\\1\\b",
+    rm_simile_as = rm_simile_as,     
+    rm_simile_like = rm_simile_like,
     rm_tag = "(?<![@\\w])(@)(([a-z0-9_]+)\\b)", 
     rm_tag2 = "(?<![@\\w])(@)(([a-z0-9_]{1,15})\\b)",  
     rm_title_name = "(((Dr|Mr|Mrs|Ms|dr|mr|mrs|ms)(\\.))|(Miss|Mizz|mizz))(\\s+)([A-Za-z]+)(\\s[A-Z][A-Za-z]*\\b)*",
@@ -78,7 +83,8 @@ regex_supplement <- list(
     ip_address = "\\b\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\b",
 	last_occurrence = "%s(?=[^%s]+$)",
     pages = "p{1,2}\\.\\s*\\d+\\-*\\d*;*\\s*\\d*",	
-    pages2 = "\\d+\\-*\\d*;*\\s*\\d*",	
+    pages2 = "\\d+\\-*\\d*;*\\s*\\d*",
+    run_split = "(?<=(\\w))(?!\\1)",
 	split_keep_delim = "(?<=[^%s])(?=[%s])",
     thousands_separator = "(\\d)(?:(?=\\d+(?=[^\\d.]))(?=(?:[0-9]{3})+\\b)|(?=\\d+(?=\\.))(?=(?:[0-9]{3})+(?=\\.)))",
     time_12_hours = "(1[012]|[1-9]):[0-5][0-9](\\s?)(am|pm)",

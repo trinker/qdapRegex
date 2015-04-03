@@ -77,6 +77,10 @@ NULL
 #'   \item{rm_percent}{substring beginning with (1) just whole number (no decimal), (2) whole number and decimal, or (3) just decimal value and followed by a percent sign (\%)}
 #'   \item{rm_phone}{phone numbers in the form of optional country code, valid 3 digit prefix, and 7 digits (may contain hyphens and parenthesis); logic is complex to explain (see \url{http://stackoverflow.com/a/21008254/1000343} for more)}
 #'   \item{rm_postal_code}{U.S. state abbreviations (and District of Columbia) that is constrained to just possible U.S. state names, not just two consecutive capital letters; taken from Mike Hamilton's submission found \url{http://regexlib.com/REDetails.aspx?regexp_id=2177}}
+#'   \item{rm_repeated_phrases}{substring with a phrase (a sequence of 1 or more words) that is repeat 2 or more times; case is ignored}
+#'   \item{rm_repeated_words}{substring with a word (marked with a boundary) that is repeat 2 or more times; case is ignored}
+#'   \item{rm_simile_as}{similes that use the pattern "as ____ as" where ____ is a single word}  
+#'   \item{rm_simile_like}{similes that use the pattern "like ____ (optionally `the` or `a`)" where ____ is a single word} 
 #'   \item{rm_tag}{substring that begins with an at (@@) followed by a word}
 #'   \item{rm_tag2}{\href{https://support.twitter.com/articles/101299-why-can-t-i-register-certain-usernames}{Twitter} substring that begins with an at (@@) followed by a word composed of alpha-numeric characters and underscores, no longer than 15 characters}
 #'   \item{rm_title_name}{substring beginning with title (Mrs., Mr., Ms., Dr.) that is case independent or full title (Miss, Mizz, mizz) followed by a single lower case word or multiple capitalized words}

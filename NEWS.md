@@ -36,10 +36,16 @@ And constructed with the following guidelines:
 * `rm_number` incorrectly handled numbers containing leading or trailing zeros.
   See <a href="https://github.com/trinker/qdapRegex/issues/9">issue #9</a>
 
+* `rm_caps_phrases` could only extract/remove up to two "words" worth of capital
+  letter phrases at a time.  See <a href="https://github.com/trinker/qdapRegex/issues/11">issue #11</a>
+
 **NEW FEATURES**
 
 * `%+%` binary operator version of `pastex(x, y, sep = "")` added to join
   regular expressions together.
+
+* `rm_simile_as` and `rm_simile_like` added to replace "like" and "as" with a
+  marker that can be split on.
 
 **MINOR FEATURES**
 
