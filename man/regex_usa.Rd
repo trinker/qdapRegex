@@ -65,5 +65,10 @@ The following canned regular expressions are included:
   \item{rm_zip}{substring of 5 digits optionally followed by a dash and 4 more digits}
 }
 }
+\section{Extra}{
+ Use \code{qdapRegex:::examine_regex()} to interactively explore the
+regular expressions in \code{regex_usa}.  This will provide a browser + console
+based break down of each regex in the dictionary.
+}
 \keyword{datasets}
 
