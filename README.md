@@ -2,6 +2,7 @@
 
 
 
+[![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/0.1.0/active.svg)](http://www.repostatus.org/#active)
 [![Build Status](https://travis-ci.org/trinker/qdapRegex.png?branch=master)](https://travis-ci.org/trinker/qdapRegex)
 [![Coverage Status](https://coveralls.io/repos/trinker/qdapRegex/badge.png)](https://coveralls.io/r/trinker/qdapRegex)
 [![DOI](https://zenodo.org/badge/5398/trinker/qdapRegex.png)](http://dx.doi.org/10.5281/zenodo.11284)
