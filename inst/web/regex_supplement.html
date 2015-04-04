@@ -47,10 +47,15 @@
       
     </div>
 
+    <div class="Supplemental Canned Regular Expressions">
+      <h2>Supplemental Canned Regular Expressions</h2>
+      
+    </div>
+
     <div class="Format">
       <h2>Format</h2>
       
-      <p>A list with 21 elements</p>
+      <p>A list with 22 elements</p>
   
     </div>
 
@@ -81,6 +86,7 @@ desired.</p>
 <dt>last_occurrence</dt><dd>last occurrence of a delimiter; note contains <code>"%s"</code> that is replaced by <code><a href='http://www.inside-r.org/packages/cran/base/docs/sprintf'>sprintf</a></code> and is not a valid regex on its own (user supplies the delimiter)</dd>
 <dt>pages</dt><dd>substring with "pp." or "p.", optionally followed by a space, followed by 1 or more digits, optionally followed by a dash, optionally followed by 1 or more digits, optionally followed by a semicolon, optionally followed by a space, optionally followed by 1 or more digits; intended for extraction/removal purposes</dd>
 <dt>pages2</dt><dd>substring 1 or more digits, optionally followed by a dash, optionally followed by 1 or more digits, optionally followed by a semicolon, optionally followed by a space, optionally followed by 1 or more digits; intended for validation purposes</dd>
+<dt>run_split</dt><dd>a regex that is useful for splitting strings in the characters runs (e.g., "wwxyyyzz" becomes "ww", "x", "yyy", "zz"); regex pattern retrieved from <a href = 'http://stackoverflow.com/users/2994949/rawr'>Robert Redd</a>: <a href = 'http://stackoverflow.com/a/29383435/1000343'>http://stackoverflow.com/a/29383435/1000343</a></dd>
 <dt>split_keep_delim</dt><dd>regex string that splits on a delimiter and retains the delimiter</dd>
 <dt>thousands_separator</dt><dd>chunks digits > 4 into groups of 3 from right to left allowing for easy insertion of thousands separator; regex pattern retrieved from <a href = 'http://stackoverflow.com/'>StackOverflow</a>'s stema: <a href = 'http://stackoverflow.com/a/10612685/1000343'>http://stackoverflow.com/a/10612685/1000343</a></dd>
 <dt>time_12_hours</dt><dd>substring of valid hours (1-12) followed by a colon (:) followed by valid minutes (0-60), followed by an optional space and the character chunk <em>am</em> or <em>pm</em></dd>
@@ -340,6 +346,15 @@ around_and(x)
 
 [[6]]
 [1] &quot;foo &amp; bar&quot;     &quot;Jack and Jill&quot;
+
+</div>
+<div class='input'>
+## Split runs into chunks
+x &lt;- &quot;1111100000222000333300011110000111000&quot;
+strsplit(x, grab(&quot;@run_split&quot;), per = TRUE)
+</div>
+<div class='output'>[[1]]
+ [1] &quot;11111&quot; &quot;00000&quot; &quot;222&quot;   &quot;000&quot;   &quot;3333&quot;  &quot;000&quot;   &quot;1111&quot;  &quot;0000&quot;  &quot;111&quot;   &quot;000&quot;  
 
 </div>
 <div class='input'>

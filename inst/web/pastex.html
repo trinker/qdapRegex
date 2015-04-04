@@ -41,7 +41,8 @@
   <div class="span8">
     <h2>Usage</h2>
     <pre><div>pastex(..., sep&nbsp;=&nbsp;"|", dictionary&nbsp;=&nbsp;getOption("regex.library"))</div>
-<div>x %|% y</div></pre>
+<div>x %|% y</div>
+<div>x %+% y</div></pre>
     
     <h2>Arguments</h2>
     <dl>
@@ -65,6 +66,11 @@ from the default regular expression dictionary prefixed with single at
       
     </div>
 
+    <div class="Paste Regular Expressions">
+      <h2>Paste Regular Expressions</h2>
+      
+    </div>
+
     <div class="Value">
       <h2>Value</h2>
       
@@ -82,7 +88,11 @@ dictionaries for regular expressions before pasting them together with a pipe
 (<code>|</code>) separator.</p>
   
       <p><code>%|%</code> - A binary operator version of <code>pastex</code> that joins two
-character strings.</p>
+character strings with a regex or ("|").  Equivalent to
+<code>pastex(x, y, sep="|")</code>.</p>
+  
+      <p><code>%+%</code> - A binary operator version of <code>pastex</code> that joins two
+character strings with no space. Equivalent to <code>pastex(x, y, sep="")</code>.</p>
   
     </div>
 
@@ -164,6 +174,16 @@ pastex(&quot;@rm_email&quot;)
 <div class='output'>[1] &quot;(http[^ ]*)|(ftp[^ ]*)|(www\\.[^ ]*)|(https?://t\\.co[^ ]*)|(t\\.co[^ ]*)&quot;
 </div>
 <div class='input'>
+## pipe operator (%p%)
+&quot;x&quot; %+% &quot;y&quot;
+</div>
+<div class='output'>[1] &quot;xy&quot;
+</div>
+<div class='input'>&quot;@rm_time&quot; %+% &quot;\\s[AP]M&quot;
+</div>
+<div class='output'>[1] &quot;\\d{0,2}:\\d{2}(?:[:.]\\d+)?\\s[AP]M&quot;
+</div>
+<div class='input'>
 ## Remove Twitter Short URL
 x &lt;- c(&quot;download file from http://example.com&quot;,
          &quot;this is the link to my website http://example.com&quot;,
@@ -240,7 +260,7 @@ rm_twitter_n_url(x)
   </div>
   <div class="span4">
     <!-- <ul>
-      <li>%|%</li><li>pastex</li>
+      <li>%+%</li><li>%|%</li><li>pastex</li>
     </ul>
     <ul>
       <li>paste</li><li>regex</li>

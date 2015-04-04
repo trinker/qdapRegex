@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>group_or. qdapRegex 0.2.1</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">qdapRegex 0.2.1</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Group Wrap and `or` Concatenate Elements</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><div>group_or(..., group.all&nbsp;=&nbsp;TRUE)</div></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>group.all</dt>
+      <dd>logical.  If <code>TRUE</code> the resulting `or` concatenated
+elements will be wrapped with grouping parenthesis.</dd>
+      <dt>...</dt>
+      <dd>Regular expressions to paste together or a named expression
+from the default regular expression dictionary prefixed with single at
+(<code>@</code>) (e.g., <code>"@rm_hash"</code>) or a regular expression from
+<code>regex_supplement</code> dictionary prefixed with an at
+(<code>@</code>) (e.g., <code>"@time_12_hours"</code>).</dd>
+    </dl>
+    
+    <div class="Group Wrap and `or` Concatenate Elements">
+      <h2>Group Wrap and `or` Concatenate Elements</h2>
+      
+    </div>
+
+    <div class="Group Wrap and `or` Concatenate Elements">
+      <h2>Group Wrap and `or` Concatenate Elements</h2>
+      
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>A wrapper for <code>group</code> and <code>pastex</code> that wraps each sub-expression
+element with grouping parenthesis and then concatenate/joins grouped strings
+with a regex `or` ("|").  Equivalent to <code>pastex(group(...), sep = "|")</code>.</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'>group_or(&quot;@rm_hash&quot;, &quot;@rm_tag&quot;)
+</div>
+<div class='output'>[1] &quot;(((?&lt;!/)((#)(\\w+)))|((?&lt;![@\\w])(@)(([a-z0-9_]+)\\b)))&quot;
+</div>
+<div class='input'>group_or(&quot;them&quot;, &quot;those&quot;, &quot;that&quot;, &quot;these&quot;)
+</div>
+<div class='output'>[1] &quot;((them)|(those)|(that)|(these))&quot;
+</div>
+<div class='input'>group_or(&quot;them&quot;, &quot;those&quot;, &quot;that&quot;, &quot;these&quot;, group.all = FALSE)
+</div>
+<div class='output'>[1] &quot;(them)|(those)|(that)|(these)&quot;
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>group_or</li>
+    </ul>
+    <ul>
+      
+    </ul> -->
+      
+        
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

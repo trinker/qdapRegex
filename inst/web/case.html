@@ -60,6 +60,11 @@
       
     </div>
 
+    <div class="Upper/Lower/Title Case">
+      <h2>Upper/Lower/Title Case</h2>
+      
+    </div>
+
     <div class="Value">
       <h2>Value</h2>
       
@@ -91,7 +96,17 @@ Functions are useful within <span class = "pkg">magrittr</span> style chaining.<
       <h2>Note</h2>
       
       <p><code>TC</code> utilizes additional rules for capitalization beyond
-<code><a href='http://www.inside-r.org/packages/cran/stringi/docs/stri_trans_casemap'>stri_trans_totitle</a></code> that includes</p>
+<code><a href='http://www.inside-r.org/packages/cran/stringi/docs/stri_trans_casemap'>stri_trans_totitle</a></code> that include:
+<ol>
+<li> Capitalize the first & last word
+  </li>
+<li> Lowercase articles, coordinating conjunctions, & prepositions
+  </li>
+<li> Lowercase "to" in an infinitive
+  </li>
+</ol></p>
+  
+      <p></p>
   
     </div>
     

@@ -67,7 +67,6 @@ rm_url <- hijack(rm_default, pattern = "@rm_url")
 #' \href{https://support.twitter.com/articles/109623-about-twitter-s-link-service-http-t-co}{Twitter Short URLs} 
 #' from a string.
 #' 
-#' @family rm_ functions
 #' @include utils.R
 #' @export
 #' @rdname rm_url

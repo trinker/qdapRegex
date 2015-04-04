@@ -42,7 +42,7 @@ Ananda Mahto, Matthew Flickinger, and Tyler Rinker &lt;tyler.rinker@gmail.com&gt
 <div class="row">
   <div class="span8">
     <h2>Usage</h2>
-    <pre><div>explain(pattern, open&nbsp;=&nbsp;FALSE, dictionary&nbsp;=&nbsp;getOption("regex.library"))</div></pre>
+    <pre><div>explain(pattern, open&nbsp;=&nbsp;FALSE, print&nbsp;=&nbsp;TRUE, dictionary&nbsp;=&nbsp;getOption("regex.library"))</div></pre>
     
     <h2>Arguments</h2>
     <dl>
@@ -62,10 +62,17 @@ functionality was developed by
 <a href = 'http://stackoverflow.com/a/27574103/1000343'>http://stackoverflow.com/a/27574103/1000343</a> for details).  Note that
 the user must have <span class = "pkg">httr</span> installed or will be prompted if the package
 cannot be <code><a href='http://www.inside-r.org/packages/cran/base/docs/library'>require</a></code>d.</dd>
+      <dt>print</dt>
+      <dd>logical.  Should <code>explain</code> print output to the console?</dd>
       <dt>dictionary</dt>
       <dd>A dictionary of canned regular expressions to search within.</dd>
     </dl>
     
+    <div class="Visualize Regular Expressions">
+      <h2>Visualize Regular Expressions</h2>
+      
+    </div>
+
     <div class="Visualize Regular Expressions">
       <h2>Visualize Regular Expressions</h2>
       
@@ -109,7 +116,7 @@ expression viewer. Lookbehind and negative lookbehinds are not respected.</p>
     <h2 id="examples">Examples</h2>
     <pre class="examples"><div class='input'>explain(&quot;\\s*foo[A-Z]\\d{2,3}&quot;)
 </div>
-<strong class='message'>NODE                     EXPLANATION
+<div class='output'>NODE                     EXPLANATION
 --------------------------------------------------------------------------------
   \\s*                      whitespace (\n, \r, \t, \f, and &quot; &quot;) (0 or
                            more times (matching the most amount
@@ -122,10 +129,10 @@ expression viewer. Lookbehind and negative lookbehinds are not respected.</p>
   \\d{2,3}                  digits (0-9) (between 2 and 3 times
                            (matching the most amount possible))
 
-</strong>
+</div>
 <div class='input'>explain(&quot;@rm_time&quot;)
 </div>
-<strong class='message'>NODE                     EXPLANATION
+<div class='output'>NODE                     EXPLANATION
 --------------------------------------------------------------------------------
   \\d{0,2}                  digits (0-9) (between 0 and 2 times
                            (matching the most amount possible))
@@ -139,13 +146,12 @@ expression viewer. Lookbehind and negative lookbehinds are not respected.</p>
 --------------------------------------------------------------------------------
     [:.]                     any character of: &#39;:&#39;, &#39;.&#39;
 --------------------------------------------------------------------------------
-    \\d                       digits (0-9)
---------------------------------------------------------------------------------
-                             &#39; &#39;
+    \\d+                      digits (0-9) (1 or more times (matching
+                             the most amount possible))
 --------------------------------------------------------------------------------
   )?                       end of grouping
 
-</strong>
+</div>
 <div class='input'>## &lt;strong&gt;Not run&lt;/strong&gt;: 
 # explain(&quot;\\s*foo[A-Z]\\d{2,3}&quot;, open = TRUE)
 # explain(&quot;@rm_time&quot;, open = TRUE)

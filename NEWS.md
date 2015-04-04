@@ -44,11 +44,25 @@ And constructed with the following guidelines:
 * `%+%` binary operator version of `pastex(x, y, sep = "")` added to join
   regular expressions together.
 
-* `group_or` added as a means of quickly wrapping mutiple sub-expression 
+* `group_or` added as a means of quickly wrapping multiple sub-expression 
   elements with grouping parenthesis and then concatenate/joins the grouped 
   strings with regular expression or statement ("|").
 
+* `rm_repeated_characters` added for removing/extracting/replacing words with
+  repeated characters (each repeated &gt; 2 times).  Regex pattern comes from:
+  StackOverflow's vks (<a href="http://stackoverflow.com/a/29438461/1000343)." target="_blank">http://stackoverflow.com/a/29438461/1000343).</a>
+
+* `rm_repeated_phrases` added for removing/extracting/replacing repeating 
+  phrases (&gt; 2 times).  Regex pattern comes from:
+  StackOverflow's BrodieG (<a href="http://stackoverflow.com/a/28786617/1000343)." target="_blank">http://stackoverflow.com/a/28786617/1000343).</a>
+
+* `rm_repeated_words` added for removing/extracting/replacing repeating words 
+  (&gt; 2 times).  
+
 **MINOR FEATURES**
+
+* `run_split` regex added to the `regex_supplement` dictionary to split runs 
+  into chunks.
 
 **IMPROVEMENTS**
 

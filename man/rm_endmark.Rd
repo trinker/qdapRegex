@@ -80,7 +80,10 @@ Other rm_.functions: \code{\link{rm_abbreviation}};
   \code{\link{rm_hash}}; \code{\link{rm_nchar_words}};
   \code{\link{rm_non_ascii}}; \code{\link{rm_number}};
   \code{\link{rm_percent}}; \code{\link{rm_phone}};
-  \code{\link{rm_postal_code}}; \code{\link{rm_tag}};
+  \code{\link{rm_postal_code}};
+  \code{\link{rm_repeated_characters}};
+  \code{\link{rm_repeated_phrases}};
+  \code{\link{rm_repeated_words}}; \code{\link{rm_tag}};
   \code{\link{rm_time}}; \code{\link{rm_title_name}};
   \code{\link{rm_twitter_url}}, \code{\link{rm_url}};
   \code{\link{rm_white}}, \code{\link{rm_white_bracket}},

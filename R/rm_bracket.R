@@ -101,7 +101,6 @@ rm_bracket <- function(text.var, pattern = "all", trim = TRUE, clean = TRUE,
 }
 
 
-#' @family rm_ functions
 #' @include utils.R
 #' @export
 #' @rdname rm_bracket
@@ -121,7 +120,7 @@ rm_round <- function(text.var, pattern = "(", trim = TRUE, clean = TRUE,
         dictionary = dictionary, ...)
 }
 
-#' @family rm_ functions
+
 #' @include utils.R
 #' @export
 #' @rdname rm_bracket
@@ -142,7 +141,7 @@ rm_square <- function(text.var, pattern = "[", trim = TRUE, clean = TRUE,
         dictionary = dictionary, ...)
 }
 
-#' @family rm_ functions
+
 #' @include utils.R
 #' @export
 #' @rdname rm_bracket
@@ -163,7 +162,7 @@ rm_curly <- function(text.var, pattern = "{", trim = TRUE, clean = TRUE,
         dictionary = dictionary, ...)
 }
 
-#' @family rm_ functions
+
 #' @include utils.R
 #' @export
 #' @rdname rm_bracket
@@ -206,7 +205,7 @@ bracket_convert <- function(x) {
     angle = c("<", ">")     
 )
 
-#' @family rm_ functions
+
 #' @include utils.R
 #' @export
 #' @rdname rm_bracket

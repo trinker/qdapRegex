@@ -77,10 +77,9 @@ NULL
 #'   \item{rm_percent}{substring beginning with (1) just whole number (no decimal), (2) whole number and decimal, or (3) just decimal value and followed by a percent sign (\%)}
 #'   \item{rm_phone}{phone numbers in the form of optional country code, valid 3 digit prefix, and 7 digits (may contain hyphens and parenthesis); logic is complex to explain (see \url{http://stackoverflow.com/a/21008254/1000343} for more)}
 #'   \item{rm_postal_code}{U.S. state abbreviations (and District of Columbia) that is constrained to just possible U.S. state names, not just two consecutive capital letters; taken from Mike Hamilton's submission found \url{http://regexlib.com/REDetails.aspx?regexp_id=2177}}
-#'   \item{rm_repeated_phrases}{substring with a phrase (a sequence of 1 or more words) that is repeat 2 or more times; case is ignored}
-#'   \item{rm_repeated_words}{substring with a word (marked with a boundary) that is repeat 2 or more times; case is ignored}
-#'   \item{rm_simile_as}{similes that use the pattern "as ____ as" where ____ is a single word}  
-#'   \item{rm_simile_like}{similes that use the pattern "like ____ (optionally `the` or `a`)" where ____ is a single word} 
+#'   \item{rm_repeated_characters}{substring with a repetition of repeated characters within a word; regex pattern retrieved from \href{http://stackoverflow.com}{StackOverflow}'s, \href{http://stackoverflow.com/users/3679490/vks}{vks}: \url{http://stackoverflow.com/a/29438461/1000343}}
+#'   \item{rm_repeated_phrases}{substring with a phrase (a sequence of 1 or more words) that is repeated 2 or more times (case is ignored; separating periods and commas are ignored); regex pattern retrieved from \href{http://stackoverflow.com}{StackOverflow}'s, \href{http://stackoverflow.com/users/2725969/brodieg}{BrodieG}: \url{http://stackoverflow.com/a/28786617/1000343}}
+#'   \item{rm_repeated_words}{substring with a word (marked with a boundary) that is repeat 2 or more times (case is ignored)}
 #'   \item{rm_tag}{substring that begins with an at (@@) followed by a word}
 #'   \item{rm_tag2}{\href{https://support.twitter.com/articles/101299-why-can-t-i-register-certain-usernames}{Twitter} substring that begins with an at (@@) followed by a word composed of alpha-numeric characters and underscores, no longer than 15 characters}
 #'   \item{rm_title_name}{substring beginning with title (Mrs., Mr., Ms., Dr.) that is case independent or full title (Miss, Mizz, mizz) followed by a single lower case word or multiple capitalized words}
@@ -107,7 +106,7 @@ NULL
 #' regular expressions in \code{regex_usa}.  This will provide a browser + console
 #' based break down of each regex in the dictionary.
 #' @usage data(regex_usa) 
-#' @format A list with 49 elements 
+#' @format A list with 51 elements 
 NULL
 
 #' Supplemental Canned Regular Expressions
@@ -134,6 +133,7 @@ NULL
 #'   \item{last_occurrence}{last occurrence of a delimiter; note contains \code{"\%s"} that is replaced by \code{\link[base]{sprintf}} and is not a valid regex on its own (user supplies the delimiter)}
 #'   \item{pages}{substring with "pp." or "p.", optionally followed by a space, followed by 1 or more digits, optionally followed by a dash, optionally followed by 1 or more digits, optionally followed by a semicolon, optionally followed by a space, optionally followed by 1 or more digits; intended for extraction/removal purposes}
 #'   \item{pages2}{substring 1 or more digits, optionally followed by a dash, optionally followed by 1 or more digits, optionally followed by a semicolon, optionally followed by a space, optionally followed by 1 or more digits; intended for validation purposes}
+#'   \item{run_split}{a regex that is useful for splitting strings in the characters runs (e.g., "wwxyyyzz" becomes "ww", "x", "yyy", "zz"); regex pattern retrieved from \href{http://stackoverflow.com/users/2994949/rawr}{Robert Redd}: \url{http://stackoverflow.com/a/29383435/1000343}}
 #'   \item{split_keep_delim}{regex string that splits on a delimiter and retains the delimiter}
 #'   \item{thousands_separator}{chunks digits > 4 into groups of 3 from right to left allowing for easy insertion of thousands separator; regex pattern retrieved from \href{http://stackoverflow.com/}{StackOverflow}'s stema: \url{http://stackoverflow.com/a/10612685/1000343}}
 #'   \item{time_12_hours}{substring of valid hours (1-12) followed by a colon (:) followed by valid minutes (0-60), followed by an optional space and the character chunk \emph{am} or \emph{pm}} 
@@ -159,7 +159,7 @@ NULL
 #' @details Use \code{qdapRegex:::examine_regex(regex_supplement)} to 
 #' interactively explore the regular expressions in \code{regex_usa}.  This will 
 #' provide a browser + console based break down of each regex in the dictionary.
-#' @format A list with 21 elements
+#' @format A list with 22 elements
 #' @examples 
 #' time <- rm_(pattern="@@time_12_hours")
 #' time("I will go at 12:35 pm")
@@ -214,6 +214,10 @@ NULL
 #' 
 #' around_and <- rm_(pattern = S("@@around_", 1, "and|\\&", 1), extract=TRUE)
 #' around_and(x)
+#' 
+#' ## Split runs into chunks
+#' x <- "1111100000222000333300011110000111000"
+#' strsplit(x, grab("@@run_split"), per = TRUE)
 #' 
 #' \dontrun{
 #' library(qdap);library(ggplot2);library(reshape2)

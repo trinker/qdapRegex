@@ -53,6 +53,11 @@
       
     </div>
 
+    <div class="Test Regular Expression Validity">
+      <h2>Test Regular Expression Validity</h2>
+      
+    </div>
+
     <div class="Value">
       <h2>Value</h2>
       
@@ -83,39 +88,39 @@ expressions).</p>
 <div class='input'>
 sapply(regex_usa, is.regex)
 </div>
-<div class='output'>     rm_abbreviation           rm_between          rm_between2              rm_caps       rm_caps_phrase 
-                TRUE                 TRUE                 TRUE                 TRUE                 TRUE 
-         rm_citation         rm_citation2         rm_citation3      rm_citation_tex        rm_city_state 
-               FALSE                 TRUE                FALSE                 TRUE                 TRUE 
-   rm_city_state_zip              rm_date             rm_date2             rm_date3             rm_date4 
-                TRUE                 TRUE                 TRUE                 TRUE                 TRUE 
-           rm_dollar             rm_email          rm_emoticon           rm_endmark          rm_endmark2 
-                TRUE                 TRUE                 TRUE                 TRUE                 TRUE 
-         rm_endmark3              rm_hash       rm_nchar_words      rm_nchar_words2         rm_non_ascii 
-                TRUE                 TRUE                 TRUE                 TRUE                 TRUE 
-           rm_number           rm_percent             rm_phone       rm_postal_code               rm_tag 
-                TRUE                 TRUE                 TRUE                 TRUE                 TRUE 
-             rm_tag2        rm_title_name              rm_time             rm_time2       rm_twitter_url 
-                TRUE                 TRUE                 TRUE                 TRUE                 TRUE 
-              rm_url              rm_url2              rm_url3             rm_white     rm_white_bracket 
-                TRUE                 TRUE                 TRUE                 TRUE                 TRUE 
-      rm_white_colon       rm_white_comma     rm_white_endmark        rm_white_lead  rm_white_lead_trail 
-                TRUE                 TRUE                 TRUE                 TRUE                 TRUE 
-   rm_white_multiple rm_white_punctuation       rm_white_trail               rm_zip 
-                TRUE                 TRUE                 TRUE                 TRUE 
+<div class='output'>       rm_abbreviation             rm_between            rm_between2                rm_caps         rm_caps_phrase 
+                  TRUE                   TRUE                   TRUE                   TRUE                   TRUE 
+           rm_citation           rm_citation2           rm_citation3        rm_citation_tex          rm_city_state 
+                 FALSE                   TRUE                  FALSE                   TRUE                   TRUE 
+     rm_city_state_zip                rm_date               rm_date2               rm_date3               rm_date4 
+                  TRUE                   TRUE                   TRUE                   TRUE                   TRUE 
+             rm_dollar               rm_email            rm_emoticon             rm_endmark            rm_endmark2 
+                  TRUE                   TRUE                   TRUE                   TRUE                   TRUE 
+           rm_endmark3                rm_hash         rm_nchar_words        rm_nchar_words2           rm_non_ascii 
+                  TRUE                   TRUE                   TRUE                   TRUE                   TRUE 
+             rm_number             rm_percent               rm_phone         rm_postal_code rm_repeated_characters 
+                  TRUE                   TRUE                   TRUE                   TRUE                   TRUE 
+   rm_repeated_phrases      rm_repeated_words                 rm_tag                rm_tag2          rm_title_name 
+                  TRUE                   TRUE                   TRUE                   TRUE                   TRUE 
+               rm_time               rm_time2         rm_twitter_url                 rm_url                rm_url2 
+                  TRUE                   TRUE                   TRUE                   TRUE                   TRUE 
+               rm_url3               rm_white       rm_white_bracket         rm_white_colon         rm_white_comma 
+                  TRUE                   TRUE                   TRUE                   TRUE                   TRUE 
+      rm_white_endmark          rm_white_lead    rm_white_lead_trail      rm_white_multiple   rm_white_punctuation 
+                  TRUE                   TRUE                   TRUE                   TRUE                   TRUE 
+        rm_white_trail                 rm_zip 
+                  TRUE                   TRUE 
 </div>
 <div class='input'>sapply(regex_supplement, is.regex) ## `version` is not a valid regex
 </div>
-<div class='output'>            after_a           after_the              after_             around_            around2_ 
-               TRUE                TRUE                TRUE                TRUE                TRUE 
-            before_         hexadecimal          ip_address     last_occurrence               pages 
-               TRUE                TRUE                TRUE                TRUE                TRUE 
-             pages2    split_keep_delim thousands_separator       time_12_hours             version 
-               TRUE                TRUE                TRUE                TRUE               FALSE 
-           version2   white_after_comma       word_boundary  word_boundary_left word_boundary_right 
-               TRUE                TRUE                TRUE                TRUE                TRUE 
-         youtube_id 
-               TRUE 
+<div class='output'>            after_a           after_the              after_             around_            around2_             before_ 
+               TRUE                TRUE                TRUE                TRUE                TRUE                TRUE 
+        hexadecimal          ip_address     last_occurrence               pages              pages2           run_split 
+               TRUE                TRUE                TRUE                TRUE                TRUE                TRUE 
+   split_keep_delim thousands_separator       time_12_hours             version            version2   white_after_comma 
+               TRUE                TRUE                TRUE               FALSE                TRUE                TRUE 
+      word_boundary  word_boundary_left word_boundary_right          youtube_id 
+               TRUE                TRUE                TRUE                TRUE 
 </div></pre>
   </div>
   <div class="span4">

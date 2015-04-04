@@ -4,7 +4,7 @@
 \name{regex_supplement}
 \alias{regex_supplement}
 \title{Supplemental Canned Regular Expressions}
-\format{A list with 21 elements}
+\format{A list with 22 elements}
 \usage{
 data(regex_supplement)
 }
@@ -29,6 +29,7 @@ The following canned regular expressions are included:
   \item{last_occurrence}{last occurrence of a delimiter; note contains \code{"\%s"} that is replaced by \code{\link[base]{sprintf}} and is not a valid regex on its own (user supplies the delimiter)}
   \item{pages}{substring with "pp." or "p.", optionally followed by a space, followed by 1 or more digits, optionally followed by a dash, optionally followed by 1 or more digits, optionally followed by a semicolon, optionally followed by a space, optionally followed by 1 or more digits; intended for extraction/removal purposes}
   \item{pages2}{substring 1 or more digits, optionally followed by a dash, optionally followed by 1 or more digits, optionally followed by a semicolon, optionally followed by a space, optionally followed by 1 or more digits; intended for validation purposes}
+  \item{run_split}{a regex that is useful for splitting strings in the characters runs (e.g., "wwxyyyzz" becomes "ww", "x", "yyy", "zz"); regex pattern retrieved from \href{http://stackoverflow.com/users/2994949/rawr}{Robert Redd}: \url{http://stackoverflow.com/a/29383435/1000343}}
   \item{split_keep_delim}{regex string that splits on a delimiter and retains the delimiter}
   \item{thousands_separator}{chunks digits > 4 into groups of 3 from right to left allowing for easy insertion of thousands separator; regex pattern retrieved from \href{http://stackoverflow.com/}{StackOverflow}'s stema: \url{http://stackoverflow.com/a/10612685/1000343}}
   \item{time_12_hours}{substring of valid hours (1-12) followed by a colon (:) followed by valid minutes (0-60), followed by an optional space and the character chunk \emph{am} or \emph{pm}}
@@ -107,6 +108,10 @@ x <- c(
 
 around_and <- rm_(pattern = S("@around_", 1, "and|\\\\&", 1), extract=TRUE)
 around_and(x)
+
+## Split runs into chunks
+x <- "1111100000222000333300011110000111000"
+strsplit(x, grab("@run_split"), per = TRUE)
 
 \dontrun{
 library(qdap);library(ggplot2);library(reshape2)

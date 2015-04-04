@@ -61,6 +61,7 @@ Collate:
     'rm_percent.R'
     'rm_phone.R'
     'rm_postal_code.R'
+    'rm_repeated_characters.R'
     'rm_repeated_phrases.R'
     'rm_repeated_words.R'
     'rm_tag.R'
