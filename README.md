@@ -1,12 +1,15 @@
 # qdapRegex
 
 
+```
+## Error: there is no package called 'pax'
+```
 
 [![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/0.1.0/active.svg)](http://www.repostatus.org/#active)
 [![Build Status](https://travis-ci.org/trinker/qdapRegex.svg?branch=master)](https://travis-ci.org/trinker/qdapRegex)
 [![Coverage Status](https://coveralls.io/repos/trinker/qdapRegex/badge.svg)](https://coveralls.io/r/trinker/qdapRegex)
 [![DOI](https://zenodo.org/badge/5398/trinker/qdapRegex.svg)](http://dx.doi.org/10.5281/zenodo.11284)
-<a href="https://img.shields.io/badge/Version-0.3.0-orange.svg"><img src="https://img.shields.io/badge/Version-0.3.0-orange.svg" alt="Version"/></a></p>
+<a href="https://img.shields.io/badge/Version-0.3.2-orange.svg"><img src="https://img.shields.io/badge/Version-0.3.2-orange.svg" alt="Version"/></a></p>
 
 <img src="inst/qdapRegex_logo/r_qdapRegex.png" width="320" alt="qdapRegex Logo">      
 [qdapRegex](http://trinker.github.com/qdapRegex_dev) is a collection of regular expression tools associated with the **qdap** package that may be useful outside of the context of discourse analysis.  Tools include removal/extraction/replacement of abbreviations, dates, dollar amounts, email addresses, hash tags, numbers, percentages, person tags, phone numbers, times, and zip codes.
@@ -30,7 +33,7 @@ The following regular expressions sites were very helpful to my own regular expr
 Being able to discuss and ask questions is also important to learning...in this case regular expressions.  I have found the following forums extremely helpful to learning about regular expressions:
 
 1. [Talk Stats](http://www.talkstats.com/)  +  [Posting Guidelines](http://www.talkstats.com/showthread.php/14960-Forum-Guidelines-Smart-posting-behavior-pays-off)    
-2. [stackoverflow](http://stackoverflow.com/)  +  [Posting Guidelines](http://stackoverflow.com/help/how-to-ask)
+2. [stackoverflow](http://stackoverflow.com/)  +  [Posting Guidelines](http://trinker.github.io/stackoverflow/)
 
 ## Installation
 
