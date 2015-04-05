@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>rm_. qdapRegex 0.2.1</title>
+<title>rm_. qdapRegex 0.3.0</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="">
 
@@ -20,7 +20,7 @@
     <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">qdapRegex 0.2.1</a>
+      <a class="brand" href="#">qdapRegex 0.3.0</a>
       <div class="nav">
         <ul class="nav">
           <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
@@ -50,44 +50,44 @@ Generally, <code>pattern</code> and <code>extract</code> are the most useful par
 to change.  Arguments that can be set include:
 <dl>
 <dt>text.var</dt><dd>The text variable.</dd>
+
 <dt>trim</dt><dd>logical.  If <code>TRUE</code> removes leading and trailing white
 spaces.</dd>
+
 <dt>clean</dt><dd>logical.  If <code>TRUE</code> extra white spaces and escaped
 character will be removed.</dd>
+
 <dt>pattern</dt><dd>A character string containing a regular expression (or
 character string for <code>fixed = TRUE</code>) to be matched in the given
 character vector.</dd>
+
 <dt>replacement</dt><dd>Replacement for matched <code>pattern</code>.</dd>
+
 <dt>extract</dt><dd>logical.  If <code>TRUE</code> strings are extracted into a list of
 vectors.</dd>
+
 <dt>dictionary</dt><dd>A dictionary of canned regular expressions to search within
 if <code>pattern</code> begins with <code>"@rm_"</code>.</dd>
-<dt>...</dt><dd>Other arguments passed to <code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code>.</dd>
+
+<dt>...</dt><dd>Other arguments passed to <code><a href='http://www.inside-r.org/r-doc/base/grep'>gsub</a></code>.</dd>
+
 </dl>
 </dd>
     </dl>
     
-    <div class="Remove/Replace/Extract Function Generator">
-      <h2>Remove/Replace/Extract Function Generator</h2>
-      
-    </div>
-
-    <div class="Remove/Replace/Extract Function Generator">
-      <h2>Remove/Replace/Extract Function Generator</h2>
-      
-    </div>
-
     <div class="Value">
       <h2>Value</h2>
-      
-      <p>Returns a function that operates typical of other <span class = "pkg">qdapRegex</span>
-<code>rm_XXX</code> functions but with user defined defaults.</p>
+
+      <p><dl>
+Returns a function that operates typical of other <span class = "pkg">qdapRegex</span>
+<code>rm_XXX</code> functions but with user defined defaults.
+</dl></p>
   
     </div>
 
     <div class="Description">
       <h2>Description</h2>
-      
+
       <p>Remove/replace/extract substrings from a string.  A function generator used
 to make regex functions that operate typical of other <span class = "pkg">qdapRegex</span>
 <code>rm_XXX</code> functions.</p>

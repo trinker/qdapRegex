@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>rm_bracket. qdapRegex 0.2.1</title>
+<title>rm_bracket. qdapRegex 0.3.0</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="
 Martin Morgan and Tyler Rinker &lt;tyler.rinker@gmail.com&gt;.
@@ -22,7 +22,7 @@ Martin Morgan and Tyler Rinker &lt;tyler.rinker@gmail.com&gt;.
     <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">qdapRegex 0.2.1</a>
+      <a class="brand" href="#">qdapRegex 0.3.0</a>
       <div class="nav">
         <ul class="nav">
           <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
@@ -80,23 +80,14 @@ if <code>pattern</code> begins with <code>"@rm_"</code>.</dd>
 be merged by string.  <code>FALSE</code> returns a named list of lists of vectors
 of bracketed text per bracket type.</dd>
       <dt>...</dt>
-      <dd>Other arguments passed to <code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code>.</dd>
+      <dd>Other arguments passed to <code><a href='http://www.inside-r.org/r-doc/base/grep'>gsub</a></code>.</dd>
     </dl>
     
-    <div class="Remove/Replace/Extract Brackets">
-      <h2>Remove/Replace/Extract Brackets</h2>
-      
-    </div>
-
-    <div class="Remove/Replace/Extract Brackets">
-      <h2>Remove/Replace/Extract Brackets</h2>
-      
-    </div>
-
     <div class="Value">
       <h2>Value</h2>
-      
-      <p><code>rm_bracket</code> - returns a character string with
+
+      <p><dl>
+<code>rm_bracket</code> - returns a character string with
 multiple brackets removed.  If <code>extract = TRUE</code> the results are
 optionally merged and named by bracket type.  This is more flexible than
 <code>rm_bracket</code> but slower.</p>
@@ -115,20 +106,21 @@ removed.</p>
       <p><code>rm_bracket_multiple</code> - returns a character string with
 multiple brackets removed.  If <code>extract = TRUE</code> the results are
 optionally merged and named by bracket type.  This is more flexible than
-<code>rm_bracket</code> but slower.</p>
+<code>rm_bracket</code> but slower.
+</dl></p>
   
     </div>
 
     <div class="Description">
       <h2>Description</h2>
-      
+
       <p>Remove/replace/extract bracketed strings.</p>
   
     </div>
 
     <div class="References">
       <h2>References</h2>
-      
+
       <p><a href = 'http://stackoverflow.com/q/8621066/1000343'>http://stackoverflow.com/q/8621066/1000343</a></p>
   
     </div>
@@ -342,7 +334,7 @@ lapply(rm_between(&#39;She said, &quot;I am!&quot; and he responded...&quot;Am w
       
     <h2>See also</h2>
     
-<code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code>,
+<code><a href='http://www.inside-r.org/r-doc/base/grep'>gsub</a></code>,
 <code>rm_between</code>,
 <code><a href='http://www.inside-r.org/packages/cran/stringi/docs/stri_extract'>stri_extract_all_regex</a></code>
 

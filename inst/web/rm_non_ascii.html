@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>rm_non_ascii. qdapRegex 0.2.1</title>
+<title>rm_non_ascii. qdapRegex 0.3.0</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="
 &lt;a href = 'http://stackoverflow.com'&gt;stackoverflow&lt;/a&gt;'s MrFlick, hwnd, and Tyler Rinker &lt;tyler.rinker@gmail.com&gt;.
@@ -22,7 +22,7 @@
     <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">qdapRegex 0.2.1</a>
+      <a class="brand" href="#">qdapRegex 0.3.0</a>
       <div class="nav">
         <ul class="nav">
           <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
@@ -60,8 +60,8 @@ character string for <code>fixed = TRUE</code>) to be matched in the given
 character vector.  Default, <code>@rm_non_ascii</code> uses the
 <code>rm_non_ascii</code> regex from the regular expression dictionary from
 the <code>dictionary</code> argument.  If <code>extract = FALSE</code>
-<code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code> is not used as with other <code>rm_XXX</code> functions,
-rather <code><a href='http://www.inside-r.org/packages/cran/base/docs/iconv'>iconv</a></code> with the <code>sub</code> argument set is used to
+<code><a href='http://www.inside-r.org/r-doc/base/grep'>gsub</a></code> is not used as with other <code>rm_XXX</code> functions,
+rather <code><a href='http://www.inside-r.org/r-doc/base/iconv'>iconv</a></code> with the <code>sub</code> argument set is used to
 conduct the subbing.</dd>
       <dt>replacement</dt>
       <dd>Replacement for matched <code>pattern</code>.</dd>
@@ -78,26 +78,18 @@ otherwise <code>"byte"</code> is used.</dd>
       <dd>ignored.</dd>
     </dl>
     
-    <div class="Remove/Replace/Extract Non-ASCII">
-      <h2>Remove/Replace/Extract Non-ASCII</h2>
-      
-    </div>
-
-    <div class="Remove/Replace/Extract Non-ASCII">
-      <h2>Remove/Replace/Extract Non-ASCII</h2>
-      
-    </div>
-
     <div class="Value">
       <h2>Value</h2>
-      
-      <p>Returns a character string with "all caps" removed.</p>
+
+      <p><dl>
+Returns a character string with "all caps" removed.
+</dl></p>
   
     </div>
 
     <div class="Description">
       <h2>Description</h2>
-      
+
       <p>Remove/replace/extract non-ASCII substring from a string.  This is the template used by
 other <span class = "pkg">qdapRegex</span> <code>rm_XXX</code> functions.</p>
   
@@ -105,16 +97,16 @@ other <span class = "pkg">qdapRegex</span> <code>rm_XXX</code> functions.</p>
 
     <div class="Warning">
       <h2>Warning</h2>
-      
-      <p><code><a href='http://www.inside-r.org/packages/cran/base/docs/iconv'>iconv</a></code> is used within <code>rm_non_ascii</code>.
-<code><a href='http://www.inside-r.org/packages/cran/base/docs/iconv'>iconv</a></code>'s behavior across operating systems may not be
+
+      <p><code><a href='http://www.inside-r.org/r-doc/base/iconv'>iconv</a></code> is used within <code>rm_non_ascii</code>.
+<code><a href='http://www.inside-r.org/r-doc/base/iconv'>iconv</a></code>'s behavior across operating systems may not be
 consistent.</p>
   
     </div>
 
     <div class="References">
       <h2>References</h2>
-      
+
       <p>The email regular expression was taken from:
 <a href = 'http://stackoverflow.com/a/25469131/1000343'>http://stackoverflow.com/a/25469131/1000343</a></p>
   
@@ -177,7 +169,7 @@ rm_non_ascii(x)
       
     <h2>See also</h2>
     
-<code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code>,
+<code><a href='http://www.inside-r.org/r-doc/base/grep'>gsub</a></code>,
 <code><a href='http://www.inside-r.org/packages/cran/stringi/docs/stri_extract'>stri_extract_all_regex</a></code>
 
 Other rm_.functions: <code><a href='rm_abbreviation.html'>rm_abbreviation</a></code>;
