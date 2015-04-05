@@ -1,7 +1,6 @@
 # qdapRegex
 
 ```{r, echo=FALSE}
-library("pax")
 desc <- suppressWarnings(readLines("DESCRIPTION"))
 regex <- "(^Version:\\s+)(\\d+\\.\\d+\\.\\d+)"
 loc <- grep(regex, desc)
