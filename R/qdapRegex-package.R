@@ -4,7 +4,7 @@
 #' the \pkg{qdap} package that may be useful outside of the context of discourse
 #' analysis.  Tools include removal/extraction/replacement of abbreviations, 
 #' dates, dollar amounts, email addresses, hash tags, numbers, percentages, 
-#' person tags, phone numbers, times, and zip codes.
+#' citations, person tags, phone numbers, times, and zip codes.
 #' 
 #' The \pkg{qdapRegex} package does not aim to compete with string manipulation 
 #' packages such as 

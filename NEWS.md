@@ -16,7 +16,7 @@ And constructed with the following guidelines:
   (and resets the patch)
 * Bug fixes and misc changes bumps the patch
 
- <a href="https://github.com/trinker/qdapRegex" target="_blank">qdapRegex</a> 0.2.1
+ <a href="https://github.com/trinker/qdapRegex" target="_blank">qdapRegex</a> 0.2.1 - 0.3.2
 ----------------------------------------------------------------
 
 **BUG FIXES**
