@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>rm_bracket. qdapRegex 0.3.0</title>
+<title>rm_bracket. qdapRegex 0.3.3</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="
 Martin Morgan and Tyler Rinker &lt;tyler.rinker@gmail.com&gt;.
@@ -22,7 +22,7 @@ Martin Morgan and Tyler Rinker &lt;tyler.rinker@gmail.com&gt;.
     <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">qdapRegex 0.3.0</a>
+      <a class="brand" href="#">qdapRegex 0.3.3</a>
       <div class="nav">
         <ul class="nav">
           <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
@@ -80,14 +80,23 @@ if <code>pattern</code> begins with <code>"@rm_"</code>.</dd>
 be merged by string.  <code>FALSE</code> returns a named list of lists of vectors
 of bracketed text per bracket type.</dd>
       <dt>...</dt>
-      <dd>Other arguments passed to <code><a href='http://www.inside-r.org/r-doc/base/grep'>gsub</a></code>.</dd>
+      <dd>Other arguments passed to <code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code>.</dd>
     </dl>
     
+    <div class="Remove/Replace/Extract Brackets">
+      <h2>Remove/Replace/Extract Brackets</h2>
+      
+    </div>
+
+    <div class="Remove/Replace/Extract Brackets">
+      <h2>Remove/Replace/Extract Brackets</h2>
+      
+    </div>
+
     <div class="Value">
       <h2>Value</h2>
-
-      <p><dl>
-<code>rm_bracket</code> - returns a character string with
+      
+      <p><code>rm_bracket</code> - returns a character string with
 multiple brackets removed.  If <code>extract = TRUE</code> the results are
 optionally merged and named by bracket type.  This is more flexible than
 <code>rm_bracket</code> but slower.</p>
@@ -106,21 +115,20 @@ removed.</p>
       <p><code>rm_bracket_multiple</code> - returns a character string with
 multiple brackets removed.  If <code>extract = TRUE</code> the results are
 optionally merged and named by bracket type.  This is more flexible than
-<code>rm_bracket</code> but slower.
-</dl></p>
+<code>rm_bracket</code> but slower.</p>
   
     </div>
 
     <div class="Description">
       <h2>Description</h2>
-
+      
       <p>Remove/replace/extract bracketed strings.</p>
   
     </div>
 
     <div class="References">
       <h2>References</h2>
-
+      
       <p><a href = 'http://stackoverflow.com/q/8621066/1000343'>http://stackoverflow.com/q/8621066/1000343</a></p>
   
     </div>
@@ -334,11 +342,12 @@ lapply(rm_between(&#39;She said, &quot;I am!&quot; and he responded...&quot;Am w
       
     <h2>See also</h2>
     
-<code><a href='http://www.inside-r.org/r-doc/base/grep'>gsub</a></code>,
+<code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code>,
 <code>rm_between</code>,
 <code><a href='http://www.inside-r.org/packages/cran/stringi/docs/stri_extract'>stri_extract_all_regex</a></code>
 
-Other rm_.functions: <code><a href='rm_abbreviation.html'>rm_abbreviation</a></code>;
+Other rm_.functions: <code><a href='rm_number.html'>as_numeric</a></code>,
+  <code><a href='rm_number.html'>rm_number</a></code>; <code><a href='rm_abbreviation.html'>rm_abbreviation</a></code>;
   <code><a href='rm_between.html'>rm_between</a></code>,
   <code><a href='rm_between.html'>rm_between_multiple</a></code>;
   <code><a href='rm_caps_phrase.html'>rm_caps_phrase</a></code>; <code><a href='rm_caps.html'>rm_caps</a></code>;
@@ -349,8 +358,8 @@ Other rm_.functions: <code><a href='rm_abbreviation.html'>rm_abbreviation</a></c
   <code><a href='rm_email.html'>rm_email</a></code>; <code><a href='rm_emoticon.html'>rm_emoticon</a></code>;
   <code><a href='rm_endmark.html'>rm_endmark</a></code>; <code><a href='rm_hash.html'>rm_hash</a></code>;
   <code><a href='rm_nchar_words.html'>rm_nchar_words</a></code>; <code><a href='rm_non_ascii.html'>rm_non_ascii</a></code>;
-  <code><a href='rm_number.html'>rm_number</a></code>; <code><a href='rm_percent.html'>rm_percent</a></code>;
-  <code><a href='rm_phone.html'>rm_phone</a></code>; <code><a href='rm_postal_code.html'>rm_postal_code</a></code>;
+  <code><a href='rm_percent.html'>rm_percent</a></code>; <code><a href='rm_phone.html'>rm_phone</a></code>;
+  <code><a href='rm_postal_code.html'>rm_postal_code</a></code>;
   <code><a href='rm_repeated_characters.html'>rm_repeated_characters</a></code>;
   <code><a href='rm_repeated_phrases.html'>rm_repeated_phrases</a></code>;
   <code><a href='rm_repeated_words.html'>rm_repeated_words</a></code>; <code><a href='rm_tag.html'>rm_tag</a></code>;

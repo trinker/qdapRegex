@@ -65,7 +65,8 @@ rm_endmark(x, extract=TRUE, pattern="@rm_endmark3")
 \code{\link[base]{gsub}},
 \code{\link[stringi]{stri_extract_all_regex}}
 
-Other rm_.functions: \code{\link{rm_abbreviation}};
+Other rm_.functions: \code{\link{as_numeric}},
+  \code{\link{rm_number}}; \code{\link{rm_abbreviation}};
   \code{\link{rm_angle}}, \code{\link{rm_bracket}},
   \code{\link{rm_bracket_multiple}},
   \code{\link{rm_curly}}, \code{\link{rm_round}},
@@ -78,9 +79,8 @@ Other rm_.functions: \code{\link{rm_abbreviation}};
   \code{\link{rm_default}}; \code{\link{rm_dollar}};
   \code{\link{rm_email}}; \code{\link{rm_emoticon}};
   \code{\link{rm_hash}}; \code{\link{rm_nchar_words}};
-  \code{\link{rm_non_ascii}}; \code{\link{rm_number}};
-  \code{\link{rm_percent}}; \code{\link{rm_phone}};
-  \code{\link{rm_postal_code}};
+  \code{\link{rm_non_ascii}}; \code{\link{rm_percent}};
+  \code{\link{rm_phone}}; \code{\link{rm_postal_code}};
   \code{\link{rm_repeated_characters}};
   \code{\link{rm_repeated_phrases}};
   \code{\link{rm_repeated_words}}; \code{\link{rm_tag}};

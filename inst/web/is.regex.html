@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>is.regex. qdapRegex 0.3.0</title>
+<title>is.regex. qdapRegex 0.3.3</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="">
 
@@ -20,7 +20,7 @@
     <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">qdapRegex 0.3.0</a>
+      <a class="brand" href="#">qdapRegex 0.3.3</a>
       <div class="nav">
         <ul class="nav">
           <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
@@ -48,20 +48,28 @@
       <dd>A regular expression to be tested.</dd>
     </dl>
     
+    <div class="Test Regular Expression Validity">
+      <h2>Test Regular Expression Validity</h2>
+      
+    </div>
+
+    <div class="Test Regular Expression Validity">
+      <h2>Test Regular Expression Validity</h2>
+      
+    </div>
+
     <div class="Value">
       <h2>Value</h2>
-
-      <p><dl>
-Returns a logical (<code>TRUE</code> is a valid regular expression).
-</dl></p>
+      
+      <p>Returns a logical (<code>TRUE</code> is a valid regular expression).</p>
   
     </div>
 
     <div class="Description">
       <h2>Description</h2>
-
+      
       <p>Acts as a logical test of a regular expression's validity.  <code>is.regex</code>
-uses <code><a href='http://www.inside-r.org/r-doc/base/grep'>gsub</a></code> and tests for errors to determine a regular
+uses <code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code> and tests for errors to determine a regular
 expression's validity.  The regular expression must conform to R's regular
 expression rules (see <code>?regex</code> for details about how R handles regular
 expressions).</p>
@@ -125,7 +133,7 @@ sapply(regex_usa, is.regex)
       
     <h2>See also</h2>
     
-<code><a href='http://www.inside-r.org/r-doc/base/grep'>gsub</a></code>
+<code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code>
 
         
   </div>

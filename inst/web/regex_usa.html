@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>regex_usa. qdapRegex 0.3.0</title>
+<title>regex_usa. qdapRegex 0.3.3</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="">
 
@@ -20,7 +20,7 @@
     <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">qdapRegex 0.3.0</a>
+      <a class="brand" href="#">qdapRegex 0.3.3</a>
       <div class="nav">
         <ul class="nav">
           <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
@@ -42,16 +42,26 @@
     <h2>Usage</h2>
     <pre><div>data(regex_usa)</div></pre>
         
+    <div class="Canned Regular Expressions (United States of America)">
+      <h2>Canned Regular Expressions (United States of America)</h2>
+      
+    </div>
+
+    <div class="Canned Regular Expressions (United States of America)">
+      <h2>Canned Regular Expressions (United States of America)</h2>
+      
+    </div>
+
     <div class="Format">
       <h2>Format</h2>
-
+      
       <p>A list with 51 elements</p>
   
     </div>
 
     <div class="Description">
       <h2>Description</h2>
-
+      
       <p>A dataset containing a list U.S. specific, canned regular expressions for use
 in various functions within the <span class = "pkg">qdapRegex</span> package.</p>
   
@@ -59,112 +69,61 @@ in various functions within the <span class = "pkg">qdapRegex</span> package.</p
 
     <div class="Details">
       <h2>Details</h2>
-
+      
       <p>The following canned regular expressions are included:
 <dl>
-  <dt>rm_abbreviation</dt><dd>abbreviations containing single lower case or capital letter followed by a period and then an optional space (this must be repeated 2 or more times)</dd></p>
-  
-      <p><dt>rm_between</dt><dd>Remove characters between a left and right boundary including the boundaries; note contains <code>"%s"</code> that is replaced by <code><a href='http://www.inside-r.org/r-doc/base/sprintf'>sprintf</a></code> and is not a valid regex on its own</dd></p>
-  
-      <p><dt>rm_between2</dt><dd>Remove characters between a left and right boundary NOT including the boundaries; note contains <code>"%s"</code> that is replaced by <code><a href='http://www.inside-r.org/r-doc/base/sprintf'>sprintf</a></code> and is not a valid regex on its own</dd></p>
-  
-      <p><dt>rm_caps</dt><dd>words containing 2 or more consecutive upper case letters and no lower case</dd></p>
-  
-      <p><dt>rm_caps_phrase</dt><dd>phrases of 1 word or more containing 1 or more consecutive upper case letters and no lower case; if phrase is one word long then phrase must be 2 or more consecutive capital letters</dd></p>
-  
-      <p><dt>rm_citation</dt><dd>substring that looks for in-text and parenthetical APA6 style citations (attempts to exclude references)</dd></p>
-  
-      <p><dt>rm_citation2</dt><dd>substring that looks for in-text APA6 style citations (attempts to exclude references)</dd></p>
-  
-      <p><dt>rm_citation3</dt><dd>substring that looks for parenthetical APA6 style citations (attempts to exclude references)</dd></p>
-  
-      <p><dt>rm_city_state</dt><dd>substring with <em>city</em> (single lower case word or multiple consecutive capitalized words before a comma and state) & <em>state</em> (2 consecutive capital letters)</dd></p>
-  
-      <p><dt>rm_city_state_zip</dt><dd>substring with <em>city</em> (single lower case word or multiple consecutive capitalized words before a comma and state) & <em>state</em> (2 consecutive capital letters) & <em>zip code</em> (exactly 5 or 5+4 consecutive digits)</dd></p>
-  
-      <p><dt>rm_date</dt><dd>dates in the form of 2 digit month, 2 digit day, and 2 or 4 digit year.  Separator between month, day, and year may be dot (.), slash (/), or dash (-)</dd></p>
-  
-      <p><dt>rm_date2</dt><dd>dates in the form of 3-9 letters followed by one or more spaces, 2 digits, a comma(,), one or more spaces, and 4 digits</dd></p>
-  
-      <p><dt>rm_date3</dt><dd>dates in the form of XXXX-XX-XX; hyphen separated string of 4 digit year, 2 digit month, and 2 digit day</dd></p>
-  
-      <p><dt>rm_date4</dt><dd>dates in the form of both <code>rm_date</code>, <code>rm_date2</code>, and <code>rm_date3</code></dd></p>
-  
-      <p><dt>rm_dollar</dt><dd>substring with dollar sign ($) followed by (1) just dollars (no decimal), (2) dollars and cents (whole number and decimal), or (3) just cents (decimal value)</dd></p>
-  
-      <p><dt>rm_email</dt><dd>substring with (1) alphanumeric characters or dash (-), plus (+), or underscore (_) (<em>This may be repeated</em>) (2) followed by at (@), followed by the same regex sequence as before the at (@), and ending with dot (.) and 2-14 digits</dd></p>
-  
-      <p><dt>rm_emoticon</dt><dd>common emoticons (logic is complicated to explain in words) using ">?[:;=8XB]{1}[-~+o^]?[|\")(&gt;DO>{pP3/]+|</?3|XD+|D:<|x[-~+o^]?[|\")(&gt;DO>{pP3/]+" regex pattern; general pattern is optional hat character, followed by eyes character, followed by optional nose character, and ending with a mouth character</dd></p>
-  
-      <p><dt>rm_endmark</dt><dd>substring of the last endmark group in a string; endmarks include (! ? . * OR |)</dd></p>
-  
-      <p><dt>rm_endmark3</dt><dd>substring of the last endmark group in a string; endmarks include (! ? OR .)</dd></p>
-  
-      <p><dt>rm_endmark3</dt><dd>substring of the last endmark group in a string; endmarks include (! ? . * | ; OR :)</dd></p>
-  
-      <p><dt>rm_hash</dt><dd>substring that begins with a hash (#) followed by a word</dd></p>
-  
-      <p><dt>rm_nchar_words</dt><dd>substring of letters (that may contain apostrophes) n letters long (apostrophe not counted in length); note contains <code>"%s"</code> that is replaced by <code><a href='http://www.inside-r.org/r-doc/base/sprintf'>sprintf</a></code> and is not a valid regex on its own</dd></p>
-  
-      <p><dt>rm_nchar_words2</dt><dd>substring of letters (that may contain apostrophes) n letters long (apostrophe counted in length); note contains <code>"%s"</code> that is replaced by <code><a href='http://www.inside-r.org/r-doc/base/sprintf'>sprintf</a></code> and is not a valid regex on its own</dd></p>
-  
-      <p><dt>rm_non_ascii</dt><dd>substring of 2 digits or letters a-f inside of a left and right angle brace in the form of <code>"<a4>"</code></dd></p>
-  
-      <p><dt>rm_number</dt><dd>substring that may begin with dash (-) for negatives, and is (1) just whole number (no decimal), (2) whole number and decimal, or (3) just decimal value</dd></p>
-  
-      <p><dt>rm_percent</dt><dd>substring beginning with (1) just whole number (no decimal), (2) whole number and decimal, or (3) just decimal value and followed by a percent sign (%)</dd></p>
-  
-      <p><dt>rm_phone</dt><dd>phone numbers in the form of optional country code, valid 3 digit prefix, and 7 digits (may contain hyphens and parenthesis); logic is complex to explain (see <a href = 'http://stackoverflow.com/a/21008254/1000343'>http://stackoverflow.com/a/21008254/1000343</a> for more)</dd></p>
-  
-      <p><dt>rm_postal_code</dt><dd>U.S. state abbreviations (and District of Columbia) that is constrained to just possible U.S. state names, not just two consecutive capital letters; taken from Mike Hamilton's submission found <a href = 'http://regexlib.com/REDetails.aspx?regexp_id=2177'>http://regexlib.com/REDetails.aspx?regexp_id=2177</a></dd></p>
-  
-      <p><dt>rm_repeated_characters</dt><dd>substring with a repetition of repeated characters within a word; regex pattern retrieved from <a href = 'http://stackoverflow.com'>StackOverflow</a>'s, <a href = 'http://stackoverflow.com/users/3679490/vks'>vks</a>: <a href = 'http://stackoverflow.com/a/29438461/1000343'>http://stackoverflow.com/a/29438461/1000343</a></dd></p>
-  
-      <p><dt>rm_repeated_phrases</dt><dd>substring with a phrase (a sequence of 1 or more words) that is repeated 2 or more times (case is ignored; separating periods and commas are ignored); regex pattern retrieved from <a href = 'http://stackoverflow.com'>StackOverflow</a>'s, <a href = 'http://stackoverflow.com/users/2725969/brodieg'>BrodieG</a>: <a href = 'http://stackoverflow.com/a/28786617/1000343'>http://stackoverflow.com/a/28786617/1000343</a></dd></p>
-  
-      <p><dt>rm_repeated_words</dt><dd>substring with a word (marked with a boundary) that is repeat 2 or more times (case is ignored)</dd></p>
-  
-      <p><dt>rm_tag</dt><dd>substring that begins with an at (@) followed by a word</dd></p>
-  
-      <p><dt>rm_tag2</dt><dd><a href = 'https://support.twitter.com/articles/101299-why-can-t-i-register-certain-usernames'>Twitter</a> substring that begins with an at (@) followed by a word composed of alpha-numeric characters and underscores, no longer than 15 characters</dd></p>
-  
-      <p><dt>rm_title_name</dt><dd>substring beginning with title (Mrs., Mr., Ms., Dr.) that is case independent or full title (Miss, Mizz, mizz) followed by a single lower case word or multiple capitalized words</dd></p>
-  
-      <p><dt>rm_time</dt><dd>substring that (1) must begin with 0-2 digits, (2) must be followed by a single colon (:), (3) optionally may be followed by either a colon (:) or a dot (.), (4) optionally may be followed by 1-infinite digits (if previous condition is true)</dd></p>
-  
-      <p><dt>rm_time2</dt><dd>substring that is identical to <code>rm_time</code> with the additional search for Ante Meridiem/Post Meridiem abbreviations (e.g., AM, p.m., etc.)</dd></p>
-  
-      <p><dt>rm_twitter_url</dt><dd><a href = 'https://twitter.com/'>Twitter</a> <a href = 'https://support.twitter.com/articles/109623-about-twitter-s-link-service-http-t-co'>short link/url</a>; substring optionally beginning with <em>http</em>, followed by <em>t.co</em> ending on a space or end of string (whichever comes first)</dd></p>
-  
-      <p><dt>rm_url</dt><dd>substring beginning with <em>http</em>, <em>www.</em>, or <em>ftp</em> and ending on a space or end of string (whichever comes first); note that this regex is simple and may not cover all valid URLs or may include invalid URLs</dd></p>
-  
-      <p><dt>rm_url2</dt><dd>substring beginning with <em>http</em>, <em>www.</em>, or <em>ftp</em> and more constrained than <code>rm_url</code>; based on @imme_emosol's response from <a href = 'https://mathiasbynens.be/demo/url-regex'>https://mathiasbynens.be/demo/url-regex</a></dd></p>
-  
-      <p><dt>rm_url3</dt><dd>substring beginning with <em>http</em> or <em>ftp</em> and more constrained than <code>rm_url</code> & <code>rm_url2</code> though light-weight, making it ideal for validation purposes; taken from @imme_emosol's response found <a href = 'https://mathiasbynens.be/demo/url-regex'>https://mathiasbynens.be/demo/url-regex</a></dd></p>
-  
-      <p><dt>rm_white</dt><dd>substring of white space(s); this regular expression combines <code>rm_white_bracket</code>, <code>rm_white_colon</code>, <code>rm_white_comma</code>, <code>rm_white_endmark</code>, <code>rm_white_lead</code>, <code>rm_white_trail</code>, and <code>rm_white_multiple</code></dd></p>
-  
-      <p><dt>rm_white_bracket</dt><dd>substring of white space(s) following left brackets ("{", "(", "[") or preceding right brackets ("}", ")", "]")</dd></p>
-  
-      <p><dt>rm_white_colon</dt><dd>substring of white space(s) preceding colon(s)/semicolon(s)</dd></p>
-  
-      <p><dt>rm_white_comma</dt><dd>substring of white space(s) preceding a comma</dd></p>
-  
-      <p><dt>rm_white_endmark</dt><dd>substring of white space(s) preceding a single occurrence/combination of period(s), question mark(s), and exclamation point(s)</dd></p>
-  
-      <p><dt>rm_white_lead</dt><dd>substring of leading white space(s)</dd></p>
-  
-      <p><dt>rm_white_lead_trail</dt><dd>substring of leading/trailing white space(s)</dd></p>
-  
-      <p><dt>rm_white_multiple</dt><dd>substring of multiple, consecutive white spaces</dd></p>
-  
-      <p><dt>rm_white_punctuation</dt><dd>substring of white space(s) preceding a comma or a single occurrence/combination of colon(s), semicolon(s), period(s), question mark(s), and exclamation point(s)</dd></p>
-  
-      <p><dt>rm_white_trail</dt><dd>substring of trailing white space(s)</dd></p>
-  
-      <p><dt>rm_zip</dt><dd>substring of 5 digits optionally followed by a dash and 4 more digits</dd></p>
-  
-      <p></dl></p>
+<dt>rm_abbreviation</dt><dd>abbreviations containing single lower case or capital letter followed by a period and then an optional space (this must be repeated 2 or more times)</dd>
+<dt>rm_between</dt><dd>Remove characters between a left and right boundary including the boundaries; note contains <code>"%s"</code> that is replaced by <code><a href='http://www.inside-r.org/packages/cran/base/docs/sprintf'>sprintf</a></code> and is not a valid regex on its own</dd>
+<dt>rm_between2</dt><dd>Remove characters between a left and right boundary NOT including the boundaries; note contains <code>"%s"</code> that is replaced by <code><a href='http://www.inside-r.org/packages/cran/base/docs/sprintf'>sprintf</a></code> and is not a valid regex on its own</dd>
+<dt>rm_caps</dt><dd>words containing 2 or more consecutive upper case letters and no lower case</dd>
+<dt>rm_caps_phrase</dt><dd>phrases of 1 word or more containing 1 or more consecutive upper case letters and no lower case; if phrase is one word long then phrase must be 2 or more consecutive capital letters</dd>
+<dt>rm_citation</dt><dd>substring that looks for in-text and parenthetical APA6 style citations (attempts to exclude references)</dd>
+<dt>rm_citation2</dt><dd>substring that looks for in-text APA6 style citations (attempts to exclude references)</dd>
+<dt>rm_citation3</dt><dd>substring that looks for parenthetical APA6 style citations (attempts to exclude references)</dd>
+<dt>rm_city_state</dt><dd>substring with <em>city</em> (single lower case word or multiple consecutive capitalized words before a comma and state) & <em>state</em> (2 consecutive capital letters)</dd>
+<dt>rm_city_state_zip</dt><dd>substring with <em>city</em> (single lower case word or multiple consecutive capitalized words before a comma and state) & <em>state</em> (2 consecutive capital letters) & <em>zip code</em> (exactly 5 or 5+4 consecutive digits)</dd>
+<dt>rm_date</dt><dd>dates in the form of 2 digit month, 2 digit day, and 2 or 4 digit year.  Separator between month, day, and year may be dot (.), slash (/), or dash (-)</dd>
+<dt>rm_date2</dt><dd>dates in the form of 3-9 letters followed by one or more spaces, 2 digits, a comma(,), one or more spaces, and 4 digits</dd>
+<dt>rm_date3</dt><dd>dates in the form of XXXX-XX-XX; hyphen separated string of 4 digit year, 2 digit month, and 2 digit day</dd>
+<dt>rm_date4</dt><dd>dates in the form of both <code>rm_date</code>, <code>rm_date2</code>, and <code>rm_date3</code></dd>
+<dt>rm_dollar</dt><dd>substring with dollar sign ($) followed by (1) just dollars (no decimal), (2) dollars and cents (whole number and decimal), or (3) just cents (decimal value)</dd>
+<dt>rm_email</dt><dd>substring with (1) alphanumeric characters or dash (-), plus (+), or underscore (_) (<em>This may be repeated</em>) (2) followed by at (@), followed by the same regex sequence as before the at (@), and ending with dot (.) and 2-14 digits</dd>
+<dt>rm_emoticon</dt><dd>common emoticons (logic is complicated to explain in words) using ">?[:;=8XB]{1}[-~+o^]?[|\")(&gt;DO>{pP3/]+|</?3|XD+|D:<|x[-~+o^]?[|\")(&gt;DO>{pP3/]+" regex pattern; general pattern is optional hat character, followed by eyes character, followed by optional nose character, and ending with a mouth character</dd>
+<dt>rm_endmark</dt><dd>substring of the last endmark group in a string; endmarks include (! ? . * OR |)</dd>
+<dt>rm_endmark3</dt><dd>substring of the last endmark group in a string; endmarks include (! ? OR .)</dd>
+<dt>rm_endmark3</dt><dd>substring of the last endmark group in a string; endmarks include (! ? . * | ; OR :)</dd>
+<dt>rm_hash</dt><dd>substring that begins with a hash (#) followed by a word</dd>
+<dt>rm_nchar_words</dt><dd>substring of letters (that may contain apostrophes) n letters long (apostrophe not counted in length); note contains <code>"%s"</code> that is replaced by <code><a href='http://www.inside-r.org/packages/cran/base/docs/sprintf'>sprintf</a></code> and is not a valid regex on its own</dd>
+<dt>rm_nchar_words2</dt><dd>substring of letters (that may contain apostrophes) n letters long (apostrophe counted in length); note contains <code>"%s"</code> that is replaced by <code><a href='http://www.inside-r.org/packages/cran/base/docs/sprintf'>sprintf</a></code> and is not a valid regex on its own</dd>
+<dt>rm_non_ascii</dt><dd>substring of 2 digits or letters a-f inside of a left and right angle brace in the form of <code>"<a4>"</code></dd>
+<dt>rm_number</dt><dd>substring that may begin with dash (-) for negatives, and is (1) just whole number (no decimal), (2) whole number and decimal, or (3) just decimal value</dd>
+<dt>rm_percent</dt><dd>substring beginning with (1) just whole number (no decimal), (2) whole number and decimal, or (3) just decimal value and followed by a percent sign (%)</dd>
+<dt>rm_phone</dt><dd>phone numbers in the form of optional country code, valid 3 digit prefix, and 7 digits (may contain hyphens and parenthesis); logic is complex to explain (see <a href = 'http://stackoverflow.com/a/21008254/1000343'>http://stackoverflow.com/a/21008254/1000343</a> for more)</dd>
+<dt>rm_postal_code</dt><dd>U.S. state abbreviations (and District of Columbia) that is constrained to just possible U.S. state names, not just two consecutive capital letters; taken from Mike Hamilton's submission found <a href = 'http://regexlib.com/REDetails.aspx?regexp_id=2177'>http://regexlib.com/REDetails.aspx?regexp_id=2177</a></dd>
+<dt>rm_repeated_characters</dt><dd>substring with a repetition of repeated characters within a word; regex pattern retrieved from <a href = 'http://stackoverflow.com'>StackOverflow</a>'s, <a href = 'http://stackoverflow.com/users/3679490/vks'>vks</a>: <a href = 'http://stackoverflow.com/a/29438461/1000343'>http://stackoverflow.com/a/29438461/1000343</a></dd>
+<dt>rm_repeated_phrases</dt><dd>substring with a phrase (a sequence of 1 or more words) that is repeated 2 or more times (case is ignored; separating periods and commas are ignored); regex pattern retrieved from <a href = 'http://stackoverflow.com'>StackOverflow</a>'s, <a href = 'http://stackoverflow.com/users/2725969/brodieg'>BrodieG</a>: <a href = 'http://stackoverflow.com/a/28786617/1000343'>http://stackoverflow.com/a/28786617/1000343</a></dd>
+<dt>rm_repeated_words</dt><dd>substring with a word (marked with a boundary) that is repeat 2 or more times (case is ignored)</dd>
+<dt>rm_tag</dt><dd>substring that begins with an at (@) followed by a word</dd>
+<dt>rm_tag2</dt><dd><a href = 'https://support.twitter.com/articles/101299-why-can-t-i-register-certain-usernames'>Twitter</a> substring that begins with an at (@) followed by a word composed of alpha-numeric characters and underscores, no longer than 15 characters</dd>
+<dt>rm_title_name</dt><dd>substring beginning with title (Mrs., Mr., Ms., Dr.) that is case independent or full title (Miss, Mizz, mizz) followed by a single lower case word or multiple capitalized words</dd>
+<dt>rm_time</dt><dd>substring that (1) must begin with 0-2 digits, (2) must be followed by a single colon (:), (3) optionally may be followed by either a colon (:) or a dot (.), (4) optionally may be followed by 1-infinite digits (if previous condition is true)</dd>
+<dt>rm_time2</dt><dd>substring that is identical to <code>rm_time</code> with the additional search for Ante Meridiem/Post Meridiem abbreviations (e.g., AM, p.m., etc.)</dd>
+<dt>rm_twitter_url</dt><dd><a href = 'https://twitter.com/'>Twitter</a> <a href = 'https://support.twitter.com/articles/109623-about-twitter-s-link-service-http-t-co'>short link/url</a>; substring optionally beginning with <em>http</em>, followed by <em>t.co</em> ending on a space or end of string (whichever comes first)</dd>
+<dt>rm_url</dt><dd>substring beginning with <em>http</em>, <em>www.</em>, or <em>ftp</em> and ending on a space or end of string (whichever comes first); note that this regex is simple and may not cover all valid URLs or may include invalid URLs</dd>
+<dt>rm_url2</dt><dd>substring beginning with <em>http</em>, <em>www.</em>, or <em>ftp</em> and more constrained than <code>rm_url</code>; based on @imme_emosol's response from <a href = 'https://mathiasbynens.be/demo/url-regex'>https://mathiasbynens.be/demo/url-regex</a></dd>
+<dt>rm_url3</dt><dd>substring beginning with <em>http</em> or <em>ftp</em> and more constrained than <code>rm_url</code> & <code>rm_url2</code> though light-weight, making it ideal for validation purposes; taken from @imme_emosol's response found <a href = 'https://mathiasbynens.be/demo/url-regex'>https://mathiasbynens.be/demo/url-regex</a></dd>
+<dt>rm_white</dt><dd>substring of white space(s); this regular expression combines <code>rm_white_bracket</code>, <code>rm_white_colon</code>, <code>rm_white_comma</code>, <code>rm_white_endmark</code>, <code>rm_white_lead</code>, <code>rm_white_trail</code>, and <code>rm_white_multiple</code></dd>
+<dt>rm_white_bracket</dt><dd>substring of white space(s) following left brackets ("{", "(", "[") or preceding right brackets ("}", ")", "]")</dd>
+<dt>rm_white_colon</dt><dd>substring of white space(s) preceding colon(s)/semicolon(s)</dd>
+<dt>rm_white_comma</dt><dd>substring of white space(s) preceding a comma</dd>
+<dt>rm_white_endmark</dt><dd>substring of white space(s) preceding a single occurrence/combination of period(s), question mark(s), and exclamation point(s)</dd>
+<dt>rm_white_lead</dt><dd>substring of leading white space(s)</dd>
+<dt>rm_white_lead_trail</dt><dd>substring of leading/trailing white space(s)</dd>
+<dt>rm_white_multiple</dt><dd>substring of multiple, consecutive white spaces</dd>
+<dt>rm_white_punctuation</dt><dd>substring of white space(s) preceding a comma or a single occurrence/combination of colon(s), semicolon(s), period(s), question mark(s), and exclamation point(s)</dd>
+<dt>rm_white_trail</dt><dd>substring of trailing white space(s)</dd>
+<dt>rm_zip</dt><dd>substring of 5 digits optionally followed by a dash and 4 more digits</dd>
+</dl></p>
   
       <p></p>
   
@@ -172,7 +131,7 @@ in various functions within the <span class = "pkg">qdapRegex</span> package.</p
 
     <div class="Extra">
       <h2>Extra</h2>
-
+      
       <p>Use <code>qdapRegex:::examine_regex()</code> to interactively explore the
 regular expressions in <code>regex_usa</code>.  This will provide a browser + console
 based break down of each regex in the dictionary.</p>

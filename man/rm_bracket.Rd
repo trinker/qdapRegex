@@ -149,7 +149,8 @@ Martin Morgan and Tyler Rinker <tyler.rinker@gmail.com>.
 \code{\link[qdapRegex]{rm_between}},
 \code{\link[stringi]{stri_extract_all_regex}}
 
-Other rm_.functions: \code{\link{rm_abbreviation}};
+Other rm_.functions: \code{\link{as_numeric}},
+  \code{\link{rm_number}}; \code{\link{rm_abbreviation}};
   \code{\link{rm_between}},
   \code{\link{rm_between_multiple}};
   \code{\link{rm_caps_phrase}}; \code{\link{rm_caps}};
@@ -160,8 +161,8 @@ Other rm_.functions: \code{\link{rm_abbreviation}};
   \code{\link{rm_email}}; \code{\link{rm_emoticon}};
   \code{\link{rm_endmark}}; \code{\link{rm_hash}};
   \code{\link{rm_nchar_words}}; \code{\link{rm_non_ascii}};
-  \code{\link{rm_number}}; \code{\link{rm_percent}};
-  \code{\link{rm_phone}}; \code{\link{rm_postal_code}};
+  \code{\link{rm_percent}}; \code{\link{rm_phone}};
+  \code{\link{rm_postal_code}};
   \code{\link{rm_repeated_characters}};
   \code{\link{rm_repeated_phrases}};
   \code{\link{rm_repeated_words}}; \code{\link{rm_tag}};

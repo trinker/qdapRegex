@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>Index. qdapRegex 0.3.0</title>
+<title>Index. qdapRegex 0.3.3</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="">
 
@@ -20,7 +20,7 @@
     <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">qdapRegex 0.3.0</a>
+      <a class="brand" href="#">qdapRegex 0.3.3</a>
       <div class="nav">
         <ul class="nav">
           <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
@@ -39,261 +39,10 @@
   <div class="span8">
     <h1>qdapRegex</h1>
 
-<p><a href="http://www.repostatus.org/#active"><img src="http://www.repostatus.org/badges/0.1.0/active.svg" alt="Project Status: Active - The project has reached a stable, usable state and is being actively developed."/></a>
-<a href="https://travis-ci.org/trinker/qdapRegex"><img src="https://travis-ci.org/trinker/qdapRegex.svg?branch=master" alt="Build Status"/></a>
-<a href="https://coveralls.io/r/trinker/qdapRegex"><img src="https://coveralls.io/repos/trinker/qdapRegex/badge.svg" alt="Coverage Status"/></a>
-<a href="http://dx.doi.org/10.5281/zenodo.11284"><img src="https://zenodo.org/badge/5398/trinker/qdapRegex.svg" alt="DOI"/></a>
-<a href="https://img.shields.io/badge/Version-0.3.0-orange.svg"><img src="https://img.shields.io/badge/Version-0.3.0-orange.svg" alt="Version"/></a></p></p>
+<p><img src="https://dl.dropbox.com/u/61803503/qdapicon.png" alt="qdapicon"/><br/>
+<a href="https://github.com/trinker/qdapRegex">qdapRegex</a> is a collection of regex tools associated with the qdap package that may be useful outside of the context of discourse analysis.  Tools include removal/extraction/replacement of emails addresses, person tags, hash tags, dollar amounts, percentages, times, zip codes, and phone numbers.</p>
 
-<p><img src="inst/qdapRegex_logo/r_qdapRegex.png" width="320" alt="qdapRegex Logo"><br/>
-<a href="http://trinker.github.com/qdapRegex_dev">qdapRegex</a> is a collection of regular expression tools associated with the <strong>qdap</strong> package that may be useful outside of the context of discourse analysis.  Tools include removal/extraction/replacement of abbreviations, dates, dollar amounts, email addresses, hash tags, numbers, percentages, person tags, phone numbers, times, and zip codes.</p>
-
-<p>The <strong>qdapRegex</strong> package does not aim to compete with string manipulation packages such as <a href="http://cran.r-project.org/web/packages/stringr/index.html"><strong>stringr</strong></a> or <a href="http://cran.r-project.org/web/packages/stringi/index.html"><strong>stringi</strong></a> but is meant to provide access to canned, common regular expression patterns that can be used within <strong>qdapRegex</strong>, with <strong>R</strong>&#39;s own regular expression functions, or add on string manipulation packages such as <strong>stringr</strong> and <strong>stringi</strong>.</p>
-
-<p>The functions in <strong>qdapRegex</strong> work on a dictionary system.  The current implementation defaults to a United States flavor of canned regular expressions.  Users may submit proposed region specific regular expression dictionaries that contain the same fields as the <a href="http://trinker.github.io/qdapRegex/regex_usa.html"><code>regex_usa</code></a> data set or improvements to regular expressions in current dictionaries. Please submit proposed regional regular expression dictionaries via: <a href="https://github.com/trinker/qdapRegex/issues">https://github.com/trinker/qdapRegex/issues</a></p>
-
-<h2>Educational</h2>
-
-<p>The <strong>qdapRegex</strong> package serves a dual purpose of being both functional and educational.  While the canned regular expressions are useful in and of themselves they also serve as a platform for understanding regular expressions in the context of meaningful, purposeful usage.  In the same way I learned guitar while trying to mimic Eric Clapton, not by learning scales and theory, some folks may enjoy an approach of learning regular expressions in a more pragmatic, experiential interaction.  Users are encouraged to look at the regular expressions being used (<a href="http://trinker.github.io/qdapRegex/regex_usa.html"><code>?regex_usa</code></a> and <a href="http://trinker.github.io/qdapRegex/regex_supplement.html"><code>?regex_supplement</code></a> are the default regular expression dictionaries used by <strong>qdapRegex</strong>) and unpack how they work.  I have found slow repeated exposures to information in a purposeful context results in acquired knowledge.  </p>
-
-<p>The following regular expressions sites were very helpful to my own regular expression education:</p>
-
-<ol>
-<li><a href="http://www.regular-expressions.info/tutorial.html">Regular-Expression.info</a><br/></li>
-<li><a href="http://www.rexegg.com/">Rex  Egg</a><br/></li>
-<li><a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/regex.html">Regular Expressions as used in R</a><br/></li>
-<li><a href="https://www.debuggex.com">Debuggex (Visualizing Regex)</a><br/></li>
-</ol>
-
-<p>Being able to discuss and ask questions is also important to learning&hellip;in this case regular expressions.  I have found the following forums extremely helpful to learning about regular expressions:</p>
-
-<ol>
-<li><a href="http://www.talkstats.com/">Talk Stats</a>  +  <a href="http://www.talkstats.com/showthread.php/14960-Forum-Guidelines-Smart-posting-behavior-pays-off">Posting Guidelines</a><br/></li>
-<li><a href="http://stackoverflow.com/">stackoverflow</a>  +  <a href="http://stackoverflow.com/help/how-to-ask">Posting Guidelines</a></li>
-</ol>
-
-<h2>Installation</h2>
-
-<p>To download the development version of qdapRegex:</p>
-
-<p>Download the <a href="https://github.com/trinker/qdapRegex/zipball/master">zip ball</a> or <a href="https://github.com/trinker/qdapRegex/tarball/master">tar ball</a>, decompress and run <code>R CMD INSTALL</code> on it, or use the <strong>pacman</strong> package to install the development version:</p>
-
-<pre><code class="r">if (!require(&quot;pacman&quot;)) install.packages(&quot;pacman&quot;)
-pacman::p_load_gh(&quot;trinker/qdapRegex&quot;)
-</code></pre>
-
-<h2>Help</h2>
-
-<ul>
-<li><a href="http://trinker.github.com/qdapRegex/">Web Page</a><br/></li>
-<li><a href="https://dl.dropboxusercontent.com/u/61803503/qdapRegex.pdf">Package PDF Help Manual</a><br/></li>
-</ul>
-
-<h2>Contact</h2>
-
-<p>You are welcome to:</p>
-
-<ul>
-<li>submit suggestions and bug-reports at: <a href="https://github.com/trinker/qdapRegex/issues">https://github.com/trinker/qdapRegex/issues</a></li>
-<li>send a pull request on: <a href="https://github.com/trinker/qdapRegex/">https://github.com/trinker/qdapRegex/</a></li>
-<li>compose a friendly e-mail to: <a href="mailto:tyler.rinker@gmail.com">tyler.rinker@gmail.com</a></li>
-</ul>
-
-<h2>Examples</h2>
-
-<p>The following examples demonstrate some of the functionality of <strong>qdapRegex</strong>.</p>
-
-<pre><code class="r">library(qdapRegex)
-</code></pre>
-
-<h3>Extract Citations</h3>
-
-<pre><code class="r">w &lt;- c(&quot;Hello World (V. Raptor, 1986) bye&quot;,
-    &quot;Narcissism is not dead (Rinker, 2014)&quot;,
-    &quot;The R Core Team (2014) has many members.&quot;,
-    paste(&quot;Bunn (2005) said, \&quot;As for elegance, R is refined, tasteful, and&quot;,
-        &quot;beautiful. When I grow up, I want to marry R.\&quot;&quot;),
-    &quot;It is wrong to blame ANY tool for our own shortcomings (Baer, 2005).&quot;,
-    &quot;Wickham&#39;s (in press) Tidy Data should be out soon.&quot;,
-    &quot;Rinker&#39;s (n.d.) dissertation not so much.&quot;,
-    &quot;I always consult xkcd comics for guidance (Foo, 2012; Bar, 2014).&quot;,
-    &quot;Uwe Ligges (2007) says, \&quot;RAM is cheap and thinking hurts\&quot;&quot;
-)
-
-rm_citation(w, extract=TRUE)
-</code></pre>
-
-<pre><code>## [[1]]
-## [1] &quot;V. Raptor, 1986&quot;
-## 
-## [[2]]
-## [1] &quot;Rinker, 2014&quot;
-## 
-## [[3]]
-## [1] &quot;The R Core Team (2014)&quot;
-## 
-## [[4]]
-## [1] &quot;Bunn (2005)&quot;
-## 
-## [[5]]
-## [1] &quot;Baer, 2005&quot;
-## 
-## [[6]]
-## [1] &quot;Wickham&#39;s (in press)&quot;
-## 
-## [[7]]
-## [1] &quot;Rinker&#39;s (n.d.)&quot;
-## 
-## [[8]]
-## [1] &quot;Foo, 2012&quot; &quot;Bar, 2014&quot;
-## 
-## [[9]]
-## [1] &quot;Uwe Ligges (2007)&quot;
-</code></pre>
-
-<h3>Extract Twitter Hash Tags, Name Tages, &amp; URLs</h3>
-
-<pre><code class="r">x &lt;- c(&quot;@hadley I like #rstats for #ggplot2 work.&quot;,
-    &quot;Difference between #magrittr and #pipeR, both implement pipeline operators for #rstats:
-        http://renkun.me/r/2014/07/26/difference-between-magrittr-and-pipeR.html @timelyportfolio&quot;,
-    &quot;Slides from great talk: @ramnath_vaidya: Interactive slides from Interactive Visualization
-        presentation #user2014. http://ramnathv.github.io/user2014-rcharts/#1&quot;
-)
-
-rm_hash(x, extract=TRUE)
-</code></pre>
-
-<pre><code>## [[1]]
-## [1] &quot;#rstats&quot;  &quot;#ggplot2&quot;
-## 
-## [[2]]
-## [1] &quot;#magrittr&quot; &quot;#pipeR&quot;    &quot;#rstats&quot;  
-## 
-## [[3]]
-## [1] &quot;#user2014&quot;
-</code></pre>
-
-<pre><code class="r">rm_tag(x, extract=TRUE)
-</code></pre>
-
-<pre><code>## [[1]]
-## [1] &quot;@hadley&quot;
-## 
-## [[2]]
-## [1] &quot;@timelyportfolio&quot;
-## 
-## [[3]]
-## [1] &quot;@ramnath_vaidya&quot;
-</code></pre>
-
-<pre><code class="r">rm_url(x, extract=TRUE)
-</code></pre>
-
-<pre><code>## [[1]]
-## [1] NA
-## 
-## [[2]]
-## [1] &quot;http://renkun.me/r/2014/07/26/difference-between-magrittr-and-pipeR.html&quot;
-## 
-## [[3]]
-## [1] &quot;http://ramnathv.github.io/user2014-rcharts/#1&quot;
-</code></pre>
-
-<h3>Extract Bracketed Text</h3>
-
-<pre><code class="r">y &lt;- c(&quot;I love chicken [unintelligible]!&quot;, 
-    &quot;Me too! (laughter) It&#39;s so good.[interrupting]&quot;,
-    &quot;Yep it&#39;s awesome {reading}.&quot;, &quot;Agreed. {is so much fun}&quot;)
-
-rm_bracket(y, extract=TRUE)
-</code></pre>
-
-<pre><code>## [[1]]
-## [1] &quot;unintelligible&quot;
-## 
-## [[2]]
-## [1] &quot;laughter&quot;     &quot;interrupting&quot;
-## 
-## [[3]]
-## [1] &quot;reading&quot;
-## 
-## [[4]]
-## [1] &quot;is so much fun&quot;
-</code></pre>
-
-<pre><code class="r">rm_curly(y, extract=TRUE)
-</code></pre>
-
-<pre><code>## [[1]]
-## [1] NA
-## 
-## [[2]]
-## [1] NA
-## 
-## [[3]]
-## [1] &quot;reading&quot;
-## 
-## [[4]]
-## [1] &quot;is so much fun&quot;
-</code></pre>
-
-<pre><code class="r">rm_round(y, extract=TRUE)
-</code></pre>
-
-<pre><code>## [[1]]
-## [1] NA
-## 
-## [[2]]
-## [1] &quot;laughter&quot;
-## 
-## [[3]]
-## [1] NA
-## 
-## [[4]]
-## [1] NA
-</code></pre>
-
-<pre><code class="r">rm_square(y, extract=TRUE)
-</code></pre>
-
-<pre><code>## [[1]]
-## [1] &quot;unintelligible&quot;
-## 
-## [[2]]
-## [1] &quot;interrupting&quot;
-## 
-## [[3]]
-## [1] NA
-## 
-## [[4]]
-## [1] NA
-</code></pre>
-
-<h3>Extract Numbers</h3>
-
-<pre><code class="r">z &lt;- c(&quot;-2 is an integer.  -4.3 and 3.33 are not.&quot;,
-    &quot;123,456 is a lot more than -.2&quot;,
-    &quot;hello world -.q&quot;)
-rm_number(z)
-</code></pre>
-
-<pre><code>## [1] &quot;is an integer. and are not.&quot; &quot;is a lot more than&quot;         
-## [3] &quot;hello world -.q&quot;
-</code></pre>
-
-<pre><code class="r">rm_number(z, extract=TRUE)
-</code></pre>
-
-<pre><code>## [[1]]
-## [1] &quot;-2&quot;   &quot;-4.3&quot; &quot;3.33&quot;
-## 
-## [[2]]
-## [1] &quot;123,456&quot; &quot;-.2&quot;    
-## 
-## [[3]]
-## [1] NA
-</code></pre>
-
+<p>Download the development version of qdapRegex <a href="https://github.com/trinker/qdapRegex/">here</a> 
 
     <h2>Help topics</h2>
 
@@ -313,10 +62,28 @@ rm_number(z)
         <code><a href="rm_abbreviation.html">rm_abbreviation</a></code><br />Remove/Replace/Extract Abbreviations</li>
             
       <li>
-        <code><a href="rm_between.html">rm_between</a></code>(rm_between_multiple)<br />Remove/Replace/Extract Strings Between 2 Markers</li>
+        <code><a href="rm_between.html">rm_between</a></code><br />Remove/Replace/Extract Strings Between 2 Markers</li>
+      <li>
+        <code><a href="rm_between.html">rm_between_multiple</a></code><br />Remove/Replace/Extract Strings Between 2 Markers</li>
+            
             
       <li>
-        <code><a href="rm_bracket.html">rm_bracket</a></code>(rm_angle, rm_bracket_multiple, rm_curly, rm_round, rm_square)<br />Remove/Replace/Extract Brackets</li>
+        <code><a href="rm_bracket.html">rm_bracket</a></code><br />Remove/Replace/Extract Brackets</li>
+      <li>
+        <code><a href="rm_bracket.html">rm_angle</a></code><br />Remove/Replace/Extract Brackets</li>
+            
+      <li>
+        <code><a href="rm_bracket.html">rm_bracket_multiple</a></code><br />Remove/Replace/Extract Brackets</li>
+            
+      <li>
+        <code><a href="rm_bracket.html">rm_curly</a></code><br />Remove/Replace/Extract Brackets</li>
+            
+      <li>
+        <code><a href="rm_bracket.html">rm_round</a></code><br />Remove/Replace/Extract Brackets</li>
+            
+      <li>
+        <code><a href="rm_bracket.html">rm_square</a></code><br />Remove/Replace/Extract Brackets</li>
+            
             
       <li>
         <code><a href="rm_caps.html">rm_caps</a></code><br />Remove/Replace/Extract All Caps</li>
@@ -361,7 +128,7 @@ rm_number(z)
         <code><a href="rm_non_ascii.html">rm_non_ascii</a></code><br />Remove/Replace/Extract Non-ASCII</li>
             
       <li>
-        <code><a href="rm_number.html">rm_number</a></code><br />Remove/Replace/Extract Numbers</li>
+        <code><a href="rm_number.html">rm_number</a></code> <code><a href="rm_number.html">as_numeric</a></code><br />Remove/Replace/Extract Numbers</li>
             
       <li>
         <code><a href="rm_percent.html">rm_percent</a></code><br />Remove/Replace/Extract Percentages</li>
@@ -391,10 +158,10 @@ rm_number(z)
         <code><a href="rm_title_name.html">rm_title_name</a></code><br />Remove/Replace/Extract Title + Person Name</li>
             
       <li>
-        <code><a href="rm_url.html">rm_url</a></code>(rm_twitter_url)<br />Remove/Replace/Extract URLs</li>
+        <code><a href="rm_url.html">rm_url</a></code> <code><a href="rm_url.html">rm_twitter_url</a></code><br />Remove/Replace/Extract URLs</li>
             
       <li>
-        <code><a href="rm_white.html">rm_white</a></code>(rm_white_bracket, rm_white_colon, rm_white_comma, rm_white_endmark, rm_white_lead, rm_white_lead_trail, rm_white_multiple, rm_white_punctuation, rm_white_trail)<br />Remove/Replace/Extract White Space</li>
+        <code><a href="rm_white.html">rm_white</a></code> <code><a href="rm_white.html">rm_white_bracket</a></code> <code><a href="rm_white.html">rm_white_colon</a></code> <code><a href="rm_white.html">rm_white_comma</a></code> <code><a href="rm_white.html">rm_white_endmark</a></code> <code><a href="rm_white.html">rm_white_lead</a></code> <code><a href="rm_white.html">rm_white_trail</a></code> <code><a href="rm_white.html">rm_white_lead_trail</a></code> <code><a href="rm_white.html">rm_white_multiple</a></code> <code><a href="rm_white.html">rm_white_punctuation</a></code><br />Remove/Replace/Extract White Space</li>
             
       <li>
         <code><a href="rm_zip.html">rm_zip</a></code><br />Remove/Replace/Extract Zip Codes</li>
@@ -448,13 +215,16 @@ rm_number(z)
         <code><a href="escape.html">escape</a></code><br />Escape Strings From Parsing</li>
             
       <li>
-        <code><a href="pastex.html">pastex</a></code>(%+%, %|%)<br />Paste Regular Expressions</li>
+        <code><a href="pastex.html">pastex</a></code> <code><a href="pastex.html">%|%</a></code><br />Paste Regular Expressions</li>
+      <li>
+        <code><a href="pastex.html">%+%</a></code><br />Paste Regular Expressions</li>
+            
             
       <li>
         <code><a href="S.html">S</a></code><br />Use C-style String Formatting Commands</li>
             
       <li>
-        <code><a href="case.html">TC</a></code>(L, U)<br />Upper/Lower/Title Case</li>
+        <code><a href="case.html">TC</a></code> <code><a href="case.html">L</a></code> <code><a href="case.html">U</a></code><br />Upper/Lower/Title Case</li>
     
     </ul>
     <h3>Regular Expression Dictionaries</h3>
@@ -474,24 +244,6 @@ rm_number(z)
         <code><a href="regex_supplement.html">regex_supplement</a></code><br />Supplemental Canned Regular Expressions</li>
     
     </ul>
-    <h3>Other</h3>
-    
-    
-    <ul class="index">
-        
-      <li>
-        <code><a href="group_or.html">group_or</a></code><br />Group Wrap and `or` Concatenate Elements</li>
-            
-      <li>
-        <code><a href="print.explain.html">print.explain</a></code><br />Prints a explain object</li>
-            
-      <li>
-        <code><a href="print.regexr.html">print.regexr</a></code><br />Prints a regexr Object</li>
-            
-      <li>
-        <code><a href="qdapRegex.html">qdapRegex</a></code>(package-qdapRegex, qdapRegex-package)<br />qdapRegex: Regular Expression Removal, Extraction, & Replacement Tools for the </li>
-    
-    </ul>
   </div>
   
   <div class="span3 offset1">
@@ -503,12 +255,12 @@ rm_number(z)
       <li><strong>Suggests</strong>: testthat</li>
       <li><strong>Extends</strong>: </li>
     </ul>
+     
 <h2>Author</h2> Tyler W. Rinker
-    <ul>
-      <li>Jason Gray [ctb]</li>
-      <li><a href="mailto:tyler.rinker@gmail.com">Tyler Rinker</a> [aut, cre]</li>
-    </ul>
-
+    
+<h2>Contributor</h2> Stackoverflow's hwnd
+    
+    
   </div>
 </div>
       

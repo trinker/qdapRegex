@@ -1,7 +1,7 @@
 #' Remove/Replace/Extract Numbers
 #' 
-#' Remove/replace/extract number from a string (works on numbers with commas, 
-#' decimals and negatives).
+#' \code{rm_number} - Remove/replace/extract number from a string (works on 
+#' numbers with commas, decimals and negatives).
 #' 
 #' @param text.var The text variable.
 #' @param trim logical.  If \code{TRUE} removes leading and trailing white 
@@ -23,6 +23,7 @@
 #' @keywords number
 #' @family rm_ functions
 #' @include utils.R
+#' @rdname rm_number
 #' @export
 #' @seealso \code{\link[base]{gsub}},
 #' \code{\link[stringi]{stri_extract_all_regex}}
@@ -34,4 +35,22 @@
 #'     "hello world -.q")
 #' rm_number(x)
 #' rm_number(x, extract=TRUE)
+#' 
+#' ##Convert to numeric
+#' lapply(rm_number(x, extract=TRUE), as_numeric)
 rm_number <- hijack(rm_default, pattern = "@rm_number")
+
+
+#' Remove/Replace/Extract Numbers
+#' 
+#' \code{as_numeric} - A wrapper for \code{as.numeric(gsub(",", "", x))}, which
+#' removes commas and converts a vector of strings to numeric.  If the string 
+#' cannot be converted to numeric \code{NA} is returned.
+#' 
+#' @param x a character vector to convert to a numeric vector.
+#' @rdname rm_number
+#' @export
+as_numeric <- function(x) {
+    as.numeric(gsub(",", "", x))
+}
+
