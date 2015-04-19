@@ -28,6 +28,9 @@ NEW FEATURES
   `as.numeric(gsub(",", "", x))`, which removes commas and converts a vector of 
   strings to numeric.
 
+* `rm_non_words` added to remove every any character that isn't a letter, 
+  apostrophe, or single space.
+
 MINOR FEATURES
 
 IMPROVEMENTS

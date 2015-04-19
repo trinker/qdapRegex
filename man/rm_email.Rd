@@ -77,8 +77,9 @@ Other rm_.functions: \code{\link{as_numeric}},
   \code{\link{rm_default}}; \code{\link{rm_dollar}};
   \code{\link{rm_emoticon}}; \code{\link{rm_endmark}};
   \code{\link{rm_hash}}; \code{\link{rm_nchar_words}};
-  \code{\link{rm_non_ascii}}; \code{\link{rm_percent}};
-  \code{\link{rm_phone}}; \code{\link{rm_postal_code}};
+  \code{\link{rm_non_ascii}}; \code{\link{rm_non_words}};
+  \code{\link{rm_percent}}; \code{\link{rm_phone}};
+  \code{\link{rm_postal_code}};
   \code{\link{rm_repeated_characters}};
   \code{\link{rm_repeated_phrases}};
   \code{\link{rm_repeated_words}}; \code{\link{rm_tag}};
