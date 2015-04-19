@@ -4,7 +4,7 @@
 \name{regex_usa}
 \alias{regex_usa}
 \title{Canned Regular Expressions (United States of America)}
-\format{A list with 51 elements}
+\format{A list with 53 elements}
 \usage{
 data(regex_usa)
 }

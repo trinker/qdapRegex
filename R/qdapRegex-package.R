@@ -107,7 +107,7 @@ NULL
 #' regular expressions in \code{regex_usa}.  This will provide a browser + console
 #' based break down of each regex in the dictionary.
 #' @usage data(regex_usa) 
-#' @format A list with 51 elements 
+#' @format A list with 53 elements 
 NULL
 
 #' Supplemental Canned Regular Expressions
