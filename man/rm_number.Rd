@@ -63,12 +63,13 @@ unlists and returns a vector rather than a list.
 x <- c("-2 is an integer.  -4.3 and 3.33 are not.",
     "123,456 is 0 alot -123456 more than -.2", "and 3456789123 fg for 345.",
     "fg 12,345 23 .44 or 18.", "don't remove this 444,44", "hello world -.q")
+
 rm_number(x)
 rm_number(x, extract=TRUE)
 
 ##Convert to numeric
-lapply(rm_number(x, extract=TRUE), as_numeric)
-lapply(rm_number(x, extract=TRUE), as_numeric2)
+as_numeric(rm_number(x, extract=TRUE))   # retain list
+as_numeric2(rm_number(x, extract=TRUE))  # unlist
 }
 \references{
 The number regular expression was taken from:
