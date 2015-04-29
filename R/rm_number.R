@@ -19,7 +19,7 @@
 #' @param dictionary A dictionary of canned regular expressions to search within 
 #' if \code{pattern} begins with \code{"@@rm_"}.
 #' @param \dots Other arguments passed to \code{\link[base]{gsub}}.
-#' @return Returns a character string with number removed.
+#' @return \code{rm_number} - Returns a character string with number removed.
 #' @keywords number
 #' @family rm_ functions
 #' @include utils.R
@@ -38,19 +38,36 @@
 #' 
 #' ##Convert to numeric
 #' lapply(rm_number(x, extract=TRUE), as_numeric)
+#' lapply(rm_number(x, extract=TRUE), as_numeric2)
 rm_number <- hijack(rm_default, pattern = "@rm_number")
 
 
 #' Remove/Replace/Extract Numbers
 #' 
 #' \code{as_numeric} - A wrapper for \code{as.numeric(gsub(",", "", x))}, which
-#' removes commas and converts a vector of strings to numeric.  If the string 
-#' cannot be converted to numeric \code{NA} is returned.
+#' removes commas and converts a list of vectors of strings to numeric.  If the 
+#' string cannot be converted to numeric \code{NA} is returned.
 #' 
 #' @param x a character vector to convert to a numeric vector.
 #' @rdname rm_number
+#' @return \code{as_numeric2} - Returns a list of vectors of numbers.
 #' @export
 as_numeric <- function(x) {
-    as.numeric(gsub(",", "", x))
+    lapply(x, function(y){
+        as.numeric(gsub(",", "", y))
+    })
 }
+
+#' Remove/Replace/Extract Numbers
+#' 
+#' \code{as_numeric2} - A convenience function for \code{as_numeric} that 
+#' unlists and returns a vector rather than a list.
+#' 
+#' @rdname rm_number
+#' @export
+#' @return \code{as_numeric2} - Returns a vector of numbers.
+as_numeric2 <- function(x) {
+    unlist(as_numeric(x))
+}
+
 

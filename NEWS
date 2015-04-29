@@ -22,11 +22,17 @@ qdapRegex 0.3.3
 
 BUG FIXES
 
+* `rm_number` did not extract consecutive digits that aren't comma separated
+  without separating it into multiple strings.  For example "12345" became 
+  "123" "45".  This behavior has been correct and the unit test now include these 
+  cases.
+
 NEW FEATURES
 
-* `as_numeric` added for use with `rm_number`.  This is a wrapper for 
-  `as.numeric(gsub(",", "", x))`, which removes commas and converts a vector of 
-  strings to numeric.
+* `as_numeric` & `as_numeric2` added for use with `rm_number`.  These are 
+  wrappers for `as.numeric(gsub(",", "", x))`.  The former removes commas and 
+  converts a list of vectors of strings to numeric.  The later wraps 
+  `as_numeric` with `unlist`.
 
 * `rm_non_words` added to remove every any character that isn't a letter, 
   apostrophe, or single space.

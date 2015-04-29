@@ -2,10 +2,10 @@ Package: qdapRegex
 Type: Package
 Title: Regular Expression Removal, Extraction, and Replacement Tools
 Version: 0.3.3
-Date: 2015-04-18
+Date: 2015-04-28
 Authors@R: c(person("Jason", "Gray", "", role = "ctb"), person("Tyler",
-    "Rinker", email = "tyler.rinker@gmail.com", role = c("aut",
-    "cre")))
+        "Rinker", email = "tyler.rinker@gmail.com", role = c("aut",
+        "cre")))
 Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
 Depends:
     R (>= 3.1.0)
