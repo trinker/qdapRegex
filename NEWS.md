@@ -24,8 +24,10 @@ And constructed with the following guidelines:
 
 * `rm_number` did not extract consecutive digits that aren't comma separated
   without separating it into multiple strings.  For example "12345" became 
-  "123" "45".  This behavior has been correct and the unit test now include these 
-  cases.
+  "123" "45".  Also 444,44 will not be removed/extracted as it is not a valid
+  comma separated number.  These behavior have been corrected and the unit test 
+  now include these cases.  Thanks to Jason Gray for the reworked of the regex.
+  It is simpler and more accurate.
 
 **NEW FEATURES**
 
