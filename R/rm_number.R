@@ -27,8 +27,7 @@
 #' @export
 #' @seealso \code{\link[base]{gsub}},
 #' \code{\link[stringi]{stri_extract_all_regex}}
-#' @references The number regular expression was taken from: 
-#' \url{http://stackoverflow.com/a/5917250/1000343} authored by Justin Morgan.
+#' @references The number regular expression was created by Jason Gray.
 #' @examples
 #' x <- c("-2 is an integer.  -4.3 and 3.33 are not.",
 #'     "123,456 is 0 alot -123456 more than -.2", "and 3456789123 fg for 345.",

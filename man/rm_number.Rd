@@ -72,8 +72,7 @@ as_numeric(rm_number(x, extract=TRUE))   # retain list
 as_numeric2(rm_number(x, extract=TRUE))  # unlist
 }
 \references{
-The number regular expression was taken from:
-\url{http://stackoverflow.com/a/5917250/1000343} authored by Justin Morgan.
+The number regular expression was created by Jason Gray.
 }
 \seealso{
 \code{\link[base]{gsub}},
