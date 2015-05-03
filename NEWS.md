@@ -39,6 +39,14 @@ And constructed with the following guidelines:
 * `rm_non_words` added to remove every any character that isn't a letter, 
   apostrophe, or single space.
 
+* The class `extracted` has been added and is the output of a `rm_xxx` function
+  when `extrct = TRUE`.  This allows for the `c.extracted` function to easily
+  turn the `list` output into a character vector.
+
+* `c.extracted` added to provide a quick unist method for `list`s of class
+  `extracted`.  The is less typing than `unlist` for an approach that is used
+  often.
+
 **MINOR FEATURES**
 
 **IMPROVEMENTS**

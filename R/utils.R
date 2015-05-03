@@ -122,3 +122,13 @@ examine_regex <- function(dictionary = qdapRegex::regex_usa){
         explain(dictionary[[i]], open=open)
     })
 }
+
+## Make ist into extracted class
+ext <- function(x){
+    if(!any(class(x) %in% "list")) return(x)
+    class(x) <- c("extracted", class(x)) 
+    x
+}
+
+
+
