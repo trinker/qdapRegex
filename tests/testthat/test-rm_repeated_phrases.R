@@ -32,9 +32,9 @@ test_that("rm_repeated_phrases is extracting repeated phrases strings",{
     
     expect_equal(
         rm_repeated_phrases(x, extract=TRUE),
-        list("is a big is a Big", "want want", "want, want", c("want...want", 
-            "see see see"), NA_character_, c("is a big is a Big", "those of, those of"
-        ))
+        structure(list("is a big is a Big", "want want", "want, want", 
+            c("want...want", "see see see"), NA_character_, c("is a big is a Big", 
+            "those of, those of")), class = c("extracted", "list"))
     )
     
 })

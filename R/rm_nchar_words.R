@@ -58,9 +58,10 @@ rm_nchar_words <- function(text.var, n, trim = !extract, clean = TRUE,
 
     if (extract) {
     	if (!trim) {
-            return(stringi::stri_extract_all_regex(text.var, pattern))
+            return(ext(stringi::stri_extract_all_regex(text.var, pattern)))
     	}
-    	return(lapply(return(stringi::stri_extract_all_regex(text.var, pattern)), Trim))
+    	return(ext(lapply(return(stringi::stri_extract_all_regex(text.var, pattern)), 
+            Trim)))
     }
 
     out <- gsub(pattern, replacement, text.var, perl = TRUE, ...)

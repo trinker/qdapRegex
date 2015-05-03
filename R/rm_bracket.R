@@ -311,5 +311,5 @@ function(text.var, pattern = "all", include.markers = FALSE, merge = TRUE){
             }))            
         }
     }
-    out
+    ext(out)
 }

@@ -66,9 +66,9 @@ rm_non_ascii <- function (text.var, trim = !extract, clean = TRUE,
             })
         }
         if (!trim) {
-            return(y)
+            return(ext(y))
         }
-        return(lapply(y, Trim))
+        return(ext(lapply(y, Trim)))
     }
     out <- iconv(text.var, to="ASCII", sub=replacement) 
     if (trim) out <- Trim(out)

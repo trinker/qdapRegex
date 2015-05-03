@@ -34,7 +34,9 @@ test_that("rm_repeated_words is extracting repeated word strings",{
     
     expect_equal(
         rm_repeated_words(x, extract=TRUE),
-        list(NA_character_, "want want", NA_character_, "see see", NA_character_, NA_character_)
+        structure(list(NA_character_, "want want", NA_character_, "see see", 
+            NA_character_, NA_character_), class = c("extracted", "list"
+        ))
     )
     
 })

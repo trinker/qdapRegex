@@ -15,7 +15,8 @@ test_that("rm_repeated_characters is extracting repeated character strings",{
     x <- "aaaahahahahaha that was a good joke peep and pepper and pepe"
     expect_equal(
         rm_repeated_characters(x, extract=TRUE),
-        list(c("aaaahahahahaha", "pepe"))
+        structure(list(c("aaaahahahahaha", "pepe")), class = c("extracted", 
+            "list"))
     )
     
 })

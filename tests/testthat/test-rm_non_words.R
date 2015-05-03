@@ -32,14 +32,11 @@ test_that("rm_non_words is extracting tag strings",{
     )
     
     expect_equal(rm_non_words(x, extract=TRUE),
-        list(
-            c(" ", " 56 ", "!"), 
-            c(" ", "-", " ", " ", " ", " ", "290."), 
-            NA_character_, NA_character_, 
-            c("1", "2", "3", "4", "5", "6."), 
-            c(" ", " ", "*% ", "?  ", " ", "%; ", " ", " ", " ", "."), 
-            c(" ", " <", ">", "</", "> ", " ")
-        )
+        structure(list(c(" ", " 56 ", "!"), c(" ", "-", " ", " ", " ", 
+              " ", "290."), NA_character_, NA_character_, c("1", "2", "3", 
+              "4", "5", "6."), c(" ", " ", "*% ", "?  ", " ", "%; ", " ", " ", 
+              " ", "."), c(" ", " <", ">", "</", "> ", " ")), class = c("extracted", 
+              "list"))
     )
 
 })

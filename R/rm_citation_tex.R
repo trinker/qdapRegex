@@ -57,5 +57,5 @@ rm_citation_tex <- function(text.var, trim = !extract, clean = TRUE,
             z
         })
     }
-    out
+    ext(out)
 }

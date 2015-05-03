@@ -114,11 +114,10 @@ function (text.var, trim = !extract, clean = TRUE, pattern = "@rm_citation",
     pattern <- reg_check(pattern = pattern, dictionary = dictionary)
     if (extract) {
         if (!trim) {
-            return(stringi::stri_extract_all_regex(text.var, 
-                pattern))
+            return(ext(stringi::stri_extract_all_regex(text.var, pattern)))
         }
-        return(lapply(stringi::stri_extract_all_regex(text.var, 
-            pattern), Trim))
+        return(ext(lapply(stringi::stri_extract_all_regex(text.var, pattern), 
+            Trim)))
     }
     out <- stringi::stri_replace_all_regex(text.var, pattern, replacement)
     if (trim) 

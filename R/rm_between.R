@@ -87,9 +87,9 @@ rm_between <- function(text.var, left, right, trim = TRUE, clean = TRUE,
 
     if (extract) {
     	if (!trim) {
-            return(stringi::stri_extract_all_regex(text.var, pattern))
+            return(ext(stringi::stri_extract_all_regex(text.var, pattern)))
     	}
-    	return(lapply(stringi::stri_extract_all_regex(text.var, pattern), Trim))
+    	return(ext(lapply(stringi::stri_extract_all_regex(text.var, pattern), Trim)))
     }
 
     out <- gsub(pattern, replacement, text.var, perl = TRUE, ...)
@@ -195,5 +195,5 @@ function(text.var, left, right, with = FALSE, merge = TRUE){
             }))            
         }
     }
-    out
+    ext(out)
 }
