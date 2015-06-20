@@ -49,6 +49,9 @@ And constructed with the following guidelines:
 
 **MINOR FEATURES**
 
+* `punctuation` added to `regex_supplement` dictionary for easy negation of
+  `[:punct:]` class.
+
 **IMPROVEMENTS**
 
 **CHANGES**

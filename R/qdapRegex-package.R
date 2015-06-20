@@ -134,6 +134,7 @@ NULL
 #'   \item{last_occurrence}{last occurrence of a delimiter; note contains \code{"\%s"} that is replaced by \code{\link[base]{sprintf}} and is not a valid regex on its own (user supplies the delimiter)}
 #'   \item{pages}{substring with "pp." or "p.", optionally followed by a space, followed by 1 or more digits, optionally followed by a dash, optionally followed by 1 or more digits, optionally followed by a semicolon, optionally followed by a space, optionally followed by 1 or more digits; intended for extraction/removal purposes}
 #'   \item{pages2}{substring 1 or more digits, optionally followed by a dash, optionally followed by 1 or more digits, optionally followed by a semicolon, optionally followed by a space, optionally followed by 1 or more digits; intended for validation purposes}
+#'   \item{punctuation}{punctuation characters (\code{[:punct:]}) with the ability to negate; note contains \code{"\%s"} that is replaced by \code{\link[base]{sprintf}} and is not a valid regex on its own}
 #'   \item{run_split}{a regex that is useful for splitting strings in the characters runs (e.g., "wwxyyyzz" becomes "ww", "x", "yyy", "zz"); regex pattern retrieved from \href{http://stackoverflow.com/users/2994949/rawr}{Robert Redd}: \url{http://stackoverflow.com/a/29383435/1000343}}
 #'   \item{split_keep_delim}{regex string that splits on a delimiter and retains the delimiter}
 #'   \item{thousands_separator}{chunks digits > 4 into groups of 3 from right to left allowing for easy insertion of thousands separator; regex pattern retrieved from \href{http://stackoverflow.com/}{StackOverflow}'s stema: \url{http://stackoverflow.com/a/10612685/1000343}}
@@ -160,7 +161,7 @@ NULL
 #' @details Use \code{qdapRegex:::examine_regex(regex_supplement)} to 
 #' interactively explore the regular expressions in \code{regex_usa}.  This will 
 #' provide a browser + console based break down of each regex in the dictionary.
-#' @format A list with 22 elements
+#' @format A list with 23 elements
 #' @examples 
 #' time <- rm_(pattern="@@time_12_hours")
 #' time("I will go at 12:35 pm")
@@ -242,6 +243,7 @@ NULL
 #' 
 #' dat$word <- factor(dat$Word, levels=ord[order(ord[[2]]), 1])
 #' ggplot(dat, aes(x=freq, y=Word)) + geom_point()+ facet_grid(~Article)
+#' }
 #' 
 #' ## remove/extract pages numbers
 #' x <- c("I read p. 36 and then pp. 45-49", "it's on pp. 23-24;28")
@@ -274,5 +276,13 @@ NULL
 #' rm_default(x, pattern=bind("not a word"))
 #' ## Alphabetic only word boundaries
 #' rm_default(x, pattern=S("@@word_boundary", "not a word"))
-#' }
+#' 
+#' ## Remove punctuation with negation
+#' x <- c(
+#'     "I, love them!  Well I like them.  Do you like_ them?",
+#'     "Here are the punctuation characters: !"#$%&'()*+,\-./:;<=>?@@[\\\]^_`{|}~"
+#' )
+#' 
+#' rm_default(x, pattern=S("@@punctuation", ""))
+#' rm_default(x, pattern=S("@@punctuation", ".?!"))
 NULL

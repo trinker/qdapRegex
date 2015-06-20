@@ -84,6 +84,7 @@ regex_supplement <- list(
 	last_occurrence = "%s(?=[^%s]+$)",
     pages = "p{1,2}\\.\\s*\\d+\\-*\\d*;*\\s*\\d*",	
     pages2 = "\\d+\\-*\\d*;*\\s*\\d*",
+    punctuation = "[^\\PP%s]",
     run_split = "(?<=(\\w))(?!\\1)",
 	split_keep_delim = "(?<=[^%s])(?=[%s])",
     thousands_separator = "(\\d)(?:(?=\\d+(?=[^\\d.]))(?=(?:[0-9]{3})+\\b)|(?=\\d+(?=\\.))(?=(?:[0-9]{3})+(?=\\.)))",
