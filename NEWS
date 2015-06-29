@@ -28,6 +28,11 @@ BUG FIXES
   comma separated number.  These behavior have been corrected and the unit test 
   now include these cases.  Thanks to Jason Gray for the reworked of the regex.
   It is simpler and more accurate.
+  
+* `rm_between` did not handle quotation marks (`"`) as both the left and right 
+  boundary when `extract = TRUE`.  Bug reported by Tori Shannon, 
+  http://stackoverflow.com/q/31119989/1000343, and addressed by Jason Gray. See 
+  issue #13
 
 NEW FEATURES
 

@@ -8,8 +8,8 @@
 #' 
 #' The \pkg{qdapRegex} package does not aim to compete with string manipulation 
 #' packages such as 
-#' \href{http://cran.r-project.org/web/packages/stringr/index.html}{\pkg{stringr}} 
-#' or \href{http://cran.r-project.org/web/packages/stringi/index.html}{\pkg{stringi}} 
+#' \href{http://cran.r-project.org/package=stringr}{\pkg{stringr}} 
+#' or \href{http://cran.r-project.org/package=stringi}{\pkg{stringi}} 
 #' but is meant to provide access to canned, common regular expression patterns 
 #' that can be used within \pkg{qdapRegex}, with \pkg{R}'s own regular 
 #' expression functions, or add on string manipulation packages such as 

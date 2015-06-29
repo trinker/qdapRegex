@@ -28,6 +28,11 @@ And constructed with the following guidelines:
   comma separated number.  These behavior have been corrected and the unit test 
   now include these cases.  Thanks to Jason Gray for the reworked of the regex.
   It is simpler and more accurate.
+  
+* `rm_between` did not handle quotation marks (`"`) as both the left and right 
+  boundary when `extract = TRUE`.  Bug reported by Tori Shannon, 
+  <a href="http://stackoverflow.com/q/31119989/1000343," target="_blank">http://stackoverflow.com/q/31119989/1000343,</a> and addressed by Jason Gray. See 
+  <a href="https://github.com/trinker/qdapRegex/issues/13">issue #13</a>
 
 **NEW FEATURES**
 

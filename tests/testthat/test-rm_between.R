@@ -45,3 +45,14 @@ test_that("rm_between is extracting betweened text multiple markers",{
     expect_equivalent(rm_between(y, c("L1", 98), c("L2", 99), extract=TRUE), z3)
 		
 })
+
+test_that("rm_between is extracting betweened quotes",{
+    
+    x <- 'Fresh or chilled Atlantic salmon "Salmo salar" and Danube salmon "Hucho hucho"'
+    
+    expect_equal(rm_between(x, '"', '"', extract = TRUE),
+        structure(list(c("Salmo salar", "Hucho hucho")), class = c("extracted", 
+            "list"))
+    )
+
+})
