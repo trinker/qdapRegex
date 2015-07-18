@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>rm_nchar_words. qdapRegex 0.4.0</title>
+<title>rm_nchar_words. qdapRegex 0.4.1</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="
 &lt;a href = 'http://stackoverflow.com/'&gt;stackoverflow's&lt;/a&gt; CharlieB and Tyler Rinker &lt;tyler.rinker@gmail.com&gt;.
@@ -34,7 +34,7 @@
     <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">qdapRegex 0.4.0</a>
+      <a class="brand" href="#">qdapRegex 0.4.1</a>
       <div class="nav">
         <ul class="nav">
           <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
@@ -125,10 +125,10 @@ usage.</p>
     </div>
     
     <h2 id="examples">Examples</h2>
-    <pre class="examples"><div class='input'>x &lt;- &quot;This Jon&#39;s dogs&#39; &#39;bout there in word Mike&#39;s re&#39;y.&quot;
+    <pre class="examples"><div class='input'>x &lt;- &quot;This is Jon&#39;s dogs&#39; &#39;bout there in a word Mike&#39;s re&#39;y.&quot;
 rm_nchar_words(x, 4)
 </div>
-<div class='output'>[1] &quot;there in Mike&#39;s re&#39;y.&quot;
+<div class='output'>[1] &quot;is there in a Mike&#39;s re&#39;y.&quot;
 </div>
 <div class='input'>rm_nchar_words(x, 4, extract=TRUE)
 </div>
@@ -145,10 +145,16 @@ rm_nchar_words(x, 5, extract=TRUE, pattern = &quot;@rm_nchar_words2&quot;)
 
 </div>
 <div class='input'>
+## nchar range
+rm_nchar_words(x, &quot;1,2&quot;)
+</div>
+<div class='output'>[1] &quot;This Jon&#39;s dogs&#39; &#39;bout there word Mike&#39;s re&#39;y.&quot;
+</div>
+<div class='input'>
 ## &lt;strong&gt;Not run&lt;/strong&gt;: 
 # ## Larger example
 # library(qdap)
-# rm_nchar_words(hamlet$dialogue, 5, extract=TRUE)
+# rm_nchar_words(hamlet[[&quot;dialogue&quot;]], 5, extract=TRUE)
 # ## &lt;strong&gt;End(Not run)&lt;/strong&gt;
 </div></pre>
   </div>

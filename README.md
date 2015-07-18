@@ -110,7 +110,7 @@ rm_citation(w, extract=TRUE)
 ## [1] "Uwe Ligges (2007)"
 ```
 
-### Extract Twitter Hash Tags, Name Tages, & URLs
+### Extract Twitter Hash Tags, Name Tags, & URLs
 
 
 ```r

@@ -85,7 +85,7 @@ w <- c("Hello World (V. Raptor, 1986) bye",
 rm_citation(w, extract=TRUE)
 ```
 
-### Extract Twitter Hash Tags, Name Tages, & URLs
+### Extract Twitter Hash Tags, Name Tags, & URLs
 
 ```{r}
 x <- c("@hadley I like #rstats for #ggplot2 work.",
