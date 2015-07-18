@@ -51,6 +51,10 @@ NEW FEATURES
 * `c.extracted` added to provide a quick unist method for `list`s of class
   `extracted`.  The is less typing than `unlist` for an approach that is used
   often.
+  
+* `bind_or` added as a means of quickly wrapping multiple sub-expression 
+  elements with left/right boundaries and then concatenate/joins the grouped 
+  strings with regular expression or statement ("|").
 
 MINOR FEATURES
 

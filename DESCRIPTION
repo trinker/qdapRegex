@@ -2,7 +2,7 @@ Package: qdapRegex
 Type: Package
 Title: Regular Expression Removal, Extraction, and Replacement Tools
 Version: 0.3.3
-Date: 2015-06-29
+Date: 2015-07-17
 Authors@R: c(person("Jason", "Gray", "", role = "ctb"), person("Tyler",
         "Rinker", email = "tyler.rinker@gmail.com", role = c("aut",
         "cre")))
@@ -27,6 +27,7 @@ Roxygen: list(wrap = FALSE)
 Collate:
     'S.R'
     'bind.R'
+    'bind_or.R'
     'c.extracted.R'
     'case.R'
     'cheat.R'
