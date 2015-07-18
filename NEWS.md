@@ -17,7 +17,7 @@ And constructed with the following guidelines:
 * Bug fixes and misc changes bumps the patch
 
 
- <a href="https://github.com/trinker/qdapRegex" target="_blank">qdapRegex</a> 0.3.3
+ <a href="https://github.com/trinker/qdapRegex" target="_blank">qdapRegex</a> 0.4.0
 ----------------------------------------------------------------
 
 **BUG FIXES**
@@ -45,10 +45,10 @@ And constructed with the following guidelines:
   apostrophe, or single space.
 
 * The class `extracted` has been added and is the output of a `rm_xxx` function
-  when `extrct = TRUE`.  This allows for the `c.extracted` function to easily
+  when `extract = TRUE`.  This allows for the `c.extracted` function to easily
   turn the `list` output into a character vector.
 
-* `c.extracted` added to provide a quick unist method for `list`s of class
+* `c.extracted` added to provide a quick unlist method for `list`s of class
   `extracted`.  The is less typing than `unlist` for an approach that is used
   often.
   
