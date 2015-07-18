@@ -2,11 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>rm_zip. qdapRegex 0.4.0</title>
+<title>rm_non_words. qdapRegex 0.4.0</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="author" content="
-&lt;a href = 'http://stackoverflow.com/'&gt;stackoverflow's&lt;/a&gt; hwnd and Tyler Rinker &lt;tyler.rinker@gmail.com&gt;.
-">
+<meta name="author" content="">
 
 <link href="css/bootstrap.css" rel="stylesheet">
 <link href="css/bootstrap-responsive.css" rel="stylesheet">
@@ -49,12 +47,12 @@
         
       </header>
       
-      <h1>Remove/Replace/Extract Zip Codes</h1>
+      <h1>Remove/Replace/Extract Non-Words</h1>
 
 <div class="row">
   <div class="span8">
     <h2>Usage</h2>
-    <pre><div>rm_zip(text.var, trim&nbsp;=&nbsp;!extract, clean&nbsp;=&nbsp;TRUE, pattern&nbsp;=&nbsp;"@rm_zip", replacement&nbsp;=&nbsp;"", extract&nbsp;=&nbsp;FALSE, dictionary&nbsp;=&nbsp;getOption("regex.library"), ...)</div></pre>
+    <pre><div>rm_non_words(text.var, trim&nbsp;=&nbsp;!extract, clean&nbsp;=&nbsp;TRUE, pattern&nbsp;=&nbsp;"@rm_non_words", replacement&nbsp;=&nbsp;" ", extract&nbsp;=&nbsp;FALSE, dictionary&nbsp;=&nbsp;getOption("regex.library"), ...)</div></pre>
     
     <h2>Arguments</h2>
     <dl>
@@ -69,13 +67,14 @@ character will be removed.</dd>
       <dt>pattern</dt>
       <dd>A character string containing a regular expression (or
 character string for <code>fixed = TRUE</code>) to be matched in the given
-character vector.  Default, <code>@rm_zip</code> uses the
-<code>rm_zip</code> regex from the regular expression dictionary from
+character vector.  Default, <code>@rm_non_words</code> uses the
+<code>rm_non_words</code> regex from the regular expression dictionary from
 the <code>dictionary</code> argument.</dd>
       <dt>replacement</dt>
-      <dd>Replacement for matched <code>pattern</code>.</dd>
+      <dd>Replacement for matched <code>pattern</code> (<b><em>Note:</em></b> default is
+" ", whereas most <span class = "pkg">qdapRegex</span> functions replace with "").</dd>
       <dt>extract</dt>
-      <dd>logical.  If <code>TRUE</code> the zip codes are extracted into a
+      <dd>logical.  If <code>TRUE</code> the non-words are extracted into a
 list of vectors.</dd>
       <dt>dictionary</dt>
       <dd>A dictionary of canned regular expressions to search within
@@ -88,7 +87,7 @@ if <code>pattern</code> begins with <code>"@rm_"</code>.</dd>
       <h2>Value</h2>
 
       <p><dl>
-Returns a character string with U.S. 5 and 5+4 zip codes removed.
+Returns a character string with non-words removed.
 </dl></p>
   
     </div>
@@ -96,137 +95,96 @@ Returns a character string with U.S. 5 and 5+4 zip codes removed.
     <div class="Description">
       <h2>Description</h2>
 
-      <p>Remove/replace/extract zip codes from a string.</p>
+      <p><code>rm_non_words</code> - Remove/replace/extract non-words (Anything that's not a
+letter or apostrophe; also removes multiple white spaces) from a string.</p>
   
     </div>
 
-    <div class="References">
-      <h2>References</h2>
+    <div class="Note">
+      <h2>Note</h2>
 
-      <p>The time regular expression was taken from:
-<a href = 'http://stackoverflow.com/a/25223890/1000343'>http://stackoverflow.com/a/25223890/1000343</a></p>
+      <p>Setting the argument <code>extract = TRUE</code> is not very useful.  Use the
+following setup instead (see <b>Examples</b> for a demonstration).</p>
+  
+      <p><code>rm_default(x, pattern = "[^A-Za-z' ]", extract=TRUE)</code></p>
   
     </div>
     
     <h2 id="examples">Examples</h2>
-    <pre class="examples"><div class='input'>x &lt;- c(&quot;Mr. Bean bought 2 tickets 2-613-213-4567&quot;,
-  &quot;43 Butter Rd, Brossard QC K0A 3P0 - 613 213 4567&quot;,
-  &quot;Rat Race, XX, 12345&quot;,
-  &quot;Ignore phone numbers(613)2134567&quot;,
-  &quot;Grab zips with dashes 12345-6789 or no space before12345-6789&quot;,
-  &quot;Grab zips with spaces 12345 6789 or no space before12345 6789&quot;,
-  &quot;I like 1234567 dogs&quot;
+    <pre class="examples"><div class='input'>x &lt;- c(
+    &quot;I like 56 dogs!&quot;,
+    &quot;It&#39;s seventy-two feet from the px290.&quot;,
+    NA,
+    &quot;What&quot;,
+    &quot;that1is2a3way4to5go6.&quot;,
+    &quot;What do you*% want?  For real%; I think you&#39;ll see.&quot;,
+    &quot;Oh some &lt;html&gt;code&lt;/html&gt; to remove&quot;
 )
 
-rm_zip(x)
+rm_non_words(x)
 </div>
-<div class='output'>[1] &quot;Mr. Bean bought 2 tickets 2-613-213-4567&quot;         &quot;43 Butter Rd, Brossard QC K0A 3P0 - 613 213 4567&quot;
-[3] &quot;Rat Race, XX,&quot;                                    &quot;Ignore phone numbers(613)2134567&quot;                
-[5] &quot;Grab zips with dashes or no space before&quot;         &quot;Grab zips with spaces or no space before&quot;        
-[7] &quot;I like 1234567 dogs&quot;                             
+<div class='output'>[1] &quot;I like dogs&quot;                                  &quot;It&#39;s seventy two feet from the px&quot;           
+[3] NA                                             &quot;What&quot;                                        
+[5] &quot;that is a way to go&quot;                          &quot;What do you want For real I think you&#39;ll see&quot;
+[7] &quot;Oh some html code html to remove&quot;            
 </div>
-<div class='input'>rm_zip(x, extract=TRUE)
+<div class='input'>rm_non_words(x, extract=TRUE)
 </div>
 <div class='output'>[[1]]
-[1] NA
+[1] &quot; &quot;    &quot; 56 &quot; &quot;!&quot;   
 
 [[2]]
-[1] NA
+[1] &quot; &quot;    &quot;-&quot;    &quot; &quot;    &quot; &quot;    &quot; &quot;    &quot; &quot;    &quot;290.&quot;
 
 [[3]]
-[1] &quot;12345&quot;
+[1] NA
 
 [[4]]
 [1] NA
 
 [[5]]
-[1] &quot;12345-6789&quot; &quot;12345-6789&quot;
+[1] &quot;1&quot;  &quot;2&quot;  &quot;3&quot;  &quot;4&quot;  &quot;5&quot;  &quot;6.&quot;
 
 [[6]]
-[1] &quot;12345 6789&quot; &quot;12345 6789&quot;
+ [1] &quot; &quot;   &quot; &quot;   &quot;*% &quot; &quot;?  &quot; &quot; &quot;   &quot;%; &quot; &quot; &quot;   &quot; &quot;   &quot; &quot;   &quot;.&quot;  
 
 [[7]]
-[1] NA
+[1] &quot; &quot;  &quot; &lt;&quot; &quot;&gt;&quot;  &quot;&lt;/&quot; &quot;&gt; &quot; &quot; &quot; 
 
 </div>
 <div class='input'>
-## ======================= ##
-## BUILD YOUR OWN FUNCTION ##
-## ======================= ##
-
-## example from: http://stackoverflow.com/a/26092576/1000343
-zips &lt;- data.frame(id = seq(1, 6),
-    address = c(&quot;Company, 18540 Main Ave., City, ST 12345&quot;,
-    &quot;Company 18540 Main Ave. City ST 12345-0000&quot;,
-    &quot;Company 18540 Main Ave. City State 12345&quot;,
-    &quot;Company, 18540 Main Ave., City, ST 12345 USA&quot;,
-    &quot;Company, One Main Ave Suite 18540m, City, ST 12345&quot;,
-    &quot;company 12345678&quot;)
-)
-
-## Function to grab even if a character follows the zip
-
-# paste together a more flexible regular expression
-pat &lt;- pastex(
-    &quot;@rm_zip&quot;,
-    &quot;(?&lt;!\\d)\\d{5}(?!\\d)&quot;,
-    &quot;(?&lt;!\\d)\\d{5}-\\d{4}(?!\\d)&quot;
-)
-# Create your own function that extract is set to TRUE
-rm_zip2 &lt;- rm_(pattern=pat, extract=TRUE)
-rm_zip2(zips$address)
+## For extraction purposes the following setup is more useful:
+rm_default(x, pattern = &quot;[^A-Za-z&#39; ]&quot;, extract=TRUE)
 </div>
 <div class='output'>[[1]]
-[1] &quot;18540&quot; &quot;12345&quot;
+[1] &quot;5&quot; &quot;6&quot; &quot;!&quot;
 
 [[2]]
-[1] &quot;18540&quot;      &quot;12345-0000&quot;
+[1] &quot;-&quot; &quot;2&quot; &quot;9&quot; &quot;0&quot; &quot;.&quot;
 
 [[3]]
-[1] &quot;18540&quot; &quot;12345&quot;
-
-[[4]]
-[1] &quot;18540&quot; &quot;12345&quot;
-
-[[5]]
-[1] &quot;18540&quot; &quot;12345&quot;
-
-[[6]]
 [1] NA
 
-</div>
-<div class='input'>
-## Function to extract just 5 digit zips
-
-rm_zip3 &lt;- rm_(pattern=&quot;(?&lt;!\\d)\\d{5}(?!\\d)&quot;, extract=TRUE)
-rm_zip3(zips$address)
-</div>
-<div class='output'>[[1]]
-[1] &quot;18540&quot; &quot;12345&quot;
-
-[[2]]
-[1] &quot;18540&quot; &quot;12345&quot;
-
-[[3]]
-[1] &quot;18540&quot; &quot;12345&quot;
-
 [[4]]
-[1] &quot;18540&quot; &quot;12345&quot;
+[1] NA
 
 [[5]]
-[1] &quot;18540&quot; &quot;12345&quot;
+[1] &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; &quot;5&quot; &quot;6&quot; &quot;.&quot;
 
 [[6]]
-[1] NA
+[1] &quot;*&quot; &quot;%&quot; &quot;?&quot; &quot;%&quot; &quot;;&quot; &quot;.&quot;
+
+[[7]]
+[1] &quot;&lt;&quot; &quot;&gt;&quot; &quot;&lt;&quot; &quot;/&quot; &quot;&gt;&quot;
 
 </div></pre>
   </div>
   <div class="span4">
     <!-- <ul>
-      <li>rm_zip</li>
+      <li>rm_non_words</li>
     </ul>
     <ul>
-      <li>zip</li>
+      <li>non-words</li>
     </ul> -->
       
     <h2>See also</h2>
@@ -250,8 +208,8 @@ Other rm_.functions: <code><a href='rm_number.html'>as_numeric</a></code>,
   <code><a href='rm_email.html'>rm_email</a></code>; <code><a href='rm_emoticon.html'>rm_emoticon</a></code>;
   <code><a href='rm_endmark.html'>rm_endmark</a></code>; <code><a href='rm_hash.html'>rm_hash</a></code>;
   <code><a href='rm_nchar_words.html'>rm_nchar_words</a></code>; <code><a href='rm_non_ascii.html'>rm_non_ascii</a></code>;
-  <code><a href='rm_non_words.html'>rm_non_words</a></code>; <code><a href='rm_percent.html'>rm_percent</a></code>;
-  <code><a href='rm_phone.html'>rm_phone</a></code>; <code><a href='rm_postal_code.html'>rm_postal_code</a></code>;
+  <code><a href='rm_percent.html'>rm_percent</a></code>; <code><a href='rm_phone.html'>rm_phone</a></code>;
+  <code><a href='rm_postal_code.html'>rm_postal_code</a></code>;
   <code><a href='rm_repeated_characters.html'>rm_repeated_characters</a></code>;
   <code><a href='rm_repeated_phrases.html'>rm_repeated_phrases</a></code>;
   <code><a href='rm_repeated_words.html'>rm_repeated_words</a></code>; <code><a href='rm_tag.html'>rm_tag</a></code>;
@@ -265,14 +223,9 @@ Other rm_.functions: <code><a href='rm_number.html'>as_numeric</a></code>,
   <code><a href='rm_white.html'>rm_white_lead_trail</a></code>,
   <code><a href='rm_white.html'>rm_white_multiple</a></code>,
   <code><a href='rm_white.html'>rm_white_punctuation</a></code>,
-  <code><a href='rm_white.html'>rm_white_trail</a></code>
+  <code><a href='rm_white.html'>rm_white_trail</a></code>; <code><a href='rm_zip.html'>rm_zip</a></code>
 
-    
-    <h2>Author</h2>
-    
-<a href = 'http://stackoverflow.com/'>stackoverflow's</a> hwnd and Tyler Rinker <tyler.rinker@gmail.com>.
-
-    
+        
   </div>
 </div>
       

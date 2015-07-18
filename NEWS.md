@@ -26,7 +26,7 @@ And constructed with the following guidelines:
   without separating it into multiple strings.  For example "12345" became 
   "123" "45".  Also 444,44 will not be removed/extracted as it is not a valid
   comma separated number.  These behavior have been corrected and the unit test 
-  now include these cases.  Thanks to Jason Gray for the reworked of the regex.
+  now include these cases.  Thanks to Jason Gray for the rework of the regex.
   It is simpler and more accurate.
   
 * `rm_between` did not handle quotation marks (`"`) as both the left and right 
@@ -60,10 +60,6 @@ And constructed with the following guidelines:
 
 * `punctuation` added to `regex_supplement` dictionary for easy negation of
   `[:punct:]` class.
-
-**IMPROVEMENTS**
-
-**CHANGES**
 
 
  <a href="https://github.com/trinker/qdapRegex" target="_blank">qdapRegex</a> 0.2.1 - 0.3.2

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>is.regex. qdapRegex 0.3.3</title>
+<title>is.regex. qdapRegex 0.4.0</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="">
 
@@ -14,13 +14,25 @@
 <!--[if lt IE 9]>
   <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
   </head>
 
   <body>
     <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">qdapRegex 0.3.3</a>
+      <a class="brand" href="#">qdapRegex 0.4.0</a>
       <div class="nav">
         <ul class="nav">
           <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
@@ -48,28 +60,20 @@
       <dd>A regular expression to be tested.</dd>
     </dl>
     
-    <div class="Test Regular Expression Validity">
-      <h2>Test Regular Expression Validity</h2>
-      
-    </div>
-
-    <div class="Test Regular Expression Validity">
-      <h2>Test Regular Expression Validity</h2>
-      
-    </div>
-
     <div class="Value">
       <h2>Value</h2>
-      
-      <p>Returns a logical (<code>TRUE</code> is a valid regular expression).</p>
+
+      <p><dl>
+Returns a logical (<code>TRUE</code> is a valid regular expression).
+</dl></p>
   
     </div>
 
     <div class="Description">
       <h2>Description</h2>
-      
+
       <p>Acts as a logical test of a regular expression's validity.  <code>is.regex</code>
-uses <code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code> and tests for errors to determine a regular
+uses <code><a href='http://www.inside-r.org/r-doc/base/grep'>gsub</a></code> and tests for errors to determine a regular
 expression's validity.  The regular expression must conform to R's regular
 expression rules (see <code>?regex</code> for details about how R handles regular
 expressions).</p>
@@ -98,29 +102,29 @@ sapply(regex_usa, is.regex)
                   TRUE                   TRUE                   TRUE                   TRUE                   TRUE 
            rm_endmark3                rm_hash         rm_nchar_words        rm_nchar_words2           rm_non_ascii 
                   TRUE                   TRUE                   TRUE                   TRUE                   TRUE 
-             rm_number             rm_percent               rm_phone         rm_postal_code rm_repeated_characters 
+          rm_non_words              rm_number             rm_percent               rm_phone         rm_postal_code 
                   TRUE                   TRUE                   TRUE                   TRUE                   TRUE 
-   rm_repeated_phrases      rm_repeated_words                 rm_tag                rm_tag2          rm_title_name 
+rm_repeated_characters    rm_repeated_phrases      rm_repeated_words                 rm_tag                rm_tag2 
                   TRUE                   TRUE                   TRUE                   TRUE                   TRUE 
-               rm_time               rm_time2         rm_twitter_url                 rm_url                rm_url2 
+         rm_title_name                rm_time               rm_time2         rm_twitter_url                 rm_url 
                   TRUE                   TRUE                   TRUE                   TRUE                   TRUE 
-               rm_url3               rm_white       rm_white_bracket         rm_white_colon         rm_white_comma 
+               rm_url2                rm_url3               rm_white       rm_white_bracket         rm_white_colon 
                   TRUE                   TRUE                   TRUE                   TRUE                   TRUE 
-      rm_white_endmark          rm_white_lead    rm_white_lead_trail      rm_white_multiple   rm_white_punctuation 
+        rm_white_comma       rm_white_endmark          rm_white_lead    rm_white_lead_trail      rm_white_multiple 
                   TRUE                   TRUE                   TRUE                   TRUE                   TRUE 
-        rm_white_trail                 rm_zip 
-                  TRUE                   TRUE 
+  rm_white_punctuation         rm_white_trail                 rm_zip 
+                  TRUE                   TRUE                   TRUE 
 </div>
 <div class='input'>sapply(regex_supplement, is.regex) ## `version` is not a valid regex
 </div>
 <div class='output'>            after_a           after_the              after_             around_            around2_             before_ 
                TRUE                TRUE                TRUE                TRUE                TRUE                TRUE 
-        hexadecimal          ip_address     last_occurrence               pages              pages2           run_split 
+        hexadecimal          ip_address     last_occurrence               pages              pages2         punctuation 
                TRUE                TRUE                TRUE                TRUE                TRUE                TRUE 
-   split_keep_delim thousands_separator       time_12_hours             version            version2   white_after_comma 
-               TRUE                TRUE                TRUE               FALSE                TRUE                TRUE 
-      word_boundary  word_boundary_left word_boundary_right          youtube_id 
-               TRUE                TRUE                TRUE                TRUE 
+          run_split    split_keep_delim thousands_separator       time_12_hours             version            version2 
+               TRUE                TRUE                TRUE                TRUE               FALSE                TRUE 
+  white_after_comma       word_boundary  word_boundary_left word_boundary_right          youtube_id 
+               TRUE                TRUE                TRUE                TRUE                TRUE 
 </div></pre>
   </div>
   <div class="span4">
@@ -133,7 +137,7 @@ sapply(regex_usa, is.regex)
       
     <h2>See also</h2>
     
-<code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code>
+<code><a href='http://www.inside-r.org/r-doc/base/grep'>gsub</a></code>
 
         
   </div>

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>Index. qdapRegex 0.3.3</title>
+<title>Index. qdapRegex 0.4.0</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="">
 
@@ -14,13 +14,25 @@
 <!--[if lt IE 9]>
   <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
   </head>
 
   <body>
     <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">qdapRegex 0.3.3</a>
+      <a class="brand" href="#">qdapRegex 0.4.0</a>
       <div class="nav">
         <ul class="nav">
           <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
@@ -128,7 +140,10 @@
         <code><a href="rm_non_ascii.html">rm_non_ascii</a></code><br />Remove/Replace/Extract Non-ASCII</li>
             
       <li>
-        <code><a href="rm_number.html">rm_number</a></code> <code><a href="rm_number.html">as_numeric</a></code><br />Remove/Replace/Extract Numbers</li>
+        <code><a href="rm_non_words.html">rm_non_words</a></code><br />Remove/Replace/Extract Non-Words</li>
+            
+      <li>
+        <code><a href="rm_number.html">rm_number</a></code> <code><a href="rm_number.html">as_numeric</a></code> <code><a href="rm_number.html">as_numeric2</a></code><br />Remove/Replace/Extract Numbers</li>
             
       <li>
         <code><a href="rm_percent.html">rm_percent</a></code><br />Remove/Replace/Extract Percentages</li>
@@ -206,10 +221,16 @@
         <code><a href="bind.html">bind</a></code><br />Add Left/Right Character(s) Boundaries</li>
             
       <li>
+        <code><a href="bind_or.html">bind_or</a></code><br />Boundary Wrap (Bind) and `or` Concatenate Elements</li>
+            
+      <li>
         <code><a href="grab.html">grab</a></code><br />Grab Regular Expressions from Dictionaries</li>
             
       <li>
         <code><a href="group.html">group</a></code><br />Group Regular Expressions</li>
+            
+      <li>
+        <code><a href="group_or.html">group_or</a></code><br />Group Wrap and `or` Concatenate Elements</li>
             
       <li>
         <code><a href="escape.html">escape</a></code><br />Escape Strings From Parsing</li>
@@ -250,17 +271,17 @@
         
     <h2>Dependencies</h2>
     <ul>
-      <li><strong>Depends</strong>: </li>
+      
       <li><strong>Imports</strong>: stringi</li>
       <li><strong>Suggests</strong>: testthat</li>
-      <li><strong>Extends</strong>: </li>
+      
     </ul>
-     
-<h2>Author</h2> Tyler W. Rinker
-    
-<h2>Contributor</h2> Stackoverflow's hwnd
-    
-    
+    <h2>Authors</h2>
+    <ul>
+      <li>Jason Gray [ctb]</li>
+      <li><a href="mailto:tyler.rinker@gmail.com">Tyler Rinker</a> [aut, cre]</li>
+    </ul>
+
   </div>
 </div>
       

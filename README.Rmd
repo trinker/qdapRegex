@@ -121,4 +121,22 @@ z <- c("-2 is an integer.  -4.3 and 3.33 are not.",
     "hello world -.q")
 rm_number(z)
 rm_number(z, extract=TRUE)
+as_numeric(rm_number(z, extract=TRUE))
+```
+
+### Remove Non-Words
+
+```{r}
+x <- c(
+    "I like 56 dogs!",
+    "It's seventy-two feet from the px290.",
+    NA,
+    "What",
+    "that1is2a3way4to5go6.",
+    "What do you*% want?  For real%; I think you'll see.",
+    "Oh some <html>code</html> to remove"
+)
+
+rm_non_words(x)
+rm_nchar_words(rm_non_words(x), "1,2")
 ```

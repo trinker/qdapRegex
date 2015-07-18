@@ -21,13 +21,13 @@ update_news()
 #==========================
 # UPDATE VERSION
 #==========================
-update_version("0.3.0")
+update_version()
 
 #========================
 #staticdocs dev version
 #========================
 #packages
-pacman::p_load_gh("hadley/staticdocs")
+pacman::p_load_gh("hadley/testthat", "hadley/staticdocs")
 pacman::p_load(highlight)
 if (!pacman::p_exists(acc.roxygen2, TRUE)) {
     pacman::p_install_gh("trinker/acc.roxygen2")
@@ -58,16 +58,16 @@ rdme <- "inst/extra_statdoc/readme.R"
 extras <- qdap::qcv("%|%", "rm_twitter_url", "rm_white_bracket", "rm_white_colon", 
 	"rm_white_comma", "rm_white_endmark", "rm_white_lead", "rm_white_trail", 
 	"rm_white_lead_trail", "rm_white_multiple", "rm_white_punctuation", "L", 
-	"U", "as_numeric")
+	"U", "as_numeric", "as_numeric2")
 ## drops <- qcv()
 acc.roxygen2::expand_statdoc(path2, to.icon = extras, readme = rdme)
 
-x <- readLines(path2)
-x[grepl("<h2>Authors</h2>", x)] <- paste(c("<h2>Author</h2>", 
-    rep("<h2>Contributor</h2>", 1)),
-    c("Tyler W. Rinker", "Stackoverflow's hwnd"))
+#x <- readLines(path2)
+#x[grepl("<h2>Authors</h2>", x)] <- paste(c("<h2>Author</h2>", 
+#    rep("<h2>Contributor</h2>", 1)),
+#    c("Tyler W. Rinker", "Stackoverflow's hwnd"))
 
-cat(paste(x, collapse="\n"), file=path2)
+#cat(paste(x, collapse="\n"), file=path2)
 
 
 #STEP 3: move to trinker.guthub

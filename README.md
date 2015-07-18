@@ -6,7 +6,7 @@
 [![Build Status](https://travis-ci.org/trinker/qdapRegex.svg?branch=master)](https://travis-ci.org/trinker/qdapRegex)
 [![Coverage Status](https://coveralls.io/repos/trinker/qdapRegex/badge.svg)](https://coveralls.io/r/trinker/qdapRegex)
 [![DOI](https://zenodo.org/badge/5398/trinker/qdapRegex.svg)](http://dx.doi.org/10.5281/zenodo.11284)
-<a href="https://img.shields.io/badge/Version-0.4.0-orange.svg"><img src="https://img.shields.io/badge/Version-0.4.0-orange.svg" alt="Version"/></a></p>
+<a href="https://img.shields.io/badge/Version-0.4.1-orange.svg"><img src="https://img.shields.io/badge/Version-0.4.1-orange.svg" alt="Version"/></a></p>
 
 <img src="inst/qdapRegex_logo/r_qdapRegex.png" width="320" alt="qdapRegex Logo">      
 [qdapRegex](http://trinker.github.com/qdapRegex_dev) is a collection of regular expression tools associated with the **qdap** package that may be useful outside of the context of discourse analysis.  Tools include removal/extraction/replacement of abbreviations, dates, dollar amounts, email addresses, hash tags, numbers, percentages, citations, person tags, phone numbers, times, and zip codes.
@@ -272,4 +272,60 @@ rm_number(z, extract=TRUE)
 ## 
 ## [[3]]
 ## [1] NA
+```
+
+```r
+as_numeric(rm_number(z, extract=TRUE))
+```
+
+```
+## [[1]]
+## [1] -2.00 -4.30  3.33
+## 
+## [[2]]
+## [1] 123456.0     -0.2
+## 
+## [[3]]
+## [1] NA
+```
+
+### Remove Non-Words
+
+
+```r
+x <- c(
+    "I like 56 dogs!",
+    "It's seventy-two feet from the px290.",
+    NA,
+    "What",
+    "that1is2a3way4to5go6.",
+    "What do you*% want?  For real%; I think you'll see.",
+    "Oh some <html>code</html> to remove"
+)
+
+rm_non_words(x)
+```
+
+```
+## [1] "I like dogs"                                 
+## [2] "It's seventy two feet from the px"           
+## [3] NA                                            
+## [4] "What"                                        
+## [5] "that is a way to go"                         
+## [6] "What do you want For real I think you'll see"
+## [7] "Oh some html code html to remove"
+```
+
+```r
+rm_nchar_words(rm_non_words(x), "1,2")
+```
+
+```
+## [1] "like dogs"                              
+## [2] "It's seventy two feet from the"         
+## [3] NA                                       
+## [4] "What"                                   
+## [5] "that way"                               
+## [6] "What you want For real think you'll see"
+## [7] "some html code html remove"
 ```

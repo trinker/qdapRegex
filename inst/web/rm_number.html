@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>rm_number. qdapRegex 0.3.3</title>
+<title>rm_number. qdapRegex 0.4.0</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="">
 
@@ -14,13 +14,25 @@
 <!--[if lt IE 9]>
   <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
   </head>
 
   <body>
     <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">qdapRegex 0.3.3</a>
+      <a class="brand" href="#">qdapRegex 0.4.0</a>
       <div class="nav">
         <ul class="nav">
           <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
@@ -41,7 +53,8 @@
   <div class="span8">
     <h2>Usage</h2>
     <pre><div>rm_number(text.var, trim&nbsp;=&nbsp;!extract, clean&nbsp;=&nbsp;TRUE, pattern&nbsp;=&nbsp;"@rm_number", replacement&nbsp;=&nbsp;"", extract&nbsp;=&nbsp;FALSE, dictionary&nbsp;=&nbsp;getOption("regex.library"), ...)</div>
-<div>as_numeric(x)</div></pre>
+<div>as_numeric(x)</div>
+<div>as_numeric2(x)</div></pre>
     
     <h2>Arguments</h2>
     <dl>
@@ -70,53 +83,53 @@ if <code>pattern</code> begins with <code>"@rm_"</code>.</dd>
       <dt>x</dt>
       <dd>a character vector to convert to a numeric vector.</dd>
       <dt>...</dt>
-      <dd>Other arguments passed to <code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code>.</dd>
+      <dd>Other arguments passed to <code><a href='http://www.inside-r.org/r-doc/base/grep'>gsub</a></code>.</dd>
     </dl>
     
-    <div class="Remove/Replace/Extract Numbers">
-      <h2>Remove/Replace/Extract Numbers</h2>
-      
-    </div>
-
-    <div class="Remove/Replace/Extract Numbers">
-      <h2>Remove/Replace/Extract Numbers</h2>
-      
-    </div>
-
     <div class="Value">
       <h2>Value</h2>
-      
-      <p>Returns a character string with number removed.</p>
+
+      <p><dl>
+<code>rm_number</code> - Returns a character string with number removed.</p>
+  
+      <p><code>as_numeric2</code> - Returns a list of vectors of numbers.</p>
+  
+      <p><code>as_numeric2</code> - Returns a vector of numbers.
+</dl></p>
   
     </div>
 
     <div class="Description">
       <h2>Description</h2>
-      
+
       <p><code>rm_number</code> - Remove/replace/extract number from a string (works on
 numbers with commas, decimals and negatives).</p>
   
       <p><code>as_numeric</code> - A wrapper for <code>as.numeric(gsub(",", "", x))</code>, which
-removes commas and converts a vector of strings to numeric.  If the string
-cannot be converted to numeric <code>NA</code> is returned.</p>
+removes commas and converts a list of vectors of strings to numeric.  If the
+string cannot be converted to numeric <code>NA</code> is returned.</p>
+  
+      <p><code>as_numeric2</code> - A convenience function for <code>as_numeric</code> that
+unlists and returns a vector rather than a list.</p>
   
     </div>
 
     <div class="References">
       <h2>References</h2>
-      
-      <p>The number regular expression was taken from:
-<a href = 'http://stackoverflow.com/a/5917250/1000343'>http://stackoverflow.com/a/5917250/1000343</a> authored by Justin Morgan.</p>
+
+      <p>The number regular expression was created by Jason Gray.</p>
   
     </div>
     
     <h2 id="examples">Examples</h2>
     <pre class="examples"><div class='input'>x &lt;- c(&quot;-2 is an integer.  -4.3 and 3.33 are not.&quot;,
-    &quot;123,456 is a lot more than -.2&quot;,
-    &quot;hello world -.q&quot;)
+    &quot;123,456 is 0 alot -123456 more than -.2&quot;, &quot;and 3456789123 fg for 345.&quot;,
+    &quot;fg 12,345 23 .44 or 18.&quot;, &quot;don&#39;t remove this 444,44&quot;, &quot;hello world -.q&quot;)
+
 rm_number(x)
 </div>
-<div class='output'>[1] &quot;is an integer. and are not.&quot; &quot;is a lot more than&quot;          &quot;hello world -.q&quot;            
+<div class='output'>[1] &quot;is an integer. and are not.&quot; &quot;is alot more than&quot;           &quot;and fg for .&quot;                &quot;fg or .&quot;                    
+[5] &quot;don&#39;t remove this 444,44&quot;    &quot;hello world -.q&quot;            
 </div>
 <div class='input'>rm_number(x, extract=TRUE)
 </div>
@@ -124,30 +137,53 @@ rm_number(x)
 [1] &quot;-2&quot;   &quot;-4.3&quot; &quot;3.33&quot;
 
 [[2]]
-[1] &quot;123,456&quot; &quot;-.2&quot;    
+[1] &quot;123,456&quot; &quot;0&quot;       &quot;-123456&quot; &quot;-.2&quot;    
 
 [[3]]
+[1] &quot;3456789123&quot; &quot;345&quot;       
+
+[[4]]
+[1] &quot;12,345&quot; &quot;23&quot;     &quot;.44&quot;    &quot;18&quot;    
+
+[[5]]
+[1] NA
+
+[[6]]
 [1] NA
 
 </div>
 <div class='input'>
 ##Convert to numeric
-lapply(rm_number(x, extract=TRUE), as_numeric)
+as_numeric(rm_number(x, extract=TRUE))   # retain list
 </div>
 <div class='output'>[[1]]
 [1] -2.00 -4.30  3.33
 
 [[2]]
-[1] 123456.0     -0.2
+[1]  123456.0       0.0 -123456.0      -0.2
 
 [[3]]
+[1] 3456789123        345
+
+[[4]]
+[1] 12345.00    23.00     0.44    18.00
+
+[[5]]
 [1] NA
 
+[[6]]
+[1] NA
+
+</div>
+<div class='input'>as_numeric2(rm_number(x, extract=TRUE))  # unlist
+</div>
+<div class='output'> [1]         -2.00         -4.30          3.33     123456.00          0.00    -123456.00         -0.20 3456789123.00
+ [9]        345.00      12345.00         23.00          0.44         18.00            NA            NA
 </div></pre>
   </div>
   <div class="span4">
     <!-- <ul>
-      <li>as_numeric</li><li>rm_number</li>
+      <li>as_numeric</li><li>as_numeric2</li><li>rm_number</li>
     </ul>
     <ul>
       <li>number</li>
@@ -155,7 +191,7 @@ lapply(rm_number(x, extract=TRUE), as_numeric)
       
     <h2>See also</h2>
     
-<code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>gsub</a></code>,
+<code><a href='http://www.inside-r.org/r-doc/base/grep'>gsub</a></code>,
 <code><a href='http://www.inside-r.org/packages/cran/stringi/docs/stri_extract'>stri_extract_all_regex</a></code>
 
 Other rm_.functions: <code><a href='rm_abbreviation.html'>rm_abbreviation</a></code>;
@@ -172,8 +208,8 @@ Other rm_.functions: <code><a href='rm_abbreviation.html'>rm_abbreviation</a></c
   <code><a href='rm_email.html'>rm_email</a></code>; <code><a href='rm_emoticon.html'>rm_emoticon</a></code>;
   <code><a href='rm_endmark.html'>rm_endmark</a></code>; <code><a href='rm_hash.html'>rm_hash</a></code>;
   <code><a href='rm_nchar_words.html'>rm_nchar_words</a></code>; <code><a href='rm_non_ascii.html'>rm_non_ascii</a></code>;
-  <code><a href='rm_percent.html'>rm_percent</a></code>; <code><a href='rm_phone.html'>rm_phone</a></code>;
-  <code><a href='rm_postal_code.html'>rm_postal_code</a></code>;
+  <code><a href='rm_non_words.html'>rm_non_words</a></code>; <code><a href='rm_percent.html'>rm_percent</a></code>;
+  <code><a href='rm_phone.html'>rm_phone</a></code>; <code><a href='rm_postal_code.html'>rm_postal_code</a></code>;
   <code><a href='rm_repeated_characters.html'>rm_repeated_characters</a></code>;
   <code><a href='rm_repeated_phrases.html'>rm_repeated_phrases</a></code>;
   <code><a href='rm_repeated_words.html'>rm_repeated_words</a></code>; <code><a href='rm_tag.html'>rm_tag</a></code>;

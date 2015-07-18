@@ -38,17 +38,20 @@
 #' @seealso \code{\link[base]{gsub}},
 #' \code{\link[stringi]{stri_extract_all_regex}}
 #' @examples
-#' x <- "This Jon's dogs' 'bout there in word Mike's re'y."
+#' x <- "This is Jon's dogs' 'bout there in a word Mike's re'y."
 #' rm_nchar_words(x, 4)
 #' rm_nchar_words(x, 4, extract=TRUE)
 #' 
 #' ## Count characters (apostrophes and letters)
 #' rm_nchar_words(x, 5, extract=TRUE, pattern = "@@rm_nchar_words2")
 #' 
+#' ## nchar range
+#' rm_nchar_words(x, "1,2")
+#' 
 #' \dontrun{
 #' ## Larger example
 #' library(qdap)
-#' rm_nchar_words(hamlet$dialogue, 5, extract=TRUE)
+#' rm_nchar_words(hamlet[["dialogue"]], 5, extract=TRUE)
 #' }
 rm_nchar_words <- function(text.var, n, trim = !extract, clean = TRUE,
     pattern = "@rm_nchar_words", replacement = "", extract = FALSE, 

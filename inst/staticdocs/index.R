@@ -60,7 +60,6 @@ sd_section("Educational",
 sd_section("qdapRegex Tools",
  "Other functions used within qdapRegex that are not specific to removing/extracting/replacing text with regular expressions.",
   c(
-  	"as_numeric",
     "bind",
     "bind_or",
   	"grab",
