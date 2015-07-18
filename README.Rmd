@@ -124,7 +124,7 @@ rm_number(z, extract=TRUE)
 as_numeric(rm_number(z, extract=TRUE))
 ```
 
-### Remove Non-Words
+### Remove Non-Words & N Character Words
 
 ```{r}
 x <- c(

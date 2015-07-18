@@ -289,7 +289,7 @@ as_numeric(rm_number(z, extract=TRUE))
 ## [1] NA
 ```
 
-### Remove Non-Words
+### Remove Non-Words & N Character Words
 
 
 ```r
