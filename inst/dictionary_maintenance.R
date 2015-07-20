@@ -79,6 +79,7 @@ regex_supplement <- list(
     around_ = "(?:[^[:punct:]|\\s]+\\s+){0,%s}(%s)(?:\\s+[^[:punct:]|\\s]+){0,%s}",
     around2_ = "(?:[[:alpha:]]+\\s+){0,%s}(%s)(?:\\s+[[:alpha:]]+){0,%s}",	
     before_ = "\\w+?(?= ((%s|%s)\\b))",
+    except_first = "^[^%s]+%s(*SKIP)(*F)|%s",
     hexadecimal = "#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})",
     ip_address = "\\b\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\b",
 	last_occurrence = "%s(?=[^%s]+$)",

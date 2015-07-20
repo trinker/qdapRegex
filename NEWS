@@ -26,6 +26,10 @@ NEW FEATURES
 
 MINOR FEATURES
 
+* `except_first` added to `regex_supplement` dictionary to provide a means to 
+  remove all occurrences of a character except the first appearance.  Regex 
+  from: http://stackoverflow.com/a/31458261/1000343
+
 IMPROVEMENTS
 
 CHANGES

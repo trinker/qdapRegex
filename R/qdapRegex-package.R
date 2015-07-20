@@ -129,6 +129,7 @@ NULL
 #'   \item{around_}{find n words (not including punctuation) before or after  ? word (? = user defined); note contains \code{"\%s"} that is replaced by \code{\link[base]{sprintf}} and is not a valid regex on its own (user supplies (1) n before, (2) the point, & (3) n after)}
 #'   \item{around2_}{find n words (plus punctuation) before or after  ? word (? = user defined); note contains \code{"\%s"} that is replaced by \code{\link[base]{sprintf}} and is not a valid regex on its own}
 #'   \item{before_}{find sing word before ? word (? = user defined); note contains \code{"\%s"} that is replaced by \code{\link[base]{sprintf}} and is not a valid regex on its own}
+#'   \item{except_first}{find all occurrences of a substring except the first; regex pattern retrieved from  \href{http://stackoverflow.com/users/3732271/akrun}{StackOverflow's akrun}: \url{http://stackoverflow.com/a/31458261/1000343}} 
 #'   \item{hexadecimal}{substring beginning with hash (#) followed by either 3 or 6 select characters (a-f, A-F, and 0-9)}
 #'   \item{ip_address}{substring of four chunks of 1-3 consecutive digits separated with dots (.)}
 #'   \item{last_occurrence}{last occurrence of a delimiter; note contains \code{"\%s"} that is replaced by \code{\link[base]{sprintf}} and is not a valid regex on its own (user supplies the delimiter)}
@@ -161,7 +162,7 @@ NULL
 #' @details Use \code{qdapRegex:::examine_regex(regex_supplement)} to 
 #' interactively explore the regular expressions in \code{regex_usa}.  This will 
 #' provide a browser + console based break down of each regex in the dictionary.
-#' @format A list with 23 elements
+#' @format A list with 24 elements
 #' @examples 
 #' time <- rm_(pattern="@@time_12_hours")
 #' time("I will go at 12:35 pm")
@@ -285,4 +286,16 @@ NULL
 #' 
 #' rm_default(x, pattern=S("@@punctuation", ""))
 #' rm_default(x, pattern=S("@@punctuation", ".?!"))
+#' 
+#' ## Remove all but first occurrence of something
+#' x <- c(
+#'     "12-3=4-5=678-9", 
+#'     "ABC-D=EF2-GHI-JK3=L-MN=", 
+#'     "9-87=65", 
+#'     "a - de=4fgh --= i5jkl", 
+#'     NA
+#' )
+#' 
+#' rm_default(x, pattern = S("@@except_first", "-"))
+#' rm_default(x, pattern = S("@@except_first", "="))
 NULL

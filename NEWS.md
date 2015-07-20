@@ -17,6 +17,24 @@ And constructed with the following guidelines:
 * Bug fixes and misc changes bumps the patch
 
 
+ <a href="https://github.com/trinker/qdapRegex" target="_blank">qdapRegex</a> 0.4.1-
+----------------------------------------------------------------
+
+**BUG FIXES**
+
+**NEW FEATURES**
+
+**MINOR FEATURES**
+
+* `except_first` added to `regex_supplement` dictionary to provide a means to 
+  remove all occurrences of a character except the first appearance.  Regex 
+  from: <a href="http://stackoverflow.com/a/31458261/1000343" target="_blank">http://stackoverflow.com/a/31458261/1000343</a>
+
+**IMPROVEMENTS**
+
+**CHANGES**
+
+
  <a href="https://github.com/trinker/qdapRegex" target="_blank">qdapRegex</a> 0.4.0
 ----------------------------------------------------------------
 
