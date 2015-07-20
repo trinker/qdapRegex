@@ -44,9 +44,9 @@ if \code{pattern} begins with \code{"@rm_"}.}
 \value{
 \code{rm_number} - Returns a character string with number removed.
 
-\code{as_numeric2} - Returns a list of vectors of numbers.
+\code{as_numeric} - Returns a list of vectors of numbers.
 
-\code{as_numeric2} - Returns a vector of numbers.
+\code{as_numeric2} - Returns an unlisted vector of numbers.
 }
 \description{
 \code{rm_number} - Remove/replace/extract number from a string (works on

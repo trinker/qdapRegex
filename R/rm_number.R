@@ -50,7 +50,7 @@ rm_number <- hijack(rm_default, pattern = "@rm_number")
 #' 
 #' @param x a character vector to convert to a numeric vector.
 #' @rdname rm_number
-#' @return \code{as_numeric2} - Returns a list of vectors of numbers.
+#' @return \code{as_numeric} - Returns a list of vectors of numbers.
 #' @export
 as_numeric <- function(x) {
     lapply(x, function(y){
@@ -65,7 +65,7 @@ as_numeric <- function(x) {
 #' 
 #' @rdname rm_number
 #' @export
-#' @return \code{as_numeric2} - Returns a vector of numbers.
+#' @return \code{as_numeric2} - Returns an unlisted vector of numbers.
 as_numeric2 <- function(x) {
     unlist(as_numeric(x))
 }
