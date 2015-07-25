@@ -29,11 +29,22 @@ And constructed with the following guidelines:
 * `except_first` added to `regex_supplement` dictionary to provide a means to 
   remove all occurrences of a character except the first appearance.  Regex 
   from: <a href="http://stackoverflow.com/a/31458261/1000343" target="_blank">http://stackoverflow.com/a/31458261/1000343</a>
+  
+* `rm_between` and `r_between_multiple` pick up a `fixed` argument.  Previously,
+  `left` and `right` boundaries containing regular expression special characters
+  were fixed by default (escaped).  This did not allow for the powerful use of a 
+  regular expression for left/right boundaries.  The `fixed = TRUE` behavior 
+  is still the default but users can now set `fixed = FALSE` to work with 
+  regular expression boundaries.  This new feature was inspired by @Ronak Shah
+  as a StackOverflow question: <a href="http://stackoverflow.com/q/31623069/1000343" target="_blank">http://stackoverflow.com/q/31623069/1000343</a>  
 
 **IMPROVEMENTS**
 
 **CHANGES**
 
+* `word_boundary`, `word_boundary_left`, `word_boundary_right` regexes in the
+  `regex_supplement` did not include apostrophes as a viable word character. 
+  Apostrophes are now included as a word character.
 
  <a href="https://github.com/trinker/qdapRegex" target="_blank">qdapRegex</a> 0.4.0
 ----------------------------------------------------------------

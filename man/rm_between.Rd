@@ -5,13 +5,13 @@
 \alias{rm_between_multiple}
 \title{Remove/Replace/Extract Strings Between 2 Markers}
 \usage{
-rm_between(text.var, left, right, trim = TRUE, clean = TRUE,
+rm_between(text.var, left, right, fixed = TRUE, trim = TRUE, clean = TRUE,
   replacement = "", extract = FALSE, include.markers = ifelse(extract,
   FALSE, TRUE), dictionary = getOption("regex.library"), ...)
 
-rm_between_multiple(text.var, left, right, trim = TRUE, clean = TRUE,
-  replacement = "", extract = FALSE, include.markers = FALSE,
-  merge = TRUE)
+rm_between_multiple(text.var, left, right, fixed = TRUE, trim = TRUE,
+  clean = TRUE, replacement = "", extract = FALSE,
+  include.markers = FALSE, merge = TRUE)
 }
 \arguments{
 \item{text.var}{The text variable.}
@@ -21,6 +21,11 @@ extract.}
 
 \item{right}{A vector of character or numeric symbols as the right edge to
 extract.}
+
+\item{fixed}{logical.  If \code{TRUE} regular expression special characters
+(\code{c(".", "|", "(", ")", "[", "]", "{", "}", "^", "$", "*", "+", "?")})
+will be treated as typical characters.  If the user wants to pass a regular
+expression with special characters then \code{fixed = FALSE} should be used.}
 
 \item{trim}{logical.  If \code{TRUE} removes leading and trailing white
 spaces.}
@@ -92,6 +97,15 @@ rm_between_multiple(state, c("is", "we"), c("too", "on"))
 ## Use Grouping
 s <- "something before stuff $some text$ in between $1$ and after"
 rm_between(s, "$", "$", replacement="<B>\\\\2<E>")
+
+## Using regular expressions as boundaries (fixed =FALSE)
+x <-  c(
+    "There are 2.3 million species in the world",
+    "There are 2.3 billion species in the world"
+)
+
+rm_between(x, left='There', right = '[mb]illion', fixed = FALSE,
+    extract=TRUE, include=TRUE)
 }
 \seealso{
 \code{\link[base]{gsub}},

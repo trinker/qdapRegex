@@ -93,9 +93,9 @@ regex_supplement <- list(
     version = "(?<=\\b(v|version)\\s?)([0-9]+)\\.([0-9]+)\\.([0-9]+)(?:\\.([0-9]+))?\\b",
     version2 = "\\b(v(ersion)*\\s*)([0-9]+)\\.([0-9]+)\\.([0-9]+)(?:\\.([0-9]+))?\\b",
     white_after_comma = "(?!\\s+),(?=\\D)",		
-    word_boundary = "(?i)(?<=^|[^a-z])(%s)(?=$|[^a-z])",
-    word_boundary_left = "(?i)(?<=^|[^a-z])",
-    word_boundary_right = "(?=$|[^a-z])",	
+    word_boundary = "(?i)(?<=^|[^a-z'])(%s)(?=$|[^a-z'])",
+    word_boundary_left = "(?i)(?<=^|[^a-z'])",
+    word_boundary_right = "(?=$|[^a-z'])",	
     youtube_id = "(?<=\\d\\/|\\.be\\/|v[=\\/])([\\w\\-]{11,})|^([\\w\\-]{11})"
 )
 

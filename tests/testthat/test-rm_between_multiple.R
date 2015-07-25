@@ -46,3 +46,27 @@ test_that("rm_between_multiple is extracting betweened text multiple markers",{
     expect_equivalent(rm_between_multiple(y, c("L1", 98), c("L2", 99), extract=TRUE), z3)
 		
 })
+
+test_that("rm_between_multiple can use regexes when fixed = FALSE",{
+    
+    x <-  c(
+        "There are 2.3 million species in the world",
+        "There are 2.3 billion species in the world"
+    )
+    
+    expect_equal(
+        rm_between_multiple(x, left='There', right = '[mb]illion', fixed = FALSE,
+            include=TRUE),
+        c("species in the world", "species in the world")
+    )
+    
+    expect_equal(    
+        rm_between_multiple(x, left='There', right = '[mb]illion', fixed = FALSE,
+            extract=TRUE, include=TRUE),
+        structure(list(`There  :  [mb]illion1` = "There are 2.3 million", 
+            `There  :  [mb]illion2` = "There are 2.3 billion"), 
+            .Names = c("There  :  [mb]illion1", "There  :  [mb]illion2"))
+    )
+
+})
+

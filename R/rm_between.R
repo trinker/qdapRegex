@@ -7,6 +7,10 @@
 #' extract.
 #' @param right A vector of character or numeric symbols as the right edge to 
 #' extract.
+#' @param fixed logical.  If \code{TRUE} regular expression special characters 
+#' (\code{c(".", "|", "(", ")", "[", "]", "{", "}", "^", "$", "*", "+", "?")})
+#' will be treated as typical characters.  If the user wants to pass a regular 
+#' expression with special characters then \code{fixed = FALSE} should be used.
 #' @param trim logical.  If \code{TRUE} removes leading and trailing white 
 #' spaces.
 #' @param clean trim logical.  If \code{TRUE} extra white spaces and escaped 
@@ -73,15 +77,25 @@
 #' ## Use Grouping
 #' s <- "something before stuff $some text$ in between $1$ and after"
 #' rm_between(s, "$", "$", replacement="<B>\\2<E>")
-rm_between <- function(text.var, left, right, trim = TRUE, clean = TRUE, 
-    replacement = "", extract = FALSE,
+#' 
+#' ## Using regular expressions as boundaries (fixed =FALSE)
+#' x <-  c(
+#'     "There are 2.3 million species in the world",
+#'     "There are 2.3 billion species in the world"
+#' )
+#' 
+#' rm_between(x, left='There', right = '[mb]illion', fixed = FALSE, 
+#'     extract=TRUE, include=TRUE)
+rm_between <- function(text.var, left, right, fixed = TRUE, trim = TRUE, 
+    clean = TRUE, replacement = "", extract = FALSE, 
     include.markers = ifelse(extract, FALSE, TRUE),
     dictionary = getOption("regex.library"), ...) {
 
     stopifnot(length(left) == length(right))
 
     pattern <- Map(function(x, y) {rm_between_subber(left=x, right=y, 
-        dictionary=dictionary, include.markers=include.markers)}, left, right)
+        fixed = fixed, dictionary=dictionary, include.markers=include.markers)}, 
+        left, right)
 
     pattern <- paste(pattern, collapse="|")
 
@@ -115,12 +129,15 @@ rm_between_quote <- function(x){
         )
 }
 
-rm_between_subber <- function(left, right, include.markers, dictionary) {
+rm_between_subber <- function(left, right, include.markers, dictionary, fixed = fixed) {
+    
     pattern <- c("@rm_between", "@rm_between2")[2 -  as.numeric(include.markers)]
 
-    left <- .mgsub(.specchars , paste0("\\", .specchars), left)
-    right <- .mgsub(.specchars , paste0("\\", .specchars), right)
-
+    if (isTRUE(fixed)){
+        left <- .mgsub(.specchars , paste0("\\", .specchars), left)
+        right <- .mgsub(.specchars , paste0("\\", .specchars), right)
+    }
+    
     reg_check_sprintf2(pattern, dictionary = dictionary, left, right)
 }
 
@@ -130,15 +147,17 @@ rm_between_subber <- function(left, right, include.markers, dictionary) {
 #' @include utils.R
 #' @export
 #' @rdname rm_between
-rm_between_multiple <- function(text.var, left, right, trim = TRUE, clean = TRUE, 
-    replacement = "", extract = FALSE, include.markers = FALSE, merge =TRUE) {
+rm_between_multiple <- function(text.var, left, right, fixed = TRUE, 
+    trim = TRUE, clean = TRUE, replacement = "", extract = FALSE, 
+    include.markers = FALSE, merge =TRUE) {
 
     if (extract) {
         return(.genXtract(text.var, left = left, right = right, 
-            with=include.markers, merge = merge))
+            with=include.markers, merge = merge, fixed = fixed))
     }
 
-    out <- .genX(text.var, left = left, right = right, replacement=replacement)
+    out <- .genX(text.var, left = left, right = right, replacement=replacement, 
+        fixed = fixed)
 
     if (trim) out <- Trim(out)
     if (clean) {
@@ -150,16 +169,20 @@ rm_between_multiple <- function(text.var, left, right, trim = TRUE, clean = TRUE
 
 
 .genX <- 
-function (text.var, left, right, missing = NULL, names = FALSE, replacement="") {
+function (text.var, left, right, missing = NULL, names = FALSE, replacement="", 
+    fixed = FALSE) {
+    
     if (length(left) != length(right)) {
         stop("left and right must be equal length") 
     }
 
     lside <- rside <- "[ ]*"
 
-    specchar <- c(".", "|", "(", ")", "[", "{", "^", "$", "*", "+", "?")
-    left <- .mgsub(specchar, paste0("\\", specchar), left, fixed = TRUE)
-    right <- .mgsub(specchar, paste0("\\", specchar), right, fixed = TRUE)
+    if (isTRUE(fixed)){
+        specchar <- c(".", "|", "(", ")", "[", "{", "^", "$", "*", "+", "?")
+        left <- .mgsub(specchar, paste0("\\", specchar), left, fixed = TRUE)
+        right <- .mgsub(specchar, paste0("\\", specchar), right, fixed = TRUE)
+    }
     FUN <- function(left, right, text.var, missing, names, replace) {
         X <- sapply(text.var, function(x) gsub(paste0(lside, left, ".+?", right, rside), replace, x))
         names(X) <- NULL
@@ -174,15 +197,20 @@ function (text.var, left, right, missing = NULL, names = FALSE, replacement="") 
 
 
 .genXtract <-
-function(text.var, left, right, with = FALSE, merge = TRUE){
+function(text.var, left, right, with = FALSE, merge = TRUE, fixed = FALSE){
+    
     if (length(left) != length(right)) {
         stop("left and right must be equal length") 
     }
+    
     LN <- left
     RN <- right
-    specchar <- c(".", "|", "(", ")", "[", "{", "^", "$", "*", "+", "?")
-    left <- .mgsub(specchar, paste0("\\", specchar), left, fixed = TRUE)
-    right <- .mgsub(specchar, paste0("\\", specchar), right, fixed = TRUE)
+    
+    if (isTRUE(fixed)){
+        specchar <- c(".", "|", "(", ")", "[", "{", "^", "$", "*", "+", "?")
+        left <- .mgsub(specchar, paste0("\\", specchar), left, fixed = TRUE)
+        right <- .mgsub(specchar, paste0("\\", specchar), right, fixed = TRUE)
+    }
     FUN <- function(left, right, text.var, with){   
         fmt <- if (with) {
             "(%s).*?(%s)"
