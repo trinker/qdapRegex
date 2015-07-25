@@ -35,8 +35,8 @@ And constructed with the following guidelines:
   were fixed by default (escaped).  This did not allow for the powerful use of a 
   regular expression for left/right boundaries.  The `fixed = TRUE` behavior 
   is still the default but users can now set `fixed = FALSE` to work with 
-  regular expression boundaries.  This new feature was inspired by @Ronak Shah
-  as a StackOverflow question: <a href="http://stackoverflow.com/q/31623069/1000343" target="_blank">http://stackoverflow.com/q/31623069/1000343</a>  
+  regular expression boundaries.  This new feature was inspired by @Ronak Shah's
+  StackOverflow question: <a href="http://stackoverflow.com/q/31623069/1000343" target="_blank">http://stackoverflow.com/q/31623069/1000343</a>  
 
 **IMPROVEMENTS**
 
