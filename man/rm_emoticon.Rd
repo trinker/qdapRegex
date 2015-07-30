@@ -52,6 +52,8 @@ rm_emoticon(x, extract=TRUE)
 
 Other rm_.functions: \code{\link{as_numeric}},
   \code{\link{as_numeric2}}, \code{\link{rm_number}};
+  \code{\link{as_time}}, \code{\link{as_time2}},
+  \code{\link{rm_time}}, \code{\link{rm_transcript_time}};
   \code{\link{rm_abbreviation}}; \code{\link{rm_angle}},
   \code{\link{rm_bracket}},
   \code{\link{rm_bracket_multiple}},
@@ -71,7 +73,7 @@ Other rm_.functions: \code{\link{as_numeric}},
   \code{\link{rm_repeated_characters}};
   \code{\link{rm_repeated_phrases}};
   \code{\link{rm_repeated_words}}; \code{\link{rm_tag}};
-  \code{\link{rm_time}}; \code{\link{rm_title_name}};
+  \code{\link{rm_title_name}};
   \code{\link{rm_twitter_url}}, \code{\link{rm_url}};
   \code{\link{rm_white}}, \code{\link{rm_white_bracket}},
   \code{\link{rm_white_colon}},

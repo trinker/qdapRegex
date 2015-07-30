@@ -57,7 +57,7 @@
     <div class="Format">
       <h2>Format</h2>
 
-      <p>A list with 53 elements</p>
+      <p>A list with 54 elements</p>
   
     </div>
 
@@ -140,7 +140,7 @@ in various functions within the <span class = "pkg">qdapRegex</span> package.</p
   
       <p><dt>rm_tag</dt><dd>substring that begins with an at (@) followed by a word</dd></p>
   
-      <p><dt>rm_tag2</dt><dd><a href = 'https://support.twitter.com/articles/101299-why-can-t-i-register-certain-usernames'>Twitter</a> substring that begins with an at (@) followed by a word composed of alpha-numeric characters and underscores, no longer than 15 characters</dd></p>
+      <p><dt>rm_tag2</dt><dd>Twitter substring that begins with an at (@) followed by a word composed of alpha-numeric characters and underscores, no longer than 15 characters</dd></p>
   
       <p><dt>rm_title_name</dt><dd>substring beginning with title (Mrs., Mr., Ms., Dr.) that is case independent or full title (Miss, Mizz, mizz) followed by a single lower case word or multiple capitalized words</dd></p>
   
@@ -148,7 +148,9 @@ in various functions within the <span class = "pkg">qdapRegex</span> package.</p
   
       <p><dt>rm_time2</dt><dd>substring that is identical to <code>rm_time</code> with the additional search for Ante Meridiem/Post Meridiem abbreviations (e.g., AM, p.m., etc.)</dd></p>
   
-      <p><dt>rm_twitter_url</dt><dd><a href = 'https://twitter.com/'>Twitter</a> <a href = 'https://support.twitter.com/articles/109623-about-twitter-s-link-service-http-t-co'>short link/url</a>; substring optionally beginning with <em>http</em>, followed by <em>t.co</em> ending on a space or end of string (whichever comes first)</dd></p>
+      <p><dt>rm_transcript_time</dt><dd>substring that is specific to transcription time stamps in the form of HH:MM:SS.OS where OS is milliseconds.  HH: and .OS are optional. The SS.OS period divide may also be a comma or additional colon.  The HH:SS divid may also be a period.  String may be affixed with pound sign (#).</dd></p>
+  
+      <p><dt>rm_twitter_url</dt><dd><a href = 'https://twitter.com/'>Twitter</a> short link/url; substring optionally beginning with <em>http</em>, followed by <em>t.co</em> ending on a space or end of string (whichever comes first)</dd></p>
   
       <p><dt>rm_url</dt><dd>substring beginning with <em>http</em>, <em>www.</em>, or <em>ftp</em> and ending on a space or end of string (whichever comes first); note that this regex is simple and may not cover all valid URLs or may include invalid URLs</dd></p>
   

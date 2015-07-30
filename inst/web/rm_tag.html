@@ -101,16 +101,14 @@ Returns a character string with person tags removed.
     <div class="Details">
       <h2>Details</h2>
 
-      <p>The default regex pattern <code>"(?<![@\w])@([a-z0-9_]+)\b"</code> is more liberal and
-searches for the at (@) symbol followed by any word.  This can be accessed
-via <code>pattern = "@rm_tag"</code>.
-<a href = 'https://support.twitter.com/articles/101299-why-can-t-i-register-certain-usernames'>Twitter</a>
-user names are more constrained.  A second regex
-(<code>"(?<![@\w])@([a-z0-9_]{1,15})\b"</code>) is provide that contains the
-latter word to substring that begins with an at (@) followed by a word
-composed of alpha-numeric characters and underscores, no longer than 15
-characters.  This can be accessed via <code>pattern = "@rm_tag2"</code> (see
-<b>Examples</b>).</p>
+      <p>The default regex pattern <code>"(?<![@\w])@([a-z0-9_]+)\b"</code> is
+more liberal and searches for the at (@) symbol followed by any word.  This
+can be accessed via <code>pattern = "@rm_tag"</code>.  Twitter user names are more
+constrained.  A second regex (<code>"(?<![@\w])@([a-z0-9_]{1,15})\b"</code>) is
+provide that contains the latter word to substring that begins with an at
+(@) followed by a word composed of alpha-numeric characters and underscores,
+no longer than 15 characters.  This can be accessed via
+<code>pattern = "@rm_tag2"</code> (see <b>Examples</b>).</p>
   
     </div>
     
@@ -212,6 +210,8 @@ rm_tag(x, replacement = &quot;\\3&quot;)
 
 Other rm_.functions: <code><a href='rm_number.html'>as_numeric</a></code>,
   <code><a href='rm_number.html'>as_numeric2</a></code>, <code><a href='rm_number.html'>rm_number</a></code>;
+  <code><a href='rm_time.html'>as_time</a></code>, <code><a href='rm_time.html'>as_time2</a></code>,
+  <code><a href='rm_time.html'>rm_time</a></code>, <code><a href='rm_time.html'>rm_transcript_time</a></code>;
   <code><a href='rm_abbreviation.html'>rm_abbreviation</a></code>; <code><a href='rm_bracket.html'>rm_angle</a></code>,
   <code><a href='rm_bracket.html'>rm_bracket</a></code>,
   <code><a href='rm_bracket.html'>rm_bracket_multiple</a></code>,
@@ -230,7 +230,7 @@ Other rm_.functions: <code><a href='rm_number.html'>as_numeric</a></code>,
   <code><a href='rm_phone.html'>rm_phone</a></code>; <code><a href='rm_postal_code.html'>rm_postal_code</a></code>;
   <code><a href='rm_repeated_characters.html'>rm_repeated_characters</a></code>;
   <code><a href='rm_repeated_phrases.html'>rm_repeated_phrases</a></code>;
-  <code><a href='rm_repeated_words.html'>rm_repeated_words</a></code>; <code><a href='rm_time.html'>rm_time</a></code>;
+  <code><a href='rm_repeated_words.html'>rm_repeated_words</a></code>;
   <code><a href='rm_title_name.html'>rm_title_name</a></code>;
   <code><a href='rm_url.html'>rm_twitter_url</a></code>, <code><a href='rm_url.html'>rm_url</a></code>;
   <code><a href='rm_white.html'>rm_white</a></code>, <code><a href='rm_white.html'>rm_white_bracket</a></code>,

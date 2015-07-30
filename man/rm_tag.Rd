@@ -40,16 +40,14 @@ Returns a character string with person tags removed.
 Remove/replace/extract person tags from a string.
 }
 \details{
-The default regex pattern \code{"(?<![@\\w])@([a-z0-9_]+)\\b"} is more liberal and
-searches for the at (@) symbol followed by any word.  This can be accessed
-via \code{pattern = "@rm_tag"}.
-\href{https://support.twitter.com/articles/101299-why-can-t-i-register-certain-usernames}{Twitter}
-user names are more constrained.  A second regex
-(\code{"(?<![@\\w])@([a-z0-9_]{1,15})\\b"}) is provide that contains the
-latter word to substring that begins with an at (@) followed by a word
-composed of alpha-numeric characters and underscores, no longer than 15
-characters.  This can be accessed via \code{pattern = "@rm_tag2"} (see
-\bold{Examples}).
+The default regex pattern \code{"(?<![@\\w])@([a-z0-9_]+)\\b"} is
+more liberal and searches for the at (@) symbol followed by any word.  This
+can be accessed via \code{pattern = "@rm_tag"}.  Twitter user names are more
+constrained.  A second regex (\code{"(?<![@\\w])@([a-z0-9_]{1,15})\\b"}) is
+provide that contains the latter word to substring that begins with an at
+(@) followed by a word composed of alpha-numeric characters and underscores,
+no longer than 15 characters.  This can be accessed via
+\code{pattern = "@rm_tag2"} (see \bold{Examples}).
 }
 \examples{
 x <- c("@hadley I like #rstats for #ggplot2 work.",
@@ -78,6 +76,8 @@ rm_tag(x, replacement = "\\\\3", pattern="@rm_tag2")
 
 Other rm_.functions: \code{\link{as_numeric}},
   \code{\link{as_numeric2}}, \code{\link{rm_number}};
+  \code{\link{as_time}}, \code{\link{as_time2}},
+  \code{\link{rm_time}}, \code{\link{rm_transcript_time}};
   \code{\link{rm_abbreviation}}; \code{\link{rm_angle}},
   \code{\link{rm_bracket}},
   \code{\link{rm_bracket_multiple}},
@@ -96,7 +96,7 @@ Other rm_.functions: \code{\link{as_numeric}},
   \code{\link{rm_phone}}; \code{\link{rm_postal_code}};
   \code{\link{rm_repeated_characters}};
   \code{\link{rm_repeated_phrases}};
-  \code{\link{rm_repeated_words}}; \code{\link{rm_time}};
+  \code{\link{rm_repeated_words}};
   \code{\link{rm_title_name}};
   \code{\link{rm_twitter_url}}, \code{\link{rm_url}};
   \code{\link{rm_white}}, \code{\link{rm_white_bracket}},

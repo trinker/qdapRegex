@@ -63,9 +63,8 @@ rm_url <- hijack(rm_default, pattern = "@rm_url")
 
 #' Remove/Replace/Extract URLs
 #' 
-#' \code{rm_twitter_url} - Remove/replace/extract 
-#' \href{https://support.twitter.com/articles/109623-about-twitter-s-link-service-http-t-co}{Twitter Short URLs} 
-#' from a string.
+#' \code{rm_twitter_url} - Remove/replace/extract Twitter Short URLs from a 
+#' string.
 #' 
 #' @include utils.R
 #' @export

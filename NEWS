@@ -24,6 +24,14 @@ BUG FIXES
 
 NEW FEATURES
 
+* `rm_transcript_time` added to remove transcript specific style of time stamp 
+  tagging.  See http://help-nv10mac.qsrinternational.com/desktop/procedures/import_audio_or_video_transcripts.htm   for details.
+  
+* `as_time` and `as_time2`  added for use with `rm_time`/`rm_time_trnscript`.  
+  These are convert to the standard HH:MM:SS.OS format and optionally converts 
+  to `as.POSIXlt`.  The former outputs a list of vectors of times while the 
+  later wraps `as_time` with `unlist`.
+
 MINOR FEATURES
 
 * `except_first` added to `regex_supplement` dictionary to provide a means to 

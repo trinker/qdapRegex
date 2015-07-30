@@ -54,7 +54,10 @@
 <div class="row">
   <div class="span8">
     <h2>Usage</h2>
-    <pre><div>rm_time(text.var, trim&nbsp;=&nbsp;!extract, clean&nbsp;=&nbsp;TRUE, pattern&nbsp;=&nbsp;"@rm_time", replacement&nbsp;=&nbsp;"", extract&nbsp;=&nbsp;FALSE, dictionary&nbsp;=&nbsp;getOption("regex.library"), ...)</div></pre>
+    <pre><div>rm_time(text.var, trim&nbsp;=&nbsp;!extract, clean&nbsp;=&nbsp;TRUE, pattern&nbsp;=&nbsp;"@rm_time", replacement&nbsp;=&nbsp;"", extract&nbsp;=&nbsp;FALSE, dictionary&nbsp;=&nbsp;getOption("regex.library"), ...)</div>
+<div>rm_transcript_time(text.var, trim&nbsp;=&nbsp;!extract, clean&nbsp;=&nbsp;TRUE, pattern&nbsp;=&nbsp;"@rm_transcript_time", replacement&nbsp;=&nbsp;"", extract&nbsp;=&nbsp;FALSE, dictionary&nbsp;=&nbsp;getOption("regex.library"), ...)</div>
+<div>as_time(x, as.POSIXlt&nbsp;=&nbsp;FALSE, millisecond&nbsp;=&nbsp;TRUE)</div>
+<div>as_time2(x, ...)</div></pre>
     
     <h2>Arguments</h2>
     <dl>
@@ -80,8 +83,18 @@ list of vectors.</dd>
       <dt>dictionary</dt>
       <dd>A dictionary of canned regular expressions to search within
 if <code>pattern</code> begins with <code>"@rm_"</code>.</dd>
+      <dt>x</dt>
+      <dd>A list with extracted time stamps.</dd>
+      <dt>as.POSIXlt</dt>
+      <dd>logical.  If <code>TRUE</code> the ouput will be converted to
+<code><a href='http://www.inside-r.org/r-doc/base/as.POSIXlt'>as.POSIXlt</a></code>.</dd>
+      <dt>millisecond</dt>
+      <dd>logical.  If <code>TRUE</code> milliseconds are retained.  If
+<code>FALSE</code> they are rounded and added to seconds.</dd>
       <dt>...</dt>
       <dd>Other arguments passed to <code><a href='http://www.inside-r.org/r-doc/base/grep'>gsub</a></code>.</dd>
+      <dt>...</dt>
+      <dd>Other arguments passed to <code>as_time</code>.</dd>
     </dl>
     
     <div class="Value">
@@ -96,7 +109,17 @@ Returns a character string with time removed.
     <div class="Description">
       <h2>Description</h2>
 
-      <p>Remove/replace/extract time from a string.</p>
+      <p><code>rm_time</code> - Remove/replace/extract time from a string.</p>
+  
+      <p><code>rm_transcript_time</code> - Remove/replace/extract transcript specific time
+stamps from a string.</p>
+  
+      <p><code>as_time</code> - Convert a time stamp removed by <code>rm_time</code> or
+<code>rm_transcript_time</code> to a standard time format (HH:SS:MM.OS) and
+optionally convert to <code><a href='http://www.inside-r.org/r-doc/base/as.POSIXlt'>as.POSIXlt</a></code>.</p>
+  
+      <p><code>as_time</code> - A convenience function for <code>as_time</code> that unlists and
+returns a vector rather than a list.</p>
   
     </div>
 
@@ -213,11 +236,163 @@ rm_time(x, extract=TRUE)
 [[5]]
 [1] &quot;12:04 a.m.&quot; &quot;1:22 pm&quot;   
 
+</div>
+<div class='input'>
+# Convert to standard format
+as_time(rm_time(x, extract=TRUE))
+</div>
+<div class='output'>[[1]]
+[1] &quot;00:03:04.0&quot;
+
+[[2]]
+[1] &quot;00:10:47.0&quot; &quot;00:00:47.0&quot;
+
+[[3]]
+[1] NA
+
+[[4]]
+[1] &quot;00:12:04.0&quot;
+
+[[5]]
+[1] &quot;00:12:04.0&quot; &quot;00:01:22.0&quot;
+
+</div>
+<div class='input'>as_time(rm_time(x, extract=TRUE), as.POSIXlt = TRUE)
+</div>
+<div class='output'>[[1]]
+[1] &quot;2015-07-29 00:03:04 EDT&quot;
+
+[[2]]
+[1] &quot;2015-07-29 00:10:47 EDT&quot; &quot;2015-07-29 00:00:47 EDT&quot;
+
+[[3]]
+[1] NA
+
+[[4]]
+[1] &quot;2015-07-29 00:12:04 EDT&quot;
+
+[[5]]
+[1] &quot;2015-07-29 00:12:04 EDT&quot; &quot;2015-07-29 00:01:22 EDT&quot;
+
+</div>
+<div class='input'>as_time(rm_time(x, extract=TRUE), as.POSIXlt = FALSE, millisecond = FALSE)
+</div>
+<div class='output'>[[1]]
+[1] &quot;00:03:4&quot;
+
+[[2]]
+[1] &quot;00:10:47&quot; &quot;00:00:47&quot;
+
+[[3]]
+[1] NA
+
+[[4]]
+[1] &quot;00:12:4&quot;
+
+[[5]]
+[1] &quot;00:12:4&quot;  &quot;00:01:22&quot;
+
+</div>
+<div class='input'>
+# Transcrpt specific time stamps
+x2 &lt;-c(
+    &#39;08:15 8 minutes and 15 seconds	00:08:15.0&#39;,
+    &#39;3:15 3 minutes and 15 seconds	not 1:03:15.0&#39;,
+    &#39;01:22:30 1 hour 22 minutes and 30 seconds	01:22:30.0&#39;,
+    &#39;#00:09:33-5# 9 minutes and 33.5 seconds	00:09:33.5&#39;,
+    &#39;00:09.33,75 9 minutes and 33.5 seconds	00:09:33.75&#39;
+)
+
+rm_transcript_time(x2)
+</div>
+<div class='output'>[1] &quot;8 minutes and 15 seconds&quot;         &quot;3 minutes and 15 seconds not&quot;     &quot;1 hour 22 minutes and 30 seconds&quot;
+[4] &quot;# 9 minutes and 33.5 seconds&quot;     &quot;9 minutes and 33.5 seconds&quot;      
+</div>
+<div class='input'>(out &lt;- rm_transcript_time(x2, extract=TRUE))
+</div>
+<div class='output'>[[1]]
+[1] &quot;08:15&quot;      &quot;00:08:15.0&quot;
+
+[[2]]
+[1] &quot;3:15&quot;      &quot;1:03:15.0&quot;
+
+[[3]]
+[1] &quot;01:22:30&quot;   &quot;01:22:30.0&quot;
+
+[[4]]
+[1] &quot;#00:09:33-5&quot; &quot;00:09:33.5&quot; 
+
+[[5]]
+[1] &quot;00:09.33,75&quot; &quot;00:09:33.75&quot;
+
+</div>
+<div class='input'>
+as_time(out)
+</div>
+<div class='output'>[[1]]
+[1] &quot;00:08:15.0&quot; &quot;00:08:15.0&quot;
+
+[[2]]
+[1] &quot;00:03:15.0&quot; &quot;01:03:15.0&quot;
+
+[[3]]
+[1] &quot;01:22:30.0&quot; &quot;01:22:30.0&quot;
+
+[[4]]
+[1] &quot;00:09:33.5&quot; &quot;00:09:33.5&quot;
+
+[[5]]
+[1] &quot;00:09:33.75&quot; &quot;00:09:33.75&quot;
+
+</div>
+<div class='input'>as_time(out, TRUE)
+</div>
+<div class='output'>[[1]]
+[1] &quot;2015-07-29 00:08:15 EDT&quot; &quot;2015-07-29 00:08:15 EDT&quot;
+
+[[2]]
+[1] &quot;2015-07-29 00:03:15 EDT&quot; &quot;2015-07-29 01:03:15 EDT&quot;
+
+[[3]]
+[1] &quot;2015-07-29 01:22:30 EDT&quot; &quot;2015-07-29 01:22:30 EDT&quot;
+
+[[4]]
+[1] &quot;2015-07-29 00:09:33 EDT&quot; &quot;2015-07-29 00:09:33 EDT&quot;
+
+[[5]]
+[1] &quot;2015-07-29 00:09:33 EDT&quot; &quot;2015-07-29 00:09:33 EDT&quot;
+
+</div>
+<div class='input'>as_time(out, ,FALSE)
+</div>
+<div class='output'>[[1]]
+[1] &quot;00:08:15&quot; &quot;00:08:15&quot;
+
+[[2]]
+[1] &quot;00:03:15&quot; &quot;01:03:15&quot;
+
+[[3]]
+[1] &quot;01:22:30&quot; &quot;01:22:30&quot;
+
+[[4]]
+[1] &quot;00:09:33&quot; &quot;00:09:33&quot;
+
+[[5]]
+[1] &quot;00:09:34&quot; &quot;00:09:34&quot;
+
+</div>
+<div class='input'>
+## &lt;strong&gt;Not run&lt;/strong&gt;: 
+# if (!require(&quot;pacman&quot;)) install.packages(&quot;pacman&quot;)
+# pacman::p_load(chron)
+# lapply(as_time(out), chron::times)
+# lapply(as_time(out, , FALSE), chron::times)
+# ## &lt;strong&gt;End(Not run)&lt;/strong&gt;
 </div></pre>
   </div>
   <div class="span4">
     <!-- <ul>
-      <li>rm_time</li>
+      <li>as_time</li><li>as_time2</li><li>rm_time</li><li>rm_transcript_time</li>
     </ul>
     <ul>
       <li>time</li>
@@ -227,6 +402,39 @@ rm_time(x, extract=TRUE)
     
 <code><a href='http://www.inside-r.org/r-doc/base/grep'>gsub</a></code>,
 <code><a href='http://www.inside-r.org/packages/cran/stringi/docs/stri_extract'>stri_extract_all_regex</a></code>
+
+Other rm_.functions: <code><a href='rm_number.html'>as_numeric</a></code>,
+  <code><a href='rm_number.html'>as_numeric2</a></code>, <code><a href='rm_number.html'>rm_number</a></code>;
+  <code><a href='rm_abbreviation.html'>rm_abbreviation</a></code>; <code><a href='rm_bracket.html'>rm_angle</a></code>,
+  <code><a href='rm_bracket.html'>rm_bracket</a></code>,
+  <code><a href='rm_bracket.html'>rm_bracket_multiple</a></code>,
+  <code><a href='rm_bracket.html'>rm_curly</a></code>, <code><a href='rm_bracket.html'>rm_round</a></code>,
+  <code><a href='rm_bracket.html'>rm_square</a></code>; <code><a href='rm_between.html'>rm_between</a></code>,
+  <code><a href='rm_between.html'>rm_between_multiple</a></code>;
+  <code><a href='rm_caps_phrase.html'>rm_caps_phrase</a></code>; <code><a href='rm_caps.html'>rm_caps</a></code>;
+  <code><a href='rm_citation_tex.html'>rm_citation_tex</a></code>; <code><a href='rm_citation.html'>rm_citation</a></code>;
+  <code><a href='rm_city_state_zip.html'>rm_city_state_zip</a></code>;
+  <code><a href='rm_city_state.html'>rm_city_state</a></code>; <code><a href='rm_date.html'>rm_date</a></code>;
+  <code><a href='rm_default.html'>rm_default</a></code>; <code><a href='rm_dollar.html'>rm_dollar</a></code>;
+  <code><a href='rm_email.html'>rm_email</a></code>; <code><a href='rm_emoticon.html'>rm_emoticon</a></code>;
+  <code><a href='rm_endmark.html'>rm_endmark</a></code>; <code><a href='rm_hash.html'>rm_hash</a></code>;
+  <code><a href='rm_nchar_words.html'>rm_nchar_words</a></code>; <code><a href='rm_non_ascii.html'>rm_non_ascii</a></code>;
+  <code><a href='rm_non_words.html'>rm_non_words</a></code>; <code><a href='rm_percent.html'>rm_percent</a></code>;
+  <code><a href='rm_phone.html'>rm_phone</a></code>; <code><a href='rm_postal_code.html'>rm_postal_code</a></code>;
+  <code><a href='rm_repeated_characters.html'>rm_repeated_characters</a></code>;
+  <code><a href='rm_repeated_phrases.html'>rm_repeated_phrases</a></code>;
+  <code><a href='rm_repeated_words.html'>rm_repeated_words</a></code>; <code><a href='rm_tag.html'>rm_tag</a></code>;
+  <code><a href='rm_title_name.html'>rm_title_name</a></code>;
+  <code><a href='rm_url.html'>rm_twitter_url</a></code>, <code><a href='rm_url.html'>rm_url</a></code>;
+  <code><a href='rm_white.html'>rm_white</a></code>, <code><a href='rm_white.html'>rm_white_bracket</a></code>,
+  <code><a href='rm_white.html'>rm_white_colon</a></code>,
+  <code><a href='rm_white.html'>rm_white_comma</a></code>,
+  <code><a href='rm_white.html'>rm_white_endmark</a></code>,
+  <code><a href='rm_white.html'>rm_white_lead</a></code>,
+  <code><a href='rm_white.html'>rm_white_lead_trail</a></code>,
+  <code><a href='rm_white.html'>rm_white_multiple</a></code>,
+  <code><a href='rm_white.html'>rm_white_punctuation</a></code>,
+  <code><a href='rm_white.html'>rm_white_trail</a></code>; <code><a href='rm_zip.html'>rm_zip</a></code>
 
 Other rm_.functions: <code><a href='rm_number.html'>as_numeric</a></code>,
   <code><a href='rm_number.html'>as_numeric2</a></code>, <code><a href='rm_number.html'>rm_number</a></code>;

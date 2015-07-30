@@ -44,9 +44,8 @@ Returns a character string with URLs removed.
 \description{
 \code{rm_url} - Remove/replace/extract URLs from a string.
 
-\code{rm_twitter_url} - Remove/replace/extract
-\href{https://support.twitter.com/articles/109623-about-twitter-s-link-service-http-t-co}{Twitter Short URLs}
-from a string.
+\code{rm_twitter_url} - Remove/replace/extract Twitter Short URLs from a
+string.
 }
 \details{
 The default regex pattern \code{"(http[^ ]*)|(www\\.[^ ]*)"} is more
@@ -91,6 +90,8 @@ and \code{"@rm_url3"} was adapted from imme_emosol's response:
 
 Other rm_.functions: \code{\link{as_numeric}},
   \code{\link{as_numeric2}}, \code{\link{rm_number}};
+  \code{\link{as_time}}, \code{\link{as_time2}},
+  \code{\link{rm_time}}, \code{\link{rm_transcript_time}};
   \code{\link{rm_abbreviation}}; \code{\link{rm_angle}},
   \code{\link{rm_bracket}},
   \code{\link{rm_bracket_multiple}},
@@ -110,8 +111,8 @@ Other rm_.functions: \code{\link{as_numeric}},
   \code{\link{rm_repeated_characters}};
   \code{\link{rm_repeated_phrases}};
   \code{\link{rm_repeated_words}}; \code{\link{rm_tag}};
-  \code{\link{rm_time}}; \code{\link{rm_title_name}};
-  \code{\link{rm_white}}, \code{\link{rm_white_bracket}},
+  \code{\link{rm_title_name}}; \code{\link{rm_white}},
+  \code{\link{rm_white_bracket}},
   \code{\link{rm_white_colon}},
   \code{\link{rm_white_comma}},
   \code{\link{rm_white_endmark}},

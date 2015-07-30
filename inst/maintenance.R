@@ -58,7 +58,7 @@ rdme <- "inst/extra_statdoc/readme.R"
 extras <- qdap::qcv("%|%", "rm_twitter_url", "rm_white_bracket", "rm_white_colon", 
 	"rm_white_comma", "rm_white_endmark", "rm_white_lead", "rm_white_trail", 
 	"rm_white_lead_trail", "rm_white_multiple", "rm_white_punctuation", "L", 
-	"U", "as_numeric", "as_numeric2")
+	"U", "as_numeric", "as_numeric2", "rm_transcript_time", "as_time", "as_time2")
 ## drops <- qcv()
 acc.roxygen2::expand_statdoc(path2, to.icon = extras, readme = rdme)
 

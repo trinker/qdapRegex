@@ -4,7 +4,7 @@
 \name{regex_usa}
 \alias{regex_usa}
 \title{Canned Regular Expressions (United States of America)}
-\format{A list with 53 elements}
+\format{A list with 54 elements}
 \usage{
 data(regex_usa)
 }
@@ -48,11 +48,12 @@ The following canned regular expressions are included:
   \item{rm_repeated_phrases}{substring with a phrase (a sequence of 1 or more words) that is repeated 2 or more times (case is ignored; separating periods and commas are ignored); regex pattern retrieved from \href{http://stackoverflow.com}{StackOverflow}'s, \href{http://stackoverflow.com/users/2725969/brodieg}{BrodieG}: \url{http://stackoverflow.com/a/28786617/1000343}}
   \item{rm_repeated_words}{substring with a word (marked with a boundary) that is repeat 2 or more times (case is ignored)}
   \item{rm_tag}{substring that begins with an at (@) followed by a word}
-  \item{rm_tag2}{\href{https://support.twitter.com/articles/101299-why-can-t-i-register-certain-usernames}{Twitter} substring that begins with an at (@) followed by a word composed of alpha-numeric characters and underscores, no longer than 15 characters}
+  \item{rm_tag2}{Twitter substring that begins with an at (@) followed by a word composed of alpha-numeric characters and underscores, no longer than 15 characters}
   \item{rm_title_name}{substring beginning with title (Mrs., Mr., Ms., Dr.) that is case independent or full title (Miss, Mizz, mizz) followed by a single lower case word or multiple capitalized words}
   \item{rm_time}{substring that (1) must begin with 0-2 digits, (2) must be followed by a single colon (:), (3) optionally may be followed by either a colon (:) or a dot (.), (4) optionally may be followed by 1-infinite digits (if previous condition is true)}
   \item{rm_time2}{substring that is identical to \code{rm_time} with the additional search for Ante Meridiem/Post Meridiem abbreviations (e.g., AM, p.m., etc.)}
-  \item{rm_twitter_url}{\href{https://twitter.com/}{Twitter} \href{https://support.twitter.com/articles/109623-about-twitter-s-link-service-http-t-co}{short link/url}; substring optionally beginning with \emph{http}, followed by \emph{t.co} ending on a space or end of string (whichever comes first)}
+  \item{rm_transcript_time}{substring that is specific to transcription time stamps in the form of HH:MM:SS.OS where OS is milliseconds.  HH: and .OS are optional. The SS.OS period divide may also be a comma or additional colon.  The HH:SS divid may also be a period.  String may be affixed with pound sign (#).}
+  \item{rm_twitter_url}{\href{https://twitter.com/}{Twitter} short link/url; substring optionally beginning with \emph{http}, followed by \emph{t.co} ending on a space or end of string (whichever comes first)}
   \item{rm_url}{substring beginning with \emph{http}, \emph{www.}, or \emph{ftp} and ending on a space or end of string (whichever comes first); note that this regex is simple and may not cover all valid URLs or may include invalid URLs}
   \item{rm_url2}{substring beginning with \emph{http}, \emph{www.}, or \emph{ftp} and more constrained than \code{rm_url}; based on @imme_emosol's response from \url{https://mathiasbynens.be/demo/url-regex}}
   \item{rm_url3}{substring beginning with \emph{http} or \emph{ftp} and more constrained than \code{rm_url} & \code{rm_url2} though light-weight, making it ideal for validation purposes; taken from @imme_emosol's response found \url{https://mathiasbynens.be/demo/url-regex}}

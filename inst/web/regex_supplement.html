@@ -57,7 +57,7 @@
     <div class="Format">
       <h2>Format</h2>
 
-      <p>A list with 23 elements</p>
+      <p>A list with 24 elements</p>
   
     </div>
 
@@ -88,6 +88,8 @@ desired.</p>
       <p><dt>around2_</dt><dd>find n words (plus punctuation) before or after  ? word (? = user defined); note contains <code>"%s"</code> that is replaced by <code><a href='http://www.inside-r.org/r-doc/base/sprintf'>sprintf</a></code> and is not a valid regex on its own</dd></p>
   
       <p><dt>before_</dt><dd>find sing word before ? word (? = user defined); note contains <code>"%s"</code> that is replaced by <code><a href='http://www.inside-r.org/r-doc/base/sprintf'>sprintf</a></code> and is not a valid regex on its own</dd></p>
+  
+      <p><dt>except_first</dt><dd>find all occurrences of a substring except the first; regex pattern retrieved from  <a href = 'http://stackoverflow.com/users/3732271/akrun'>StackOverflow's akrun</a>: <a href = 'http://stackoverflow.com/a/31458261/1000343'>http://stackoverflow.com/a/31458261/1000343</a></dd></p>
   
       <p><dt>hexadecimal</dt><dd>substring beginning with hash (#) followed by either 3 or 6 select characters (a-f, A-F, and 0-9)</dd></p>
   
@@ -517,6 +519,24 @@ rm_default(x, pattern=S(&quot;@punctuation&quot;, &quot;&quot;))
 <div class='input'>rm_default(x, pattern=S(&quot;@punctuation&quot;, &quot;.?!&quot;))
 </div>
 <div class='output'>[1] &quot;I love them! Well I like them. Do you like them?&quot; &quot;Here are the punctuation characters !&quot;           
+</div>
+<div class='input'>
+## Remove all but first occurrence of something
+x &lt;- c(
+    &quot;12-3=4-5=678-9&quot;,
+    &quot;ABC-D=EF2-GHI-JK3=L-MN=&quot;,
+    &quot;9-87=65&quot;,
+    &quot;a - de=4fgh --= i5jkl&quot;,
+    NA
+)
+
+rm_default(x, pattern = S(&quot;@except_first&quot;, &quot;-&quot;))
+</div>
+<div class='output'>[1] &quot;12-3=45=6789&quot;         &quot;ABC-D=EF2GHIJK3=LMN=&quot; &quot;9-87=65&quot;              &quot;a - de=4fgh = i5jkl&quot;  NA                    
+</div>
+<div class='input'>rm_default(x, pattern = S(&quot;@except_first&quot;, &quot;=&quot;))
+</div>
+<div class='output'>[1] &quot;12-3=4-5678-9&quot;         &quot;ABC-D=EF2-GHI-JK3L-MN&quot; &quot;9-87=65&quot;               &quot;a - de=4fgh -- i5jkl&quot;  NA                     
 </div></pre>
   </div>
   <div class="span4">

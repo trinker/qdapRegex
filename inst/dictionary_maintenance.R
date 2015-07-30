@@ -52,6 +52,7 @@ regex_usa <- list(
     rm_title_name = "(((Dr|Mr|Mrs|Ms|dr|mr|mrs|ms)(\\.))|(Miss|Mizz|mizz))(\\s+)([A-Za-z]+)(\\s[A-Z][A-Za-z]*\\b)*",
     rm_time = "\\d{0,2}:\\d{2}(?:[:.]\\d+)?", 
     rm_time2 = "(\\d{0,2}:\\d{2}(?:[:.]\\d+)?)(\\s+(([AP]\\.{0,1}M\\.{0,1})|([ap]\\.{0,1}m\\.{0,1})))",     
+    rm_transcript_time = "(#)?([0-9]){1,2}:?([0-9]){1,2}[:.]([0-9]){2}([:,.-][0-9]+)?#??|\\d{1}:\\d{2}",
     rm_twitter_url = "(https?://t\\.co[^ ]*)|(t\\.co[^ ]*)",	
     rm_url = "(http[^ ]*)|(ftp[^ ]*)|(www\\.[^ ]*)", 
     rm_url2 = "(((https?|ftps?)://)|(www\\.))(-\\.)?([^\\s/?\\.#-]+\\.?)+(/[^\\s]*)?",

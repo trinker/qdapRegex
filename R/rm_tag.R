@@ -20,16 +20,14 @@
 #' @param \dots Other arguments passed to \code{\link[base]{gsub}}.
 #' @return Returns a character string with person tags removed.
 #' @keywords person tag twitter
-#' @details The default regex pattern \code{"(?<![@@\\w])@@([a-z0-9_]+)\\b"} is more liberal and 
-#' searches for the at (@@) symbol followed by any word.  This can be accessed
-#' via \code{pattern = "@@rm_tag"}.  
-#' \href{https://support.twitter.com/articles/101299-why-can-t-i-register-certain-usernames}{Twitter} 
-#' user names are more constrained.  A second regex 
-#' (\code{"(?<![@@\\w])@@([a-z0-9_]{1,15})\\b"}) is provide that contains the 
-#' latter word to substring that begins with an at (@@) followed by a word 
-#' composed of alpha-numeric characters and underscores, no longer than 15 
-#' characters.  This can be accessed via \code{pattern = "@@rm_tag2"} (see 
-#' \bold{Examples}).
+#' @details The default regex pattern \code{"(?<![@@\\w])@@([a-z0-9_]+)\\b"} is 
+#' more liberal and searches for the at (@@) symbol followed by any word.  This 
+#' can be accessed via \code{pattern = "@@rm_tag"}.  Twitter user names are more 
+#' constrained.  A second regex (\code{"(?<![@@\\w])@@([a-z0-9_]{1,15})\\b"}) is 
+#' provide that contains the latter word to substring that begins with an at 
+#' (@@) followed by a word composed of alpha-numeric characters and underscores, 
+#' no longer than 15 characters.  This can be accessed via 
+#' \code{pattern = "@@rm_tag2"} (see \bold{Examples}).
 #' @family rm_ functions
 #' @include utils.R
 #' @export

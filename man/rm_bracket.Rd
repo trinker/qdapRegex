@@ -151,6 +151,8 @@ Martin Morgan and Tyler Rinker <tyler.rinker@gmail.com>.
 
 Other rm_.functions: \code{\link{as_numeric}},
   \code{\link{as_numeric2}}, \code{\link{rm_number}};
+  \code{\link{as_time}}, \code{\link{as_time2}},
+  \code{\link{rm_time}}, \code{\link{rm_transcript_time}};
   \code{\link{rm_abbreviation}}; \code{\link{rm_between}},
   \code{\link{rm_between_multiple}};
   \code{\link{rm_caps_phrase}}; \code{\link{rm_caps}};
@@ -166,7 +168,7 @@ Other rm_.functions: \code{\link{as_numeric}},
   \code{\link{rm_repeated_characters}};
   \code{\link{rm_repeated_phrases}};
   \code{\link{rm_repeated_words}}; \code{\link{rm_tag}};
-  \code{\link{rm_time}}; \code{\link{rm_title_name}};
+  \code{\link{rm_title_name}};
   \code{\link{rm_twitter_url}}, \code{\link{rm_url}};
   \code{\link{rm_white}}, \code{\link{rm_white_bracket}},
   \code{\link{rm_white_colon}},

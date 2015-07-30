@@ -78,8 +78,11 @@ The number regular expression was created by Jason Gray.
 \code{\link[base]{gsub}},
 \code{\link[stringi]{stri_extract_all_regex}}
 
-Other rm_.functions: \code{\link{rm_abbreviation}};
-  \code{\link{rm_angle}}, \code{\link{rm_bracket}},
+Other rm_.functions: \code{\link{as_time}},
+  \code{\link{as_time2}}, \code{\link{rm_time}},
+  \code{\link{rm_transcript_time}};
+  \code{\link{rm_abbreviation}}; \code{\link{rm_angle}},
+  \code{\link{rm_bracket}},
   \code{\link{rm_bracket_multiple}},
   \code{\link{rm_curly}}, \code{\link{rm_round}},
   \code{\link{rm_square}}; \code{\link{rm_between}},
@@ -97,7 +100,7 @@ Other rm_.functions: \code{\link{rm_abbreviation}};
   \code{\link{rm_repeated_characters}};
   \code{\link{rm_repeated_phrases}};
   \code{\link{rm_repeated_words}}; \code{\link{rm_tag}};
-  \code{\link{rm_time}}; \code{\link{rm_title_name}};
+  \code{\link{rm_title_name}};
   \code{\link{rm_twitter_url}}, \code{\link{rm_url}};
   \code{\link{rm_white}}, \code{\link{rm_white_bracket}},
   \code{\link{rm_white_colon}},
