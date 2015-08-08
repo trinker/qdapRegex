@@ -22,6 +22,9 @@ qdapRegex 0.4.1-
 
 BUG FIXES
 
+* `rm_between` did not handle single quotation marks (`'`) as both the left and 
+  right boundary when `extract = TRUE`.  Related to issue #13
+  
 NEW FEATURES
 
 * `rm_transcript_time` added to remove transcript specific style of time stamp 

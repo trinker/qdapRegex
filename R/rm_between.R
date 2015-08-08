@@ -100,11 +100,11 @@ rm_between <- function(text.var, left, right, fixed = TRUE, trim = TRUE,
     pattern <- paste(pattern, collapse="|")
 
     if (extract) {
-        if(left == '"' && right == '"'){
+        if(left %in% c("'", '"') && right %in% c("'", '"') ){
     	    if (!trim) {
-                return(ext(rm_between_quote(text.var)))
+                return(ext(rm_between_quote(text.var, left)))
         	}
-    	    return(ext(lapply(rm_between_quote(text.var), Trim)))        
+    	    return(ext(lapply(rm_between_quote(text.var, left), Trim)))        
         }
     	if (!trim) {
             return(ext(stringi::stri_extract_all_regex(text.var, pattern)))
@@ -118,13 +118,32 @@ rm_between <- function(text.var, left, right, fixed = TRUE, trim = TRUE,
     out
 }
 
-rm_between_quote <- function(x){
+rm_between_quote <- function(x, y){
+    switch(y,
+        `'` = rm_between_single_quote(x),
+        `"` = rm_between_double_quote(x), 
+        stop("not a quote boundary")
+    )
+}
+
+rm_between_double_quote <- function(x){
         lapply(rm_default(
             x, 
             pattern = '"[^"]*"', 
             extract=TRUE
         ), function(y){
                 gsub('^"|"$', '', y) 
+            }
+        )
+}
+
+rm_between_single_quote <- function(x){
+        lapply(rm_default(
+            x, 
+            pattern = "'[^']*'", 
+            extract=TRUE
+        ), function(y){
+                gsub("^'|'$", '', y) 
             }
         )
 }
