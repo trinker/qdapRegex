@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>explain. qdapRegex 0.4.1</title>
+<title>explain. qdapRegex 0.5.0</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="
 Ananda Mahto, Matthew Flickinger, and Tyler Rinker &lt;tyler.rinker@gmail.com&gt;.
@@ -34,7 +34,7 @@ Ananda Mahto, Matthew Flickinger, and Tyler Rinker &lt;tyler.rinker@gmail.com&gt
     <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">qdapRegex 0.4.1</a>
+      <a class="brand" href="#">qdapRegex 0.5.0</a>
       <div class="nav">
         <ul class="nav">
           <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
@@ -84,7 +84,7 @@ cannot be <code><a href='http://www.inside-r.org/r-doc/base/library'>require</a>
       <h2>Value</h2>
 
       <p><dl>
-Prints <a href = 'http://rick.measham.id.au/paste/explain'>http://rick.measham.id.au/paste/explain</a> to the console,
+Prints <a href = 'http://www.regexper.com'>http://www.regexper.com</a> to the console,
 attempts to open the url to the visual representation provided by
 <a href = 'http://www.regexper.com'>http://www.regexper.com</a>, and invisibly returns a list with the URLs.
 </dl></p>
@@ -94,8 +94,7 @@ attempts to open the url to the visual representation provided by
     <div class="Description">
       <h2>Description</h2>
 
-      <p>Visualize regular expressions using <a href = 'http://www.regexper.com'>http://www.regexper.com</a> &
-<a href = 'http://rick.measham.id.au/paste/explain'>http://rick.measham.id.au/paste/explain</a>.</p>
+      <p>Visualize regular expressions using <a href = 'http://www.regexper.com'>http://www.regexper.com</a></p>
   
     </div>
 
@@ -112,53 +111,35 @@ expression viewer. Lookbehind and negative lookbehinds are not respected.</p>
 
       <p><a href = 'http://stackoverflow.com/a/27489977/1000343'>http://stackoverflow.com/a/27489977/1000343</a> 
 <a href = 'http://www.regexper.com'>http://www.regexper.com</a> 
-<a href = 'http://rick.measham.id.au/paste/explain'>http://rick.measham.id.au/paste/explain</a> 
 <a href = 'http://stackoverflow.com/a/27574103/1000343'>http://stackoverflow.com/a/27574103/1000343</a></p>
   
     </div>
     
     <h2 id="examples">Examples</h2>
-    <pre class="examples"><div class='input'>explain(&quot;\\s*foo[A-Z]\\d{2,3}&quot;)
+    <pre class="examples"><div class='input'>explain(&quot;\\s*foo[A-Z]\\d{2,3}&quot;, open = FALSE)
 </div>
-<div class='output'>NODE                     EXPLANATION
---------------------------------------------------------------------------------
-  \\s*                      whitespace (\n, \r, \t, \f, and &quot; &quot;) (0 or
-                           more times (matching the most amount
-                           possible))
---------------------------------------------------------------------------------
-  foo                      &#39;foo&#39;
---------------------------------------------------------------------------------
-  [A-Z]                    any character of: &#39;A&#39; to &#39;Z&#39;
---------------------------------------------------------------------------------
-  \\d{2,3}                  digits (0-9) (between 2 and 3 times
-                           (matching the most amount possible))
+<strong class='message'>The `http://rick.measham.id.au/paste/explain` text explanation no longer
+prints to the command line.  The website no longer works.
+
+The text explanation functionality will return if the website becomes
+operational again or if a suitable substitute can be found.</strong>
+<div class='output'>http://www.regexper.com/#%5Cs*foo[A-Z]%5Cd%7B2,3%7D
 
 </div>
-<div class='input'>explain(&quot;@rm_time&quot;)
+<div class='input'>explain(&quot;@rm_time&quot;, open = FALSE)
 </div>
-<div class='output'>NODE                     EXPLANATION
---------------------------------------------------------------------------------
-  \\d{0,2}                  digits (0-9) (between 0 and 2 times
-                           (matching the most amount possible))
---------------------------------------------------------------------------------
-  :                        &#39;:&#39;
---------------------------------------------------------------------------------
-  \\d{2}                    digits (0-9) (2 times)
---------------------------------------------------------------------------------
-  (?:                      group, but do not capture (optional
-                           (matching the most amount possible)):
---------------------------------------------------------------------------------
-    [:.]                     any character of: &#39;:&#39;, &#39;.&#39;
---------------------------------------------------------------------------------
-    \\d+                      digits (0-9) (1 or more times (matching
-                             the most amount possible))
---------------------------------------------------------------------------------
-  )?                       end of grouping
+<strong class='message'>The `http://rick.measham.id.au/paste/explain` text explanation no longer
+prints to the command line.  The website no longer works.
+
+The text explanation functionality will return if the website becomes
+operational again or if a suitable substitute can be found.</strong>
+<div class='output'>http://www.regexper.com/#%5Cd%7B0,2%7D:%5Cd%7B2%7D(?:[:.]%5Cd+)?
 
 </div>
 <div class='input'>## &lt;strong&gt;Not run&lt;/strong&gt;: 
-# explain(&quot;\\s*foo[A-Z]\\d{2,3}&quot;, open = TRUE)
-# explain(&quot;@rm_time&quot;, open = TRUE)
+# ## Opens the regex
+# explain(&quot;\\s*foo[A-Z]\\d{2,3}&quot;)
+# explain(&quot;@rm_time&quot;)
 # ## &lt;strong&gt;End(Not run)&lt;/strong&gt;
 </div></pre>
   </div>
@@ -172,8 +153,7 @@ expression viewer. Lookbehind and negative lookbehinds are not respected.</p>
       
     <h2>See also</h2>
     
-<a href = 'http://www.regexper.com'>http://www.regexper.com</a> 
-<a href = 'http://rick.measham.id.au/paste/explain'>http://rick.measham.id.au/paste/explain</a>
+<a href = 'http://www.regexper.com'>http://www.regexper.com</a>
 
     
     <h2>Author</h2>

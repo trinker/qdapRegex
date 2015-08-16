@@ -34,8 +34,6 @@ if (!pacman::p_exists(acc.roxygen2, TRUE)) {
 }
 
 #STEP 1: create static doc  
-#right now examples are FALSE in the future this will be true
-#in the future qdap2 will be the go to source
 R_USER <-  switch(Sys.info()[["user"]],
     Tyler = "C:/Users/Tyler",
     trinker = "C:/Users/trinker",

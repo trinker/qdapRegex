@@ -29,24 +29,24 @@ cannot be \code{\link[base]{require}}d.}
 \item{dictionary}{A dictionary of canned regular expressions to search within.}
 }
 \value{
-Prints \url{http://rick.measham.id.au/paste/explain} to the console,
+Prints \url{http://www.regexper.com} to the console,
 attempts to open the url to the visual representation provided by
 \url{http://www.regexper.com}, and invisibly returns a list with the URLs.
 }
 \description{
-Visualize regular expressions using \url{http://www.regexper.com} &
-\url{http://rick.measham.id.au/paste/explain}.
+Visualize regular expressions using \url{http://www.regexper.com}
 }
 \details{
 Note that \url{http://www.regexper.com} is a Java based regular
 expression viewer. Lookbehind and negative lookbehinds are not respected.
 }
 \examples{
+explain("\\\\s*foo[A-Z]\\\\d{2,3}", open = FALSE)
+explain("@rm_time", open = FALSE)
+\dontrun{
+## Opens the regex
 explain("\\\\s*foo[A-Z]\\\\d{2,3}")
 explain("@rm_time")
-\dontrun{
-explain("\\\\s*foo[A-Z]\\\\d{2,3}", open = TRUE)
-explain("@rm_time", open = TRUE)
 }
 }
 \author{
@@ -55,12 +55,10 @@ Ananda Mahto, Matthew Flickinger, and Tyler Rinker <tyler.rinker@gmail.com>.
 \references{
 \url{http://stackoverflow.com/a/27489977/1000343} \cr
 \url{http://www.regexper.com} \cr
-\url{http://rick.measham.id.au/paste/explain} \cr
 \url{http://stackoverflow.com/a/27574103/1000343}
 }
 \seealso{
-\url{http://www.regexper.com} \cr
-\url{http://rick.measham.id.au/paste/explain}
+\url{http://www.regexper.com}
 }
 \keyword{explain}
 \keyword{regex}

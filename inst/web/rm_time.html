@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>rm_time. qdapRegex 0.4.1</title>
+<title>rm_time. qdapRegex 0.5.0</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="
 &lt;a href = 'http://stackoverflow.com/'&gt;stackoverflow's&lt;/a&gt; hwnd and Tyler Rinker &lt;tyler.rinker@gmail.com&gt;.
@@ -34,7 +34,7 @@
     <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">qdapRegex 0.4.1</a>
+      <a class="brand" href="#">qdapRegex 0.5.0</a>
       <div class="nav">
         <ul class="nav">
           <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
@@ -86,15 +86,13 @@ if <code>pattern</code> begins with <code>"@rm_"</code>.</dd>
       <dt>x</dt>
       <dd>A list with extracted time stamps.</dd>
       <dt>as.POSIXlt</dt>
-      <dd>logical.  If <code>TRUE</code> the ouput will be converted to
+      <dd>logical.  If <code>TRUE</code> the output will be converted to
 <code><a href='http://www.inside-r.org/r-doc/base/as.POSIXlt'>as.POSIXlt</a></code>.</dd>
       <dt>millisecond</dt>
       <dd>logical.  If <code>TRUE</code> milliseconds are retained.  If
 <code>FALSE</code> they are rounded and added to seconds.</dd>
       <dt>...</dt>
       <dd>Other arguments passed to <code><a href='http://www.inside-r.org/r-doc/base/grep'>gsub</a></code>.</dd>
-      <dt>...</dt>
-      <dd>Other arguments passed to <code>as_time</code>.</dd>
     </dl>
     
     <div class="Value">
@@ -134,6 +132,13 @@ data (or other dictionary) via (<code>pattern = "@rm_time2"</code>. See
   
     </div>
 
+    <div class="Note">
+      <h2>Note</h2>
+
+      <p>... in <code>as_time2</code> are the other arguments passed to <code>as_time</code>.</p>
+  
+    </div>
+
     <div class="References">
       <h2>References</h2>
 
@@ -149,8 +154,7 @@ data (or other dictionary) via (<code>pattern = "@rm_time2"</code>. See
 
 rm_time(x)
 </div>
-<div class='output'>[1] &quot;R uses 1:5 for 1, 2, 3, 4, 5.&quot; &quot;At we&#39;ll meet up and leave by&quot; &quot;We&#39;ll meet at .&quot;              
-[4] &quot;He ran it in&quot;                 
+<div class='output'>[1] &quot;R uses 1:5 for 1, 2, 3, 4, 5.&quot; &quot;At we&#39;ll meet up and leave by&quot; &quot;We&#39;ll meet at .&quot;               &quot;He ran it in&quot;                 
 </div>
 <div class='input'>rm_time(x, extract=TRUE)
 </div>
@@ -260,19 +264,19 @@ as_time(rm_time(x, extract=TRUE))
 <div class='input'>as_time(rm_time(x, extract=TRUE), as.POSIXlt = TRUE)
 </div>
 <div class='output'>[[1]]
-[1] &quot;2015-07-29 00:03:04 EDT&quot;
+[1] &quot;2015-08-16 00:03:04 EDT&quot;
 
 [[2]]
-[1] &quot;2015-07-29 00:10:47 EDT&quot; &quot;2015-07-29 00:00:47 EDT&quot;
+[1] &quot;2015-08-16 00:10:47 EDT&quot; &quot;2015-08-16 00:00:47 EDT&quot;
 
 [[3]]
 [1] NA
 
 [[4]]
-[1] &quot;2015-07-29 00:12:04 EDT&quot;
+[1] &quot;2015-08-16 00:12:04 EDT&quot;
 
 [[5]]
-[1] &quot;2015-07-29 00:12:04 EDT&quot; &quot;2015-07-29 00:01:22 EDT&quot;
+[1] &quot;2015-08-16 00:12:04 EDT&quot; &quot;2015-08-16 00:01:22 EDT&quot;
 
 </div>
 <div class='input'>as_time(rm_time(x, extract=TRUE), as.POSIXlt = FALSE, millisecond = FALSE)
@@ -294,7 +298,7 @@ as_time(rm_time(x, extract=TRUE))
 
 </div>
 <div class='input'>
-# Transcrpt specific time stamps
+# Transcript specific time stamps
 x2 &lt;-c(
     &#39;08:15 8 minutes and 15 seconds	00:08:15.0&#39;,
     &#39;3:15 3 minutes and 15 seconds	not 1:03:15.0&#39;,
@@ -348,19 +352,19 @@ as_time(out)
 <div class='input'>as_time(out, TRUE)
 </div>
 <div class='output'>[[1]]
-[1] &quot;2015-07-29 00:08:15 EDT&quot; &quot;2015-07-29 00:08:15 EDT&quot;
+[1] &quot;2015-08-16 00:08:15 EDT&quot; &quot;2015-08-16 00:08:15 EDT&quot;
 
 [[2]]
-[1] &quot;2015-07-29 00:03:15 EDT&quot; &quot;2015-07-29 01:03:15 EDT&quot;
+[1] &quot;2015-08-16 00:03:15 EDT&quot; &quot;2015-08-16 01:03:15 EDT&quot;
 
 [[3]]
-[1] &quot;2015-07-29 01:22:30 EDT&quot; &quot;2015-07-29 01:22:30 EDT&quot;
+[1] &quot;2015-08-16 01:22:30 EDT&quot; &quot;2015-08-16 01:22:30 EDT&quot;
 
 [[4]]
-[1] &quot;2015-07-29 00:09:33 EDT&quot; &quot;2015-07-29 00:09:33 EDT&quot;
+[1] &quot;2015-08-16 00:09:33 EDT&quot; &quot;2015-08-16 00:09:33 EDT&quot;
 
 [[5]]
-[1] &quot;2015-07-29 00:09:33 EDT&quot; &quot;2015-07-29 00:09:33 EDT&quot;
+[1] &quot;2015-08-16 00:09:33 EDT&quot; &quot;2015-08-16 00:09:33 EDT&quot;
 
 </div>
 <div class='input'>as_time(out, ,FALSE)

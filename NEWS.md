@@ -17,7 +17,21 @@ And constructed with the following guidelines:
 * Bug fixes and misc changes bumps the patch
 
 
- <a href="https://github.com/trinker/qdapRegex" target="_blank">qdapRegex</a> 0.4.1-
+ <a href="https://github.com/trinker/qdapRegex" target="_blank">qdapRegex</a> 0.5.1-
+----------------------------------------------------------------
+
+**BUG FIXES**
+
+**NEW FEATURES**
+
+**MINOR FEATURES**
+
+**IMPROVEMENTS**
+
+**CHANGES**
+
+
+ <a href="https://github.com/trinker/qdapRegex" target="_blank">qdapRegex</a> 0.4.1-0.5.0
 ----------------------------------------------------------------
 
 **BUG FIXES**
@@ -49,13 +63,17 @@ And constructed with the following guidelines:
   regular expression boundaries.  This new feature was inspired by @Ronak Shah's
   StackOverflow question: <a href="http://stackoverflow.com/q/31623069/1000343" target="_blank">http://stackoverflow.com/q/31623069/1000343</a>  
 
-**IMPROVEMENTS**
-
 **CHANGES**
 
 * `word_boundary`, `word_boundary_left`, `word_boundary_right` regexes in the
   `regex_supplement` did not include apostrophes as a viable word character. 
   Apostrophes are now included as a word character.
+  
+* `explain` no longer prints the regular expression explanation to the command 
+  line.  Instead the link to <a href="http://www.regexper.com" target="_blank">http://www.regexper.com</a> is printed.  This change
+  is because <a href="http://rick.measham.id.au/paste/explain" target="_blank">http://rick.measham.id.au/paste/explain</a> no longer appears to be 
+  working.  The text explanation functionality will return if the website 
+  becomes operational again or if a suitable substitute can be found.
 
  <a href="https://github.com/trinker/qdapRegex" target="_blank">qdapRegex</a> 0.4.0
 ----------------------------------------------------------------
