@@ -22,6 +22,10 @@ And constructed with the following guidelines:
 
 **BUG FIXES**
 
+* `rm_number` incorrectly did not handle multipe comma separated digits (see
+  <a href="https://github.com/trinker/qdapRegex/issues/17">issue #17</a>).  This behavior has been fixed and a unit test added to ensure
+  proper handling.
+
 **NEW FEATURES**
 
 **MINOR FEATURES**

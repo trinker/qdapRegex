@@ -22,6 +22,10 @@ qdapRegex 0.5.1-
 
 BUG FIXES
 
+* `rm_number` incorrectly did not handle multipe comma separated digits (see
+  issue #17).  This behavior has been fixed and a unit test added to ensure
+  proper handling.
+
 NEW FEATURES
 
 MINOR FEATURES
