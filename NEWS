@@ -17,14 +17,10 @@ And constructed with the following guidelines:
 * Bug fixes and misc changes bumps the patch
 
 
-qdapRegex 0.5.1-
+qdapRegex 0.5.2
 ----------------------------------------------------------------
 
 BUG FIXES
-
-* `rm_number` incorrectly did not handle multipe comma separated digits (see
-  issue #17).  This behavior has been fixed and a unit test added to ensure
-  proper handling.
 
 NEW FEATURES
 
@@ -33,6 +29,16 @@ MINOR FEATURES
 IMPROVEMENTS
 
 CHANGES
+
+
+qdapRegex 0.5.1
+----------------------------------------------------------------
+
+BUG FIXES
+
+* `rm_number` incorrectly did not handle multiple comma separated digits (see
+  issue #17).  This behavior has been fixed and a unit test added to ensure
+  proper handling.
 
 
 qdapRegex 0.4.1-0.5.0
