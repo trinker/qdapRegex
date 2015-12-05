@@ -27,6 +27,7 @@
 #' @family rm_ functions
 #' @include utils.R
 #' @export
+#' @rdname rm_citation_tex
 #' @seealso \code{\link[base]{gsub}},
 #' \code{\link[stringi]{stri_extract_all_regex}}
 #' @examples
@@ -37,7 +38,7 @@
 #' 
 #' rm_citation_tex(x)
 #' rm_citation_tex(x, replacement="[[CITATION]]")
-#' rm_citation_tex(x, extract=TRUE)
+#' ex_citation_tex(x)
 rm_citation_tex <- function(text.var, trim = !extract, clean = TRUE, 
     pattern = "@rm_citation_tex", replacement = "", 
     extract = FALSE, split = extract, unlist.extract = TRUE,
@@ -58,4 +59,9 @@ rm_citation_tex <- function(text.var, trim = !extract, clean = TRUE,
         })
     }
     ext(out)
-}
+} 
+
+#' @export
+#' @rdname rm_citation_tex
+ex_citation_tex <- hijack(rm_citation_tex, extract=TRUE)
+

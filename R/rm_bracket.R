@@ -22,7 +22,6 @@
 #' @param merge logical.  If \code{TRUE} the results of each bracket type will 
 #' be merged by string.  \code{FALSE} returns a named list of lists of vectors 
 #' of bracketed text per bracket type.  
-#' @rdname rm_bracket
 #' @include rm_default.R utils.R
 #' @return \code{rm_bracket} - returns a character string with 
 #' multiple brackets removed.  If \code{extract = TRUE} the results are 
@@ -34,6 +33,7 @@
 #' @family rm_ functions
 #' @include utils.R
 #' @export
+#' @rdname rm_bracket
 #' @seealso \code{\link[base]{gsub}},
 #' \code{\link[qdapRegex]{rm_between}},
 #' \code{\link[stringi]{stri_extract_all_regex}}
@@ -51,16 +51,16 @@
 #' rm_bracket(examp$text, pattern = c("square", "round"))
 #' rm_bracket(examp$text)
 #' 
-#' rm_bracket(examp$text, pattern = "square", extract=TRUE)
-#' rm_bracket(examp$text, pattern = "curly", extract=TRUE)
-#' rm_bracket(examp$text, pattern = c("square", "round"), extract=TRUE)
-#' rm_bracket(examp$text, pattern = c("square", "round"), merge = FALSE, extract=TRUE)
-#' rm_bracket(examp$text, extract=TRUE)
-#' rm_bracket(examp$tex, include.markers=TRUE, extract=TRUE)
+#' ex_bracket(examp$text, pattern = "square")
+#' ex_bracket(examp$text, pattern = "curly")
+#' ex_bracket(examp$text, pattern = c("square", "round"))
+#' ex_bracket(examp$text, pattern = c("square", "round"), merge = FALSE)
+#' ex_bracket(examp$text)
+#' ex_bracket(examp$tex, include.markers=TRUE)
 #' 
 #' \dontrun{
 #' library(qdap)
-#' rm_bracket(examp$tex, pattern="curly", extract=TRUE) %>% 
+#' ex_bracket(examp$tex, pattern="curly") %>% 
 #'   unlist() %>% 
 #'   na.omit() %>% 
 #'   paste2()
@@ -69,22 +69,20 @@
 #' x <- "I like [bots] (not). And <likely> many do not {he he}"
 #' 
 #' rm_round(x)
-#' rm_round(x, extract = TRUE)
-#' 
-#' rm_round(x, include.marker = FALSE)
-#' rm_round(x, extract = TRUE, include.marker = TRUE)
+#' ex_round(x)
+#' ex_round(x, include.marker = TRUE)
 #' 
 #' rm_square(x)
-#' rm_square(x, extract = TRUE)
+#' ex_square(x)
 #' 
 #' rm_curly(x)
-#' rm_curly(x, extract = TRUE)
+#' ex_curly(x)
 #' 
 #' rm_angle(x)
-#' rm_angle(x, extract = TRUE)
+#' ex_angle(x)
 #' 
-#' lapply(rm_between('She said, "I am!" and he responded..."Am what?".', 
-#'     left='"', right='"', extract = TRUE), "[", c(TRUE, FALSE))
+#' lapply(ex_between('She said, "I am!" and he responded..."Am what?".', 
+#'     left='"', right='"'), "[", c(TRUE, FALSE))
 rm_bracket <- function(text.var, pattern = "all", trim = TRUE, clean = TRUE, 
     replacement = "", extract = FALSE,
     include.markers = ifelse(extract, FALSE, TRUE),
@@ -103,6 +101,7 @@ rm_bracket <- function(text.var, pattern = "all", trim = TRUE, clean = TRUE,
 
 #' @include utils.R
 #' @export
+#' @rdname rm_bracket
 #' @rdname rm_bracket
 #' @return \code{rm_round} - returns a character string with round brackets removed.
 rm_round <- function(text.var, pattern = "(", trim = TRUE, clean = TRUE, 
@@ -123,6 +122,7 @@ rm_round <- function(text.var, pattern = "(", trim = TRUE, clean = TRUE,
 
 #' @include utils.R
 #' @export
+#' @rdname rm_bracket
 #' @rdname rm_bracket
 #' @return \code{rm_square} - returns a character string with square brackets 
 #' removed.
@@ -145,6 +145,7 @@ rm_square <- function(text.var, pattern = "[", trim = TRUE, clean = TRUE,
 #' @include utils.R
 #' @export
 #' @rdname rm_bracket
+#' @rdname rm_bracket
 #' @return \code{rm_curly} - returns a character string with curly brackets 
 #' removed.
 rm_curly <- function(text.var, pattern = "{", trim = TRUE, clean = TRUE, 
@@ -165,6 +166,7 @@ rm_curly <- function(text.var, pattern = "{", trim = TRUE, clean = TRUE,
 
 #' @include utils.R
 #' @export
+#' @rdname rm_bracket
 #' @rdname rm_bracket
 #' @return \code{rm_angle} - returns a character string with angle brackets 
 #' removed.
@@ -208,6 +210,7 @@ bracket_convert <- function(x) {
 
 #' @include utils.R
 #' @export
+#' @rdname rm_bracket
 #' @rdname rm_bracket
 #' @return \code{rm_bracket_multiple} - returns a character string with 
 #' multiple brackets removed.  If \code{extract = TRUE} the results are 
@@ -312,4 +315,29 @@ function(text.var, pattern = "all", include.markers = FALSE, merge = TRUE){
         }
     }
     ext(out)
-}
+} 
+
+#' @export
+#' @rdname rm_bracket
+ex_bracket <- hijack(rm_bracket, extract=TRUE)
+
+#' @export
+#' @rdname rm_bracket
+ex_bracket_multiple <- hijack(rm_bracket_multiple, extract=TRUE)
+
+#' @export
+#' @rdname rm_bracket
+ex_angle <- hijack(rm_angle, extract=TRUE)
+
+#' @export
+#' @rdname rm_bracket
+ex_round <- hijack(rm_round, extract=TRUE)
+
+#' @export
+#' @rdname rm_bracket
+ex_square <- hijack(rm_square, extract=TRUE)
+
+#' @export
+#' @rdname rm_bracket
+ex_curly <- hijack(rm_curly, extract=TRUE)
+

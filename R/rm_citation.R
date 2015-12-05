@@ -28,6 +28,7 @@
 #' @family rm_ functions
 #' @include utils.R
 #' @export
+#' @rdname rm_citation
 #' @seealso \code{\link[base]{gsub}},
 #' \code{\link[stringi]{stri_extract_all_regex}}
 #' @examples
@@ -45,7 +46,7 @@
 #' )
 #' 
 #' rm_citation(x)
-#' rm_citation(x, extract=TRUE)
+#' ex_citation(x)
 #' rm_citation(x, replacement="[CITATION HERE]")
 #' \dontrun{
 #' qdapTools::vect2df(sort(table(unlist(rm_citation(x, extract=TRUE)))), 
@@ -53,32 +54,41 @@
 #' }
 #' 
 #' ## In-Text
-#' rm_citation(x, extract=TRUE, pattern="@@rm_citation2")
+#' ex_citation(x, pattern="@@rm_citation2")
 #' 
 #' ## Parenthetical
-#' rm_citation(x, extract=TRUE, pattern="@@rm_citation3")
+#' ex_citation(x, pattern="@@rm_citation3")
 #' 
 #' \dontrun{
 #' ## Mining Citation
+#' if (!require("pacman")) install.packages("pacman")
+#' pacman::p_load(qdap, qdapTools, dplyr, ggplot2)
+#' 
 #' url_dl("http://umlreading.weebly.com/uploads/2/5/2/5/25253346/whole_language_timeline-updated.docx")
 #' 
-#' (txt <- read_docx("whole_language_timeline-updated.docx"))
-#' 
-#' library(qdapTools); library(ggplot2); library(qdap)
-#' txt <- rm_non_ascii(txt)
-#' 
-#' parts <- split_vector(txt, split = "References", include = TRUE, regex=TRUE)
-#' 
+#' parts <- read_docx("whole_language_timeline-updated.docx") %>%
+#'     rm_non_ascii() %>%
+#'     split_vector(split = "References", include = TRUE, regex=TRUE)
+#'     
 #' parts[[1]]
 #' 
-#' rm_citation(unbag(parts[[1]]), extract=TRUE)[[1]]
+#' parts[[1]] %>%
+#'     unbag() %>%
+#'     ex_citation() %>%
+#'     c()
 #' 
 #' ## By line
-#' rm_citation(parts[[1]], extract=TRUE)
+#' ex_citation(parts[[1]])
 #' 
 #' ## Frequency
-#' left_just(cites <- list2df(sort(table(rm_citation(unbag(parts[[1]]),
-#'     extract=TRUE)), T), "freq", "citation")[2:1])
+#' cites <- parts[[1]] %>%
+#'     unbag() %>%
+#'     ex_citation() %>%
+#'     c() %>%
+#'     data_frame(citation=.) %>%
+#'     count(citation) %>%
+#'     arrange(n) %>%
+#'     mutate(citation=factor(citation, levels=citation))
 #' 
 #' ## Distribution of citations (find locations and then plot)
 #' cite_locs <- do.call(rbind, lapply(cites[[1]], function(x){
@@ -125,4 +135,9 @@ function (text.var, trim = !extract, clean = TRUE, pattern = "@rm_citation",
     if (clean) 
         out <- clean(out)
     out
-}
+} 
+
+#' @export
+#' @rdname rm_citation
+ex_citation <- hijack(rm_citation, extract=TRUE)
+

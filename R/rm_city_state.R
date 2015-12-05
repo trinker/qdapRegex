@@ -25,6 +25,7 @@
 #' @family rm_ functions
 #' @include utils.R
 #' @export
+#' @rdname rm_city_state
 #' @seealso \code{\link[base]{gsub}},
 #' \code{\link[stringi]{stri_extract_all_regex}}
 #' @examples
@@ -32,5 +33,10 @@
 #'    "It's in West ven,PA, near Bolly Bolly Bolly, CA!", 
 #'    "I like Movies, PG13")
 #' rm_city_state(x)
-#' rm_city_state(x, extract=TRUE)
-rm_city_state <- hijack(rm_default, pattern = "@rm_city_state")
+#' ex_city_state(x)
+rm_city_state <- hijack(rm_default, pattern = "@rm_city_state") 
+
+#' @export
+#' @rdname rm_city_state
+ex_city_state <- hijack(rm_city_state, extract=TRUE)
+

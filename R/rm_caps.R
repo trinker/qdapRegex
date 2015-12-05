@@ -24,11 +24,17 @@
 #' @family rm_ functions
 #' @include utils.R
 #' @export
+#' @rdname rm_caps
 #' @seealso \code{\link[base]{gsub}},
 #' \code{\link[stringi]{stri_extract_all_regex}}
 #' @examples
 #' x <- c("UGGG! When I use caps I am YELLING!")
 #' rm_caps(x)
 #' rm_caps(x, replacement="\\L\\1")
-#' rm_caps(x, extract=TRUE)
-rm_caps <- hijack(rm_default, pattern = "@rm_caps")
+#' ex_caps(x)
+rm_caps <- hijack(rm_default, pattern = "@rm_caps") 
+
+#' @export
+#' @rdname rm_caps
+ex_caps <- hijack(rm_caps, extract=TRUE)
+

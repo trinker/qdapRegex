@@ -40,7 +40,7 @@
 #'     "We'll meet at 6:33.", "He ran it in :22.34")
 #'
 #' rm_time(x)
-#' rm_time(x, extract=TRUE)
+#' ex_time(x)
 #' 
 #' ## With AM/PM
 #' x <- c(
@@ -51,15 +51,15 @@
 #'     "Some time has 12:04 a.m. or the form 1:22 pm"
 #' )
 #' 
-#' rm_time(x, extract=TRUE)
-#' rm_time(x, pat="@@rm_time2", extract=TRUE)
+#' ex_time(x)
+#' ex_time(x, pat="@@rm_time2")
 #' rm_time(x, pat="@@rm_time2")
-#' rm_time(x, pat=pastex("@@rm_time2", "@@rm_time"), extract=TRUE)
+#' ex_time(x, pat=pastex("@@rm_time2", "@@rm_time"))
 #' 
 #' # Convert to standard format
-#' as_time(rm_time(x, extract=TRUE))
-#' as_time(rm_time(x, extract=TRUE), as.POSIXlt = TRUE)
-#' as_time(rm_time(x, extract=TRUE), as.POSIXlt = FALSE, millisecond = FALSE) 
+#' as_time(ex_time(x))
+#' as_time(ex_time(x), as.POSIXlt = TRUE)
+#' as_time(ex_time(x), as.POSIXlt = FALSE, millisecond = FALSE) 
 #' 
 #' # Transcript specific time stamps
 #' x2 <-c(
@@ -71,11 +71,11 @@
 #' )
 #' 
 #' rm_transcript_time(x2)
-#' (out <- rm_transcript_time(x2, extract=TRUE))
+#' (out <- ex_transcript_time(x2))
 #' 
 #' as_time(out)
 #' as_time(out, TRUE)
-#' as_time(out, ,FALSE)
+#' as_time(out, millisecond = FALSE)
 #' 
 #' \dontrun{
 #' if (!require("pacman")) install.packages("pacman")
@@ -93,8 +93,8 @@ rm_time <- hijack(rm_default, pattern = "@rm_time")
 #' stamps from a string.
 #' 
 #' @family rm_ functions
-#' @rdname rm_time
 #' @export
+#' @rdname rm_time
 rm_transcript_time <- hijack(rm_default, pattern = "@rm_transcript_time")
 
 #' Remove/Replace/Extract Time
@@ -108,8 +108,8 @@ rm_transcript_time <- hijack(rm_default, pattern = "@rm_transcript_time")
 #' \code{\link[base]{as.POSIXlt}}. 
 #' @param millisecond logical.  If \code{TRUE} milliseconds are retained.  If 
 #' \code{FALSE} they are rounded and added to seconds.
-#' @rdname rm_time
 #' @export
+#' @rdname rm_time
 as_time <- function (x, as.POSIXlt = FALSE, millisecond = TRUE) {
 
     out <- lapply(x, function(y) {
@@ -151,10 +151,19 @@ as_time <- function (x, as.POSIXlt = FALSE, millisecond = TRUE) {
 #' returns a vector rather than a list.
 #' 
 #' @note \ldots in \code{as_time2} are the other arguments passed to \code{as_time}.
-#' @rdname rm_time
 #' @export
+#' @rdname rm_time
 as_time2 <- function (x, ...) {
     unlist(as_time(x, ...))
 }
 
+ 
+
+#' @export
+#' @rdname rm_time
+ex_time <- hijack(rm_time, extract=TRUE)
+
+#' @export
+#' @rdname rm_time
+ex_transcript_time <- hijack(rm_transcript_time, extract=TRUE)
 

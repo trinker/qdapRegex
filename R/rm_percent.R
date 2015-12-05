@@ -23,6 +23,7 @@
 #' @family rm_ functions
 #' @include utils.R
 #' @export
+#' @rdname rm_percent
 #' @seealso \code{\link[base]{gsub}},
 #' \code{\link[stringi]{stri_extract_all_regex}}
 #' @examples
@@ -30,5 +31,10 @@
 #'     "14% is $26 or $25.99")
 #'
 #' rm_percent(x)
-#' rm_percent(x, extract=TRUE)
-rm_percent <- hijack(rm_default, pattern = "@rm_percent")
+#' ex_percent(x)
+rm_percent <- hijack(rm_default, pattern = "@rm_percent") 
+
+#' @export
+#' @rdname rm_percent
+ex_percent <- hijack(rm_percent, extract=TRUE)
+

@@ -29,6 +29,7 @@
 #' @family rm_ functions
 #' @include utils.R rm_default.R
 #' @export
+#' @rdname rm_non_words
 #' @seealso \code{\link[base]{gsub}},
 #' \code{\link[stringi]{stri_extract_all_regex}}
 #' @examples
@@ -43,10 +44,12 @@
 #' )
 #' 
 #' rm_non_words(x)
-#' rm_non_words(x, extract=TRUE)
-#' 
-#' ## For extraction purposes the following setup is more useful:
-#' rm_default(x, pattern = "[^A-Za-z' ]", extract=TRUE)
+#' ex_non_words(x)
 rm_non_words <- hijack(rm_default, pattern = "@rm_non_words", replacement = " ")
 
+ 
+
+#' @export
+#' @rdname rm_non_words
+ex_non_words <- hijack(rm_non_words, extract=TRUE, pattern = "[^A-Za-z' ]+")
 

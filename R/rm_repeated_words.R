@@ -23,6 +23,7 @@
 #' @family rm_ functions
 #' @include utils.R
 #' @export
+#' @rdname rm_repeated_words
 #' @seealso \code{\link[base]{gsub}},
 #' \code{\link[stringi]{stri_extract_all_regex}}
 #' @examples
@@ -36,5 +37,10 @@
 #' )
 #' 
 #' rm_repeated_words(x)
-#' rm_repeated_words(x, extract=TRUE)
-rm_repeated_words <- hijack(rm_default, pattern = "@rm_repeated_words")
+#' ex_repeated_words(x)
+rm_repeated_words <- hijack(rm_default, pattern = "@rm_repeated_words") 
+
+#' @export
+#' @rdname rm_repeated_words
+ex_repeated_words <- hijack(rm_repeated_words, extract=TRUE)
+

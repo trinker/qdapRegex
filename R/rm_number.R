@@ -23,8 +23,8 @@
 #' @keywords number
 #' @family rm_ functions
 #' @include utils.R
-#' @rdname rm_number
 #' @export
+#' @rdname rm_number
 #' @seealso \code{\link[base]{gsub}},
 #' \code{\link[stringi]{stri_extract_all_regex}}
 #' @references The number regular expression was created by Jason Gray.
@@ -34,11 +34,11 @@
 #'     "fg 12,345 23 .44 or 18.", "don't remove this 444,44", "hello world -.q")
 #' 
 #' rm_number(x)
-#' rm_number(x, extract=TRUE)
+#' ex_number(x)
 #' 
 #' ##Convert to numeric
-#' as_numeric(rm_number(x, extract=TRUE))   # retain list
-#' as_numeric2(rm_number(x, extract=TRUE))  # unlist
+#' as_numeric(ex_number(x))   # retain list
+#' as_numeric2(ex_number(x))  # unlist
 rm_number <- hijack(rm_default, pattern = "@rm_number")
 
 
@@ -49,9 +49,9 @@ rm_number <- hijack(rm_default, pattern = "@rm_number")
 #' string cannot be converted to numeric \code{NA} is returned.
 #' 
 #' @param x a character vector to convert to a numeric vector.
-#' @rdname rm_number
 #' @return \code{as_numeric} - Returns a list of vectors of numbers.
 #' @export
+#' @rdname rm_number
 as_numeric <- function(x) {
     lapply(x, function(y){
         as.numeric(gsub(",", "", y))
@@ -70,4 +70,9 @@ as_numeric2 <- function(x) {
     unlist(as_numeric(x))
 }
 
+ 
+
+#' @export
+#' @rdname rm_number
+ex_number <- hijack(rm_number, extract=TRUE)
 

@@ -9,7 +9,8 @@
 <a href="https://img.shields.io/badge/Version-0.5.2-orange.svg"><img src="https://img.shields.io/badge/Version-0.5.2-orange.svg" alt="Version"/></a></p>
 
 <img src="inst/qdapRegex_logo/r_qdapRegex.png" width="320" alt="qdapRegex Logo">      
-[qdapRegex](http://trinker.github.com/qdapRegex_dev) is a collection of regular expression tools associated with the **qdap** package that may be useful outside of the context of discourse analysis.  Tools include removal/extraction/replacement of abbreviations, dates, dollar amounts, email addresses, hash tags, numbers, percentages, citations, person tags, phone numbers, times, and zip codes.
+[qdapRegex](http://trinker.github.com/qdapRegex_dev) is a collection of regular expression tools associated with the **qdap** package that may be useful outside of the context of discourse analysis.  Tools include removal/extraction/replacement of abbreviations, dates, dollar amounts, email addresses, hash tags, numbers, percentages, citations, person tags, phone numbers, times, and zip codes.  Functions that remove/replace are prefixed with `rm_`.  Each of these functions has an extraction counterpart prefixed with `ex_`.
+
 
 
 The **qdapRegex** package does not aim to compete with string manipulation packages such as [**stringr**](http://cran.r-project.org/package=stringr) or [**stringi**](http://cran.r-project.org/package=stringi) but is meant to provide access to canned, common regular expression patterns that can be used within **qdapRegex**, with **R**'s own regular expression functions, or add on string manipulation packages such as **stringr** and **stringi**.
@@ -78,7 +79,7 @@ w <- c("Hello World (V. Raptor, 1986) bye",
     "Uwe Ligges (2007) says, \"RAM is cheap and thinking hurts\""
 )
 
-rm_citation(w, extract=TRUE)
+ex_citation(w)
 ```
 
 ```
@@ -121,7 +122,7 @@ x <- c("@hadley I like #rstats for #ggplot2 work.",
         presentation #user2014. http://ramnathv.github.io/user2014-rcharts/#1"
 )
 
-rm_hash(x, extract=TRUE)
+ex_hash(x)
 ```
 
 ```
@@ -136,7 +137,7 @@ rm_hash(x, extract=TRUE)
 ```
 
 ```r
-rm_tag(x, extract=TRUE)
+ex_tag(x)
 ```
 
 ```
@@ -151,7 +152,7 @@ rm_tag(x, extract=TRUE)
 ```
 
 ```r
-rm_url(x, extract=TRUE)
+ex_url(x)
 ```
 
 ```
@@ -173,7 +174,7 @@ y <- c("I love chicken [unintelligible]!",
     "Me too! (laughter) It's so good.[interrupting]",
     "Yep it's awesome {reading}.", "Agreed. {is so much fun}")
 
-rm_bracket(y, extract=TRUE)
+ex_bracket(y)
 ```
 
 ```
@@ -191,7 +192,7 @@ rm_bracket(y, extract=TRUE)
 ```
 
 ```r
-rm_curly(y, extract=TRUE)
+ex_curly(y)
 ```
 
 ```
@@ -209,7 +210,7 @@ rm_curly(y, extract=TRUE)
 ```
 
 ```r
-rm_round(y, extract=TRUE)
+ex_round(y)
 ```
 
 ```
@@ -227,7 +228,7 @@ rm_round(y, extract=TRUE)
 ```
 
 ```r
-rm_square(y, extract=TRUE)
+ex_square(y)
 ```
 
 ```
@@ -260,7 +261,7 @@ rm_number(z)
 ```
 
 ```r
-rm_number(z, extract=TRUE)
+ex_number(z)
 ```
 
 ```
@@ -275,7 +276,7 @@ rm_number(z, extract=TRUE)
 ```
 
 ```r
-as_numeric(rm_number(z, extract=TRUE))
+as_numeric(ex_number(z))
 ```
 
 ```
@@ -287,6 +288,79 @@ as_numeric(rm_number(z, extract=TRUE))
 ## 
 ## [[3]]
 ## [1] NA
+```
+
+### Extract Times
+
+
+```r
+x <- c(
+    "I'm getting 3:04 AM just fine, but...",
+    "for 10:47 AM I'm getting 0:47 AM instead.",
+    "no time here",
+    "Some time has 12:04 with no AM/PM after it",
+    "Some time has 12:04 a.m. or the form 1:22 pm"
+)
+ex_time(x)
+```
+
+```
+## [[1]]
+## [1] "3:04"
+## 
+## [[2]]
+## [1] "10:47" "0:47" 
+## 
+## [[3]]
+## [1] NA
+## 
+## [[4]]
+## [1] "12:04"
+## 
+## [[5]]
+## [1] "12:04" "1:22"
+```
+
+```r
+as_time(ex_time(x))
+```
+
+```
+## [[1]]
+## [1] "00:03:04.0"
+## 
+## [[2]]
+## [1] "00:10:47.0" "00:00:47.0"
+## 
+## [[3]]
+## [1] NA
+## 
+## [[4]]
+## [1] "00:12:04.0"
+## 
+## [[5]]
+## [1] "00:12:04.0" "00:01:22.0"
+```
+
+```r
+as_time(ex_time(x), as.POSIXlt = TRUE)
+```
+
+```
+## [[1]]
+## [1] "2015-12-04 00:03:04 EST"
+## 
+## [[2]]
+## [1] "2015-12-04 00:10:47 EST" "2015-12-04 00:00:47 EST"
+## 
+## [[3]]
+## [1] NA
+## 
+## [[4]]
+## [1] "2015-12-04 00:12:04 EST"
+## 
+## [[5]]
+## [1] "2015-12-04 00:12:04 EST" "2015-12-04 00:01:22 EST"
 ```
 
 ### Remove Non-Words & N Character Words

@@ -25,6 +25,7 @@
 #' @family rm_ functions
 #' @include utils.R
 #' @export
+#' @rdname rm_default
 #' @examples
 #' ## Built in regex dictionary
 #' rm_default("I live in Buffalo, NY 14217", pattern="@@rm_city_state_zip")
@@ -53,4 +54,9 @@ rm_default <- function(text.var, trim = !extract, clean = TRUE, pattern,
 
 
 
+ 
+
+#' @export
+#' @rdname rm_default
+ex_default <- hijack(rm_default, extract=TRUE)
 

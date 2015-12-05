@@ -32,6 +32,7 @@
 #' @family rm_ functions
 #' @include utils.R
 #' @export
+#' @rdname rm_nchar_words
 #' @author \href{http://stackoverflow.com/}{stackoverflow's} CharlieB and Tyler Rinker <tyler.rinker@@gmail.com>. 
 #' @references The n letter/character word regular expression was taken from: 
 #' \url{http://stackoverflow.com/a/25243885/1000343}
@@ -40,10 +41,10 @@
 #' @examples
 #' x <- "This is Jon's dogs' 'bout there in a word Mike's re'y."
 #' rm_nchar_words(x, 4)
-#' rm_nchar_words(x, 4, extract=TRUE)
+#' ex_nchar_words(x, 4)
 #' 
 #' ## Count characters (apostrophes and letters)
-#' rm_nchar_words(x, 5, extract=TRUE, pattern = "@@rm_nchar_words2")
+#' ex_nchar_words(x, 5, pattern = "@@rm_nchar_words2")
 #' 
 #' ## nchar range
 #' rm_nchar_words(x, "1,2")
@@ -51,7 +52,7 @@
 #' \dontrun{
 #' ## Larger example
 #' library(qdap)
-#' rm_nchar_words(hamlet[["dialogue"]], 5, extract=TRUE)
+#' ex_nchar_words(hamlet[["dialogue"]], 5)
 #' }
 rm_nchar_words <- function(text.var, n, trim = !extract, clean = TRUE,
     pattern = "@rm_nchar_words", replacement = "", extract = FALSE, 
@@ -71,4 +72,9 @@ rm_nchar_words <- function(text.var, n, trim = !extract, clean = TRUE,
     if (trim) out <- Trim(out)
     if (clean) out <- clean(out)
     out
-}
+} 
+
+#' @export
+#' @rdname rm_nchar_words
+ex_nchar_words <- hijack(rm_nchar_words, extract=TRUE)
+

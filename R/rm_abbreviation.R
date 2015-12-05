@@ -25,6 +25,7 @@
 #' @keywords abbreviation
 #' @include utils.R
 #' @export
+#' @rdname rm_abbreviation
 #' @include rm_default.R utils.R
 #' @seealso \code{\link[base]{gsub}},
 #' \code{\link[stringi]{stri_extract_all_regex}}
@@ -33,5 +34,12 @@
 #'     "She will send it A.S.A.P. (e.g. as soon as you can) said I.",
 #'     "Hello world.", "In the U. S. A.")
 #' rm_abbreviation(x)
-#' rm_abbreviation(x, extract=TRUE)
+#' ex_abbreviation(x)
 rm_abbreviation <- hijack(rm_default, pattern = "@rm_abbreviation")
+ 
+  
+
+#' @export
+#' @rdname rm_abbreviation
+ex_abbreviation <- hijack(rm_abbreviation, extract=TRUE)
+

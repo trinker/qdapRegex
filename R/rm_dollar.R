@@ -23,6 +23,7 @@
 #' @family rm_ functions
 #' @include utils.R
 #' @export
+#' @rdname rm_dollar
 #' @seealso \code{\link[base]{gsub}},
 #' \code{\link[stringi]{stri_extract_all_regex}}
 #' @examples
@@ -30,5 +31,10 @@
 #'     "14% is $26 or $25.99")
 #'
 #' rm_dollar(x)
-#' rm_dollar(x, extract=TRUE)
-rm_dollar <- hijack(rm_default, pattern = "@rm_dollar")
+#' ex_dollar(x)
+rm_dollar <- hijack(rm_default, pattern = "@rm_dollar") 
+
+#' @export
+#' @rdname rm_dollar
+ex_dollar <- hijack(rm_dollar, extract=TRUE)
+

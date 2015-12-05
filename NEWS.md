@@ -24,6 +24,10 @@ And constructed with the following guidelines:
 
 **NEW FEATURES**
 
+* `rm_` prefixed functions get an extraction counterpart prefixed with `ex_`.  
+  This means users can use `ex_` functions directly without using the `rm_` form 
+  in the less convenient form of `rm_xxx(extract = TRUE)`.
+
 **MINOR FEATURES**
 
 **IMPROVEMENTS**

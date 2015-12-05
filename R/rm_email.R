@@ -23,6 +23,7 @@
 #' @family rm_ functions
 #' @include utils.R
 #' @export
+#' @rdname rm_email
 #' @author Barry Rowlingson and Tyler Rinker <tyler.rinker@@gmail.com>. 
 #' @references The email regular expression was taken from: 
 #' \url{http://stackoverflow.com/a/25077704/1000343}
@@ -38,6 +39,11 @@
 #' 
 #' rm_email(x)
 #' rm_email(x, replacement = '<a href="mailto:\\1" target="_blank">\\1</a>')
-#' rm_email(x, extract=TRUE)
-#' rm_email(x2, extract=TRUE)
-rm_email <- hijack(rm_default, pattern = "@rm_email")
+#' ex_email(x)
+#' ex_email(x2)
+rm_email <- hijack(rm_default, pattern = "@rm_email") 
+
+#' @export
+#' @rdname rm_email
+ex_email <- hijack(rm_email, extract=TRUE)
+

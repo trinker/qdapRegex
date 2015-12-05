@@ -26,6 +26,7 @@
 #' @family rm_ functions
 #' @include utils.R
 #' @export
+#' @rdname rm_hash
 #' @seealso \code{\link[base]{gsub}},
 #' \code{\link[stringi]{stri_extract_all_regex}}
 #' @examples
@@ -38,8 +39,13 @@
 #' 
 #' rm_hash(x)
 #' rm_hash(rm_tag(x))
-#' rm_hash(x, extract=TRUE)
+#' ex_hash(x)
 #' 
 #' ## remove just the hash symbol
 #' rm_hash(x, replace="\\3")
-rm_hash <- hijack(rm_default, pattern = "@rm_hash")
+rm_hash <- hijack(rm_default, pattern = "@rm_hash") 
+
+#' @export
+#' @rdname rm_hash
+ex_hash <- hijack(rm_hash, extract=TRUE)
+

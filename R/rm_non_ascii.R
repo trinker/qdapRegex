@@ -35,6 +35,7 @@
 #' @family rm_ functions
 #' @include utils.R
 #' @export
+#' @rdname rm_non_ascii
 #' @seealso \code{\link[base]{gsub}},
 #' \code{\link[stringi]{stri_extract_all_regex}}
 #' @examples
@@ -44,8 +45,8 @@
 #' 
 #' rm_non_ascii(x)
 #' rm_non_ascii(x, replacement="<<FLAG>>")
-#' rm_non_ascii(x, extract=TRUE)
-#' rm_non_ascii(x, extract=TRUE, ascii.out=FALSE)
+#' ex_non_ascii(x)
+#' ex_non_ascii(x, ascii.out=FALSE)
 rm_non_ascii <- function (text.var, trim = !extract, clean = TRUE, 
     pattern = "@rm_non_ascii", replacement = "", extract = FALSE, 
     dictionary = getOption("regex.library"), ascii.out = TRUE,
@@ -74,4 +75,9 @@ rm_non_ascii <- function (text.var, trim = !extract, clean = TRUE,
     if (trim) out <- Trim(out)
     if (clean) out <- clean(out)
     out
-}
+} 
+
+#' @export
+#' @rdname rm_non_ascii
+ex_non_ascii <- hijack(rm_non_ascii, extract=TRUE)
+

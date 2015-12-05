@@ -33,22 +33,21 @@
 #' @family rm_ functions
 #' @include utils.R
 #' @export
+#' @rdname rm_date
 #' @seealso \code{\link[base]{gsub}},
 #' \code{\link[stringi]{stri_extract_all_regex}}
 #' @examples
 #' ## Numeric Date Representation
-#' 
 #' x <- paste0("Format dates as 04/12/2014, 04-12-2014, 04.12.2014. or",
 #'     " 04/12/14 but leaves mismatched: 12.12/2014")
 #' rm_date(x)
-#' rm_date(x, extract=TRUE)
+#' ex_date(x)
 #' 
 #' ## Word/Abbreviation Date Representation
-#' 
 #' x2 <- paste0("Format dates as Sept 09, 2002 or October 22, 1887",
 #'   "but not 04-12-2014 and may match good 00, 9999")
 #' rm_date(x2, pattern="@@rm_date2")
-#' rm_date(x2, pattern="@@rm_date2", extract=TRUE)
+#' ex_date(x2, pattern="@@rm_date2")
 #' 
 #' 
 #' ## Year-Month-Day Representation
@@ -56,5 +55,10 @@
 #' rm_date(x3, pattern="@@rm_date3")
 #' 
 #' ## Grab all types
-#' rm_date(c(x, x2, x3), pattern="@@rm_date4", extract=TRUE)
-rm_date <- hijack(rm_default, pattern = "@rm_date")
+#' ex_date(c(x, x2, x3), pattern="@@rm_date4")
+rm_date <- hijack(rm_default, pattern = "@rm_date") 
+
+#' @export
+#' @rdname rm_date
+ex_date <- hijack(rm_date, extract=TRUE)
+

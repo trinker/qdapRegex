@@ -25,6 +25,7 @@
 #' @family rm_ functions
 #' @include utils.R
 #' @export
+#' @rdname rm_city_state_zip
 #' @seealso \code{\link[base]{gsub}},
 #' \code{\link[stringi]{stri_extract_all_regex}}
 #' @examples
@@ -32,5 +33,10 @@
 #'    "It's in West ven,PA 12345, near Bolly Bolly Bolly, CA12345-1234!", 
 #'    "hello world")
 #' rm_city_state_zip(x)
-#' rm_city_state_zip(x, extract=TRUE)
-rm_city_state_zip <- hijack(rm_default, pattern = "@rm_city_state_zip")
+#' ex_city_state_zip(x)
+rm_city_state_zip <- hijack(rm_default, pattern = "@rm_city_state_zip") 
+
+#' @export
+#' @rdname rm_city_state_zip
+ex_city_state_zip <- hijack(rm_city_state_zip, extract=TRUE)
+

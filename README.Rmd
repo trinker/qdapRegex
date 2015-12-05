@@ -15,7 +15,8 @@ verbad <- sprintf('<a href="https://img.shields.io/badge/Version-%s-orange.svg">
 `r verbad`
 
 <img src="inst/qdapRegex_logo/r_qdapRegex.png" width="320" alt="qdapRegex Logo">      
-[qdapRegex](http://trinker.github.com/qdapRegex_dev) is a collection of regular expression tools associated with the **qdap** package that may be useful outside of the context of discourse analysis.  Tools include removal/extraction/replacement of abbreviations, dates, dollar amounts, email addresses, hash tags, numbers, percentages, citations, person tags, phone numbers, times, and zip codes.
+[qdapRegex](http://trinker.github.com/qdapRegex_dev) is a collection of regular expression tools associated with the **qdap** package that may be useful outside of the context of discourse analysis.  Tools include removal/extraction/replacement of abbreviations, dates, dollar amounts, email addresses, hash tags, numbers, percentages, citations, person tags, phone numbers, times, and zip codes.  Functions that remove/replace are prefixed with `rm_`.  Each of these functions has an extraction counterpart prefixed with `ex_`.
+
 
 
 The **qdapRegex** package does not aim to compete with string manipulation packages such as [**stringr**](http://cran.r-project.org/package=stringr) or [**stringi**](http://cran.r-project.org/package=stringi) but is meant to provide access to canned, common regular expression patterns that can be used within **qdapRegex**, with **R**'s own regular expression functions, or add on string manipulation packages such as **stringr** and **stringi**.
@@ -82,7 +83,7 @@ w <- c("Hello World (V. Raptor, 1986) bye",
     "Uwe Ligges (2007) says, \"RAM is cheap and thinking hurts\""
 )
 
-rm_citation(w, extract=TRUE)
+ex_citation(w)
 ```
 
 ### Extract Twitter Hash Tags, Name Tags, & URLs
@@ -95,9 +96,9 @@ x <- c("@hadley I like #rstats for #ggplot2 work.",
         presentation #user2014. http://ramnathv.github.io/user2014-rcharts/#1"
 )
 
-rm_hash(x, extract=TRUE)
-rm_tag(x, extract=TRUE)
-rm_url(x, extract=TRUE)
+ex_hash(x)
+ex_tag(x)
+ex_url(x)
 ```
 
 ### Extract Bracketed Text
@@ -107,10 +108,10 @@ y <- c("I love chicken [unintelligible]!",
     "Me too! (laughter) It's so good.[interrupting]",
     "Yep it's awesome {reading}.", "Agreed. {is so much fun}")
 
-rm_bracket(y, extract=TRUE)
-rm_curly(y, extract=TRUE)
-rm_round(y, extract=TRUE)
-rm_square(y, extract=TRUE)
+ex_bracket(y)
+ex_curly(y)
+ex_round(y)
+ex_square(y)
 ````
 
 ### Extract Numbers
@@ -120,8 +121,23 @@ z <- c("-2 is an integer.  -4.3 and 3.33 are not.",
     "123,456 is a lot more than -.2",
     "hello world -.q")
 rm_number(z)
-rm_number(z, extract=TRUE)
-as_numeric(rm_number(z, extract=TRUE))
+ex_number(z)
+as_numeric(ex_number(z))
+```
+
+### Extract Times
+
+```{r}
+x <- c(
+    "I'm getting 3:04 AM just fine, but...",
+    "for 10:47 AM I'm getting 0:47 AM instead.",
+    "no time here",
+    "Some time has 12:04 with no AM/PM after it",
+    "Some time has 12:04 a.m. or the form 1:22 pm"
+)
+ex_time(x)
+as_time(ex_time(x))
+as_time(ex_time(x), as.POSIXlt = TRUE)
 ```
 
 ### Remove Non-Words & N Character Words

@@ -23,10 +23,16 @@
 #' @family rm_ functions
 #' @include utils.R
 #' @export
+#' @rdname rm_postal_code
 #' @seealso \code{\link[base]{gsub}},
 #' \code{\link[stringi]{stri_extract_all_regex}}
 #' @examples
 #' x <- c("Anchorage, AK", "New York City, NY", "Some Place, Another Place, LA")
 #' rm_postal_code(x)
-#' rm_postal_code(x, extract=TRUE)
-rm_postal_code <- hijack(rm_default, pattern = "@rm_postal_code")
+#' ex_postal_code(x)
+rm_postal_code <- hijack(rm_default, pattern = "@rm_postal_code") 
+
+#' @export
+#' @rdname rm_postal_code
+ex_postal_code <- hijack(rm_postal_code, extract=TRUE)
+

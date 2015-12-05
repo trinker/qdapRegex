@@ -31,6 +31,7 @@
 #' @family rm_ functions
 #' @include utils.R
 #' @export
+#' @rdname rm_tag
 #' @seealso \code{\link[base]{gsub}},
 #' \code{\link[stringi]{stri_extract_all_regex}}
 #' @examples
@@ -45,12 +46,17 @@
 #' 
 #' rm_tag(x)
 #' rm_tag(rm_hash(x))
-#' rm_tag(x, extract=TRUE)
+#' ex_tag(x)
 #' 
 #' ## more restrictive Twitter regex
-#' rm_tag(x, extract=TRUE, pattern="@@rm_tag2") 
+#' ex_tag(x, pattern="@@rm_tag2") 
 #' 
 #' ## Remove only the @@ sign
 #' rm_tag(x, replacement = "\\3")
 #' rm_tag(x, replacement = "\\3", pattern="@@rm_tag2")
-rm_tag <- hijack(rm_default, pattern = "@rm_tag")
+rm_tag <- hijack(rm_default, pattern = "@rm_tag") 
+
+#' @export
+#' @rdname rm_tag
+ex_tag <- hijack(rm_tag, extract=TRUE)
+

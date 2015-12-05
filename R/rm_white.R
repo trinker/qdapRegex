@@ -24,10 +24,10 @@
 #' @param \dots Other arguments passed to \code{\link[base]{gsub}}.
 #' @return Returns a character string with extra white space removed.
 #' @keywords percent
-#' @rdname rm_white
 #' @family rm_ functions
 #' @include utils.R
 #' @export
+#' @rdname rm_white
 #' @seealso \code{\link[base]{gsub}},
 #' \code{\link[stringi]{stri_extract_all_regex}}
 #' @examples
@@ -46,86 +46,143 @@
 #' rm_white_punctuation(x)
 rm_white <- hijack(rm_default, pattern = "@rm_white", clean = FALSE, trim = FALSE)
 
+#' @export
+#' @rdname rm_white
+ex_white <- hijack(rm_white, extract=TRUE)
+
+
+
 #' Remove/Replace/Extract White Space
 #' 
 #' \code{rm_white_bracket} - Remove white space after a left bracket ("{", "(", "[") 
 #' or before a right bracket ("}", ")", "]").
 #' 
-#' @rdname rm_white
 #' @include utils.R
 #' @export
+#' @rdname rm_white
 rm_white_bracket <- hijack(rm_default, pattern = "@rm_white_bracket")
+
+
+#' @export
+#' @rdname rm_white
+ex_white_bracket <- hijack(rm_white_bracket, extract=TRUE)
+
 
 #' Remove/Replace/Extract White Space
 #' 
 #' \code{rm_white_colon} - Remove white space before a single or consecutive 
 #' combination of a colon, semicolon.
 #' 
-#' @rdname rm_white
 #' @include utils.R
 #' @export
+#' @rdname rm_white
 rm_white_colon <- hijack(rm_default, pattern = "@rm_white_colon")
+
+#' @export
+#' @rdname rm_white
+ex_white_colon <- hijack(rm_white_colon, extract=TRUE)
+
 
 #' Remove/Replace/Extract White Space
 #' 
 #' \code{rm_white_comma} - Remove white space before a comma.
 #' 
-#' @rdname rm_white
 #' @include utils.R
 #' @export
+#' @rdname rm_white
 rm_white_comma <- hijack(rm_default, pattern = "@rm_white_comma")
+
+
+#' @export
+#' @rdname rm_white
+ex_white_comma <- hijack(rm_white_comma, extract=TRUE)
+
+
 
 #' Remove/Replace/Extract White Space
 #' 
 #' \code{rm_white_endmark} - Remove white space before endmark(s) (".", "?", "!").
 #' 
-#' @rdname rm_white
 #' @include utils.R
 #' @export
+#' @rdname rm_white
 #' @author \code{rm_white_endmark}/\code{rm_white_punctuation} - \href{http://stackoverflow.com}{stackoverflow}'s hwnd and Tyler Rinker <tyler.rinker@@gmail.com>. 
 #' @references The \code{rm_white_endmark}/\code{rm_white_punctuation} regular expression was taken from: 
 #' \url{http://stackoverflow.com/a/25464921/1000343}
 rm_white_endmark <- hijack(rm_default, pattern = "@rm_white_endmark")
 
+
+#' @export
+#' @rdname rm_white
+ex_white_endmark <- hijack(rm_white_endmark, extract=TRUE)
+
+
+
+
 #' Remove/Replace/Extract White Space
 #' 
 #' \code{rm_white_lead} - Remove leading white space.
 #' 
-#' @rdname rm_white
 #' @include utils.R
 #' @export
+#' @rdname rm_white
 rm_white_lead <- hijack(rm_default, pattern = "@rm_white_lead", clean = FALSE, 
 	trim = FALSE)
+
+#' @export
+#' @rdname rm_white
+ex_white_lead <- hijack(rm_white_lead, extract=TRUE)
+
+
 
 #' Remove/Replace/Extract White Space
 #' 
 #' \code{rm_white_lead_trail} - Remove leading or trailing white space.
 #' 
-#' @rdname rm_white
 #' @include utils.R
 #' @export
+#' @rdname rm_white
 rm_white_lead_trail <- hijack(rm_default, pattern = "@rm_white_lead_trail", 
 	clean = FALSE, trim = FALSE)
+
+#' @export
+#' @rdname rm_white
+ex_white_lead_trail <- hijack(rm_white_lead_trail, extract=TRUE)
+
+
+
 
 #' Remove/Replace/Extract White Space
 #' 
 #' \code{rm_white_trail} - Remove trailing white space.
 #' 
-#' @rdname rm_white
 #' @include utils.R
 #' @export
+#' @rdname rm_white
 rm_white_trail <- hijack(rm_default, pattern = "@rm_white_trail", 
 	clean = FALSE, trim = FALSE)
+
+#' @export
+#' @rdname rm_white
+ex_white_trail <- hijack(rm_white_trail, extract=TRUE)
+
+
+
 
 #' Remove/Replace/Extract White Space
 #' 
 #' \code{rm_white_multiple} - Remove multiple white space (> 1 becomes a single 
 #' white space).
 #' 
-#' @rdname rm_white
 #' @include utils.R
 #' @export
+#' @rdname rm_white
 rm_white_multiple <- hijack(rm_default, pattern = "@rm_white_multiple")
+
+#' @export
+#' @rdname rm_white
+ex_white_multiple <- hijack(rm_white_multiple, extract=TRUE)
+
 
 
 #' Remove/Replace/Extract White Space
@@ -134,7 +191,13 @@ rm_white_multiple <- hijack(rm_default, pattern = "@rm_white_multiple")
 #' space before a single or consecutive combination of a colon, semicolon, or 
 #' endmark (period, question mark, or exclamation point).
 #' 
-#' @rdname rm_white
 #' @include utils.R
 #' @export
-rm_white_punctuation <- hijack(rm_default, pattern = "@rm_white_punctuation")
+#' @rdname rm_white
+rm_white_punctuation <- hijack(rm_default, pattern = "@rm_white_punctuation") 
+
+#' @export
+#' @rdname rm_white
+ex_white_punctuation <- hijack(rm_white_punctuation, extract=TRUE)
+
+

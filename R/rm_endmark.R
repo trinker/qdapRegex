@@ -30,6 +30,7 @@
 #' @family rm_ functions
 #' @include utils.R
 #' @export
+#' @rdname rm_endmark
 #' @seealso \code{\link[base]{gsub}},
 #' \code{\link[stringi]{stri_extract_all_regex}}
 #' @examples
@@ -37,11 +38,16 @@
 #'     "Who is| that?", "Hello world", "You...")
 #' 
 #' rm_endmark(x)
-#' rm_endmark(x, extract=TRUE)
+#' ex_endmark(x)
 #' 
 #' rm_endmark(x, pattern="@@rm_endmark2")
-#' rm_endmark(x, extract=TRUE, pattern="@@rm_endmark2")
+#' ex_endmark(x, pattern="@@rm_endmark2")
 #' 
 #' rm_endmark(x, pattern="@@rm_endmark3")
-#' rm_endmark(x, extract=TRUE, pattern="@@rm_endmark3")
-rm_endmark <- hijack(rm_default, pattern = "@rm_endmark")
+#' ex_endmark(x, pattern="@@rm_endmark3")
+rm_endmark <- hijack(rm_default, pattern = "@rm_endmark") 
+
+#' @export
+#' @rdname rm_endmark
+ex_endmark <- hijack(rm_endmark, extract=TRUE)
+

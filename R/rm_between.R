@@ -33,10 +33,10 @@
 #' names extracted strings by symbol boundaries, however, it is slower than 
 #' \code{rm_between}.
 #' @family rm_ functions
-#' @rdname rm_between
 #' @include rm_default.R utils.R
 #' @include utils.R
 #' @export
+#' @rdname rm_between
 #' @include rm_default.R utils.R
 #' @seealso \code{\link[base]{gsub}},
 #' \code{\link[qdapRegex]{rm_bracket}},
@@ -45,26 +45,26 @@
 #' x <-  "I like [bots] (not)."
 #' 
 #' rm_between(x, "(", ")")
-#' rm_between(x, "(", ")", extract=TRUE)
+#' ex_between(x, "(", ")")
 #' rm_between(x, c("(", "["), c(")", "]"))
-#' rm_between(x, c("(", "["), c(")", "]"), extract=TRUE)
+#' ex_between(x, c("(", "["), c(")", "]"))
 #' 
 #' rm_between(x, c("(", "["), c(")", "]"), include.markers=FALSE)
-#' rm_between(x, c("(", "["), c(")", "]"), extract=TRUE, include.markers=TRUE) 
+#' ex_between(x, c("(", "["), c(")", "]"), include.markers=TRUE) 
 #' 
 #' ## multiple (naming and ability to keep separate bracket types but slower)
 #' x <- c("Where is the /big dog#?",
 #'     "I think he's @@arunning@@b with /little cat#.")
 #' 
 #' rm_between_multiple(x, "@@a", "@@b")
-#' rm_between_multiple(x, "@@a", "@@b", extract=TRUE)
+#' ex_between_multiple(x, "@@a", "@@b")
 #' rm_between_multiple(x, c("/", "@@a"), c("#", "@@b"))
-#' rm_between_multiple(x, c("/", "@@a"), c("#", "@@b"), extract=TRUE)
+#' ex_between_multiple(x, c("/", "@@a"), c("#", "@@b"))
 #' 
 #' x2 <- c("Where is the L1big dogL2?",
 #'     "I think he's 98running99 with L1little catL2.")
 #' rm_between_multiple(x2, c("L1", 98), c("L2", 99))
-#' rm_between_multiple(x2, c("L1", 98), c("L2", 99), extract=TRUE)
+#' ex_between_multiple(x2, c("L1", 98), c("L2", 99))
 #' 
 #' state <- c("Computer is fun. Not too fun.", "No it's not, it's dumb.", 
 #'     "What should we do?", "You liar, it stinks!", "I am telling the truth!", 
@@ -84,8 +84,7 @@
 #'     "There are 2.3 billion species in the world"
 #' )
 #' 
-#' rm_between(x, left='There', right = '[mb]illion', fixed = FALSE, 
-#'     extract=TRUE, include=TRUE)
+#' ex_between(x, left='There', right = '[mb]illion', fixed = FALSE, include=TRUE)
 rm_between <- function(text.var, left, right, fixed = TRUE, trim = TRUE, 
     clean = TRUE, replacement = "", extract = FALSE, 
     include.markers = ifelse(extract, FALSE, TRUE),
@@ -259,4 +258,12 @@ function(text.var, left, right, with = FALSE, merge = TRUE, fixed = FALSE){
         }
     }
     ext(out)
-}
+} 
+
+#' @export
+#' @rdname rm_between
+ex_between <- hijack(rm_between, extract=TRUE)
+
+#' @export
+#' @rdname rm_between
+ex_between_multiple <- hijack(rm_between_multiple, extract=TRUE)

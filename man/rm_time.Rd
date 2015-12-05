@@ -3,6 +3,8 @@
 \name{rm_time}
 \alias{as_time}
 \alias{as_time2}
+\alias{ex_time}
+\alias{ex_transcript_time}
 \alias{rm_time}
 \alias{rm_transcript_time}
 \title{Remove/Replace/Extract Time}
@@ -18,6 +20,14 @@ rm_transcript_time(text.var, trim = !extract, clean = TRUE,
 as_time(x, as.POSIXlt = FALSE, millisecond = TRUE)
 
 as_time2(x, ...)
+
+ex_time(text.var, trim = !extract, clean = TRUE, pattern = "@rm_time",
+  replacement = "", extract = TRUE,
+  dictionary = getOption("regex.library"), ...)
+
+ex_transcript_time(text.var, trim = !extract, clean = TRUE,
+  pattern = "@rm_transcript_time", replacement = "", extract = TRUE,
+  dictionary = getOption("regex.library"), ...)
 }
 \arguments{
 \item{text.var}{The text variable.}
@@ -84,7 +94,7 @@ x <-  c("R uses 1:5 for 1, 2, 3, 4, 5.",
     "We'll meet at 6:33.", "He ran it in :22.34")
 
 rm_time(x)
-rm_time(x, extract=TRUE)
+ex_time(x)
 
 ## With AM/PM
 x <- c(
@@ -96,14 +106,14 @@ x <- c(
 )
 
 rm_time(x, extract=TRUE)
-rm_time(x, pat="@rm_time2", extract=TRUE)
+ex_time(x, pat="@rm_time2")
 rm_time(x, pat="@rm_time2")
-rm_time(x, pat=pastex("@rm_time2", "@rm_time"), extract=TRUE)
+ex_time(x, pat=pastex("@rm_time2", "@rm_time"))
 
 # Convert to standard format
-as_time(rm_time(x, extract=TRUE))
-as_time(rm_time(x, extract=TRUE), as.POSIXlt = TRUE)
-as_time(rm_time(x, extract=TRUE), as.POSIXlt = FALSE, millisecond = FALSE)
+as_time(ex_time(x))
+as_time(ex_time(x), as.POSIXlt = TRUE)
+as_time(ex_time(x), as.POSIXlt = FALSE, millisecond = FALSE)
 
 # Transcript specific time stamps
 x2 <-c(
@@ -115,11 +125,11 @@ x2 <-c(
 )
 
 rm_transcript_time(x2)
-(out <- rm_transcript_time(x2, extract=TRUE))
+(out <- ex_transcript_time(x2))
 
 as_time(out)
 as_time(out, TRUE)
-as_time(out, ,FALSE)
+as_time(out, millisecond = FALSE)
 
 \dontrun{
 if (!require("pacman")) install.packages("pacman")
@@ -140,29 +150,62 @@ The time regular expression was taken from:
 \code{\link[stringi]{stri_extract_all_regex}}
 
 Other rm_.functions: \code{\link{as_numeric}},
-  \code{\link{as_numeric2}}, \code{\link{rm_number}};
-  \code{\link{rm_abbreviation}}; \code{\link{rm_angle}},
+  \code{\link{as_numeric2}}, \code{\link{ex_number}},
+  \code{\link{rm_number}}; \code{\link{ex_abbreviation}},
+  \code{\link{rm_abbreviation}}; \code{\link{ex_angle}},
+  \code{\link{ex_bracket}},
+  \code{\link{ex_bracket_multiple}},
+  \code{\link{ex_curly}}, \code{\link{ex_round}},
+  \code{\link{ex_square}}, \code{\link{rm_angle}},
   \code{\link{rm_bracket}},
   \code{\link{rm_bracket_multiple}},
   \code{\link{rm_curly}}, \code{\link{rm_round}},
-  \code{\link{rm_square}}; \code{\link{rm_between}},
+  \code{\link{rm_square}}; \code{\link{ex_between}},
+  \code{\link{ex_between_multiple}},
+  \code{\link{rm_between}},
   \code{\link{rm_between_multiple}};
-  \code{\link{rm_caps_phrase}}; \code{\link{rm_caps}};
-  \code{\link{rm_citation_tex}}; \code{\link{rm_citation}};
+  \code{\link{ex_caps_phrase}},
+  \code{\link{rm_caps_phrase}}; \code{\link{ex_caps}},
+  \code{\link{rm_caps}}; \code{\link{ex_citation_tex}},
+  \code{\link{rm_citation_tex}}; \code{\link{ex_citation}},
+  \code{\link{rm_citation}};
+  \code{\link{ex_city_state_zip}},
   \code{\link{rm_city_state_zip}};
-  \code{\link{rm_city_state}}; \code{\link{rm_date}};
-  \code{\link{rm_default}}; \code{\link{rm_dollar}};
-  \code{\link{rm_email}}; \code{\link{rm_emoticon}};
-  \code{\link{rm_endmark}}; \code{\link{rm_hash}};
-  \code{\link{rm_nchar_words}}; \code{\link{rm_non_ascii}};
-  \code{\link{rm_non_words}}; \code{\link{rm_percent}};
-  \code{\link{rm_phone}}; \code{\link{rm_postal_code}};
+  \code{\link{ex_city_state}}, \code{\link{rm_city_state}};
+  \code{\link{ex_date}}, \code{\link{rm_date}};
+  \code{\link{ex_default}}, \code{\link{rm_default}};
+  \code{\link{ex_dollar}}, \code{\link{rm_dollar}};
+  \code{\link{ex_email}}, \code{\link{rm_email}};
+  \code{\link{ex_emoticon}}, \code{\link{rm_emoticon}};
+  \code{\link{ex_endmark}}, \code{\link{rm_endmark}};
+  \code{\link{ex_hash}}, \code{\link{rm_hash}};
+  \code{\link{ex_nchar_words}},
+  \code{\link{rm_nchar_words}}; \code{\link{ex_non_ascii}},
+  \code{\link{rm_non_ascii}}; \code{\link{ex_non_words}},
+  \code{\link{rm_non_words}}; \code{\link{ex_percent}},
+  \code{\link{rm_percent}}; \code{\link{ex_phone}},
+  \code{\link{rm_phone}}; \code{\link{ex_postal_code}},
+  \code{\link{rm_postal_code}};
+  \code{\link{ex_repeated_characters}},
   \code{\link{rm_repeated_characters}};
+  \code{\link{ex_repeated_phrases}},
   \code{\link{rm_repeated_phrases}};
-  \code{\link{rm_repeated_words}}; \code{\link{rm_tag}};
+  \code{\link{ex_repeated_words}},
+  \code{\link{rm_repeated_words}}; \code{\link{ex_tag}},
+  \code{\link{rm_tag}}; \code{\link{ex_title_name}},
   \code{\link{rm_title_name}};
+  \code{\link{ex_twitter_url}}, \code{\link{ex_url}},
   \code{\link{rm_twitter_url}}, \code{\link{rm_url}};
-  \code{\link{rm_white}}, \code{\link{rm_white_bracket}},
+  \code{\link{ex_white}}, \code{\link{ex_white_bracket}},
+  \code{\link{ex_white_colon}},
+  \code{\link{ex_white_comma}},
+  \code{\link{ex_white_endmark}},
+  \code{\link{ex_white_lead}},
+  \code{\link{ex_white_lead_trail}},
+  \code{\link{ex_white_multiple}},
+  \code{\link{ex_white_punctuation}},
+  \code{\link{ex_white_trail}}, \code{\link{rm_white}},
+  \code{\link{rm_white_bracket}},
   \code{\link{rm_white_colon}},
   \code{\link{rm_white_comma}},
   \code{\link{rm_white_endmark}},
@@ -170,32 +213,66 @@ Other rm_.functions: \code{\link{as_numeric}},
   \code{\link{rm_white_lead_trail}},
   \code{\link{rm_white_multiple}},
   \code{\link{rm_white_punctuation}},
-  \code{\link{rm_white_trail}}; \code{\link{rm_zip}}
+  \code{\link{rm_white_trail}}; \code{\link{ex_zip}},
+  \code{\link{rm_zip}}
 
 Other rm_.functions: \code{\link{as_numeric}},
-  \code{\link{as_numeric2}}, \code{\link{rm_number}};
-  \code{\link{rm_abbreviation}}; \code{\link{rm_angle}},
+  \code{\link{as_numeric2}}, \code{\link{ex_number}},
+  \code{\link{rm_number}}; \code{\link{ex_abbreviation}},
+  \code{\link{rm_abbreviation}}; \code{\link{ex_angle}},
+  \code{\link{ex_bracket}},
+  \code{\link{ex_bracket_multiple}},
+  \code{\link{ex_curly}}, \code{\link{ex_round}},
+  \code{\link{ex_square}}, \code{\link{rm_angle}},
   \code{\link{rm_bracket}},
   \code{\link{rm_bracket_multiple}},
   \code{\link{rm_curly}}, \code{\link{rm_round}},
-  \code{\link{rm_square}}; \code{\link{rm_between}},
+  \code{\link{rm_square}}; \code{\link{ex_between}},
+  \code{\link{ex_between_multiple}},
+  \code{\link{rm_between}},
   \code{\link{rm_between_multiple}};
-  \code{\link{rm_caps_phrase}}; \code{\link{rm_caps}};
-  \code{\link{rm_citation_tex}}; \code{\link{rm_citation}};
+  \code{\link{ex_caps_phrase}},
+  \code{\link{rm_caps_phrase}}; \code{\link{ex_caps}},
+  \code{\link{rm_caps}}; \code{\link{ex_citation_tex}},
+  \code{\link{rm_citation_tex}}; \code{\link{ex_citation}},
+  \code{\link{rm_citation}};
+  \code{\link{ex_city_state_zip}},
   \code{\link{rm_city_state_zip}};
-  \code{\link{rm_city_state}}; \code{\link{rm_date}};
-  \code{\link{rm_default}}; \code{\link{rm_dollar}};
-  \code{\link{rm_email}}; \code{\link{rm_emoticon}};
-  \code{\link{rm_endmark}}; \code{\link{rm_hash}};
-  \code{\link{rm_nchar_words}}; \code{\link{rm_non_ascii}};
-  \code{\link{rm_non_words}}; \code{\link{rm_percent}};
-  \code{\link{rm_phone}}; \code{\link{rm_postal_code}};
+  \code{\link{ex_city_state}}, \code{\link{rm_city_state}};
+  \code{\link{ex_date}}, \code{\link{rm_date}};
+  \code{\link{ex_default}}, \code{\link{rm_default}};
+  \code{\link{ex_dollar}}, \code{\link{rm_dollar}};
+  \code{\link{ex_email}}, \code{\link{rm_email}};
+  \code{\link{ex_emoticon}}, \code{\link{rm_emoticon}};
+  \code{\link{ex_endmark}}, \code{\link{rm_endmark}};
+  \code{\link{ex_hash}}, \code{\link{rm_hash}};
+  \code{\link{ex_nchar_words}},
+  \code{\link{rm_nchar_words}}; \code{\link{ex_non_ascii}},
+  \code{\link{rm_non_ascii}}; \code{\link{ex_non_words}},
+  \code{\link{rm_non_words}}; \code{\link{ex_percent}},
+  \code{\link{rm_percent}}; \code{\link{ex_phone}},
+  \code{\link{rm_phone}}; \code{\link{ex_postal_code}},
+  \code{\link{rm_postal_code}};
+  \code{\link{ex_repeated_characters}},
   \code{\link{rm_repeated_characters}};
+  \code{\link{ex_repeated_phrases}},
   \code{\link{rm_repeated_phrases}};
-  \code{\link{rm_repeated_words}}; \code{\link{rm_tag}};
+  \code{\link{ex_repeated_words}},
+  \code{\link{rm_repeated_words}}; \code{\link{ex_tag}},
+  \code{\link{rm_tag}}; \code{\link{ex_title_name}},
   \code{\link{rm_title_name}};
+  \code{\link{ex_twitter_url}}, \code{\link{ex_url}},
   \code{\link{rm_twitter_url}}, \code{\link{rm_url}};
-  \code{\link{rm_white}}, \code{\link{rm_white_bracket}},
+  \code{\link{ex_white}}, \code{\link{ex_white_bracket}},
+  \code{\link{ex_white_colon}},
+  \code{\link{ex_white_comma}},
+  \code{\link{ex_white_endmark}},
+  \code{\link{ex_white_lead}},
+  \code{\link{ex_white_lead_trail}},
+  \code{\link{ex_white_multiple}},
+  \code{\link{ex_white_punctuation}},
+  \code{\link{ex_white_trail}}, \code{\link{rm_white}},
+  \code{\link{rm_white_bracket}},
   \code{\link{rm_white_colon}},
   \code{\link{rm_white_comma}},
   \code{\link{rm_white_endmark}},
@@ -203,7 +280,8 @@ Other rm_.functions: \code{\link{as_numeric}},
   \code{\link{rm_white_lead_trail}},
   \code{\link{rm_white_multiple}},
   \code{\link{rm_white_punctuation}},
-  \code{\link{rm_white_trail}}; \code{\link{rm_zip}}
+  \code{\link{rm_white_trail}}; \code{\link{ex_zip}},
+  \code{\link{rm_zip}}
 }
 \keyword{time}
 

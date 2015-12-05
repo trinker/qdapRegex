@@ -23,6 +23,7 @@
 #' @family rm_ functions
 #' @include utils.R
 #' @export
+#' @rdname rm_title_name
 #' @seealso \code{\link[base]{gsub}},
 #' \code{\link[stringi]{stri_extract_all_regex}}
 #' @examples
@@ -30,5 +31,10 @@
 #'     "Where is mr. Bob Jr. and Ms. John Kennedy?")
 #' 
 #' rm_title_name(x)
-#' rm_title_name(x, extract=TRUE)
-rm_title_name <- hijack(rm_default, pattern = "@rm_title_name")
+#' ex_title_name(x)
+rm_title_name <- hijack(rm_default, pattern = "@rm_title_name") 
+
+#' @export
+#' @rdname rm_title_name
+ex_title_name <- hijack(rm_title_name, extract=TRUE)
+

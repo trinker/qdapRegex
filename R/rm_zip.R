@@ -23,6 +23,7 @@
 #' @family rm_ functions
 #' @include utils.R
 #' @export
+#' @rdname rm_zip
 #' @seealso \code{\link[base]{gsub}},
 #' \code{\link[stringi]{stri_extract_all_regex}}
 #' @author \href{http://stackoverflow.com/}{stackoverflow's} hwnd and Tyler Rinker <tyler.rinker@@gmail.com>. 
@@ -39,7 +40,7 @@
 #' )
 #'
 #' rm_zip(x)
-#' rm_zip(x, extract=TRUE)
+#' ex_zip(x)
 #' 
 #' ## ======================= ##
 #' ## BUILD YOUR OWN FUNCTION ##
@@ -64,11 +65,16 @@
 #'     "(?<!\\d)\\d{5}-\\d{4}(?!\\d)"
 #' )
 #' # Create your own function that extract is set to TRUE
-#' rm_zip2 <- rm_(pattern=pat, extract=TRUE)
-#' rm_zip2(zips$address)
+#' ex_zip2 <- rm_(pattern=pat, extract=TRUE)
+#' ex_zip2(zips$address)
 #' 
 #' ## Function to extract just 5 digit zips
 #' 
-#' rm_zip3 <- rm_(pattern="(?<!\\d)\\d{5}(?!\\d)", extract=TRUE)
-#' rm_zip3(zips$address)
-rm_zip <- hijack(rm_default, pattern = "@rm_zip")
+#' ex_zip3 <- rm_(pattern="(?<!\\d)\\d{5}(?!\\d)", extract=TRUE)
+#' ex_zip3(zips$address)
+rm_zip <- hijack(rm_default, pattern = "@rm_zip") 
+
+#' @export
+#' @rdname rm_zip
+ex_zip <- hijack(rm_zip, extract=TRUE)
+

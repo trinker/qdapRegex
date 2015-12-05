@@ -25,6 +25,7 @@
 #' @include utils.R
 #' @references \url{http://stackoverflow.com/a/28786617/1000343}
 #' @export
+#' @rdname rm_repeated_phrases
 #' @seealso \code{\link[base]{gsub}},
 #' \code{\link[stringi]{stri_extract_all_regex}}
 #' @examples
@@ -38,5 +39,10 @@
 #' )
 #' 
 #' rm_repeated_phrases(x)
-#' rm_repeated_phrases(x, extract=TRUE)
-rm_repeated_phrases <- hijack(rm_default, pattern = "@rm_repeated_phrases")
+#' ex_repeated_phrases(x)
+rm_repeated_phrases <- hijack(rm_default, pattern = "@rm_repeated_phrases") 
+
+#' @export
+#' @rdname rm_repeated_phrases
+ex_repeated_phrases <- hijack(rm_repeated_phrases, extract=TRUE)
+

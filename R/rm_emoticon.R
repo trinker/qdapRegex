@@ -23,6 +23,7 @@
 #' @family rm_ functions
 #' @include utils.R
 #' @export
+#' @rdname rm_emoticon
 #' @seealso \code{\link[base]{gsub}},
 #' \code{\link[stringi]{stri_extract_all_regex}}
 #' @examples
@@ -30,5 +31,10 @@
 #'   "as :-D I xD with :^) a =D to =) the 8D and :3 in =3 you 8) his B^D was")
 #' 
 #' rm_emoticon(x)
-#' rm_emoticon(x, extract=TRUE)
-rm_emoticon <- hijack(rm_default, pattern = "@rm_emoticon")
+#' ex_emoticon(x)
+rm_emoticon <- hijack(rm_default, pattern = "@rm_emoticon") 
+
+#' @export
+#' @rdname rm_emoticon
+ex_emoticon <- hijack(rm_emoticon, extract=TRUE)
+

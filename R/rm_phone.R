@@ -23,6 +23,7 @@
 #' @family rm_ functions
 #' @include utils.R
 #' @export
+#' @rdname rm_phone
 #' @seealso \code{\link[base]{gsub}},
 #' \code{\link[stringi]{stri_extract_all_regex}}
 #' @author \href{http://stackoverflow.com/}{stackoverflow's} Marius and Tyler Rinker <tyler.rinker@@gmail.com>. 
@@ -38,5 +39,10 @@
 #' )
 #'
 #' rm_phone(x)
-#' rm_phone(x, extract=TRUE)
-rm_phone <- hijack(rm_default, pattern = "@rm_phone")
+#' ex_phone(x)
+rm_phone <- hijack(rm_default, pattern = "@rm_phone") 
+
+#' @export
+#' @rdname rm_phone
+ex_phone <- hijack(rm_phone, extract=TRUE)
+

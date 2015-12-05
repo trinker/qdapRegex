@@ -26,10 +26,16 @@
 #' @include utils.R
 #' @references \url{http://stackoverflow.com/a/29438461/1000343}
 #' @export
+#' @rdname rm_repeated_characters
 #' @seealso \code{\link[base]{gsub}},
 #' \code{\link[stringi]{stri_extract_all_regex}}
 #' @examples
 #' x <- "aaaahahahahaha that was a good joke peep and pepper and pepe"
 #' rm_repeated_characters(x)
-#' rm_repeated_characters(x, extract=TRUE)
-rm_repeated_characters <- hijack(rm_default, pattern = "@rm_repeated_characters")
+#' ex_repeated_characters(x)
+rm_repeated_characters <- hijack(rm_default, pattern = "@rm_repeated_characters") 
+
+#' @export
+#' @rdname rm_repeated_characters
+ex_repeated_characters <- hijack(rm_repeated_characters, extract=TRUE)
+

@@ -37,10 +37,10 @@
 #' x <- " I like www.talkstats.com and http://stackoverflow.com"
 #' rm_url(x)
 #' rm_url(x, replacement = '<a href="\\1" target="_blank">\\1</a>')
-#' rm_url(x, extract=TRUE)
+#' ex_url(x)
 #' 
-#' rm_url(x, pattern = "@@rm_url2", extract=TRUE)
-#' rm_url(x, pattern = "@@rm_url3", extract=TRUE)
+#' ex_url(x, pattern = "@@rm_url2")
+#' ex_url(x, pattern = "@@rm_url3")
 #'
 #' ## Remove Twitter Short URL
 #' x <- c("download file from http://example.com", 
@@ -52,7 +52,7 @@
 #'          "still another one https://t.co/N1kq0F26tG :-)")
 #' 
 #' rm_twitter_url(x)
-#' rm_twitter_url(x, extract=TRUE)
+#' ex_twitter_url(x)
 #' 
 #' ## Combine removing Twitter URLs and standard URLs
 #' rm_twitter_n_url <- rm_(pattern=pastex("@@rm_twitter_url", "@@rm_url"))
@@ -69,4 +69,14 @@ rm_url <- hijack(rm_default, pattern = "@rm_url")
 #' @include utils.R
 #' @export
 #' @rdname rm_url
-rm_twitter_url <- hijack(rm_default, pattern = "@rm_twitter_url")
+rm_twitter_url <- hijack(rm_default, pattern = "@rm_twitter_url") 
+
+
+#' @export
+#' @rdname rm_url
+ex_url <- hijack(rm_url, extract=TRUE)
+
+
+#' @export
+#' @rdname rm_url
+ex_twitter_url <- hijack(rm_twitter_url, extract=TRUE)

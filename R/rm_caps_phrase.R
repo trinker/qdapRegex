@@ -25,6 +25,7 @@
 #' @family rm_ functions
 #' @include utils.R
 #' @export
+#' @rdname rm_caps_phrase
 #' @seealso \code{\link[base]{gsub}},
 #' \code{\link[stringi]{stri_extract_all_regex}}
 #' @examples
@@ -33,5 +34,10 @@
 #'    "or trying to make a LITTLE SEEM like IT ISN'T LITTLE"
 #' )
 #' rm_caps_phrase(x)
-#' rm_caps_phrase(x, extract=TRUE)
-rm_caps_phrase <- hijack(rm_default, pattern = "@rm_caps_phrase")
+#' ex_caps_phrase(x)
+rm_caps_phrase <- hijack(rm_default, pattern = "@rm_caps_phrase") 
+
+#' @export
+#' @rdname rm_caps_phrase
+ex_caps_phrase <- hijack(rm_caps_phrase, extract=TRUE)
+
