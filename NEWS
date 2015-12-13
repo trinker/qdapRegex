@@ -17,22 +17,31 @@ And constructed with the following guidelines:
 * Bug fixes and misc changes bumps the patch
 
 
-qdapRegex 0.5.2
+
+qdapRegex 0.7.0
 ----------------------------------------------------------------
 
 BUG FIXES
 
 NEW FEATURES
 
-* `rm_` prefixed functions get an extraction counterpart prefixed with `ex_`.  
-  This means users can use `ex_` functions directly without using the `rm_` form 
-  in the less convenient form of `rm_xxx(extract = TRUE)`.
-
 MINOR FEATURES
+
+* `ex_` added to compliment the `rm_` function.
 
 IMPROVEMENTS
 
 CHANGES
+
+
+qdapRegex 0.6.0
+----------------------------------------------------------------
+
+NEW FEATURES
+
+* `rm_` prefixed functions get an extraction counterpart prefixed with `ex_`.  
+  This means users can use `ex_` functions directly without using the `rm_` form 
+  in the less convenient form of `rm_xxx(extract = TRUE)`.
 
 
 qdapRegex 0.5.1

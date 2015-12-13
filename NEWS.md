@@ -17,22 +17,31 @@ And constructed with the following guidelines:
 * Bug fixes and misc changes bumps the patch
 
 
- <a href="https://github.com/trinker/qdapRegex" target="_blank">qdapRegex</a> 0.5.2
+
+ <a href="https://github.com/trinker/qdapRegex" target="_blank">qdapRegex</a> 0.7.0
 ----------------------------------------------------------------
 
 **BUG FIXES**
 
 **NEW FEATURES**
 
-* `rm_` prefixed functions get an extraction counterpart prefixed with `ex_`.  
-  This means users can use `ex_` functions directly without using the `rm_` form 
-  in the less convenient form of `rm_xxx(extract = TRUE)`.
-
 **MINOR FEATURES**
+
+* `ex_` added to compliment the `rm_` function.
 
 **IMPROVEMENTS**
 
 **CHANGES**
+
+
+ <a href="https://github.com/trinker/qdapRegex" target="_blank">qdapRegex</a> 0.6.0
+----------------------------------------------------------------
+
+**NEW FEATURES**
+
+* `rm_` prefixed functions get an extraction counterpart prefixed with `ex_`.  
+  This means users can use `ex_` functions directly without using the `rm_` form 
+  in the less convenient form of `rm_xxx(extract = TRUE)`.
 
 
  <a href="https://github.com/trinker/qdapRegex" target="_blank">qdapRegex</a> 0.5.1

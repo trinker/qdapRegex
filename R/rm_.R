@@ -2,7 +2,8 @@
 #' 
 #' Remove/replace/extract substrings from a string.  A function generator used 
 #' to make regex functions that operate typical of other \pkg{qdapRegex} 
-#' \code{rm_XXX} functions.
+#' \code{rm_XXX} functions.  Use \code{rm_} for removal and \code{ex_} for 
+#' extraction.
 #' 
 #' @param \ldots Arguments passed to \code{\link[qdapRegex]{rm_default}}.  
 #' Generally, \code{pattern} and \code{extract} are the most useful parameters 
@@ -26,6 +27,7 @@
 #' @return Returns a function that operates typical of other \pkg{qdapRegex} 
 #' \code{rm_XXX} functions but with user defined defaults.
 #' @export
+#' @rdname rm_
 #' @seealso \code{\link[qdapRegex]{rm_default}}
 #' @examples
 #' rm_digit <- rm_(pattern="[0-9]")
@@ -70,5 +72,18 @@ rm_ <- function(...){
         formals(rm_raw)[[names(args)[i]]] <<- args[[i]]
     }))
     rm_raw
+}
+
+#' @export
+#' @rdname rm_
+ex_ <- function(...){
+
+    ex_raw <- ex_default
+
+    args <- list(...)
+    invisible(lapply(seq_along(args), function(i) {
+        formals(ex_raw)[[names(args)[i]]] <<- args[[i]]
+    }))
+    ex_raw
 }
 
