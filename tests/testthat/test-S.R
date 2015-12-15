@@ -16,3 +16,8 @@ test_that("S is replacing %s and recycling",{
     
 })
 
+test_that("S gives error",{
+
+    expect_error(S("@after_", "the", "the", "the"))
+
+})
