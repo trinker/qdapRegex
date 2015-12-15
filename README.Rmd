@@ -71,7 +71,7 @@ library(qdapRegex)
 
 ### Extract Citations
 ```{r}
-w <- c("Hello World (V. Raptor, 1986) bye",
+w <- c("Hello World (V. Raptor, 1986) bye (Foo, 2012, pp. 1-2)",
     "Narcissism is not dead (Rinker, 2014)",
     "The R Core Team (2014) has many members.",
     paste("Bunn (2005) said, \"As for elegance, R is refined, tasteful, and",
@@ -80,10 +80,12 @@ w <- c("Hello World (V. Raptor, 1986) bye",
     "Wickham's (in press) Tidy Data should be out soon.",
     "Rinker's (n.d.) dissertation not so much.",
     "I always consult xkcd comics for guidance (Foo, 2012; Bar, 2014).",
-    "Uwe Ligges (2007) says, \"RAM is cheap and thinking hurts\""
+    "Uwe Ligges (2007) says, \"RAM is cheap and thinking hurts\"",
+    "Silly (Bar, 2014) stuff is what Bar (2014, 2012) said."
 )
 
 ex_citation(w)
+as_count(ex_citation(w))
 ```
 
 ### Extract Twitter Hash Tags, Name Tags, & URLs

@@ -67,7 +67,7 @@ library(qdapRegex)
 ### Extract Citations
 
 ```r
-w <- c("Hello World (V. Raptor, 1986) bye",
+w <- c("Hello World (V. Raptor, 1986) bye (Foo, 2012, pp. 1-2)",
     "Narcissism is not dead (Rinker, 2014)",
     "The R Core Team (2014) has many members.",
     paste("Bunn (2005) said, \"As for elegance, R is refined, tasteful, and",
@@ -76,7 +76,8 @@ w <- c("Hello World (V. Raptor, 1986) bye",
     "Wickham's (in press) Tidy Data should be out soon.",
     "Rinker's (n.d.) dissertation not so much.",
     "I always consult xkcd comics for guidance (Foo, 2012; Bar, 2014).",
-    "Uwe Ligges (2007) says, \"RAM is cheap and thinking hurts\""
+    "Uwe Ligges (2007) says, \"RAM is cheap and thinking hurts\"",
+    "Silly (Bar, 2014) stuff is what Bar (2014, 2012) said."
 )
 
 ex_citation(w)
@@ -84,7 +85,7 @@ ex_citation(w)
 
 ```
 ## [[1]]
-## [1] "V. Raptor, 1986"
+## [1] "V. Raptor, 1986" "Foo, 2012"      
 ## 
 ## [[2]]
 ## [1] "Rinker, 2014"
@@ -109,6 +110,28 @@ ex_citation(w)
 ## 
 ## [[9]]
 ## [1] "Uwe Ligges (2007)"
+## 
+## [[10]]
+## [1] "Bar, 2014"        "Bar (2014, 2012)"
+```
+
+```r
+as_count(ex_citation(w))
+```
+
+```
+##             Author     Year n
+## 7              Bar     2014 3
+## 6              Foo     2012 2
+## 2             Baer     2005 1
+## 5              Bar     2012 1
+## 3             Bunn     2005 1
+## 8           Rinker     2014 1
+## 11          Rinker     n.d. 1
+## 9  The R Core Team     2014 1
+## 4       Uwe Ligges     2007 1
+## 1        V. Raptor     1986 1
+## 10         Wickham in press 1
 ```
 
 ### Extract Twitter Hash Tags, Name Tags, & URLs
@@ -348,19 +371,19 @@ as_time(ex_time(x), as.POSIXlt = TRUE)
 
 ```
 ## [[1]]
-## [1] "2015-12-13 00:03:04 EST"
+## [1] "2015-12-14 00:03:04 EST"
 ## 
 ## [[2]]
-## [1] "2015-12-13 00:10:47 EST" "2015-12-13 00:00:47 EST"
+## [1] "2015-12-14 00:10:47 EST" "2015-12-14 00:00:47 EST"
 ## 
 ## [[3]]
 ## [1] NA
 ## 
 ## [[4]]
-## [1] "2015-12-13 00:12:04 EST"
+## [1] "2015-12-14 00:12:04 EST"
 ## 
 ## [[5]]
-## [1] "2015-12-13 00:12:04 EST" "2015-12-13 00:01:22 EST"
+## [1] "2015-12-14 00:12:04 EST" "2015-12-14 00:01:22 EST"
 ```
 
 ### Remove Non-Words & N Character Words

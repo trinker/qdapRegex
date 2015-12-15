@@ -25,6 +25,8 @@ And constructed with the following guidelines:
 
 **NEW FEATURES**
 
+* `as_count` added to convert `ex_citation` into counts of citations.
+
 **MINOR FEATURES**
 
 * `ex_` added to compliment the `rm_` function.

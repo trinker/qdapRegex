@@ -47,6 +47,7 @@
 #' 
 #' rm_citation(x)
 #' ex_citation(x)
+#' as_count(ex_citation(x))
 #' rm_citation(x, replacement="[CITATION HERE]")
 #' \dontrun{
 #' qdapTools::vect2df(sort(table(unlist(rm_citation(x, extract=TRUE)))), 
@@ -76,6 +77,13 @@
 #'     unbag() %>%
 #'     ex_citation() %>%
 #'     c()
+#' 
+#' ## Counts
+#' parts[[1]] %>%
+#'     unbag() %>%
+#'     ex_citation() %>%
+#'     as_count()
+#'     
 #' 
 #' ## By line
 #' ex_citation(parts[[1]])
@@ -141,3 +149,83 @@ function (text.var, trim = !extract, clean = TRUE, pattern = "@rm_citation",
 #' @rdname rm_citation
 ex_citation <- hijack(rm_citation, extract=TRUE)
 
+#' Convert Extracted Citations to Count Dataframe
+#' 
+#' Counts of normalized citations ("et al." to  original author converted to author + year standarization).
+#' 
+#' @param x The output from \code{ex_citation}.
+#' @param \ldots ignored.
+#' @return Returns a \code{\link[base]{data.frame}} of Authors, Years, and n (counts).
+#' @rdname rm_citation
+#' @note This function is experimental.
+#' @export
+as_count <- function(x, ...){
+
+    x <- gsub("'s(\\s*\\()", " (", unlist(x))
+    x <- gsub("]", ")", gsub("[", "(", x, fixed=TRUE), fixed=TRUE)
+    x <- distribute(x)    
+
+    x <- gsub("\\s*\\(\\s*", ", ", gsub("(\\)|,)\\s*$", "", x))
+    y <- stats::setNames(
+        data.frame(
+            do.call(
+                rbind, 
+                strsplit(gsub("(\\s*,\\s*)([^,]+$)", "<<break>>\\2", x), "<<break>>")
+            ), 
+            stringsAsFactors = FALSE
+        ), 
+        c("citation", "year")
+    )
+    y[["citation"]] <- gsub("\\band\\b", "&", y[["citation"]])
+
+    locs1 <- grep("\\bet al\\.", y[["citation"]])
+    if (length(locs1) > 0){
+        locs2 <- grep(",[^,]+,", y[["citation"]])
+    
+        potentials <- tolower(trimws(gsub("(^[^,]+)(,.+$)", "\\1", y[["citation"]][locs2])))
+    
+        changes <- sapply(locs1, function(i){
+            etal <- tolower(trimws(gsub("\\bet al\\.\\b", "", y[["citation"]][i])))
+            which(potentials %in% etal & y[["year"]][locs2] %in% y[["year"]][i])[1]
+        })
+        y[["citation"]][locs1][!is.na(changes)] <- c(na.omit(y[["citation"]][locs2][changes]))
+    }
+
+    y[["n"]] <- 1
+    aggregate(y[["n"]], y[c("citation", "year")], sum)
+
+    y <- setNames(as.data.frame(aggregate(y[["n"]], y[c("citation", "year")], sum), stringsAsFactors = FALSE), c("Author", "Year", "n"))
+    y <- y[order(-y[["n"]], y[["Author"]], y[["Year"]]), ]
+    y
+}
+
+
+distribute <- function(x, unlist = TRUE){
+
+    locs <- grepl("^[^ \\(][^(]+\\(([^,]+,)+[^,]", x, perl=TRUE)
+    if (sum(locs) > 0){
+        x <- as.list(x)
+        x[locs] <- Map(function(x, y) {paste0(x, ", ", y)}, 
+            rm_round(x[locs]),
+            unlist(lapply(ex_round(x[locs]), strsplit, ",\\s*"), recursive=FALSE)
+        )
+    
+        if (unlist) x <- unlist(x)
+    }
+
+    regex <- "(((\\d{4}[a-z]{0,1})|(n\\.d\\.)|(in press)),\\s*)+((\\d{4}[a-z]{0,1})|(n\\.d\\.)|(in press))$"
+    locs <- grepl(regex, x, perl=TRUE)
+
+    if (sum(locs) > 0){
+        x <- as.list(x)
+        begin <- gsub(regex, "", x[locs], perl=TRUE)
+        x[locs] <- Map(function(x, y) {paste0(x, ", ", y)}, 
+            gsub(",\\s*$", "", begin),
+            unlist(lapply(trimws(gsub(begin, "", x[locs], fixed=TRUE)), strsplit, ",\\s*"), recursive=FALSE)
+        )
+    
+        if (unlist) x <- unlist(x)
+    }
+
+    x
+}
