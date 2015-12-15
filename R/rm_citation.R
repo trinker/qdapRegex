@@ -154,7 +154,6 @@ ex_citation <- hijack(rm_citation, extract=TRUE)
 #' Counts of normalized citations ("et al." to  original author converted to author + year standarization).
 #' 
 #' @param x The output from \code{ex_citation}.
-#' @param \ldots ignored.
 #' @return Returns a \code{\link[base]{data.frame}} of Authors, Years, and n (counts).
 #' @rdname rm_citation
 #' @note This function is experimental.

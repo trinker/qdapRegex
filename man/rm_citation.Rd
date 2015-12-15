@@ -42,8 +42,6 @@ if \code{pattern} begins with \code{"@rm_"}.}
 \item{x}{The output from \code{ex_citation}.}
 
 \item{\dots}{Ignored.}
-
-\item{\ldots}{ignored.}
 }
 \value{
 Returns a character string with citations removed.
