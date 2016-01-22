@@ -24,7 +24,7 @@
 #' @param ascii.out logical.  If \code{TRUE} output is given in non-ASCII format,
 #' otherwise \code{"byte"} is used.
 #' @param \dots ignored.
-#' @return Returns a character string with "all caps" removed.
+#' @return Returns a character string with "all non-ascii" removed.
 #' @keywords ascii unicode
 #' @section Warning: \code{\link[base]{iconv}} is used within \code{rm_non_ascii}.
 #' \code{\link[base]{iconv}}'s behavior across operating systems may not be 
@@ -47,6 +47,10 @@
 #' rm_non_ascii(x, replacement="<<FLAG>>")
 #' ex_non_ascii(x)
 #' ex_non_ascii(x, ascii.out=FALSE)
+#' 
+#' ## simple regex to remove non-ascii
+#' rm_default(x, pattern="[^ -~]")
+#' ex_default(x, pattern="[^ -~]")
 rm_non_ascii <- function (text.var, trim = !extract, clean = TRUE, 
     pattern = "@rm_non_ascii", replacement = "", extract = FALSE, 
     dictionary = getOption("regex.library"), ascii.out = TRUE,

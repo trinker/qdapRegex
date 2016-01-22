@@ -45,7 +45,7 @@ otherwise \code{"byte"} is used.}
 \item{\dots}{ignored.}
 }
 \value{
-Returns a character string with "all caps" removed.
+Returns a character string with "all non-ascii" removed.
 }
 \description{
 Remove/replace/extract non-ASCII substring from a string.  This is the template used by
@@ -65,6 +65,10 @@ rm_non_ascii(x)
 rm_non_ascii(x, replacement="<<FLAG>>")
 ex_non_ascii(x)
 ex_non_ascii(x, ascii.out=FALSE)
+
+## simple regex to remove non-ascii
+rm_default(x, pattern="[^ -~]")
+ex_default(x, pattern="[^ -~]")
 }
 \author{
 \href{http://stackoverflow.com}{stackoverflow}'s MrFlick, hwnd, and Tyler Rinker <tyler.rinker@gmail.com>.
