@@ -30,8 +30,6 @@
 #' \code{\link[base]{iconv}}'s behavior across operating systems may not be 
 #' consistent.
 #' @author \href{http://stackoverflow.com}{stackoverflow}'s MrFlick, hwnd, and Tyler Rinker <tyler.rinker@@gmail.com>. 
-#' @references The email regular expression was taken from: 
-#' \url{http://stackoverflow.com/a/25469131/1000343}
 #' @family rm_ functions
 #' @include utils.R
 #' @export
