@@ -28,7 +28,7 @@
 #' \code{\link[stringi]{stri_extract_all_regex}}
 #' @examples
 #' x <-  c("There is $5.50 for me.", "that's 45.6% of the pizza", 
-#'     "14% is $26 or $25.99")
+#'     "14% is $26 or $25.99", "Really?...$123,234.99 is not cheap.)
 #'
 #' rm_dollar(x)
 #' ex_dollar(x)
