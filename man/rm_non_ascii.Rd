@@ -71,15 +71,6 @@ ex_non_ascii(x, ascii.out=FALSE)
 rm_default(x, pattern="[^ -~]")
 ex_default(x, pattern="[^ -~]")
 }
-<<<<<<< HEAD
-\references{
-The email regular expression was taken from: 
-\url{http://stackoverflow.com/a/25469131/1000343}
-=======
-\author{
-\href{http://stackoverflow.com}{stackoverflow}'s MrFlick, hwnd, and Tyler Rinker <tyler.rinker@gmail.com>.
->>>>>>> 700839acbdc78df863a67b745793c07e5d36b777
-}
 \seealso{
 \code{\link[base]{gsub}},
 \code{\link[stringi]{stri_extract_all_regex}}
