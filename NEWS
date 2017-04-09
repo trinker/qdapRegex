@@ -18,8 +18,13 @@ And constructed with the following guidelines:
 
 
 
-qdapRegex 0.7.0
+qdapRegex 0.7.0 - 
 ----------------------------------------------------------------
+
+=======
+BUG FIXES
+
+* `rm_dollar`'s regex now allows for commas in the dollar portion.
 
 NEW FEATURES
 
@@ -29,12 +34,14 @@ MINOR FEATURES
 
 * `ex_` added to compliment the `rm_` function.
 
+IMPROVEMENTS
+
+* `grab` and functions that use `@rm_xxx` now work on `ex_xxx` as well.
+
 CHANGES
 
-* `explain` again prints the regular expression explanation to the command 
-  line.  This change is because http://rick.measham.id.au/paste/explain is back
-  online.  
-
+* `explain` is fully functional again as http://rick.measham.id.au/paste/explain
+  is again functioning.
 
 qdapRegex 0.6.0
 ----------------------------------------------------------------

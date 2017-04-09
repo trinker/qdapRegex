@@ -18,8 +18,13 @@ And constructed with the following guidelines:
 
 
 
- <a href="https://github.com/trinker/qdapRegex" target="_blank">qdapRegex</a> 0.7.0
+ <a href="https://github.com/trinker/qdapRegex" target="_blank">qdapRegex</a> 0.7.0 - 
 ----------------------------------------------------------------
+
+=======
+**BUG FIXES**
+
+* `rm_dollar`'s regex now allows for commas in the dollar portion.
 
 **NEW FEATURES**
 
@@ -29,12 +34,14 @@ And constructed with the following guidelines:
 
 * `ex_` added to compliment the `rm_` function.
 
+**IMPROVEMENTS**
+
+* `grab` and functions that use `@rm_xxx` now work on `ex_xxx` as well.
+
 **CHANGES**
 
-* `explain` again prints the regular expression explanation to the command 
-  line.  This change is because <a href="http://rick.measham.id.au/paste/explain" target="_blank">http://rick.measham.id.au/paste/explain</a> is back
-  online.  
-
+* `explain` is fully functional again as <a href="http://rick.measham.id.au/paste/explain" target="_blank">http://rick.measham.id.au/paste/explain</a>
+  is again functioning.
 
  <a href="https://github.com/trinker/qdapRegex" target="_blank">qdapRegex</a> 0.6.0
 ----------------------------------------------------------------

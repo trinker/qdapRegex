@@ -44,8 +44,9 @@ function (pattern, replacement, text.var, fixed = TRUE, trim = TRUE,
 reg_check <- function(pattern, dictionary, backup = qdapRegex::regex_usa,
     backup2 = qdapRegex::regex_supplement) {
 
-	if(inherits(pattern, "escape")) return(pattern)
-	
+    if(inherits(pattern, "escape")) return(pattern)
+
+    pattern <- gsub("^@ex_", "@rm_", pattern)	
     if (substring(pattern, 1, 4) == "@rm_") {
     	  if (is.null(dictionary)) dictionary <- backup
         reglook <- dictionary[[substring(pattern, 2)]]
@@ -64,7 +65,8 @@ reg_check_sprintf <- function(pattern, dictionary, n,
     backup = qdapRegex::regex_usa) {
 
     if (is.null(dictionary)) dictionary <- backup
-	
+
+    pattern <- gsub("^@ex_", "@rm_", pattern)	
     if (substring(pattern, 1, 4) == "@rm_") {
         reglook <- dictionary[[substring(pattern, 2)]]
         if (!is.null(reglook)) {
@@ -82,6 +84,7 @@ reg_check_sprintf2 <- function(pattern, dictionary, ...,
 
     if (is.null(dictionary)) dictionary <- backup
 	
+    pattern <- gsub("^@ex_", "@rm_", pattern)
     if (substring(pattern, 1, 4) == "@rm_") {
         reglook <- dictionary[[substring(pattern, 2)]]
         if (!is.null(reglook)) {

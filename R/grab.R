@@ -25,6 +25,7 @@
 #' }
 grab <- function (pattern, dictionary = getOption("regex.library")) {
 
+    pattern <- gsub("^@?ex_", "rm_", pattern)
     if (substring(pattern, 1, 1) != "@") pattern <- paste0("@", pattern)
 
     out <- reg_check(pattern, dictionary = dictionary)
