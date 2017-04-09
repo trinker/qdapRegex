@@ -27,4 +27,3 @@ cheat()
 \seealso{
 \code{\link[qdapRegex]{regex_cheat}}
 }
-

@@ -38,4 +38,3 @@ cat(grab("@pages2"), file="clipboard")
 }
 \keyword{get}
 \keyword{grab}
-

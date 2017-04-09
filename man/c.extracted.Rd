@@ -14,4 +14,3 @@
 \description{
 Combines a extracted object
 }
-

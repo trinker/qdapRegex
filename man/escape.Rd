@@ -35,4 +35,3 @@ rm_default(x, pattern = escape("@rm_caps"))
 }
 \keyword{escape}
 \keyword{noparse}
-

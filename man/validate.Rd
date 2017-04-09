@@ -38,6 +38,7 @@ expressions.  As this patterns are used for text analysis they tend to be
 flexible and thus liberal.  The user may wish to define more conservative 
 validation regular expressions and supply to \code{pattern}.
 }
+
 \examples{
 ## Single element email
 valid_email <- validate("@rm_email")
@@ -60,4 +61,3 @@ valid_address2("buffalo, NY 14217")
 valid_address2("buffalo,NY14217")
 valid_address2("buffalo NY 14217")    
 }
-

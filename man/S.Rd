@@ -28,4 +28,3 @@ S("@rm_between", "LEFT", "RIGHT")
 \seealso{
 \code{\link[base]{sprintf}}
 }
-

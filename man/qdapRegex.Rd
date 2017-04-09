@@ -2,8 +2,8 @@
 % Please edit documentation in R/qdapRegex-package.R
 \docType{package}
 \name{qdapRegex}
-\alias{package-qdapRegex}
 \alias{qdapRegex}
+\alias{package-qdapRegex}
 \alias{qdapRegex-package}
 \title{qdapRegex: Regular Expression Removal, Extraction, & Replacement Tools for the \pkg{qdap} Package}
 \description{
@@ -23,4 +23,3 @@ that can be used within \pkg{qdapRegex}, with \pkg{R}'s own regular
 expression functions, or add on string manipulation packages such as 
 \code{stringr} and \code{stringi}.
 }
-

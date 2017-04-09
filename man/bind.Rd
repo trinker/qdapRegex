@@ -47,4 +47,3 @@ gsub(pastex(list(bind(Fry25))), "[[ELIM]]", x)
 \seealso{
 \code{\link[base]{paste0}}
 }
-

@@ -49,9 +49,6 @@ explain("\\\\s*foo[A-Z]\\\\d{2,3}")
 explain("@rm_time")
 }
 }
-\author{
-Ananda Mahto, Matthew Flickinger, and Tyler Rinker <tyler.rinker@gmail.com>.
-}
 \references{
 \url{http://stackoverflow.com/a/27489977/1000343} \cr
 \url{http://www.regexper.com} \cr
@@ -60,6 +57,8 @@ Ananda Mahto, Matthew Flickinger, and Tyler Rinker <tyler.rinker@gmail.com>.
 \seealso{
 \url{http://www.regexper.com}
 }
+\author{
+Ananda Mahto, Matthew Flickinger, and Tyler Rinker <tyler.rinker@gmail.com>.
+}
 \keyword{explain}
 \keyword{regex}
-

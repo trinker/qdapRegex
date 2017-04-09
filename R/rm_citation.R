@@ -187,13 +187,13 @@ as_count <- function(x, ...){
             etal <- tolower(trimws(gsub("\\bet al\\.\\b", "", y[["citation"]][i])))
             which(potentials %in% etal & y[["year"]][locs2] %in% y[["year"]][i])[1]
         })
-        y[["citation"]][locs1][!is.na(changes)] <- c(na.omit(y[["citation"]][locs2][changes]))
+        y[["citation"]][locs1][!is.na(changes)] <- c(stats::na.omit(y[["citation"]][locs2][changes]))
     }
 
     y[["n"]] <- 1
-    aggregate(y[["n"]], y[c("citation", "year")], sum)
+    stats::aggregate(y[["n"]], y[c("citation", "year")], sum)
 
-    y <- setNames(as.data.frame(aggregate(y[["n"]], y[c("citation", "year")], sum), stringsAsFactors = FALSE), c("Author", "Year", "n"))
+    y <- stats::setNames(as.data.frame(stats::aggregate(y[["n"]], y[c("citation", "year")], sum), stringsAsFactors = FALSE), c("Author", "Year", "n"))
     y <- y[order(-y[["n"]], y[["Author"]], y[["Year"]]), ]
     y
 }

@@ -21,8 +21,6 @@ And constructed with the following guidelines:
  <a href="https://github.com/trinker/qdapRegex" target="_blank">qdapRegex</a> 0.7.0
 ----------------------------------------------------------------
 
-**BUG FIXES**
-
 **NEW FEATURES**
 
 * `as_count` added to convert `ex_citation` into counts of citations.
@@ -31,9 +29,11 @@ And constructed with the following guidelines:
 
 * `ex_` added to compliment the `rm_` function.
 
-**IMPROVEMENTS**
-
 **CHANGES**
+
+* `explain` again prints the regular expression explanation to the command 
+  line.  This change is because <a href="http://rick.measham.id.au/paste/explain" target="_blank">http://rick.measham.id.au/paste/explain</a> is back
+  online.  
 
 
  <a href="https://github.com/trinker/qdapRegex" target="_blank">qdapRegex</a> 0.6.0

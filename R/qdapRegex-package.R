@@ -147,7 +147,7 @@ NULL
 #'   \item{word_boundary}{A true word boundary that only includes alphabetic characters; based on \url{www.rexegg.com}'s suggestion taken from \href{http://www.rexegg.com/regex-boundaries.html#real-word-boundary}{discussion of true word boundaries}; note contains \code{"\%s"} that is replaced by \code{\link[base]{sprintf}} and is not a valid regex on its own}
 #'   \item{word_boundary_left}{A true left word boundary that only includes alphabetic characters; based on \url{www.rexegg.com}'s suggestion taken from \href{http://www.rexegg.com/regex-boundaries.html#real-word-boundary}{discussion of true word boundaries}}
 #'   \item{word_boundary_right}{A true right word boundary that only includes alphabetic characters; based on \url{www.rexegg.com}'s suggestion taken from \href{http://www.rexegg.com/regex-boundaries.html#real-word-boundary}{discussion of true word boundaries}}	
-#'   \item{youtube_id}{substring of the video id from a \href{https://www.youtube.com}{YouTube} video; taken from Jacob Overgaard's submission found \url{http://regex101.com/r/kU7bP8/1}}
+#'   \item{youtube_id}{substring of the video id from a \href{https://www.youtube.com}{YouTube} video; taken from Jacob Overgaard's submission found https://regex101.com/r/kU7bP8/1}
 #' } 
 #' 
 #' Regexes from this data set can be added to the \code{pattern} argument of any 

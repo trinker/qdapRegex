@@ -49,10 +49,6 @@ if (!require("pacman")) install.packages("pacman")
 pacman::p_load_gh("trinker/qdapRegex")
 ```
 
-## Help
-
-- [Web Page](http://trinker.github.com/qdapRegex/)     
-- [Package PDF Help Manual](https://dl.dropboxusercontent.com/u/61803503/qdapRegex.pdf)   
 
 ## Contact
 

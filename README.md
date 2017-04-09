@@ -43,10 +43,6 @@ if (!require("pacman")) install.packages("pacman")
 pacman::p_load_gh("trinker/qdapRegex")
 ```
 
-## Help
-
-- [Web Page](http://trinker.github.com/qdapRegex/)     
-- [Package PDF Help Manual](https://dl.dropboxusercontent.com/u/61803503/qdapRegex.pdf)   
 
 ## Contact
 
@@ -371,19 +367,19 @@ as_time(ex_time(x), as.POSIXlt = TRUE)
 
 ```
 ## [[1]]
-## [1] "2015-12-14 00:03:04 EST"
+## [1] "2017-04-09 00:03:04 EDT"
 ## 
 ## [[2]]
-## [1] "2015-12-14 00:10:47 EST" "2015-12-14 00:00:47 EST"
+## [1] "2017-04-09 00:10:47 EDT" "2017-04-09 00:00:47 EDT"
 ## 
 ## [[3]]
 ## [1] NA
 ## 
 ## [[4]]
-## [1] "2015-12-14 00:12:04 EST"
+## [1] "2017-04-09 00:12:04 EDT"
 ## 
 ## [[5]]
-## [1] "2015-12-14 00:12:04 EST" "2015-12-14 00:01:22 EST"
+## [1] "2017-04-09 00:12:04 EDT" "2017-04-09 00:01:22 EDT"
 ```
 
 ### Remove Non-Words & N Character Words

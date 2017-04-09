@@ -75,5 +75,5 @@ The following canned regular expressions are included:
 regular expressions in \code{regex_usa}.  This will provide a browser + console
 based break down of each regex in the dictionary.
 }
-\keyword{datasets}
 
+\keyword{datasets}

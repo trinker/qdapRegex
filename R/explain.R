@@ -70,41 +70,40 @@ explain <- function(pattern, open = FALSE, print = TRUE,
 ##   IT MAY BE READDED IF THE WEBSITE BEGINS WORKING AGAIN OR IF A SUITABLE 
 ##   REPLACEMENT ID FOUND.
 ## 
-#    URL2 <- paste0("http://rick.measham.id.au/paste/explain.pl?regex=",
-#        utils::URLencode(pattern))
+    URL2 <- paste0("http://rick.measham.id.au/paste/explain.pl?regex=",
+        utils::URLencode(pattern))
 
-#    ## replace invalid characters
-#    chars <- c(";", "+", "&")
-#    reps <- c("%3B", "%2B", "%26")
+    ## replace invalid characters
+    chars <- c(";", "+", "&")
+    reps <- c("%3B", "%2B", "%26")
 
-#    for (i in seq_along(reps)){
-#        URL2 <- gsub(chars[i], reps[i], URL2, fixed=TRUE)
-#    }
+    for (i in seq_along(reps)){
+        URL2 <- gsub(chars[i], reps[i], URL2, fixed=TRUE)
+    }
 
-#    lns <- readLines(URL2)
-#    lns <- gsub("&quot;", "\"", lns[grep("NODE", lns):(length(lns) - 2)], fixed=TRUE)
-#    lns <- gsub("&gt;", ">", gsub("&lt;", "<", lns, fixed=TRUE), fixed=TRUE)
-#    lns <- gsub("\\", "\\\\", lns, fixed=TRUE)
-#    lets <- c("n", "r", "t", "f", "a")
-#    for (i in seq_len(length(lets))){
-#        lns <- gsub(paste0("\\\\", lets[i]), paste0("\\", lets[i]), lns, fixed=TRUE)
-#    }
-#    lns[length(lns)] <- gsub("</pre>$", "", lns[length(lns)])
-     lns <- URL   # added 8-16-15; remove later if rick.measham goes back online
-     class(lns) <- c("explain", class(lns))
-     attributes(lns)[["www.regexper.com"]] <- URL
-#    attributes(lns)[["http://rick.measham.id.au/paste/explain"]] <- URL2
-     attributes(lns)[["print"]] <- print
+    lns <- readLines(URL2)
+    lns <- gsub("&quot;", "\"", lns[grep("NODE", lns):(length(lns) - 2)], fixed=TRUE)
+    lns <- gsub("&gt;", ">", gsub("&lt;", "<", lns, fixed=TRUE), fixed=TRUE)
+    lns <- gsub("\\", "\\\\", lns, fixed=TRUE)
+    lets <- c("n", "r", "t", "f", "a")
+    for (i in seq_len(length(lets))){
+        lns <- gsub(paste0("\\\\", lets[i]), paste0("\\", lets[i]), lns, fixed=TRUE)
+    }
+    lns[length(lns)] <- gsub("</pre>$", "", lns[length(lns)])
+#     lns <- URL   # added 8-16-15; remove later if rick.measham goes back online
+    class(lns) <- c("explain", class(lns))
+    attributes(lns)[["www.regexper.com"]] <- URL
+    attributes(lns)[["http://rick.measham.id.au/paste/explain"]] <- URL2
+    attributes(lns)[["print"]] <- print
      
-    message("The `http://rick.measham.id.au/paste/explain` text explanation no longer", 
-        "\nprints to the command line.  The website no longer works.\n\n",
-        "The text explanation functionality will return if the website becomes",
-        "\noperational again or if a suitable substitute can be found."
-    )
+#    message("The `http://rick.measham.id.au/paste/explain` text explanation no longer", 
+#        "\nprints to the command line.  The website no longer works.\n\n",
+#        "The text explanation functionality will return if the website becomes",
+#        "\noperational again or if a suitable substitute can be found."
+#    )
      
     lns
 }
-
 
 #' Prints a explain object
 #' 

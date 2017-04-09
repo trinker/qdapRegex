@@ -39,4 +39,3 @@ pastex(grouped)
 }
 \keyword{group}
 \keyword{regex}
-

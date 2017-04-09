@@ -31,4 +31,3 @@ sapply(regex_supplement, is.regex) ## `version` is not a valid regex
 }
 \keyword{regex,}
 \keyword{valid}
-

@@ -26,4 +26,3 @@ group_or("@rm_hash", "@rm_tag")
 group_or("them", "those", "that", "these")
 group_or("them", "those", "that", "these", group.all = FALSE)
 }
-
