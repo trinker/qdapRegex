@@ -18,10 +18,9 @@ And constructed with the following guidelines:
 
 
 
-qdapRegex 0.7.0 - 
+qdapRegex 0.7.0 - 0.7.2
 ----------------------------------------------------------------
 
-=======
 BUG FIXES
 
 * `rm_dollar`'s regex now allows for commas in the dollar portion.
@@ -42,6 +41,8 @@ CHANGES
 
 * `explain` is fully functional again as http://rick.measham.id.au/paste/explain
   is again functioning.
+
+
 
 qdapRegex 0.6.0
 ----------------------------------------------------------------

@@ -6,14 +6,16 @@
 [![Build Status](https://travis-ci.org/trinker/qdapRegex.svg?branch=master)](https://travis-ci.org/trinker/qdapRegex)
 [![Coverage Status](https://coveralls.io/repos/trinker/qdapRegex/badge.svg)](https://coveralls.io/r/trinker/qdapRegex)
 [![DOI](https://zenodo.org/badge/5398/trinker/qdapRegex.svg)](http://dx.doi.org/10.5281/zenodo.11284)
-<a href="https://img.shields.io/badge/Version-0.7.1-orange.svg"><img src="https://img.shields.io/badge/Version-0.7.1-orange.svg" alt="Version"/></a></p>
+<a href="https://img.shields.io/badge/Version-0.7.2-orange.svg"><img src="https://img.shields.io/badge/Version-0.7.2-orange.svg" alt="Version"/></a></p>
 
-<img src="inst/qdapRegex_logo/r_qdapRegex.png" width="320" alt="qdapRegex Logo">      
+  
+![](tools/qdapRegex_logo/r_qdapRegex.png)
+
 [qdapRegex](http://trinker.github.com/qdapRegex_dev) is a collection of regular expression tools associated with the **qdap** package that may be useful outside of the context of discourse analysis.  Tools include removal/extraction/replacement of abbreviations, dates, dollar amounts, email addresses, hash tags, numbers, percentages, citations, person tags, phone numbers, times, and zip codes.  Functions that remove/replace are prefixed with `rm_`.  Each of these functions has an extraction counterpart prefixed with `ex_`.
 
 
 
-The **qdapRegex** package does not aim to compete with string manipulation packages such as [**stringr**](http://cran.r-project.org/package=stringr) or [**stringi**](http://cran.r-project.org/package=stringi) but is meant to provide access to canned, common regular expression patterns that can be used within **qdapRegex**, with **R**'s own regular expression functions, or add on string manipulation packages such as **stringr** and **stringi**.
+The **qdapRegex** package does not aim to compete with string manipulation packages such as [**stringr**](https://CRAN.R-project.org/package=stringr) or [**stringi**](https://CRAN.R-project.org/package=stringi) but is meant to provide access to canned, common regular expression patterns that can be used within **qdapRegex**, with **R**'s own regular expression functions, or add on string manipulation packages such as **stringr** and **stringi**.
 
 The functions in **qdapRegex** work on a dictionary system.  The current implementation defaults to a United States flavor of canned regular expressions.  Users may submit proposed region specific regular expression dictionaries that contain the same fields as the [`regex_usa`](http://trinker.github.io/qdapRegex/regex_usa.html) data set or improvements to regular expressions in current dictionaries. Please submit proposed regional regular expression dictionaries via: https://github.com/trinker/qdapRegex/issues
 

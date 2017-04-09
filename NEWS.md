@@ -18,10 +18,9 @@ And constructed with the following guidelines:
 
 
 
- <a href="https://github.com/trinker/qdapRegex" target="_blank">qdapRegex</a> 0.7.0 - 
+ <a href="https://github.com/trinker/qdapRegex" target="_blank">qdapRegex</a> 0.7.0 - 0.7.2
 ----------------------------------------------------------------
 
-=======
 **BUG FIXES**
 
 * `rm_dollar`'s regex now allows for commas in the dollar portion.
@@ -42,6 +41,8 @@ And constructed with the following guidelines:
 
 * `explain` is fully functional again as <a href="http://rick.measham.id.au/paste/explain" target="_blank">http://rick.measham.id.au/paste/explain</a>
   is again functioning.
+
+
 
  <a href="https://github.com/trinker/qdapRegex" target="_blank">qdapRegex</a> 0.6.0
 ----------------------------------------------------------------
