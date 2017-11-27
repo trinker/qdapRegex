@@ -82,11 +82,35 @@ ex_citation(w)
 ```
 
 ```
-## Warning in getExportedValue(pkg, name): internal error -3 in R_decompress1
-```
-
-```
-## Error in getExportedValue(pkg, name): lazy-load database 'C:/R/R-3.3.3/library/qdapRegex/data/Rdata.rdb' is corrupt
+## [[1]]
+## [1] "V. Raptor, 1986" "Foo, 2012"      
+## 
+## [[2]]
+## [1] "Rinker, 2014"
+## 
+## [[3]]
+## [1] "The R Core Team (2014)"
+## 
+## [[4]]
+## [1] "Bunn (2005)"
+## 
+## [[5]]
+## [1] "Baer, 2005"
+## 
+## [[6]]
+## [1] "Wickham's (in press)"
+## 
+## [[7]]
+## [1] "Rinker's (n.d.)"
+## 
+## [[8]]
+## [1] "Foo, 2012" "Bar, 2014"
+## 
+## [[9]]
+## [1] "Uwe Ligges (2007)"
+## 
+## [[10]]
+## [1] "Bar, 2014"        "Bar (2014, 2012)"
 ```
 
 ```r
@@ -94,14 +118,18 @@ as_count(ex_citation(w))
 ```
 
 ```
-## Warning in getExportedValue(pkg, name): restarting interrupted promise
-## evaluation
-
-## Warning in getExportedValue(pkg, name): internal error -3 in R_decompress1
-```
-
-```
-## Error in getExportedValue(pkg, name): lazy-load database 'C:/R/R-3.3.3/library/qdapRegex/data/Rdata.rdb' is corrupt
+##             Author     Year n
+## 7              Bar     2014 3
+## 6              Foo     2012 2
+## 2             Baer     2005 1
+## 5              Bar     2012 1
+## 3             Bunn     2005 1
+## 8           Rinker     2014 1
+## 11          Rinker     n.d. 1
+## 9  The R Core Team     2014 1
+## 4       Uwe Ligges     2007 1
+## 1        V. Raptor     1986 1
+## 10         Wickham in press 1
 ```
 
 ### Extract Twitter Hash Tags, Name Tags, & URLs
@@ -119,16 +147,14 @@ ex_hash(x)
 ```
 
 ```
-## Warning in getExportedValue(pkg, name): restarting interrupted promise
-## evaluation
-```
-
-```
-## Warning in getExportedValue(pkg, name): internal error -3 in R_decompress1
-```
-
-```
-## Error in getExportedValue(pkg, name): lazy-load database 'C:/R/R-3.3.3/library/qdapRegex/data/Rdata.rdb' is corrupt
+## [[1]]
+## [1] "#rstats"  "#ggplot2"
+## 
+## [[2]]
+## [1] "#magrittr" "#pipeR"    "#rstats"  
+## 
+## [[3]]
+## [1] "#user2014"
 ```
 
 ```r
@@ -136,14 +162,14 @@ ex_tag(x)
 ```
 
 ```
-## Warning in getExportedValue(pkg, name): restarting interrupted promise
-## evaluation
-
-## Warning in getExportedValue(pkg, name): internal error -3 in R_decompress1
-```
-
-```
-## Error in getExportedValue(pkg, name): lazy-load database 'C:/R/R-3.3.3/library/qdapRegex/data/Rdata.rdb' is corrupt
+## [[1]]
+## [1] "@hadley"
+## 
+## [[2]]
+## [1] "@timelyportfolio"
+## 
+## [[3]]
+## [1] "@ramnath_vaidya"
 ```
 
 ```r
@@ -151,14 +177,14 @@ ex_url(x)
 ```
 
 ```
-## Warning in getExportedValue(pkg, name): restarting interrupted promise
-## evaluation
-
-## Warning in getExportedValue(pkg, name): internal error -3 in R_decompress1
-```
-
-```
-## Error in getExportedValue(pkg, name): lazy-load database 'C:/R/R-3.3.3/library/qdapRegex/data/Rdata.rdb' is corrupt
+## [[1]]
+## [1] NA
+## 
+## [[2]]
+## [1] "http://renkun.me/r/2014/07/26/difference-between-magrittr-and-pipeR.html"
+## 
+## [[3]]
+## [1] "http://ramnathv.github.io/user2014-rcharts/#1"
 ```
 
 ### Extract Bracketed Text
@@ -173,16 +199,17 @@ ex_bracket(y)
 ```
 
 ```
-## Warning in getExportedValue(pkg, name): restarting interrupted promise
-## evaluation
-```
-
-```
-## Warning in getExportedValue(pkg, name): internal error -3 in R_decompress1
-```
-
-```
-## Error in getExportedValue(pkg, name): lazy-load database 'C:/R/R-3.3.3/library/qdapRegex/data/Rdata.rdb' is corrupt
+## [[1]]
+## [1] "unintelligible"
+## 
+## [[2]]
+## [1] "laughter"     "interrupting"
+## 
+## [[3]]
+## [1] "reading"
+## 
+## [[4]]
+## [1] "is so much fun"
 ```
 
 ```r
@@ -190,14 +217,17 @@ ex_curly(y)
 ```
 
 ```
-## Warning in getExportedValue(pkg, name): restarting interrupted promise
-## evaluation
-
-## Warning in getExportedValue(pkg, name): internal error -3 in R_decompress1
-```
-
-```
-## Error in getExportedValue(pkg, name): lazy-load database 'C:/R/R-3.3.3/library/qdapRegex/data/Rdata.rdb' is corrupt
+## [[1]]
+## [1] NA
+## 
+## [[2]]
+## [1] NA
+## 
+## [[3]]
+## [1] "reading"
+## 
+## [[4]]
+## [1] "is so much fun"
 ```
 
 ```r
@@ -205,14 +235,17 @@ ex_round(y)
 ```
 
 ```
-## Warning in getExportedValue(pkg, name): restarting interrupted promise
-## evaluation
-
-## Warning in getExportedValue(pkg, name): internal error -3 in R_decompress1
-```
-
-```
-## Error in getExportedValue(pkg, name): lazy-load database 'C:/R/R-3.3.3/library/qdapRegex/data/Rdata.rdb' is corrupt
+## [[1]]
+## [1] NA
+## 
+## [[2]]
+## [1] "laughter"
+## 
+## [[3]]
+## [1] NA
+## 
+## [[4]]
+## [1] NA
 ```
 
 ```r
@@ -220,14 +253,17 @@ ex_square(y)
 ```
 
 ```
-## Warning in getExportedValue(pkg, name): restarting interrupted promise
-## evaluation
-
-## Warning in getExportedValue(pkg, name): internal error -3 in R_decompress1
-```
-
-```
-## Error in getExportedValue(pkg, name): lazy-load database 'C:/R/R-3.3.3/library/qdapRegex/data/Rdata.rdb' is corrupt
+## [[1]]
+## [1] "unintelligible"
+## 
+## [[2]]
+## [1] "interrupting"
+## 
+## [[3]]
+## [1] NA
+## 
+## [[4]]
+## [1] NA
 ```
 
 ### Extract Numbers
@@ -241,16 +277,8 @@ rm_number(z)
 ```
 
 ```
-## Warning in getExportedValue(pkg, name): restarting interrupted promise
-## evaluation
-```
-
-```
-## Warning in getExportedValue(pkg, name): internal error -3 in R_decompress1
-```
-
-```
-## Error in getExportedValue(pkg, name): lazy-load database 'C:/R/R-3.3.3/library/qdapRegex/data/Rdata.rdb' is corrupt
+## [1] "is an integer. and are not." "is a lot more than"         
+## [3] "hello world -.q"
 ```
 
 ```r
@@ -258,14 +286,14 @@ ex_number(z)
 ```
 
 ```
-## Warning in getExportedValue(pkg, name): restarting interrupted promise
-## evaluation
-
-## Warning in getExportedValue(pkg, name): internal error -3 in R_decompress1
-```
-
-```
-## Error in getExportedValue(pkg, name): lazy-load database 'C:/R/R-3.3.3/library/qdapRegex/data/Rdata.rdb' is corrupt
+## [[1]]
+## [1] "-2"   "-4.3" "3.33"
+## 
+## [[2]]
+## [1] "123,456" "-.2"    
+## 
+## [[3]]
+## [1] NA
 ```
 
 ```r
@@ -273,14 +301,14 @@ as_numeric(ex_number(z))
 ```
 
 ```
-## Warning in getExportedValue(pkg, name): restarting interrupted promise
-## evaluation
-
-## Warning in getExportedValue(pkg, name): internal error -3 in R_decompress1
-```
-
-```
-## Error in getExportedValue(pkg, name): lazy-load database 'C:/R/R-3.3.3/library/qdapRegex/data/Rdata.rdb' is corrupt
+## [[1]]
+## [1] -2.00 -4.30  3.33
+## 
+## [[2]]
+## [1] 123456.0     -0.2
+## 
+## [[3]]
+## [1] NA
 ```
 
 ### Extract Times
@@ -298,16 +326,20 @@ ex_time(x)
 ```
 
 ```
-## Warning in getExportedValue(pkg, name): restarting interrupted promise
-## evaluation
-```
-
-```
-## Warning in getExportedValue(pkg, name): internal error -3 in R_decompress1
-```
-
-```
-## Error in getExportedValue(pkg, name): lazy-load database 'C:/R/R-3.3.3/library/qdapRegex/data/Rdata.rdb' is corrupt
+## [[1]]
+## [1] "3:04"
+## 
+## [[2]]
+## [1] "10:47" "0:47" 
+## 
+## [[3]]
+## [1] NA
+## 
+## [[4]]
+## [1] "12:04"
+## 
+## [[5]]
+## [1] "12:04" "1:22"
 ```
 
 ```r
@@ -315,14 +347,20 @@ as_time(ex_time(x))
 ```
 
 ```
-## Warning in getExportedValue(pkg, name): restarting interrupted promise
-## evaluation
-
-## Warning in getExportedValue(pkg, name): internal error -3 in R_decompress1
-```
-
-```
-## Error in getExportedValue(pkg, name): lazy-load database 'C:/R/R-3.3.3/library/qdapRegex/data/Rdata.rdb' is corrupt
+## [[1]]
+## [1] "00:03:04.0"
+## 
+## [[2]]
+## [1] "00:10:47.0" "00:00:47.0"
+## 
+## [[3]]
+## [1] NA
+## 
+## [[4]]
+## [1] "00:12:04.0"
+## 
+## [[5]]
+## [1] "00:12:04.0" "00:01:22.0"
 ```
 
 ```r
@@ -330,14 +368,20 @@ as_time(ex_time(x), as.POSIXlt = TRUE)
 ```
 
 ```
-## Warning in getExportedValue(pkg, name): restarting interrupted promise
-## evaluation
-
-## Warning in getExportedValue(pkg, name): internal error -3 in R_decompress1
-```
-
-```
-## Error in getExportedValue(pkg, name): lazy-load database 'C:/R/R-3.3.3/library/qdapRegex/data/Rdata.rdb' is corrupt
+## [[1]]
+## [1] "2017-11-27 00:03:04 EST"
+## 
+## [[2]]
+## [1] "2017-11-27 00:10:47 EST" "2017-11-27 00:00:47 EST"
+## 
+## [[3]]
+## [1] NA
+## 
+## [[4]]
+## [1] "2017-11-27 00:12:04 EST"
+## 
+## [[5]]
+## [1] "2017-11-27 00:12:04 EST" "2017-11-27 00:01:22 EST"
 ```
 
 ### Remove Non-Words & N Character Words
@@ -358,16 +402,13 @@ rm_non_words(x)
 ```
 
 ```
-## Warning in getExportedValue(pkg, name): restarting interrupted promise
-## evaluation
-```
-
-```
-## Warning in getExportedValue(pkg, name): internal error -3 in R_decompress1
-```
-
-```
-## Error in getExportedValue(pkg, name): lazy-load database 'C:/R/R-3.3.3/library/qdapRegex/data/Rdata.rdb' is corrupt
+## [1] "I like dogs"                                 
+## [2] "It's seventy two feet from the px"           
+## [3] NA                                            
+## [4] "What"                                        
+## [5] "that is a way to go"                         
+## [6] "What do you want For real I think you'll see"
+## [7] "Oh some html code html to remove"
 ```
 
 ```r
@@ -375,12 +416,11 @@ rm_nchar_words(rm_non_words(x), "1,2")
 ```
 
 ```
-## Warning in getExportedValue(pkg, name): restarting interrupted promise
-## evaluation
-
-## Warning in getExportedValue(pkg, name): internal error -3 in R_decompress1
-```
-
-```
-## Error in getExportedValue(pkg, name): lazy-load database 'C:/R/R-3.3.3/library/qdapRegex/data/Rdata.rdb' is corrupt
+## [1] "like dogs"                              
+## [2] "It's seventy two feet from the"         
+## [3] NA                                       
+## [4] "What"                                   
+## [5] "that way"                               
+## [6] "What you want For real think you'll see"
+## [7] "some html code html remove"
 ```
