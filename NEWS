@@ -23,14 +23,27 @@ qdapRegex 0.7.3 -
 
 BUG FIXES
 
+* `rm_email` did not handle capital letters.  Thanks to @dswpg for spotting this.
+  https://github.com/trinker/qdapRegex/issues/30  
+
+
 NEW FEATURES
 
 MINOR FEATURES
 
 IMPROVEMENTS
 
+* Added non-ASCII handling of `rm_nchar_words`.  Thanks to Steve Solun for the 
+  suggested fix. https://github.com/trinker/qdapRegex/issues/29 
+
+
 CHANGES
 
+* `explain` no longer prints the regular expression explanation to the command 
+  line.  Instead the link to http://www.regexper.com is printed.  This change
+  is because http://rick.measham.id.au/paste/explain no longer appears to be 
+  working.  The text explanation functionality will return if the website 
+  becomes operational again or if a suitable substitute can be found.
 
 
 qdapRegex 0.7.0 - 0.7.2
