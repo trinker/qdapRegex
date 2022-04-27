@@ -97,13 +97,39 @@ rm_between <- function(text.var, left, right, fixed = TRUE, trim = TRUE,
         left, right)
 
     pattern <- paste(pattern, collapse="|")
-
+# browser()
     if (extract) {
-        if(left %in% c("'", '"') && right %in% c("'", '"') ){
-    	    if (!trim) {
-                return(ext(rm_between_quote(text.var, left)))
-        	}
-    	    return(ext(lapply(rm_between_quote(text.var, left), Trim)))        
+        
+        quotelocs <- left %in% c("'", '"') & right %in% c("'", '"')
+        
+        if (any(quotelocs)){
+         
+            out <- Map(function(ql, l, r){
+                    if (ql) {
+                        
+                	    if (!trim) {
+                            return(rm_between_quote(text.var, left)[[1]])
+                    	}
+                	    return(lapply(rm_between_quote(text.var, left), Trim)[[1]]) 
+                        
+                    } else {
+                        
+                    	if (!trim) {
+                            return(stringi::stri_extract_all_regex(text.var, pattern)[[1]])
+                    	}
+                    	return(lapply(stringi::stri_extract_all_regex(text.var, pattern), Trim)[[1]]) 
+                        
+                    }
+                },
+                ql = quotelocs, l=left, r=right
+            )
+            # 
+            # if (length(left) == 1){
+            #     out <- out[[1]]
+            # }
+            
+            return(ext(out))
+            
         }
     	if (!trim) {
             return(ext(stringi::stri_extract_all_regex(text.var, pattern)))

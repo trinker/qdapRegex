@@ -4,7 +4,9 @@
 \name{regex_supplement}
 \alias{regex_supplement}
 \title{Supplemental Canned Regular Expressions}
-\format{A list with 24 elements}
+\format{
+A list with 24 elements
+}
 \usage{
 data(regex_supplement)
 }
@@ -61,4 +63,131 @@ provide a browser + console based break down of each regex in the dictionary.
 parameters.
 }
 
+\examples{
+time <- rm_(pattern="@time_12_hours")
+time("I will go at 12:35 pm")
+
+x <- "v6.0.156 for Windows 2000/2003/XP/Vista
+Server version 1.1.20
+Client Manager version 1.1.24"
+
+rm_default(x, pattern = "@version", extract=TRUE)
+rm_default(x, pattern = "@version2", extract=TRUE)
+
+x <- "this is 1000000 big 4356.  And little 123 number."
+rm_default(x, pattern="@thousands_separator", replacement="\\\\1,")
+rm_default(x, pattern="@thousands_separator", replacement="\\\\1.")
+
+rm_default("I was,but it costs 10,000.", pattern="@white_after_comma", 
+    replacement=", ")
+
+x <- "I like; the donuts; a lot"
+strsplit(x, ";")
+strsplit(x, S(grab("split_keep_delim"), ";"), perl=TRUE)
+stringi::stri_split_regex(x, S(grab("split_keep_delim"), ";"))
+stringi::stri_split_regex("I like; the donuts; a lot:cool", 
+    S(grab("split_keep_delim"), ";|:"))
+
+## Grab words around a point
+x <- c(
+    "the magic word is e",
+    "the dog is red and they are blue",
+    "I am new but she is not new",
+    "hello world",
+    "why is it so cold?  Perhaps it is Winter.",
+    "It is not true the 7 is 8.",
+    "Is that my drink?"
+)
+
+rm_default(x, pattern = S("@around_", 1, "is", 1), extract=TRUE)
+rm_default(x, pattern = S("@around_", 2, "is", 2), extract=TRUE)
+rm_default(x, pattern = S("@around_", 1, "is|are|am", 1), extract=TRUE)
+rm_default(x, pattern = S("@around_", 1, "is not|is|are|am", 1), extract=TRUE)
+rm_default(x, pattern = S("@around_", 1, 
+    "is not|[Ii]s|[Aa]re|[Aa]m", 1), extract=TRUE)
+
+x <- c(
+    "hello world",
+    "45",
+    "45 & 5 makes 50",
+    "x and y",
+    "abc and def",
+    "her him foo & bar for Jack and Jill then"
+)
+
+around_and <- rm_(pattern = S("@around_", 1, "and|\\\\&", 1), extract=TRUE)
+around_and(x)
+
+## Split runs into chunks
+x <- "1111100000222000333300011110000111000"
+strsplit(x, grab("@run_split"), per = TRUE)
+
+\dontrun{
+library(qdap);library(ggplot2);library(reshape2)
+
+out <- setNames(lapply(c("@after_a", "@after_the"), function(x) {
+    o <- rm_default(stringi:::stri_trans_tolower(pres_debates2012$dialogue), 
+        pattern = x, extract=TRUE)
+    m <- qdapTools::matrix2df(data.frame(freq=sort(table(unlist(o)), TRUE)), "word")
+    m[m$freq> 7, ]
+}), c("a", "the"))
+
+
+dat <- setNames(Reduce(function(x, y) {
+    merge(x, y, by = "word", all = TRUE)}, out), c("Word", "A", "THE"))
+
+dat <- reshape2::melt(dat, id="Word", variable.name="Article", value.name="freq")
+
+dat <- dat[order(dat$freq, dat$Word), ]
+
+ord <- aggregate(freq ~ Word, dat, sum)
+
+dat$word <- factor(dat$Word, levels=ord[order(ord[[2]]), 1])
+ggplot(dat, aes(x=freq, y=Word)) + geom_point()+ facet_grid(~Article)
+}
+
+## remove/extract pages numbers
+x <- c("I read p. 36 and then pp. 45-49", "it's on pp. 23-24;28")
+
+rm_pages <- rm_(pattern="@pages", extract=TRUE)
+rm_pages(x)
+
+rm_default(x, pattern = "@pages")
+rm_default(x, pattern = "@pages", extract=TRUE)
+rm_default(x, pattern = "@pages2", extract=TRUE)
+
+## Validate pages
+page_val <- validate("@pages2", FALSE)
+page_val(c(66, "78-82", "hello world", TRUE, "44-45; 56"))
+
+## Split on last occurrence
+x <- c(
+    "test@aol@fg.mm.com", 
+    "test@hotmail.com", 
+    "test@xyz@rr@lk.edu", 
+    "test@abc.xx@zz.vv.net"
+)
+
+strsplit(x, S("@last_occurrence", "\\\\."), perl=TRUE)
+strsplit(x, S("@last_occurrence", "@"), perl=TRUE)
+
+## True Word Boundaries
+x <- "this is _not a word666 and this is not a word too." 
+## Standard regex word boundary
+rm_default(x, pattern=bind("not a word"))
+## Alphabetic only word boundaries
+rm_default(x, pattern=S("@word_boundary", "not a word"))
+
+## Remove all but first occurrence of something
+x <- c(
+    "12-3=4-5=678-9", 
+    "ABC-D=EF2-GHI-JK3=L-MN=", 
+    "9-87=65", 
+    "a - de=4fgh --= i5jkl", 
+    NA
+)
+
+rm_default(x, pattern = S("@except_first", "-"))
+rm_default(x, pattern = S("@except_first", "="))
+}
 \keyword{datasets}

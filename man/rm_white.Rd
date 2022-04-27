@@ -23,85 +23,225 @@
 \alias{ex_white_punctuation}
 \title{Remove/Replace/Extract White Space}
 \usage{
-rm_white(text.var, trim = FALSE, clean = FALSE, pattern = "@rm_white",
-  replacement = "", extract = FALSE,
-  dictionary = getOption("regex.library"), ...)
+rm_white(
+  text.var,
+  trim = FALSE,
+  clean = FALSE,
+  pattern = "@rm_white",
+  replacement = "",
+  extract = FALSE,
+  dictionary = getOption("regex.library"),
+  ...
+)
 
-ex_white(text.var, trim = FALSE, clean = FALSE, pattern = "@rm_white",
-  replacement = "", extract = TRUE,
-  dictionary = getOption("regex.library"), ...)
+ex_white(
+  text.var,
+  trim = FALSE,
+  clean = FALSE,
+  pattern = "@rm_white",
+  replacement = "",
+  extract = TRUE,
+  dictionary = getOption("regex.library"),
+  ...
+)
 
-rm_white_bracket(text.var, trim = !extract, clean = TRUE,
-  pattern = "@rm_white_bracket", replacement = "", extract = FALSE,
-  dictionary = getOption("regex.library"), ...)
+rm_white_bracket(
+  text.var,
+  trim = !extract,
+  clean = TRUE,
+  pattern = "@rm_white_bracket",
+  replacement = "",
+  extract = FALSE,
+  dictionary = getOption("regex.library"),
+  ...
+)
 
-ex_white_bracket(text.var, trim = !extract, clean = TRUE,
-  pattern = "@rm_white_bracket", replacement = "", extract = TRUE,
-  dictionary = getOption("regex.library"), ...)
+ex_white_bracket(
+  text.var,
+  trim = !extract,
+  clean = TRUE,
+  pattern = "@rm_white_bracket",
+  replacement = "",
+  extract = TRUE,
+  dictionary = getOption("regex.library"),
+  ...
+)
 
-rm_white_colon(text.var, trim = !extract, clean = TRUE,
-  pattern = "@rm_white_colon", replacement = "", extract = FALSE,
-  dictionary = getOption("regex.library"), ...)
+rm_white_colon(
+  text.var,
+  trim = !extract,
+  clean = TRUE,
+  pattern = "@rm_white_colon",
+  replacement = "",
+  extract = FALSE,
+  dictionary = getOption("regex.library"),
+  ...
+)
 
-ex_white_colon(text.var, trim = !extract, clean = TRUE,
-  pattern = "@rm_white_colon", replacement = "", extract = TRUE,
-  dictionary = getOption("regex.library"), ...)
+ex_white_colon(
+  text.var,
+  trim = !extract,
+  clean = TRUE,
+  pattern = "@rm_white_colon",
+  replacement = "",
+  extract = TRUE,
+  dictionary = getOption("regex.library"),
+  ...
+)
 
-rm_white_comma(text.var, trim = !extract, clean = TRUE,
-  pattern = "@rm_white_comma", replacement = "", extract = FALSE,
-  dictionary = getOption("regex.library"), ...)
+rm_white_comma(
+  text.var,
+  trim = !extract,
+  clean = TRUE,
+  pattern = "@rm_white_comma",
+  replacement = "",
+  extract = FALSE,
+  dictionary = getOption("regex.library"),
+  ...
+)
 
-ex_white_comma(text.var, trim = !extract, clean = TRUE,
-  pattern = "@rm_white_comma", replacement = "", extract = TRUE,
-  dictionary = getOption("regex.library"), ...)
+ex_white_comma(
+  text.var,
+  trim = !extract,
+  clean = TRUE,
+  pattern = "@rm_white_comma",
+  replacement = "",
+  extract = TRUE,
+  dictionary = getOption("regex.library"),
+  ...
+)
 
-rm_white_endmark(text.var, trim = !extract, clean = TRUE,
-  pattern = "@rm_white_endmark", replacement = "", extract = FALSE,
-  dictionary = getOption("regex.library"), ...)
+rm_white_endmark(
+  text.var,
+  trim = !extract,
+  clean = TRUE,
+  pattern = "@rm_white_endmark",
+  replacement = "",
+  extract = FALSE,
+  dictionary = getOption("regex.library"),
+  ...
+)
 
-ex_white_endmark(text.var, trim = !extract, clean = TRUE,
-  pattern = "@rm_white_endmark", replacement = "", extract = TRUE,
-  dictionary = getOption("regex.library"), ...)
+ex_white_endmark(
+  text.var,
+  trim = !extract,
+  clean = TRUE,
+  pattern = "@rm_white_endmark",
+  replacement = "",
+  extract = TRUE,
+  dictionary = getOption("regex.library"),
+  ...
+)
 
-rm_white_lead(text.var, trim = FALSE, clean = FALSE,
-  pattern = "@rm_white_lead", replacement = "", extract = FALSE,
-  dictionary = getOption("regex.library"), ...)
+rm_white_lead(
+  text.var,
+  trim = FALSE,
+  clean = FALSE,
+  pattern = "@rm_white_lead",
+  replacement = "",
+  extract = FALSE,
+  dictionary = getOption("regex.library"),
+  ...
+)
 
-ex_white_lead(text.var, trim = FALSE, clean = FALSE,
-  pattern = "@rm_white_lead", replacement = "", extract = TRUE,
-  dictionary = getOption("regex.library"), ...)
+ex_white_lead(
+  text.var,
+  trim = FALSE,
+  clean = FALSE,
+  pattern = "@rm_white_lead",
+  replacement = "",
+  extract = TRUE,
+  dictionary = getOption("regex.library"),
+  ...
+)
 
-rm_white_lead_trail(text.var, trim = FALSE, clean = FALSE,
-  pattern = "@rm_white_lead_trail", replacement = "", extract = FALSE,
-  dictionary = getOption("regex.library"), ...)
+rm_white_lead_trail(
+  text.var,
+  trim = FALSE,
+  clean = FALSE,
+  pattern = "@rm_white_lead_trail",
+  replacement = "",
+  extract = FALSE,
+  dictionary = getOption("regex.library"),
+  ...
+)
 
-ex_white_lead_trail(text.var, trim = FALSE, clean = FALSE,
-  pattern = "@rm_white_lead_trail", replacement = "", extract = TRUE,
-  dictionary = getOption("regex.library"), ...)
+ex_white_lead_trail(
+  text.var,
+  trim = FALSE,
+  clean = FALSE,
+  pattern = "@rm_white_lead_trail",
+  replacement = "",
+  extract = TRUE,
+  dictionary = getOption("regex.library"),
+  ...
+)
 
-rm_white_trail(text.var, trim = FALSE, clean = FALSE,
-  pattern = "@rm_white_trail", replacement = "", extract = FALSE,
-  dictionary = getOption("regex.library"), ...)
+rm_white_trail(
+  text.var,
+  trim = FALSE,
+  clean = FALSE,
+  pattern = "@rm_white_trail",
+  replacement = "",
+  extract = FALSE,
+  dictionary = getOption("regex.library"),
+  ...
+)
 
-ex_white_trail(text.var, trim = FALSE, clean = FALSE,
-  pattern = "@rm_white_trail", replacement = "", extract = TRUE,
-  dictionary = getOption("regex.library"), ...)
+ex_white_trail(
+  text.var,
+  trim = FALSE,
+  clean = FALSE,
+  pattern = "@rm_white_trail",
+  replacement = "",
+  extract = TRUE,
+  dictionary = getOption("regex.library"),
+  ...
+)
 
-rm_white_multiple(text.var, trim = !extract, clean = TRUE,
-  pattern = "@rm_white_multiple", replacement = "", extract = FALSE,
-  dictionary = getOption("regex.library"), ...)
+rm_white_multiple(
+  text.var,
+  trim = !extract,
+  clean = TRUE,
+  pattern = "@rm_white_multiple",
+  replacement = "",
+  extract = FALSE,
+  dictionary = getOption("regex.library"),
+  ...
+)
 
-ex_white_multiple(text.var, trim = !extract, clean = TRUE,
-  pattern = "@rm_white_multiple", replacement = "", extract = TRUE,
-  dictionary = getOption("regex.library"), ...)
+ex_white_multiple(
+  text.var,
+  trim = !extract,
+  clean = TRUE,
+  pattern = "@rm_white_multiple",
+  replacement = "",
+  extract = TRUE,
+  dictionary = getOption("regex.library"),
+  ...
+)
 
-rm_white_punctuation(text.var, trim = !extract, clean = TRUE,
-  pattern = "@rm_white_punctuation", replacement = "", extract = FALSE,
-  dictionary = getOption("regex.library"), ...)
+rm_white_punctuation(
+  text.var,
+  trim = !extract,
+  clean = TRUE,
+  pattern = "@rm_white_punctuation",
+  replacement = "",
+  extract = FALSE,
+  dictionary = getOption("regex.library"),
+  ...
+)
 
-ex_white_punctuation(text.var, trim = !extract, clean = TRUE,
-  pattern = "@rm_white_punctuation", replacement = "", extract = TRUE,
-  dictionary = getOption("regex.library"), ...)
+ex_white_punctuation(
+  text.var,
+  trim = !extract,
+  clean = TRUE,
+  pattern = "@rm_white_punctuation",
+  replacement = "",
+  extract = TRUE,
+  dictionary = getOption("regex.library"),
+  ...
+)
 }
 \arguments{
 \item{text.var}{The text variable.}
@@ -184,26 +324,41 @@ The \code{rm_white_endmark}/\code{rm_white_punctuation} regular expression was t
 \code{\link[base]{gsub}},
 \code{\link[stringi]{stri_extract_all_regex}}
 
-Other rm_ functions: \code{\link{rm_abbreviation}},
-  \code{\link{rm_between}}, \code{\link{rm_bracket}},
-  \code{\link{rm_caps_phrase}}, \code{\link{rm_caps}},
-  \code{\link{rm_citation_tex}}, \code{\link{rm_citation}},
-  \code{\link{rm_city_state_zip}},
-  \code{\link{rm_city_state}}, \code{\link{rm_date}},
-  \code{\link{rm_default}}, \code{\link{rm_dollar}},
-  \code{\link{rm_email}}, \code{\link{rm_emoticon}},
-  \code{\link{rm_endmark}}, \code{\link{rm_hash}},
-  \code{\link{rm_nchar_words}}, \code{\link{rm_non_ascii}},
-  \code{\link{rm_non_words}}, \code{\link{rm_number}},
-  \code{\link{rm_percent}}, \code{\link{rm_phone}},
-  \code{\link{rm_postal_code}},
-  \code{\link{rm_repeated_characters}},
-  \code{\link{rm_repeated_phrases}},
-  \code{\link{rm_repeated_words}}, \code{\link{rm_tag}},
-  \code{\link{rm_time}}, \code{\link{rm_title_name}},
-  \code{\link{rm_url}}, \code{\link{rm_zip}}
+Other rm_ functions: 
+\code{\link{rm_abbreviation}()},
+\code{\link{rm_between}()},
+\code{\link{rm_bracket}()},
+\code{\link{rm_caps_phrase}()},
+\code{\link{rm_caps}()},
+\code{\link{rm_citation_tex}()},
+\code{\link{rm_citation}()},
+\code{\link{rm_city_state_zip}()},
+\code{\link{rm_city_state}()},
+\code{\link{rm_date}()},
+\code{\link{rm_default}()},
+\code{\link{rm_dollar}()},
+\code{\link{rm_email}()},
+\code{\link{rm_emoticon}()},
+\code{\link{rm_endmark}()},
+\code{\link{rm_hash}()},
+\code{\link{rm_nchar_words}()},
+\code{\link{rm_non_ascii}()},
+\code{\link{rm_non_words}()},
+\code{\link{rm_number}()},
+\code{\link{rm_percent}()},
+\code{\link{rm_phone}()},
+\code{\link{rm_postal_code}()},
+\code{\link{rm_repeated_characters}()},
+\code{\link{rm_repeated_phrases}()},
+\code{\link{rm_repeated_words}()},
+\code{\link{rm_tag}()},
+\code{\link{rm_time}()},
+\code{\link{rm_title_name}()},
+\code{\link{rm_url}()},
+\code{\link{rm_zip}()}
 }
 \author{
 \code{rm_white_endmark}/\code{rm_white_punctuation} - \href{http://stackoverflow.com}{stackoverflow}'s hwnd and Tyler Rinker <tyler.rinker@gmail.com>.
 }
+\concept{rm_ functions}
 \keyword{percent}

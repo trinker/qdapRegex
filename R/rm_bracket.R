@@ -102,7 +102,6 @@ rm_bracket <- function(text.var, pattern = "all", trim = TRUE, clean = TRUE,
 #' @include utils.R
 #' @export
 #' @rdname rm_bracket
-#' @rdname rm_bracket
 #' @return \code{rm_round} - returns a character string with round brackets removed.
 rm_round <- function(text.var, pattern = "(", trim = TRUE, clean = TRUE, 
     replacement = "", extract = FALSE,
@@ -122,7 +121,6 @@ rm_round <- function(text.var, pattern = "(", trim = TRUE, clean = TRUE,
 
 #' @include utils.R
 #' @export
-#' @rdname rm_bracket
 #' @rdname rm_bracket
 #' @return \code{rm_square} - returns a character string with square brackets 
 #' removed.
@@ -145,7 +143,6 @@ rm_square <- function(text.var, pattern = "[", trim = TRUE, clean = TRUE,
 #' @include utils.R
 #' @export
 #' @rdname rm_bracket
-#' @rdname rm_bracket
 #' @return \code{rm_curly} - returns a character string with curly brackets 
 #' removed.
 rm_curly <- function(text.var, pattern = "{", trim = TRUE, clean = TRUE, 
@@ -166,7 +163,6 @@ rm_curly <- function(text.var, pattern = "{", trim = TRUE, clean = TRUE,
 
 #' @include utils.R
 #' @export
-#' @rdname rm_bracket
 #' @rdname rm_bracket
 #' @return \code{rm_angle} - returns a character string with angle brackets 
 #' removed.
@@ -210,7 +206,6 @@ bracket_convert <- function(x) {
 
 #' @include utils.R
 #' @export
-#' @rdname rm_bracket
 #' @rdname rm_bracket
 #' @return \code{rm_bracket_multiple} - returns a character string with 
 #' multiple brackets removed.  If \code{extract = TRUE} the results are 

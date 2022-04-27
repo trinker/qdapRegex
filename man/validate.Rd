@@ -4,8 +4,13 @@
 \alias{validate}
 \title{Regex Validation Function Generator}
 \usage{
-validate(pattern, single = TRUE, trim = FALSE, clean = FALSE,
-  dictionary = getOption("regex.library"))
+validate(
+  pattern,
+  single = TRUE,
+  trim = FALSE,
+  clean = FALSE,
+  dictionary = getOption("regex.library")
+)
 }
 \arguments{
 \item{pattern}{A character string containing a regular expression (or 

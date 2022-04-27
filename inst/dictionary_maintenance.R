@@ -1,6 +1,9 @@
 ## SOURCE THESE FOR TOOLS TO CREATE DATA FOR 
 ## PACKAGES AND TRANSFER + CLEAN UP
 fls <- dir("inst/regex_scripts")
+
+devtools::install_github('trinker/regexr')
+
 lapply(file.path("inst/regex_scripts", fls[tools::file_ext(fls) == "R"]), function(x) {
     source(x)[["value"]]
 })
@@ -30,7 +33,7 @@ regex_usa <- list(
     rm_date3 = "[0-9]{4}-[0-9]{2}-[0-9]{2}",
     rm_date4 = "\\d{0,2}/\\d{2}/(?:\\d{4}|\\d{2})?|\\d{0,2}-\\d{2}-(?:\\d{4}|\\d{2})?|\\d{0,2}\\.\\d{2}\\.(?:\\d{4}|\\d{2})?|(\\b)([A-Za-z]{3,9})(\\s+)([0-9][0-9]*)(,)(\\s+)([0-9]{4})|[0-9]{4}-[0-9]{2}-[0-9]{2}",
     rm_dollar = "\\$\\(?[0-9.,]+\\)?", #"\\$\\(?[0-9.]+\\)?", 
-    rm_email = "([_+a-z0-9-]+(\\.[_+a-z0-9-]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,14}))", 
+    rm_email = "(?i)([_+a-z0-9-]+(\\.[_+a-z0-9-]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,14}))", 
     rm_emoticon = ">?[:;=8XB]{1}[-~+o^]?[|\")(&gt;DO>{pP3/]+|</?3|XD+|D:<|x[-~+o^]?[|\")(&gt;DO>{pP3/]+",
     rm_endmark = "[\\!\\*\\.\\?\\|]+$",
     rm_endmark2 = "[\\!\\.\\?]+$",
@@ -72,6 +75,8 @@ regex_usa <- list(
 
 pack.skel(regex_usa)
 transfer_data()
+load('data/regex_usa.rda')
+regex_usa
 
 regex_supplement <- list(
     after_a = "(?<=\\b(an|An)\\s)(\\w+)|(?<=\\b(a|A)\\s)(\\w+)",

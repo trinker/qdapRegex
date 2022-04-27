@@ -279,15 +279,6 @@ NULL
 #' ## Alphabetic only word boundaries
 #' rm_default(x, pattern=S("@@word_boundary", "not a word"))
 #' 
-#' ## Remove punctuation with negation
-#' x <- c(
-#'     "I, love them!  Well I like them.  Do you like_ them?",
-#'     "Here are the punctuation characters: !"#$%&'()*+,\-./:;<=>?@@[\\\]^_`{|}~"
-#' )
-#' 
-#' rm_default(x, pattern=S("@@punctuation", ""))
-#' rm_default(x, pattern=S("@@punctuation", ".?!"))
-#' 
 #' ## Remove all but first occurrence of something
 #' x <- c(
 #'     "12-3=4-5=678-9", 

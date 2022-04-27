@@ -5,13 +5,27 @@
 \alias{ex_dollar}
 \title{Remove/Replace/Extract Dollars}
 \usage{
-rm_dollar(text.var, trim = !extract, clean = TRUE, pattern = "@rm_dollar",
-  replacement = "", extract = FALSE,
-  dictionary = getOption("regex.library"), ...)
+rm_dollar(
+  text.var,
+  trim = !extract,
+  clean = TRUE,
+  pattern = "@rm_dollar",
+  replacement = "",
+  extract = FALSE,
+  dictionary = getOption("regex.library"),
+  ...
+)
 
-ex_dollar(text.var, trim = !extract, clean = TRUE, pattern = "@rm_dollar",
-  replacement = "", extract = TRUE,
-  dictionary = getOption("regex.library"), ...)
+ex_dollar(
+  text.var,
+  trim = !extract,
+  clean = TRUE,
+  pattern = "@rm_dollar",
+  replacement = "",
+  extract = TRUE,
+  dictionary = getOption("regex.library"),
+  ...
+)
 }
 \arguments{
 \item{text.var}{The text variable.}
@@ -44,27 +58,49 @@ Returns a character string with dollars removed.
 \description{
 Remove/replace/extract dollars amounts from a string.
 }
+\examples{
+x <-  c("There is $5.50 for me.", "that's 45.6\% of the pizza", 
+    "14\% is $26 or $25.99", "Really?...$123,234.99 is not cheap.")
+
+rm_dollar(x)
+ex_dollar(x)
+}
 \seealso{
 \code{\link[base]{gsub}},
 \code{\link[stringi]{stri_extract_all_regex}}
 
-Other rm_ functions: \code{\link{rm_abbreviation}},
-  \code{\link{rm_between}}, \code{\link{rm_bracket}},
-  \code{\link{rm_caps_phrase}}, \code{\link{rm_caps}},
-  \code{\link{rm_citation_tex}}, \code{\link{rm_citation}},
-  \code{\link{rm_city_state_zip}},
-  \code{\link{rm_city_state}}, \code{\link{rm_date}},
-  \code{\link{rm_default}}, \code{\link{rm_email}},
-  \code{\link{rm_emoticon}}, \code{\link{rm_endmark}},
-  \code{\link{rm_hash}}, \code{\link{rm_nchar_words}},
-  \code{\link{rm_non_ascii}}, \code{\link{rm_non_words}},
-  \code{\link{rm_number}}, \code{\link{rm_percent}},
-  \code{\link{rm_phone}}, \code{\link{rm_postal_code}},
-  \code{\link{rm_repeated_characters}},
-  \code{\link{rm_repeated_phrases}},
-  \code{\link{rm_repeated_words}}, \code{\link{rm_tag}},
-  \code{\link{rm_time}}, \code{\link{rm_title_name}},
-  \code{\link{rm_url}}, \code{\link{rm_white}},
-  \code{\link{rm_zip}}
+Other rm_ functions: 
+\code{\link{rm_abbreviation}()},
+\code{\link{rm_between}()},
+\code{\link{rm_bracket}()},
+\code{\link{rm_caps_phrase}()},
+\code{\link{rm_caps}()},
+\code{\link{rm_citation_tex}()},
+\code{\link{rm_citation}()},
+\code{\link{rm_city_state_zip}()},
+\code{\link{rm_city_state}()},
+\code{\link{rm_date}()},
+\code{\link{rm_default}()},
+\code{\link{rm_email}()},
+\code{\link{rm_emoticon}()},
+\code{\link{rm_endmark}()},
+\code{\link{rm_hash}()},
+\code{\link{rm_nchar_words}()},
+\code{\link{rm_non_ascii}()},
+\code{\link{rm_non_words}()},
+\code{\link{rm_number}()},
+\code{\link{rm_percent}()},
+\code{\link{rm_phone}()},
+\code{\link{rm_postal_code}()},
+\code{\link{rm_repeated_characters}()},
+\code{\link{rm_repeated_phrases}()},
+\code{\link{rm_repeated_words}()},
+\code{\link{rm_tag}()},
+\code{\link{rm_time}()},
+\code{\link{rm_title_name}()},
+\code{\link{rm_url}()},
+\code{\link{rm_white}()},
+\code{\link{rm_zip}()}
 }
+\concept{rm_ functions}
 \keyword{percent}

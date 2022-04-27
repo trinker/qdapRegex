@@ -1,11 +1,6 @@
-R_USER <-  switch(Sys.info()[["user"]],
-    Tyler = "C:/Users/Tyler",
-    trinker = "C:/Users/trinker",
-    message("Computer name not found")
-)
+temp_dir <-  tempdir()
 
-pack.skel <- 
-function(..., loc = file.path(R_USER, "Desktop")){
+pack.skel <- function(..., loc = temp_dir){
     x <- substitute(...())
     Trim <- function (x) gsub("\\s+$", "", x)
     z <- Trim(unlist(lapply(x, function(y) as.character(y))))
@@ -14,18 +9,27 @@ function(..., loc = file.path(R_USER, "Desktop")){
 cat("pack.skel Loaded!")
 
 
+delete <- function(file = NULL) {
+    x <- if (is.null(file)) {
+        menu(dir())
+    } else {
+        file
+    }
+    unlink(x, recursive = TRUE, force = FALSE)
+}
 
-transfer_data <- function(dat.loc = file.path(R_USER, "Desktop/temp/data"),
-    pack.loc = file.path(R_USER, sprintf("GitHub/%s/data", basename(getwd())))){
+transfer_data <- function(dat.loc = file.path(temp_dir, "temp/data"),
+    pack.loc = 'data'){
     
     fls <- dir(dat.loc)
     fls2 <- dir(pack.loc)    
-    lapply(file.path(pack.loc, fls2[fls2 %in% fls]), reports::delete)
+    lapply(file.path(pack.loc, fls2[fls2 %in% fls]), delete)
     file.copy(
         file.path(dat.loc, dir(dat.loc)),
         pack.loc
     )
-    reports::delete(dirname(dat.loc))
+    
+    delete(dirname(dat.loc))
     message("File Transfered")
 }
 

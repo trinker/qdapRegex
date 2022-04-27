@@ -6,13 +6,27 @@
 \alias{as_count}
 \title{Remove/Replace/Extract Citations}
 \usage{
-rm_citation(text.var, trim = !extract, clean = TRUE,
-  pattern = "@rm_citation", replacement = "", extract = FALSE,
-  dictionary = getOption("regex.library"), ...)
+rm_citation(
+  text.var,
+  trim = !extract,
+  clean = TRUE,
+  pattern = "@rm_citation",
+  replacement = "",
+  extract = FALSE,
+  dictionary = getOption("regex.library"),
+  ...
+)
 
-ex_citation(text.var, trim = !extract, clean = TRUE,
-  pattern = "@rm_citation", replacement = "", extract = TRUE,
-  dictionary = getOption("regex.library"), ...)
+ex_citation(
+  text.var,
+  trim = !extract,
+  clean = TRUE,
+  pattern = "@rm_citation",
+  replacement = "",
+  extract = TRUE,
+  dictionary = getOption("regex.library"),
+  ...
+)
 
 as_count(x, ...)
 }
@@ -68,13 +82,13 @@ This function is experimental.
 x <- c("Hello World (V. Raptor, 1986) bye",
     "Narcissism is not dead (Rinker, 2014)",
     "The R Core Team (2014) has many members.",
-    paste("Bunn (2005) said, \\"As for elegance, R is refined, tasteful, and",
-        "beautiful. When I grow up, I want to marry R.\\""),
+    paste("Bunn (2005) said, \"As for elegance, R is refined, tasteful, and",
+        "beautiful. When I grow up, I want to marry R.\""),
     "It is wrong to blame ANY tool for our own shortcomings (Baer, 2005).",
     "Wickham's (in press) Tidy Data should be out soon.",
     "Rinker's (n.d.) dissertation not so much.",
     "I always consult xkcd comics for guidance (Foo, 2012; Bar, 2014).",
-    "Uwe Ligges (2007) says, \\"RAM is cheap and thinking hurts\\""
+    "Uwe Ligges (2007) says, \"RAM is cheap and thinking hurts\""
 )
 
 rm_citation(x)
@@ -162,24 +176,38 @@ ggplot(cite_locs) +
 \code{\link[base]{gsub}},
 \code{\link[stringi]{stri_extract_all_regex}}
 
-Other rm_ functions: \code{\link{rm_abbreviation}},
-  \code{\link{rm_between}}, \code{\link{rm_bracket}},
-  \code{\link{rm_caps_phrase}}, \code{\link{rm_caps}},
-  \code{\link{rm_citation_tex}},
-  \code{\link{rm_city_state_zip}},
-  \code{\link{rm_city_state}}, \code{\link{rm_date}},
-  \code{\link{rm_default}}, \code{\link{rm_dollar}},
-  \code{\link{rm_email}}, \code{\link{rm_emoticon}},
-  \code{\link{rm_endmark}}, \code{\link{rm_hash}},
-  \code{\link{rm_nchar_words}}, \code{\link{rm_non_ascii}},
-  \code{\link{rm_non_words}}, \code{\link{rm_number}},
-  \code{\link{rm_percent}}, \code{\link{rm_phone}},
-  \code{\link{rm_postal_code}},
-  \code{\link{rm_repeated_characters}},
-  \code{\link{rm_repeated_phrases}},
-  \code{\link{rm_repeated_words}}, \code{\link{rm_tag}},
-  \code{\link{rm_time}}, \code{\link{rm_title_name}},
-  \code{\link{rm_url}}, \code{\link{rm_white}},
-  \code{\link{rm_zip}}
+Other rm_ functions: 
+\code{\link{rm_abbreviation}()},
+\code{\link{rm_between}()},
+\code{\link{rm_bracket}()},
+\code{\link{rm_caps_phrase}()},
+\code{\link{rm_caps}()},
+\code{\link{rm_citation_tex}()},
+\code{\link{rm_city_state_zip}()},
+\code{\link{rm_city_state}()},
+\code{\link{rm_date}()},
+\code{\link{rm_default}()},
+\code{\link{rm_dollar}()},
+\code{\link{rm_email}()},
+\code{\link{rm_emoticon}()},
+\code{\link{rm_endmark}()},
+\code{\link{rm_hash}()},
+\code{\link{rm_nchar_words}()},
+\code{\link{rm_non_ascii}()},
+\code{\link{rm_non_words}()},
+\code{\link{rm_number}()},
+\code{\link{rm_percent}()},
+\code{\link{rm_phone}()},
+\code{\link{rm_postal_code}()},
+\code{\link{rm_repeated_characters}()},
+\code{\link{rm_repeated_phrases}()},
+\code{\link{rm_repeated_words}()},
+\code{\link{rm_tag}()},
+\code{\link{rm_time}()},
+\code{\link{rm_title_name}()},
+\code{\link{rm_url}()},
+\code{\link{rm_white}()},
+\code{\link{rm_zip}()}
 }
+\concept{rm_ functions}
 \keyword{citation}

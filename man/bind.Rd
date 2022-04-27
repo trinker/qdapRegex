@@ -4,8 +4,12 @@
 \alias{bind}
 \title{Add Left/Right Character(s) Boundaries}
 \usage{
-bind(..., left = "\\\\b", right = left,
-  dictionary = getOption("regex.library"))
+bind(
+  ...,
+  left = "\\\\b",
+  right = left,
+  dictionary = getOption("regex.library")
+)
 }
 \arguments{
 \item{left}{A single length character vector to use as the left bound.}

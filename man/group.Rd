@@ -4,8 +4,7 @@
 \alias{group}
 \title{Group Regular Expressions}
 \usage{
-group(..., left = "(", right = ")",
-  dictionary = getOption("regex.library"))
+group(..., left = "(", right = ")", dictionary = getOption("regex.library"))
 }
 \arguments{
 \item{left}{A single length character vector to use as the left bound.}

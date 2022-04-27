@@ -25,10 +25,6 @@ Returns a character vector with new case (lower, upper, or title).
 }
 \description{
 \code{TC} - Capitalize titles according to traditional capitalization rules.
-
-\code{L} - All lower case.
-
-\code{U} - All upper case.
 }
 \details{
 Case wrapper functions for \pkg{stringi}'s \code{\link[stringi]{stri_trans_tolower}},

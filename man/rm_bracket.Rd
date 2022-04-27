@@ -15,53 +15,147 @@
 \alias{ex_curly}
 \title{Remove/Replace/Extract Brackets}
 \usage{
-rm_bracket(text.var, pattern = "all", trim = TRUE, clean = TRUE,
-  replacement = "", extract = FALSE, include.markers = ifelse(extract,
-  FALSE, TRUE), dictionary = getOption("regex.library"), ...)
+rm_bracket(
+  text.var,
+  pattern = "all",
+  trim = TRUE,
+  clean = TRUE,
+  replacement = "",
+  extract = FALSE,
+  include.markers = ifelse(extract, FALSE, TRUE),
+  dictionary = getOption("regex.library"),
+  ...
+)
 
-rm_round(text.var, pattern = "(", trim = TRUE, clean = TRUE,
-  replacement = "", extract = FALSE, include.markers = ifelse(extract,
-  FALSE, TRUE), dictionary = getOption("regex.library"), ...)
+rm_round(
+  text.var,
+  pattern = "(",
+  trim = TRUE,
+  clean = TRUE,
+  replacement = "",
+  extract = FALSE,
+  include.markers = ifelse(extract, FALSE, TRUE),
+  dictionary = getOption("regex.library"),
+  ...
+)
 
-rm_square(text.var, pattern = "[", trim = TRUE, clean = TRUE,
-  replacement = "", extract = FALSE, include.markers = ifelse(extract,
-  FALSE, TRUE), dictionary = getOption("regex.library"), ...)
+rm_square(
+  text.var,
+  pattern = "[",
+  trim = TRUE,
+  clean = TRUE,
+  replacement = "",
+  extract = FALSE,
+  include.markers = ifelse(extract, FALSE, TRUE),
+  dictionary = getOption("regex.library"),
+  ...
+)
 
-rm_curly(text.var, pattern = "{", trim = TRUE, clean = TRUE,
-  replacement = "", extract = FALSE, include.markers = ifelse(extract,
-  FALSE, TRUE), dictionary = getOption("regex.library"), ...)
+rm_curly(
+  text.var,
+  pattern = "{",
+  trim = TRUE,
+  clean = TRUE,
+  replacement = "",
+  extract = FALSE,
+  include.markers = ifelse(extract, FALSE, TRUE),
+  dictionary = getOption("regex.library"),
+  ...
+)
 
-rm_angle(text.var, pattern = "<", trim = TRUE, clean = TRUE,
-  replacement = "", extract = FALSE, include.markers = ifelse(extract,
-  FALSE, TRUE), dictionary = getOption("regex.library"), ...)
+rm_angle(
+  text.var,
+  pattern = "<",
+  trim = TRUE,
+  clean = TRUE,
+  replacement = "",
+  extract = FALSE,
+  include.markers = ifelse(extract, FALSE, TRUE),
+  dictionary = getOption("regex.library"),
+  ...
+)
 
-rm_bracket_multiple(text.var, trim = TRUE, clean = TRUE, pattern = "all",
-  replacement = "", extract = FALSE, include.markers = FALSE,
-  merge = TRUE)
+rm_bracket_multiple(
+  text.var,
+  trim = TRUE,
+  clean = TRUE,
+  pattern = "all",
+  replacement = "",
+  extract = FALSE,
+  include.markers = FALSE,
+  merge = TRUE
+)
 
-ex_bracket(text.var, pattern = "all", trim = TRUE, clean = TRUE,
-  replacement = "", extract = TRUE, include.markers = ifelse(extract,
-  FALSE, TRUE), dictionary = getOption("regex.library"), ...)
+ex_bracket(
+  text.var,
+  pattern = "all",
+  trim = TRUE,
+  clean = TRUE,
+  replacement = "",
+  extract = TRUE,
+  include.markers = ifelse(extract, FALSE, TRUE),
+  dictionary = getOption("regex.library"),
+  ...
+)
 
-ex_bracket_multiple(text.var, trim = TRUE, clean = TRUE, pattern = "all",
-  replacement = "", extract = TRUE, include.markers = FALSE,
-  merge = TRUE)
+ex_bracket_multiple(
+  text.var,
+  trim = TRUE,
+  clean = TRUE,
+  pattern = "all",
+  replacement = "",
+  extract = TRUE,
+  include.markers = FALSE,
+  merge = TRUE
+)
 
-ex_angle(text.var, pattern = "<", trim = TRUE, clean = TRUE,
-  replacement = "", extract = TRUE, include.markers = ifelse(extract,
-  FALSE, TRUE), dictionary = getOption("regex.library"), ...)
+ex_angle(
+  text.var,
+  pattern = "<",
+  trim = TRUE,
+  clean = TRUE,
+  replacement = "",
+  extract = TRUE,
+  include.markers = ifelse(extract, FALSE, TRUE),
+  dictionary = getOption("regex.library"),
+  ...
+)
 
-ex_round(text.var, pattern = "(", trim = TRUE, clean = TRUE,
-  replacement = "", extract = TRUE, include.markers = ifelse(extract,
-  FALSE, TRUE), dictionary = getOption("regex.library"), ...)
+ex_round(
+  text.var,
+  pattern = "(",
+  trim = TRUE,
+  clean = TRUE,
+  replacement = "",
+  extract = TRUE,
+  include.markers = ifelse(extract, FALSE, TRUE),
+  dictionary = getOption("regex.library"),
+  ...
+)
 
-ex_square(text.var, pattern = "[", trim = TRUE, clean = TRUE,
-  replacement = "", extract = TRUE, include.markers = ifelse(extract,
-  FALSE, TRUE), dictionary = getOption("regex.library"), ...)
+ex_square(
+  text.var,
+  pattern = "[",
+  trim = TRUE,
+  clean = TRUE,
+  replacement = "",
+  extract = TRUE,
+  include.markers = ifelse(extract, FALSE, TRUE),
+  dictionary = getOption("regex.library"),
+  ...
+)
 
-ex_curly(text.var, pattern = "{", trim = TRUE, clean = TRUE,
-  replacement = "", extract = TRUE, include.markers = ifelse(extract,
-  FALSE, TRUE), dictionary = getOption("regex.library"), ...)
+ex_curly(
+  text.var,
+  pattern = "{",
+  trim = TRUE,
+  clean = TRUE,
+  replacement = "",
+  extract = TRUE,
+  include.markers = ifelse(extract, FALSE, TRUE),
+  dictionary = getOption("regex.library"),
+  ...
+)
 }
 \arguments{
 \item{text.var}{The text variable.}
@@ -174,27 +268,41 @@ lapply(ex_between('She said, "I am!" and he responded..."Am what?".',
 \code{\link[qdapRegex]{rm_between}},
 \code{\link[stringi]{stri_extract_all_regex}}
 
-Other rm_ functions: \code{\link{rm_abbreviation}},
-  \code{\link{rm_between}}, \code{\link{rm_caps_phrase}},
-  \code{\link{rm_caps}}, \code{\link{rm_citation_tex}},
-  \code{\link{rm_citation}},
-  \code{\link{rm_city_state_zip}},
-  \code{\link{rm_city_state}}, \code{\link{rm_date}},
-  \code{\link{rm_default}}, \code{\link{rm_dollar}},
-  \code{\link{rm_email}}, \code{\link{rm_emoticon}},
-  \code{\link{rm_endmark}}, \code{\link{rm_hash}},
-  \code{\link{rm_nchar_words}}, \code{\link{rm_non_ascii}},
-  \code{\link{rm_non_words}}, \code{\link{rm_number}},
-  \code{\link{rm_percent}}, \code{\link{rm_phone}},
-  \code{\link{rm_postal_code}},
-  \code{\link{rm_repeated_characters}},
-  \code{\link{rm_repeated_phrases}},
-  \code{\link{rm_repeated_words}}, \code{\link{rm_tag}},
-  \code{\link{rm_time}}, \code{\link{rm_title_name}},
-  \code{\link{rm_url}}, \code{\link{rm_white}},
-  \code{\link{rm_zip}}
+Other rm_ functions: 
+\code{\link{rm_abbreviation}()},
+\code{\link{rm_between}()},
+\code{\link{rm_caps_phrase}()},
+\code{\link{rm_caps}()},
+\code{\link{rm_citation_tex}()},
+\code{\link{rm_citation}()},
+\code{\link{rm_city_state_zip}()},
+\code{\link{rm_city_state}()},
+\code{\link{rm_date}()},
+\code{\link{rm_default}()},
+\code{\link{rm_dollar}()},
+\code{\link{rm_email}()},
+\code{\link{rm_emoticon}()},
+\code{\link{rm_endmark}()},
+\code{\link{rm_hash}()},
+\code{\link{rm_nchar_words}()},
+\code{\link{rm_non_ascii}()},
+\code{\link{rm_non_words}()},
+\code{\link{rm_number}()},
+\code{\link{rm_percent}()},
+\code{\link{rm_phone}()},
+\code{\link{rm_postal_code}()},
+\code{\link{rm_repeated_characters}()},
+\code{\link{rm_repeated_phrases}()},
+\code{\link{rm_repeated_words}()},
+\code{\link{rm_tag}()},
+\code{\link{rm_time}()},
+\code{\link{rm_title_name}()},
+\code{\link{rm_url}()},
+\code{\link{rm_white}()},
+\code{\link{rm_zip}()}
 }
 \author{
 Martin Morgan and Tyler Rinker <tyler.rinker@gmail.com>.
 }
+\concept{rm_ functions}
 \keyword{bracket}

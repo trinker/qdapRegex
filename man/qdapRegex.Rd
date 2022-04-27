@@ -4,7 +4,6 @@
 \name{qdapRegex}
 \alias{qdapRegex}
 \alias{package-qdapRegex}
-\alias{qdapRegex-package}
 \title{qdapRegex: Regular Expression Removal, Extraction, & Replacement Tools for the \pkg{qdap} Package}
 \description{
 \pkg{qdapRegex} is a collection of regular expression tools associated with 
