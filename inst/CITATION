@@ -5,11 +5,11 @@ citEntry(entry = "manual",
     title = "{qdapRegex}: Regular Expression Removal, Extraction, and Replacement Tools",
     author = "Tyler W. Rinker",
     address = "Buffalo, New York",
-    note = "0.7.4",
+    note = "0.7.5",
     year = "2022",
-    url = "http://github.com/trinker/qdapRegex", 
+    url = "https://github.com/trinker/qdapRegex", 
     textVersion  = paste("Rinker, T. W. (2022).",
         "qdapRegex: Regular Expression Removal, Extraction, and Replacement Tools.",
-        "0.7.4. Buffalo, New York.",
-        "http://github.com/trinker/qdapRegex")
+        "0.7.5. Buffalo, New York.",
+        "https://github.com/trinker/qdapRegex")
 )

@@ -20,9 +20,9 @@
 #' @param \dots Other arguments passed to \code{\link[base]{gsub}}.
 #' @return Returns a character string with hash tags removed.
 #' @keywords hash twitter
-#' @author \href{http://stackoverflow.com/}{stackoverflow's} hwnd and Tyler Rinker <tyler.rinker@@gmail.com>. 
+#' @author \href{https://stackoverflow.com/}{stackoverflow's} hwnd and Tyler Rinker <tyler.rinker@@gmail.com>. 
 #' @references The hash tag regular expression was taken from: 
-#' \url{http://stackoverflow.com/a/25096474/1000343}
+#' \url{https://stackoverflow.com/a/25096474/1000343}
 #' @family rm_ functions
 #' @include utils.R
 #' @export

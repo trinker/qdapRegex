@@ -26,9 +26,9 @@
 #' @rdname rm_phone
 #' @seealso \code{\link[base]{gsub}},
 #' \code{\link[stringi]{stri_extract_all_regex}}
-#' @author \href{http://stackoverflow.com/}{stackoverflow's} Marius and Tyler Rinker <tyler.rinker@@gmail.com>. 
+#' @author \href{https://stackoverflow.com/}{stackoverflow's} Marius and Tyler Rinker <tyler.rinker@@gmail.com>. 
 #' @references The phone regular expression was taken from: 
-#' \url{http://stackoverflow.com/a/21008254/1000343}
+#' \url{https://stackoverflow.com/a/21008254/1000343}
 #' @examples
 #' x <- c(" Mr. Bean bought 2 tickets 2-613-213-4567 or 5555555555 call either one",
 #'   "43 Butter Rd, Brossard QC K0A 3P0 - 613 213 4567", 

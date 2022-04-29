@@ -8,7 +8,6 @@
 #' 
 #' @param pattern A regular expression to be tested.
 #' @return Returns a logical (\code{TRUE} is a valid regular expression).
-#' @keywords regex, valid
 #' @export
 #' @seealso \code{\link[base]{gsub}}
 #' @examples

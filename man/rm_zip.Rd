@@ -75,7 +75,7 @@ ex_zip(x)
 ## BUILD YOUR OWN FUNCTION ##
 ## ======================= ##
 
-## example from: http://stackoverflow.com/a/26092576/1000343
+## example from: https://stackoverflow.com/a/26092576/1000343
 zips <- data.frame(id = seq(1, 6), 
     address = c("Company, 18540 Main Ave., City, ST 12345", 
     "Company 18540 Main Ave. City ST 12345-0000", 
@@ -104,7 +104,7 @@ ex_zip3(zips$address)
 }
 \references{
 The time regular expression was taken from: 
-\url{http://stackoverflow.com/a/25223890/1000343}
+\url{https://stackoverflow.com/a/25223890/1000343}
 }
 \seealso{
 \code{\link[base]{gsub}},
@@ -144,7 +144,7 @@ Other rm_ functions:
 \code{\link{rm_white}()}
 }
 \author{
-\href{http://stackoverflow.com/}{stackoverflow's} hwnd and Tyler Rinker <tyler.rinker@gmail.com>.
+\href{https://stackoverflow.com/}{stackoverflow's} hwnd and Tyler Rinker <tyler.rinker@gmail.com>.
 }
 \concept{rm_ functions}
 \keyword{zip}

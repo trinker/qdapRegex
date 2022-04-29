@@ -72,7 +72,7 @@ ex_phone(x)
 }
 \references{
 The phone regular expression was taken from: 
-\url{http://stackoverflow.com/a/21008254/1000343}
+\url{https://stackoverflow.com/a/21008254/1000343}
 }
 \seealso{
 \code{\link[base]{gsub}},
@@ -112,7 +112,7 @@ Other rm_ functions:
 \code{\link{rm_zip}()}
 }
 \author{
-\href{http://stackoverflow.com/}{stackoverflow's} Marius and Tyler Rinker <tyler.rinker@gmail.com>.
+\href{https://stackoverflow.com/}{stackoverflow's} Marius and Tyler Rinker <tyler.rinker@gmail.com>.
 }
 \concept{rm_ functions}
 \keyword{phone}

@@ -19,7 +19,6 @@
 #' if \code{pattern} begins with \code{"@@rm_"}.
 #' @param \dots Other arguments passed to \code{\link[base]{gsub}}.
 #' @return Returns a character string with postal codes removed.
-#' @keywords postalcodes, postal, state
 #' @family rm_ functions
 #' @include utils.R
 #' @export

@@ -31,9 +31,9 @@
 #' @rdname rm_time
 #' @seealso \code{\link[base]{gsub}},
 #' \code{\link[stringi]{stri_extract_all_regex}}
-#' @author \href{http://stackoverflow.com/}{stackoverflow's} hwnd and Tyler Rinker <tyler.rinker@@gmail.com>. 
+#' @author \href{https://stackoverflow.com/}{stackoverflow's} hwnd and Tyler Rinker <tyler.rinker@@gmail.com>. 
 #' @references The time regular expression was taken from: 
-#' \url{http://stackoverflow.com/a/25111133/1000343}
+#' \url{https://stackoverflow.com/a/25111133/1000343}
 #' @examples
 #' x <-  c("R uses 1:5 for 1, 2, 3, 4, 5.", 
 #'     "At 3:00 we'll meet up and leave by 4:30:20",

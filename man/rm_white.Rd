@@ -318,7 +318,7 @@ rm_white_punctuation(x)
 }
 \references{
 The \code{rm_white_endmark}/\code{rm_white_punctuation} regular expression was taken from: 
-\url{http://stackoverflow.com/a/25464921/1000343}
+\url{https://stackoverflow.com/a/25464921/1000343}
 }
 \seealso{
 \code{\link[base]{gsub}},
@@ -358,7 +358,7 @@ Other rm_ functions:
 \code{\link{rm_zip}()}
 }
 \author{
-\code{rm_white_endmark}/\code{rm_white_punctuation} - \href{http://stackoverflow.com}{stackoverflow}'s hwnd and Tyler Rinker <tyler.rinker@gmail.com>.
+\code{rm_white_endmark}/\code{rm_white_punctuation} - \href{https://stackoverflow.com}{stackoverflow}'s hwnd and Tyler Rinker <tyler.rinker@gmail.com>.
 }
 \concept{rm_ functions}
 \keyword{percent}

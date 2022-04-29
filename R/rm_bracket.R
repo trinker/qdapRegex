@@ -28,7 +28,7 @@
 #' optionally merged and named by bracket type.  This is more flexible than 
 #' \code{rm_bracket} but slower.
 #' @keywords bracket
-#' @references \url{http://stackoverflow.com/q/8621066/1000343} 
+#' @references \url{https://stackoverflow.com/q/8621066/1000343} 
 #' @author  Martin Morgan and Tyler Rinker <tyler.rinker@@gmail.com>.
 #' @family rm_ functions
 #' @include utils.R

@@ -22,7 +22,3 @@ description of what the chunk does.
   \item What it Does. Description of what the regex chunk does.
 }
 }
-\references{
-\url{http://www.rexegg.com}
-}
-\keyword{datasets}

@@ -106,9 +106,9 @@ ex_white_comma <- hijack(rm_white_comma, extract=TRUE)
 #' @include utils.R
 #' @export
 #' @rdname rm_white
-#' @author \code{rm_white_endmark}/\code{rm_white_punctuation} - \href{http://stackoverflow.com}{stackoverflow}'s hwnd and Tyler Rinker <tyler.rinker@@gmail.com>. 
+#' @author \code{rm_white_endmark}/\code{rm_white_punctuation} - \href{https://stackoverflow.com}{stackoverflow}'s hwnd and Tyler Rinker <tyler.rinker@@gmail.com>. 
 #' @references The \code{rm_white_endmark}/\code{rm_white_punctuation} regular expression was taken from: 
-#' \url{http://stackoverflow.com/a/25464921/1000343}
+#' \url{https://stackoverflow.com/a/25464921/1000343}
 rm_white_endmark <- hijack(rm_default, pattern = "@rm_white_endmark")
 
 

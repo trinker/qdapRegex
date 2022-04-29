@@ -101,6 +101,3 @@ Other rm_ functions:
 \code{\link{rm_zip}()}
 }
 \concept{rm_ functions}
-\keyword{postal,}
-\keyword{postalcodes,}
-\keyword{state}

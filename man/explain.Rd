@@ -17,11 +17,11 @@ character string starting with \code{"@"} that is a regular
 expression from a \pkg{qdapRegex} dictionary.}
 
 \item{open}{logical.  If \code{TRUE} the default browser will attempt to 
-open \url{https://www.regexper.com} page.  Setting \code{open = 2} will 
+open \url{https://regexper.com/} page.  Setting \code{open = 2} will 
 utilize an unstable visualization via \url{https://www.debuggex.com}.  This 
 approach utilizes a non-api scrape that is subject to change and not 
 guaranteed to be stable.  The regex is set to Python flavor which handles 
-lookbehinds that the Java based \url{https://www.regexper.com} does not.  This
+lookbehinds that the Java based \url{https://regexper.com/} does not.  This
 functionality was developed by 
 \href{https://www.matthewflickinger.com}{Matthew Flickinger} (see 
 \url{https://stackoverflow.com/a/27574103/1000343} for details).  Note that 
@@ -33,16 +33,15 @@ cannot be \code{\link[base]{require}}d.}
 \item{dictionary}{A dictionary of canned regular expressions to search within.}
 }
 \value{
-Prints \url{http://rick.measham.id.au/paste/explain} to the console,
+Prints \url{www.regexper.com} to the console,
 attempts to open the url to the visual representation provided by
-\url{https://www.regexper.com}, and invisibly returns a list with the URLs.
+\url{https://regexper.com/}, and invisibly returns a list with the URLs.
 }
 \description{
-Visualize regular expressions using \url{https://www.regexper.com} &
-\url{http://rick.measham.id.au/paste/explain}.
+Visualize regular expressions using \url{https://regexper.com/}
 }
 \details{
-Note that \url{https://www.regexper.com} is a Java based regular 
+Note that \url{https://regexper.com/} is a Java based regular 
 expression viewer. Lookbehind and negative lookbehinds are not respected.
 }
 \examples{
@@ -55,13 +54,11 @@ explain("@rm_time", open = TRUE)
 }
 \references{
 \url{https://stackoverflow.com/a/27489977/1000343} \cr
-\url{https://www.regexper.com} \cr
-\url{http://rick.measham.id.au/paste/explain} \cr
+\url{https://regexper.com/} \cr
 \url{https://stackoverflow.com/a/27574103/1000343}
 }
 \seealso{
-\url{https://www.regexper.com} \cr
-\url{http://rick.measham.id.au/paste/explain}
+\url{https://regexper.com/}
 }
 \author{
 Ananda Mahto, Matthew Flickinger, and Tyler Rinker <tyler.rinker@gmail.com>.

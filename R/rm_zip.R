@@ -26,9 +26,9 @@
 #' @rdname rm_zip
 #' @seealso \code{\link[base]{gsub}},
 #' \code{\link[stringi]{stri_extract_all_regex}}
-#' @author \href{http://stackoverflow.com/}{stackoverflow's} hwnd and Tyler Rinker <tyler.rinker@@gmail.com>. 
+#' @author \href{https://stackoverflow.com/}{stackoverflow's} hwnd and Tyler Rinker <tyler.rinker@@gmail.com>. 
 #' @references The time regular expression was taken from: 
-#' \url{http://stackoverflow.com/a/25223890/1000343}
+#' \url{https://stackoverflow.com/a/25223890/1000343}
 #' @examples
 #' x <- c("Mr. Bean bought 2 tickets 2-613-213-4567",
 #'   "43 Butter Rd, Brossard QC K0A 3P0 - 613 213 4567", 
@@ -46,7 +46,7 @@
 #' ## BUILD YOUR OWN FUNCTION ##
 #' ## ======================= ##
 #' 
-#' ## example from: http://stackoverflow.com/a/26092576/1000343
+#' ## example from: https://stackoverflow.com/a/26092576/1000343
 #' zips <- data.frame(id = seq(1, 6), 
 #'     address = c("Company, 18540 Main Ave., City, ST 12345", 
 #'     "Company 18540 Main Ave. City ST 12345-0000", 

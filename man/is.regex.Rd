@@ -29,5 +29,3 @@ sapply(regex_supplement, is.regex) ## `version` is not a valid regex
 \seealso{
 \code{\link[base]{gsub}}
 }
-\keyword{regex,}
-\keyword{valid}

@@ -1,17 +1,16 @@
 #' Visualize Regular Expressions
 #' 
-#' Visualize regular expressions using \url{https://www.regexper.com} &
-#' \url{http://rick.measham.id.au/paste/explain}.
+#' Visualize regular expressions using \url{https://regexper.com/} 
 #' 
 #' @param pattern A character string containing a regular expression or a
 #' character string starting with \code{"@@"} that is a regular 
 #' expression from a \pkg{qdapRegex} dictionary.
 #' @param open logical.  If \code{TRUE} the default browser will attempt to 
-#' open \url{https://www.regexper.com} page.  Setting \code{open = 2} will 
+#' open \url{https://regexper.com/} page.  Setting \code{open = 2} will 
 #' utilize an unstable visualization via \url{https://www.debuggex.com}.  This 
 #' approach utilizes a non-api scrape that is subject to change and not 
 #' guaranteed to be stable.  The regex is set to Python flavor which handles 
-#' lookbehinds that the Java based \url{https://www.regexper.com} does not.  This
+#' lookbehinds that the Java based \url{https://regexper.com/} does not.  This
 #' functionality was developed by 
 #' \href{https://www.matthewflickinger.com}{Matthew Flickinger} (see 
 #' \url{https://stackoverflow.com/a/27574103/1000343} for details).  Note that 
@@ -19,19 +18,17 @@
 #' cannot be \code{\link[base]{require}}d.
 #' @param print logical.  Should \code{explain} print output to the console?
 #' @param dictionary A dictionary of canned regular expressions to search within.
-#' @return Prints \url{http://rick.measham.id.au/paste/explain} to the console,
+#' @return Prints \url{https://regexper.com/} to the console,
 #' attempts to open the url to the visual representation provided by
-#' \url{https://www.regexper.com}, and invisibly returns a list with the URLs.
+#' \url{https://regexper.com/}, and invisibly returns a list with the URLs.
 #' @keywords explain regex 
-#' @details Note that \url{https://www.regexper.com} is a Java based regular 
+#' @details Note that \url{https://regexper.com/} is a Java based regular 
 #' expression viewer. Lookbehind and negative lookbehinds are not respected. 
 #' @export
-#' @seealso \url{https://www.regexper.com} \cr
-#' \url{http://rick.measham.id.au/paste/explain}
+#' @seealso \url{https://regexper.com/} 
 #' @author Ananda Mahto, Matthew Flickinger, and Tyler Rinker <tyler.rinker@@gmail.com>.
 #' @references \url{https://stackoverflow.com/a/27489977/1000343} \cr
-#' \url{https://www.regexper.com} \cr
-#' \url{http://rick.measham.id.au/paste/explain} \cr
+#' \url{https://regexper.com/} \cr
 #' \url{https://stackoverflow.com/a/27574103/1000343}
 #' @examples
 #' explain("\\s*foo[A-Z]\\d{2,3}")
@@ -44,13 +41,13 @@ explain <- function(pattern, open = FALSE, print = TRUE,
     dictionary = getOption("regex.library")) {
 
     pattern <- reg_check(pattern, dictionary = dictionary)
-    URL <- paste0("https://www.regexper.com/#", 
+    URL <- paste0("https://regexper.com//#", 
         utils::URLencode(pattern))
     if (isTRUE(open)) {
 
         if (grepl("\\(\\?\\<[=!]", pattern, perl=TRUE)) {
             warning(paste("Pattern contains a Lookbehind and may not be",
-                "viewable to the Java based `www.regexper.com`"))
+                "viewable to the Java based `https://regexper.com/`"))
         }
         utils::browseURL(URL)
     }    
@@ -95,7 +92,7 @@ explain <- function(pattern, open = FALSE, print = TRUE,
 #    lns[length(lns)] <- gsub("</pre>$", "", lns[length(lns)])
      lns <- URL   # added 8-16-15; remove later if rick.measham goes back online
      class(lns) <- c("explain", class(lns))
-     attributes(lns)[["www.regexper.com"]] <- URL
+     attributes(lns)[["regexper.com"]] <- URL
 #    attributes(lns)[["http://rick.measham.id.au/paste/explain"]] <- URL2
     
     lns

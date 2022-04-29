@@ -29,7 +29,7 @@
 #' @section Warning: \code{\link[base]{iconv}} is used within \code{rm_non_ascii}.
 #' \code{\link[base]{iconv}}'s behavior across operating systems may not be 
 #' consistent.
-#' @author \href{http://stackoverflow.com}{stackoverflow}'s MrFlick, hwnd, and Tyler Rinker <tyler.rinker@@gmail.com>. 
+#' @author \href{https://stackoverflow.com}{stackoverflow}'s MrFlick, hwnd, and Tyler Rinker <tyler.rinker@@gmail.com>. 
 #' @family rm_ functions
 #' @include utils.R
 #' @export

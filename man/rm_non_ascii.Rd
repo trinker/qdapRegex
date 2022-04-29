@@ -125,7 +125,7 @@ Other rm_ functions:
 \code{\link{rm_zip}()}
 }
 \author{
-\href{http://stackoverflow.com}{stackoverflow}'s MrFlick, hwnd, and Tyler Rinker <tyler.rinker@gmail.com>.
+\href{https://stackoverflow.com}{stackoverflow}'s MrFlick, hwnd, and Tyler Rinker <tyler.rinker@gmail.com>.
 }
 \concept{rm_ functions}
 \keyword{ascii}

@@ -19,11 +19,11 @@
 #' if \code{pattern} begins with \code{"@@rm_"}.
 #' @param \dots Other arguments passed to \code{\link[base]{gsub}}.
 #' @return Returns a character string with percentages removed.
-#' @author \href{http://stackoverflow.com/}{stackoverflow's} BrodieG and Tyler Rinker <tyler.rinker@@gmail.com>. 
+#' @author \href{https://stackoverflow.com/}{stackoverflow's} BrodieG and Tyler Rinker <tyler.rinker@@gmail.com>. 
 #' @keywords phrases repeat
 #' @family rm_ functions
 #' @include utils.R
-#' @references \url{http://stackoverflow.com/a/28786617/1000343}
+#' @references \url{https://stackoverflow.com/a/28786617/1000343}
 #' @export
 #' @rdname rm_repeated_phrases
 #' @seealso \code{\link[base]{gsub}},

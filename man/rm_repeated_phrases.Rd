@@ -72,7 +72,7 @@ rm_repeated_phrases(x)
 ex_repeated_phrases(x)
 }
 \references{
-\url{http://stackoverflow.com/a/28786617/1000343}
+\url{https://stackoverflow.com/a/28786617/1000343}
 }
 \seealso{
 \code{\link[base]{gsub}},
@@ -112,7 +112,7 @@ Other rm_ functions:
 \code{\link{rm_zip}()}
 }
 \author{
-\href{http://stackoverflow.com/}{stackoverflow's} BrodieG and Tyler Rinker <tyler.rinker@gmail.com>.
+\href{https://stackoverflow.com/}{stackoverflow's} BrodieG and Tyler Rinker <tyler.rinker@gmail.com>.
 }
 \concept{rm_ functions}
 \keyword{phrases}

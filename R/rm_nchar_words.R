@@ -33,9 +33,9 @@
 #' @include utils.R
 #' @export
 #' @rdname rm_nchar_words
-#' @author \href{http://stackoverflow.com/}{stackoverflow's} CharlieB and Tyler Rinker <tyler.rinker@@gmail.com>. 
+#' @author \href{https://stackoverflow.com/}{stackoverflow's} CharlieB and Tyler Rinker <tyler.rinker@@gmail.com>. 
 #' @references The n letter/character word regular expression was taken from: 
-#' \url{http://stackoverflow.com/a/25243885/1000343}
+#' \url{https://stackoverflow.com/a/25243885/1000343}
 #' @seealso \code{\link[base]{gsub}},
 #' \code{\link[stringi]{stri_extract_all_regex}}
 #' @examples

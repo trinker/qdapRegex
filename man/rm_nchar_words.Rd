@@ -91,7 +91,7 @@ ex_nchar_words(hamlet[["dialogue"]], 5)
 }
 \references{
 The n letter/character word regular expression was taken from: 
-\url{http://stackoverflow.com/a/25243885/1000343}
+\url{https://stackoverflow.com/a/25243885/1000343}
 }
 \seealso{
 \code{\link[base]{gsub}},
@@ -131,7 +131,7 @@ Other rm_ functions:
 \code{\link{rm_zip}()}
 }
 \author{
-\href{http://stackoverflow.com/}{stackoverflow's} CharlieB and Tyler Rinker <tyler.rinker@gmail.com>.
+\href{https://stackoverflow.com/}{stackoverflow's} CharlieB and Tyler Rinker <tyler.rinker@gmail.com>.
 }
 \concept{rm_ functions}
 \keyword{words}

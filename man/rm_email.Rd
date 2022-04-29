@@ -73,7 +73,7 @@ ex_email(x2)
 }
 \references{
 The email regular expression was taken from: 
-\url{http://stackoverflow.com/a/25077704/1000343}
+\url{https://stackoverflow.com/a/25077704/1000343}
 }
 \seealso{
 \code{\link[base]{gsub}},

@@ -261,7 +261,7 @@ lapply(ex_between('She said, "I am!" and he responded..."Am what?".',
     left='"', right='"'), "[", c(TRUE, FALSE))
 }
 \references{
-\url{http://stackoverflow.com/q/8621066/1000343}
+\url{https://stackoverflow.com/q/8621066/1000343}
 }
 \seealso{
 \code{\link[base]{gsub}},

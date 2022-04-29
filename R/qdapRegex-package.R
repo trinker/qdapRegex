@@ -32,11 +32,9 @@ NULL
 #' } 
 #' 
 #' @docType data 
-#' @keywords datasets 
 #' @name regex_cheat 
 #' @usage data(regex_cheat) 
 #' @format A data frame with 6 rows and 3 variables 
-#' @references \url{http://www.rexegg.com}
 NULL
 
 
@@ -46,7 +44,6 @@ NULL
 #' in various functions within the \pkg{qdapRegex} package.  
 #' 
 #' @docType data 
-#' @keywords datasets
 #' @details The following canned regular expressions are included:
 #' \describe{
 #'   \item{rm_abbreviation}{abbreviations containing single lower case or capital letter followed by a period and then an optional space (this must be repeated 2 or more times)}
@@ -76,10 +73,10 @@ NULL
 #'   \item{rm_non_words}{substring of any character that isn't a letter, apostrophe, or single space}
 #'   \item{rm_number}{substring that may begin with dash (-) for negatives, and is (1) just whole number (no decimal), (2) whole number and decimal, or (3) just decimal value; regex pattern provided by Jason Gray}
 #'   \item{rm_percent}{substring beginning with (1) just whole number (no decimal), (2) whole number and decimal, or (3) just decimal value and followed by a percent sign (\%)}
-#'   \item{rm_phone}{phone numbers in the form of optional country code, valid 3 digit prefix, and 7 digits (may contain hyphens and parenthesis); logic is complex to explain (see \url{http://stackoverflow.com/a/21008254/1000343} for more)}
-#'   \item{rm_postal_code}{U.S. state abbreviations (and District of Columbia) that is constrained to just possible U.S. state names, not just two consecutive capital letters; taken from Mike Hamilton's submission found \url{http://regexlib.com/REDetails.aspx?regexp_id=2177}}
-#'   \item{rm_repeated_characters}{substring with a repetition of repeated characters within a word; regex pattern retrieved from \href{http://stackoverflow.com}{StackOverflow}'s, \href{http://stackoverflow.com/users/3679490/vks}{vks}: \url{http://stackoverflow.com/a/29438461/1000343}}
-#'   \item{rm_repeated_phrases}{substring with a phrase (a sequence of 1 or more words) that is repeated 2 or more times (case is ignored; separating periods and commas are ignored); regex pattern retrieved from \href{http://stackoverflow.com}{StackOverflow}'s, \href{http://stackoverflow.com/users/2725969/brodieg}{BrodieG}: \url{http://stackoverflow.com/a/28786617/1000343}}
+#'   \item{rm_phone}{phone numbers in the form of optional country code, valid 3 digit prefix, and 7 digits (may contain hyphens and parenthesis); logic is complex to explain (see \url{https://stackoverflow.com/a/21008254/1000343} for more)}
+#'   \item{rm_postal_code}{U.S. state abbreviations (and District of Columbia) that is constrained to just possible U.S. state names, not just two consecutive capital letters; taken from Mike Hamilton's submission found \url{https://regexlib.com/REDetails.aspx?regexp_id=2177}}
+#'   \item{rm_repeated_characters}{substring with a repetition of repeated characters within a word; regex pattern retrieved from \href{https://stackoverflow.com}{StackOverflow}'s, \href{https://stackoverflow.com/users/3679490/vks}{vks}: \url{https://stackoverflow.com/a/29438461/1000343}}
+#'   \item{rm_repeated_phrases}{substring with a phrase (a sequence of 1 or more words) that is repeated 2 or more times (case is ignored; separating periods and commas are ignored); regex pattern retrieved from \href{https://stackoverflow.com}{StackOverflow}'s, \href{https://stackoverflow.com/users/2725969/brodieg}{BrodieG}: \url{https://stackoverflow.com/a/28786617/1000343}}
 #'   \item{rm_repeated_words}{substring with a word (marked with a boundary) that is repeat 2 or more times (case is ignored)}
 #'   \item{rm_tag}{substring that begins with an at (@@) followed by a word}
 #'   \item{rm_tag2}{Twitter substring that begins with an at (@@) followed by a word composed of alpha-numeric characters and underscores, no longer than 15 characters}
@@ -120,7 +117,6 @@ NULL
 #' desired.
 #' 
 #' @docType data 
-#' @keywords datasets 
 #' @name regex_supplement
 #' @details The following canned regular expressions are included:
 #' \describe{
@@ -130,23 +126,23 @@ NULL
 #'   \item{around_}{find n words (not including punctuation) before or after  ? word (? = user defined); note contains \code{"\%s"} that is replaced by \code{\link[base]{sprintf}} and is not a valid regex on its own (user supplies (1) n before, (2) the point, & (3) n after)}
 #'   \item{around2_}{find n words (plus punctuation) before or after  ? word (? = user defined); note contains \code{"\%s"} that is replaced by \code{\link[base]{sprintf}} and is not a valid regex on its own}
 #'   \item{before_}{find sing word before ? word (? = user defined); note contains \code{"\%s"} that is replaced by \code{\link[base]{sprintf}} and is not a valid regex on its own}
-#'   \item{except_first}{find all occurrences of a substring except the first; regex pattern retrieved from  \href{http://stackoverflow.com/users/3732271/akrun}{StackOverflow's akrun}: \url{http://stackoverflow.com/a/31458261/1000343}} 
+#'   \item{except_first}{find all occurrences of a substring except the first; regex pattern retrieved from  \href{https://stackoverflow.com/users/3732271/akrun}{StackOverflow's akrun}: \url{https://stackoverflow.com/a/31458261/1000343}} 
 #'   \item{hexadecimal}{substring beginning with hash (#) followed by either 3 or 6 select characters (a-f, A-F, and 0-9)}
 #'   \item{ip_address}{substring of four chunks of 1-3 consecutive digits separated with dots (.)}
 #'   \item{last_occurrence}{last occurrence of a delimiter; note contains \code{"\%s"} that is replaced by \code{\link[base]{sprintf}} and is not a valid regex on its own (user supplies the delimiter)}
 #'   \item{pages}{substring with "pp." or "p.", optionally followed by a space, followed by 1 or more digits, optionally followed by a dash, optionally followed by 1 or more digits, optionally followed by a semicolon, optionally followed by a space, optionally followed by 1 or more digits; intended for extraction/removal purposes}
 #'   \item{pages2}{substring 1 or more digits, optionally followed by a dash, optionally followed by 1 or more digits, optionally followed by a semicolon, optionally followed by a space, optionally followed by 1 or more digits; intended for validation purposes}
 #'   \item{punctuation}{punctuation characters (\code{[:punct:]}) with the ability to negate; note contains \code{"\%s"} that is replaced by \code{\link[base]{sprintf}} and is not a valid regex on its own}
-#'   \item{run_split}{a regex that is useful for splitting strings in the characters runs (e.g., "wwxyyyzz" becomes "ww", "x", "yyy", "zz"); regex pattern retrieved from \href{http://stackoverflow.com/users/2994949/rawr}{Robert Redd}: \url{http://stackoverflow.com/a/29383435/1000343}}
+#'   \item{run_split}{a regex that is useful for splitting strings in the characters runs (e.g., "wwxyyyzz" becomes "ww", "x", "yyy", "zz"); regex pattern retrieved from \href{https://stackoverflow.com/users/2994949/rawr}{Robert Redd}: \url{https://stackoverflow.com/a/29383435/1000343}}
 #'   \item{split_keep_delim}{regex string that splits on a delimiter and retains the delimiter}
-#'   \item{thousands_separator}{chunks digits > 4 into groups of 3 from right to left allowing for easy insertion of thousands separator; regex pattern retrieved from \href{http://stackoverflow.com/}{StackOverflow}'s stema: \url{http://stackoverflow.com/a/10612685/1000343}}
+#'   \item{thousands_separator}{chunks digits > 4 into groups of 3 from right to left allowing for easy insertion of thousands separator; regex pattern retrieved from \href{https://stackoverflow.com/}{StackOverflow}'s stema: \url{https://stackoverflow.com/a/10612685/1000343}}
 #'   \item{time_12_hours}{substring of valid hours (1-12) followed by a colon (:) followed by valid minutes (0-60), followed by an optional space and the character chunk \emph{am} or \emph{pm}} 
 #'   \item{version}{substring starting with "v" or "version" optionally followed by a space and then period separated digits for <major>.<minor>.<release>.<build>; the build sequence is optional and the "version"/"v" IS NOT contained in the substring}
 #'   \item{version2}{substring starting with "v" or "version" optionally followed by a space and then period separated digits for <major>.<minor>.<release>.<build>; the build sequence is optional and the "version"/"v" IS contained in the substring}
 #'   \item{white_after_comma}{substring of white space after a comma}
-#'   \item{word_boundary}{A true word boundary that only includes alphabetic characters; based on \url{www.rexegg.com}'s suggestion taken from \href{http://www.rexegg.com/regex-boundaries.html#real-word-boundary}{discussion of true word boundaries}; note contains \code{"\%s"} that is replaced by \code{\link[base]{sprintf}} and is not a valid regex on its own}
-#'   \item{word_boundary_left}{A true left word boundary that only includes alphabetic characters; based on \url{www.rexegg.com}'s suggestion taken from \href{http://www.rexegg.com/regex-boundaries.html#real-word-boundary}{discussion of true word boundaries}}
-#'   \item{word_boundary_right}{A true right word boundary that only includes alphabetic characters; based on \url{www.rexegg.com}'s suggestion taken from \href{http://www.rexegg.com/regex-boundaries.html#real-word-boundary}{discussion of true word boundaries}}	
+#'   \item{word_boundary}{A true word boundary that only includes alphabetic characters; based on \url{https://www.rexegg.com/}'s suggestion taken from \href{https://www.rexegg.com/regex-boundaries.html#real-word-boundary}{discussion of true word boundaries}; note contains \code{"\%s"} that is replaced by \code{\link[base]{sprintf}} and is not a valid regex on its own}
+#'   \item{word_boundary_left}{A true left word boundary that only includes alphabetic characters; based on \url{https://www.rexegg.com/}'s suggestion taken from \href{https://www.rexegg.com/regex-boundaries.html#real-word-boundary}{discussion of true word boundaries}}
+#'   \item{word_boundary_right}{A true right word boundary that only includes alphabetic characters; based on \url{https://www.rexegg.com/}'s suggestion taken from \href{https://www.rexegg.com/regex-boundaries.html#real-word-boundary}{discussion of true word boundaries}}	
 #'   \item{youtube_id}{substring of the video id from a \href{https://www.youtube.com}{YouTube} video; taken from Jacob Overgaard's submission found https://regex101.com/r/kU7bP8/1}
 #' } 
 #' 

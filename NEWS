@@ -18,7 +18,22 @@ And constructed with the following guidelines:
 
 
 
-qdapRegex 0.7.3 - 
+qdapRegex 0.7.5
+----------------------------------------------------------------
+
+BUG FIXES
+
+NEW FEATURES
+
+MINOR FEATURES
+
+IMPROVEMENTS
+
+CHANGES
+
+
+
+qdapRegex 0.7.3 - 0.7.4
 ----------------------------------------------------------------
 
 BUG FIXES
@@ -26,10 +41,6 @@ BUG FIXES
 * `rm_email` did not handle capital letters.  Thanks to @dswpg for spotting this.
   https://github.com/trinker/qdapRegex/issues/30  
 
-
-NEW FEATURES
-
-MINOR FEATURES
 
 IMPROVEMENTS
 

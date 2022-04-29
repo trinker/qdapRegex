@@ -75,7 +75,7 @@ rm_hash(x, replace="\\\\3")
 }
 \references{
 The hash tag regular expression was taken from: 
-\url{http://stackoverflow.com/a/25096474/1000343}
+\url{https://stackoverflow.com/a/25096474/1000343}
 }
 \seealso{
 \code{\link[base]{gsub}},
@@ -115,7 +115,7 @@ Other rm_ functions:
 \code{\link{rm_zip}()}
 }
 \author{
-\href{http://stackoverflow.com/}{stackoverflow's} hwnd and Tyler Rinker <tyler.rinker@gmail.com>.
+\href{https://stackoverflow.com/}{stackoverflow's} hwnd and Tyler Rinker <tyler.rinker@gmail.com>.
 }
 \concept{rm_ functions}
 \keyword{hash}
