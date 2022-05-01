@@ -33,7 +33,7 @@ cannot be \code{\link[base]{require}}d.}
 \item{dictionary}{A dictionary of canned regular expressions to search within.}
 }
 \value{
-Prints \url{www.regexper.com} to the console,
+Prints \url{https://regexper.com/} to the console,
 attempts to open the url to the visual representation provided by
 \url{https://regexper.com/}, and invisibly returns a list with the URLs.
 }
