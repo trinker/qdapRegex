@@ -18,6 +18,18 @@ And constructed with the following guidelines:
 
 
 
+qdapRegex 0.7.6 -
+----------------------------------------------------------------
+
+BUG FIXES
+
+NEW FEATURES
+
+MINOR FEATURES
+
+IMPROVEMENTS
+
+CHANGES
 
 
 
@@ -43,6 +55,7 @@ CHANGES
   is because http://rick.measham.id.au/paste/explain no longer appears to be 
   working.  The text explanation functionality will return if the website 
   becomes operational again or if a suitable substitute can be found.
+
 
 
 qdapRegex 0.7.0 - 0.7.2
