@@ -28,7 +28,7 @@ test_that("rm_citation is removing citation strings",{
         "I like as well as toes ()", "I want and his esteemeded colleagues (; )", 
         "I saw it (viz. ), and then (cf., )", "Some (e.g. ; ) but then (e.g., ) see)", 
         "It's intrinsically wrong (, p. 34).", "Here too |Yeps, 1212 and Jones (19959)"
-        )
+      )
 
     expect_equivalent(rm_citation(x), x2)
 	
@@ -55,14 +55,16 @@ test_that("rm_citation is extracting citation strings",{
         "Here too |Yeps, 1212 and Jones (19959)"
     )
 
-    x3 <- list("V. Raptor, 1986", "Rinker, 2014", "The R Core Team (2014)", 
-            "Bunn (2005)", "Baer, 2005", "Wickham's (in press)", "Rinker's (n.d.)", 
-            c("Foo, 2012", "Bar, 2014"), c("Uwe Ligges (2007)", "Liges (in press)", 
-            "Uwe, in press"), c("van Feet (2003, 2002)", "de Foot, 2013, 1012, 2000"
-            ), c("Feet (n.d., 1999)", "Foo, in press, 1999", "Bar, 2012"
-            ), c("Smith, 2009, 2008", "Jones, 1992a"), c("Con, 1888", 
-            "Peirce, 1998", "Smith, in press, n.d."), "Walker, 2008", 
-            NA_character_)
+    x3 <- list(
+        "V. Raptor, 1986", "Rinker, 2014", "The R Core Team (2014)", 
+        "Bunn (2005)", "Baer, 2005", "Wickham's (in press)", "Rinker's (n.d.)", 
+        c("Foo, 2012", "Bar, 2014"), c("Uwe Ligges (2007)", "Liges (in press)", 
+        "Uwe, in press"), c("van Feet (2003, 2002)", "de Foot, 2013, 1012, 2000"
+        ), c("Feet (n.d., 1999)", "Foo, in press, 1999", "Bar, 2012"
+        ), c("Smith, 2009, 2008", "Jones, 1992a"), c("Con, 1888", 
+        "Peirce, 1998", "Smith, in press, n.d."), "Walker, 2008", 
+        NA_character_
+    )
 
 
 

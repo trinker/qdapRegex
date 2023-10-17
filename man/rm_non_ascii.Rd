@@ -67,6 +67,12 @@ Returns a character string with "all non-ascii" removed.
 Remove/replace/extract non-ASCII substring from a string.  This is the template used by
 other \pkg{qdapRegex} \code{rm_XXX} functions.
 }
+\section{Note}{
+
+MacOS 14, Sonoma (and likely all versions afterward), has a different 
+implementation of iconv which may not result in expected results.
+}
+
 \section{Warning}{
  \code{\link[base]{iconv}} is used within \code{rm_non_ascii}.
 \code{\link[base]{iconv}}'s behavior across operating systems may not be 

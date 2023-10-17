@@ -3,7 +3,6 @@
 
 
 [![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/0.1.0/inactive.svg)](https://www.repostatus.org/#inactive)
-[![Build Status](https://travis-ci.org/trinker/qdapRegex.svg?branch=master)](https://travis-ci.org/trinker/qdapRegex)
 [![Coverage Status](https://coveralls.io/repos/trinker/qdapRegex/badge.svg)](https://coveralls.io/github/trinker/qdapRegex)
 
   
@@ -30,8 +29,7 @@ The following regular expressions sites were very helpful to my own regular expr
 
 Being able to discuss and ask questions is also important to learning...in this case regular expressions.  I have found the following forums extremely helpful to learning about regular expressions:
 
-1. [Talk Stats](https://www.talkstats.com/)  +  [Posting Guidelines](http://www.talkstats.com/threads/forum-guidelines-smart-posting-behavior-pays-off.14960/)    
-2. [stackoverflow](https://stackoverflow.com/)  +  [Posting Guidelines](https://trinker.github.io/stackoverflow/)
+1. [stackoverflow](https://stackoverflow.com/)  +  [Posting Guidelines](https://trinker.github.io/stackoverflow/)
 
 ## Installation
 

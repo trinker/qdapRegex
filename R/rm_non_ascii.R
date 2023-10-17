@@ -3,6 +3,10 @@
 #' Remove/replace/extract non-ASCII substring from a string.  This is the template used by
 #' other \pkg{qdapRegex} \code{rm_XXX} functions.
 #' 
+#' @section Note:
+#' MacOS 14, Sonoma (and likely all versions afterward), has a different 
+#' implementation of iconv which may not result in expected results.
+#' 
 #' @param text.var The text variable.
 #' @param trim logical.  If \code{TRUE} removes leading and trailing white 
 #' spaces.
@@ -54,6 +58,9 @@ rm_non_ascii <- function (text.var, trim = !extract, clean = TRUE,
     dictionary = getOption("regex.library"), ascii.out = TRUE,
     ...) {
 
+    if(Sys.info()['sysname'] == 'Darwin' && as.numeric_version(Sys.info()[["release"]]) >= "23.0.0"){
+        warning('Darwin >= Version 14 uses a different version of iconv.  Results may not match expectations.')
+    }
     pattern <- reg_check(pattern = pattern, dictionary = dictionary)
 
     if (extract) {

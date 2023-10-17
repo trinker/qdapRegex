@@ -1,7 +1,7 @@
 Package: qdapRegex
 Type: Package
 Title: Regular Expression Removal, Extraction, and Replacement Tools
-Version: 0.7.6
+Version: 0.7.8
 Authors@R: c(person("Jason", "Gray", "", role = "ctb"), person("Tyler",
         "Rinker", email = "tyler.rinker@gmail.com", role = c("aut",
         "cre")))
@@ -34,4 +34,4 @@ Collate: 'S.R' 'bind.R' 'bind_or.R' 'c.extracted.R' 'case.R' 'cheat.R'
         'rm_time.R' 'rm_title_name.R' 'rm_url.R' 'rm_white.R'
         'rm_zip.R' 'validate.R'
 Encoding: UTF-8
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.3

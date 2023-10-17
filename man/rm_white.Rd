@@ -275,11 +275,11 @@ Returns a character string with extra white space removed.
 \code{rm_white} - Remove multiple white space (> 1 becomes a single white 
 space), white space before a comma, white space before a single or 
 consecutive combination of a colon, semicolon, or endmark (period, question 
-mark, or exclamation point), white space after a left bracket ("{", "(", "[") 
-or before a right bracket ("}", ")", "]"), leading or trailing white space.
+mark, or exclamation point), white space after a left bracket ("\{", "(", "[") 
+or before a right bracket ("\}", ")", "]"), leading or trailing white space.
 
-\code{rm_white_bracket} - Remove white space after a left bracket ("{", "(", "[") 
-or before a right bracket ("}", ")", "]").
+\code{rm_white_bracket} - Remove white space after a left bracket ("\{", "(", "[") 
+or before a right bracket ("\}", ")", "]").
 
 \code{rm_white_colon} - Remove white space before a single or consecutive 
 combination of a colon, semicolon.

@@ -6,4 +6,5 @@
 
 .Rprofile
 .Rproj.user
-qdapRegex.Rproj
+*.Rproj
+.DS_Store
