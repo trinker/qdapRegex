@@ -14,21 +14,21 @@
 #' @examples
 #' cheat()
 cheat <-
-function(dictionary = qdapRegex::regex_cheat, print = TRUE){
-
+  function(dictionary = qdapRegex::regex_cheat, print = TRUE){
+    
     WD <- options()[["width"]]
     options(width = 3000)
     on.exit(options(width = WD))
-    chars <- sapply(1:ncol(dictionary), function(i){
-        max(nchar(unlist(dictionary[[i]], colnames(dictionary)[i])))
-    })
-
+    chars <- unlist(lapply(1:ncol(dictionary), function(i){
+      max(nchar(unlist(list(dictionary[[i]], colnames(dictionary)[i]))))
+    }))
+    
     m <- format(dictionary, justify = "left")
     colchars <- nchar(colnames(m))
     colnames(m) <- toupper(paste0(
-        colnames(dictionary),
-        sapply(chars - colchars, function(x) paste(rep(" ", x), collapse=""))
+      colnames(dictionary),
+      sapply(chars - colchars, function(x) paste(rep(" ", x), collapse=""))
     ))
     if (print) print(m)
     invisible(dictionary)
-}
+  }
