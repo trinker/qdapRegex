@@ -2,6 +2,7 @@
 % Please edit documentation in R/qdapRegex-package.R
 \docType{package}
 \name{qdapRegex}
+\alias{qdapRegex-package}
 \alias{qdapRegex}
 \alias{package-qdapRegex}
 \title{qdapRegex: Regular Expression Removal, Extraction, & Replacement Tools for the \pkg{qdap} Package}
@@ -21,4 +22,21 @@ but is meant to provide access to canned, common regular expression patterns
 that can be used within \pkg{qdapRegex}, with \pkg{R}'s own regular 
 expression functions, or add on string manipulation packages such as 
 \code{stringr} and \code{stringi}.
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/trinker/qdapRegex}
+  \item Report bugs at \url{https://github.com/trinker/qdapRegex/issues}
+}
+
+}
+\author{
+\strong{Maintainer}: Tyler Rinker \email{tyler.rinker@gmail.com}
+
+Other contributors:
+\itemize{
+  \item Jason Gray [contributor]
+}
+
 }

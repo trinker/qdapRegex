@@ -34,4 +34,4 @@ Collate: 'S.R' 'bind.R' 'bind_or.R' 'c.extracted.R' 'case.R' 'cheat.R'
         'rm_time.R' 'rm_title_name.R' 'rm_url.R' 'rm_white.R'
         'rm_zip.R' 'validate.R'
 Encoding: UTF-8
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2
